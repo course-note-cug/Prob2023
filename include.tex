@@ -5,6 +5,7 @@
 \usepackage{setspace}
 \usepackage{geometry}
 \usepackage{float}
+\usepackage{amsthm}
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -33,6 +34,24 @@
 \declaretheoremstyle[name=Definition,]{prcpsty}
 \declaretheorem[style=prcpsty,numberlike=theorem]{definition}
 \tcolorboxenvironment{definition}{colback=white}
+
+\newtheorem{example}{Example}
+
+\newenvironment{remark}{%
+  \par\medskip
+  \noindent
+  \textbf{注:}
+}{%
+  \par\medskip
+}
+
+\newenvironment{solution}{%
+  \par\medskip
+  \noindent
+  \textbf{解答:}
+}{%
+  \par\medskip
+}
 
 \usepackage{enumitem}
 

@@ -44,13 +44,157 @@
     
 \end{definition}
 
-\begin{definition}[事件的运算]
+下面来考察事件的运算: 
+
+\begin{definition}[事件的并]
     
         “事件$A$、$B$至少有一个发生”
     称为事件$A$与$B$的\textbf{和}或\textbf{并}(union)，记作
     $$A\cup B \ (\text{或}A+B)$$
     也就是
     $$A\cup B=\{\omega | \omega\in A \ \text{or}\ \omega\in B\}$$
+\end{definition}
+
+\begin{remark}
+    使用数学归纳法, 事件的并可以推广到多个的情形：如$n$个事件的并
+    $$\bigcup_{i=1}^{n} A_i =\text{“事件$A_1, \cdots, A_n$至少有一个发生”}$$
+    可数个事件的并
+    $$\bigcup_{i=1}^{\infty} A_i =\text{“事件$A_1, A_2, \cdots$至少有一个发生”}$$
+\end{remark}
+
+\begin{definition}
+        “事件$A$、$B$同时发生”
+    称为事件$A$与$B$的\textbf{积}或\textbf{交}(intersection)，记作
+    $$AB \ (\text{或}A\cap B)$$
+    也就是$$A\cap B=\{\omega | \omega\in A \ \text{and}\ \omega\in B\}$$
+\end{definition}
+
+\begin{remark}
+    事件的交可以推广到多个的情形：如$n$个事件的交
+    $$\bigcap_{i=1}^{n} A_i =\text{“事件$A_1, \cdots, A_n$全都发生”}$$
+    可数个事件的交
+    $$\bigcap_{i=1}^{\infty} A_i =\text{“事件$A_1, A_2, \cdots$全都发生”}$$
+\end{remark}
+
+\begin{definition}
+    “事件$A$发生，但$B$不发生”
+称为事件$A$与$B$的\textbf{差}，记作
+$$A-B$$
+也就是
+$$A- B=\{\omega | \omega\in A \ \text{and}\ \omega\notin B\}$$
+\end{definition}
+
+像集合那样, 我们同样可以引入事件的关系: 
+
+\begin{definition}
+    若$AB=\emptyset$，则称$A$与$B$ \textbf{互斥}（或称$A$与$B$ \textbf{不相容}），%(mutually exclusive)
+    即$A$与$B$不可能同时发生．
+\end{definition}
+
+\begin{definition}
+    称$\Omega-A$为事件$A$的\textbf{对立}事件（或称$A$的\textbf{补}），记为$\overline{A}$．
+    它表示“事件$A$不发生”．
+\end{definition}
+
+\begin{proposition}
+        对任意两个事件$A$和$B$，总有$ A-B=A-AB$．
+\end{proposition}
+
+\begin{proposition}
+    事件$A$、$B$ \textbf{对立}当且仅当$A$、$B$\textbf{互斥}且$A\cup B=\Omega$．
+\end{proposition}
+
+像集合那样, 事件具有如下的运算规律: 
+\begin{itemize}
+    \item 交换律
+          \begin{itemize}
+              \item $AB=BA$，$A\cup B=B\cup A$
+          \end{itemize}
+    \item 结合律
+          \begin{itemize}
+              \item $(AB)C=A(BC)$，$(A\cup B)\cup C=A\cup(B\cup C)$
+          \end{itemize}
+    \item 分配律
+          \begin{itemize}
+              \item $A(B\cup C)=AB\cup AC$，$A(B-C)=AB-AC$
+          \end{itemize}
+    \item 对偶律
+          \begin{itemize}
+              \item $\overline{AB}=\overline{A}\cup\overline{B}$，$\overline{A\cup B}=\overline{A}\,\overline{B}$
+          \end{itemize}
+\end{itemize}
+
+下面来考察一些常见的化简运算关系的等式: 
+\begin{example}
+    设$A,B$为两个事件，则有
+        \begin{itemize}
+            \item $A\overline{B}=A-B=A-AB$；
+            \item $A=AB\cup A\overline{B}$．
+        \end{itemize}
+\end{example}
+
+\begin{solution}
+    用事件运算的分配律：
+    \begin{itemize}
+        \item $A\overline{B}=A(\Omega-B)=A\Omega-AB=A-AB$；
+        \item $AB\cup A\overline{B}=A(B\cup\overline{B})=A\Omega=A$．
+    \end{itemize}
+\end{solution}
+
+\begin{example}
+    $A$, $B$, $C$ 表示事件
+    \begin{itemize}
+        \item $A$发生: $A$；
+        \item 仅$A$发生: $A\cap \bar{B}\cap \bar{C}$；
+        \item 恰有一个发生：$A \bar B \bar C\cup \bar AB\bar C\cup \bar A\bar BC$;
+        \item 至少有一个发生：$A\cup B\cup C$;
+        \item 至多有一个发生：$\bar A\bar B\bar C\cup A \bar B \bar C \cup \bar AB\bar C\cup \bar A\bar BC$;
+        \item 都不发生：$\bar A\bar B\bar C$;
+        \item 不全部发生： $\overline{ABC}=\bar A\cup \bar B\cup \bar C$.
+    \end{itemize}
+\end{example}
+
+\section{事件的概率}
+
+事件的\textbf{概率}：刻画试验中随机事件发生的\textbf{可能性大小}．
+
+\subsection{概率的统计定义}
+\begin{definition}
+    设在$n$次试验中，事件$A$发生了$m$次，则称
+    \begin{align*}
+        f_n(A):=\frac{m}{n}
+    \end{align*}
+    为事件$A$发生的\textbf{频率}(frequency)．
+\end{definition}
+
+\begin{definition}%[概率的统计定义]
+    在相同条件下重复进行的试验中，若随着试验次数$n$的增加，
+    事件$A$发生的频率稳定在某一常数$p$附近，
+    则称$p$为事件$A$的\textbf{概率}，记作$P(A)=p$．
+\end{definition}
+也就是概率是频率的稳定值. 实际应用中常将大量重复试验中事件的频率作为概率的近似估计．
+
+\begin{proposition}[事件的频率]
+    频率的性质：
+    \begin{itemize}
+        \item $0\le f_n(A)\le 1$；
+        \item $f_n(\Omega)=1,\ f_n(\emptyset)=0$；
+        \item 若事件$A_1, A_2, \cdots, A_k$两两互斥，则
+              $$f_n \left( \bigcup_{i=1}^k A_i \right)=\sum_{i=1}^k f_n(A_i)$$
+    \end{itemize}
+\end{proposition}
+
+数学公理化定义: 
+\begin{definition}[概率的公理化定义]
+    设$\Omega$是样本空间，定义概率空间$(\Omega,\mathcal{F},P)$。对每个事件$A\in \mathcal{F}$定义一个实数$P(A)$与之对应。
+    集合函数$P$满足以下条件：
+    \begin{itemize}
+        \item 非负性：对任意事件$A$，均有$P(A)\ge 0$；
+        \item 规范性：$P(\Omega)=1$；
+        \item 可加性：若事件序列$\{A_n\}_{n\ge 1}$两两互斥，则
+              $$P \left( \bigcup_{n=1}^{\infty} A_n \right)=\sum_{n=1}^{\infty} P(A_n)$$
+    \end{itemize}
+    则称$P(A)$为事件$A$的\textbf{概率}(probability)．
 \end{definition}
 
 \end{document}
