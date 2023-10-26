@@ -19,19 +19,19 @@
 
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
 
-\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheoremstyle[name=定理,]{thmsty}
 \declaretheorem[style=thmsty,numberwithin=section]{theorem}
 \tcolorboxenvironment{theorem}{colback=LightGray}
 
-\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheoremstyle[name=命题,]{prosty}
 \declaretheorem[style=prosty,numberlike=theorem]{proposition}
 \tcolorboxenvironment{proposition}{colback=LightOrange}
 
-\declaretheoremstyle[name=Principle,]{prcpsty}
+\declaretheoremstyle[name=原则,]{prcpsty}
 \declaretheorem[style=prcpsty,numberlike=theorem]{principle}
 \tcolorboxenvironment{principle}{colback=LightGreen}
 
-\declaretheoremstyle[name=Definition,]{prcpsty}
+\declaretheoremstyle[name=定义,]{prcpsty}
 \declaretheorem[style=prcpsty,numberlike=theorem]{definition}
 \tcolorboxenvironment{definition}{colback=white}
 
@@ -49,6 +49,22 @@
   \par\medskip
   \noindent
   \textbf{解答:}
+}{%
+  \par\medskip
+}
+
+\newenvironment{definition*}{%
+  \par\medskip
+  \noindent
+  \textbf{定义:}
+}{%
+  \par\medskip
+}
+
+\newenvironment{proposition*}{%
+  \par\medskip
+  \noindent
+  \textbf{性质: }
 }{%
   \par\medskip
 }
