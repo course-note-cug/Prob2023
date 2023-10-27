@@ -1,0 +1,113 @@
+\section{事件的概率}
+
+事件的\textbf{概率}：刻画试验中随机事件发生的\textbf{可能性大小}. 
+
+\subsection{概率的统计定义}
+\begin{definition}
+    设在$n$次试验中，事件$A$发生了$m$次，则称
+    \begin{align*}
+        f_n(A):=\frac{m}{n}
+    \end{align*}
+    为事件$A$发生的\textbf{频率}(frequency). 
+\end{definition}
+
+\begin{definition*}%[概率的统计定义]
+    在相同条件下重复进行的试验中，若随着试验次数$n$的增加，
+    事件$A$发生的频率稳定在某一常数$p$附近，
+    则称$p$为事件$A$的\textbf{概率}，记作$P(A)=p$. 
+\end{definition*}
+也就是概率是频率的稳定值. 实际应用中常将大量重复试验中事件的频率作为概率的近似估计. 
+
+\begin{proposition*}
+    频率的性质: 
+    \begin{itemize}
+        \item $0\le f_n(A)\le 1$; 
+        \item $f_n(\Omega)=1,\ f_n(\emptyset)=0$; 
+        \item 若事件$A_1, A_2, \cdots, A_k$两两互斥，则
+              $$f_n \left( \bigcup_{i=1}^k A_i \right)=\sum_{i=1}^k f_n(A_i)$$
+    \end{itemize}
+\end{proposition*}
+
+由于上述的性质, 我们给出概率的数学公理化定义: 
+\begin{definition}[概率的公理化定义]
+    设$\Omega$是样本空间，定义概率空间$(\Omega,\mathcal{F},P)$。对每个事件$A\in \mathcal{F}$定义一个实数$P(A)$与之对应。
+    集合函数$P$满足以下条件：
+    \begin{itemize}
+        \item 非负性：对任意事件$A$，均有$P(A)\ge 0$; 
+        \item 规范性：$P(\Omega)=1$; 
+        \item 可加性：若事件序列$\{A_n\}_{n\ge 1}$两两互斥，则
+              $$P \left( \bigcup_{n=1}^{\infty} A_n \right)=\sum_{n=1}^{\infty} P(A_n)$$
+    \end{itemize}
+    则称$P(A)$为事件$A$的\textbf{概率}(probability). 
+\end{definition}
+
+\subsection{概率的加法公式}
+\begin{proposition}[加法公式]
+    若两个事件$A,B$互斥，则
+    $$P(A\cup B)=P(A)+P(B).$$
+\end{proposition}
+
+\begin{remark}
+    由加法公式可得到如下性质：
+    \begin{itemize}
+        \item 对任意事件$A$，有
+              $P(A)=1-P\left(\overline{A}\right).$
+        \item 对任意两个事件$A,B$，有
+              $$P(A\cup B)=P(A)+P(B)-P(AB).$$
+    \end{itemize}
+\end{remark}
+
+\begin{asidebox}
+    我们实际上可以借此瞥见容斥原理. 
+\begin{remark}
+    若三个事件$A_1, A_2, A_3$两两互斥，则
+    $$\pmb P(A_1 \cup A_2 \cup A_3) = P(A_1)+P(A_2)+P(A_3).$$
+    对任意三个事件$A_1, A_2, A_3$，有
+    \begin{align*}
+        \pmb P(A_1 \cup A_2 \cup A_3) & \pmb=\color{blue}P(A_1)+P(A_2)+P(A_3)              \\
+                                      & \phantom=\color{red}-P(A_1A_2)-P(A_1A_3)-P(A_2A_3) \\
+                                      & \phantom=\color{blue}+P(A_1A_2A_3).
+    \end{align*}%
+\end{remark}
+
+\begin{remark}
+    更一般地, 可以使用容斥原理计算: 
+    若$n$个事件$A_1, A_2, \cdots, A_n$两两互斥，则
+    $$\pmb P\left( \bigcup_{i=1}^n A_i \right)=\sum_{i=1}^n P(A_i).$$
+    \vspace{0.2in}
+    对任意$n$个事件$A_1, A_2, \cdots, A_n$，有
+    $$\pmb P\left( \bigcup_{i=1}^n A_i \right)=\sum_{k=1}^n \left[ (-1)^{k+1} \sum_{1\le i_1\le \cdots\le i_k \le n} P(A_{i_1}\cdots A_{i_k}) \right].$$
+\end{remark}
+
+
+\end{asidebox}
+
+\subsection{古典概型模型}
+\begin{definition}
+    如果一个随机试验具有以下特点：
+    \begin{itemize}%\setcounter{enumi}{2}
+        \item 样本空间只含有限多个样本点；
+        \item 各样本点出现的可能性相等，
+    \end{itemize}
+    则称此随机试验是古典型的．此时对每个事件$A\subset \Omega$，
+    \begin{align*}
+        P(A)=\frac{\mbox{事件$A$包含的样本点数}}{\mbox{样本点的总数}}=\frac{n(A)}{n(\Omega)}
+    \end{align*}
+    称为事件$A$的\textbf{古典概率}．
+\end{definition}
+
+根据上述的定义, 我们可以立即得出$P(\emptyset)=0$，$P(\Omega)=1$．
+
+\input{aside/2star-counting-techique.tex}
+
+\subsection{几何概型}
+
+\begin{definition}
+    设样本空间为有限区域$\Omega$,若样本点落入$\Omega$内的任何区域$G$中的概率与区域$G$的测度成正比，则样本点落入$G$内的概率为：
+    $$
+        p=\frac{\vert G\vert}{\vert \Omega \vert}
+    $$
+\end{definition}
+
+并且我们发现, $P(A)=0$, 则$A$不一定是不可能事件. 
+
