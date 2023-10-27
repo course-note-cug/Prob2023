@@ -1,0 +1,146 @@
+\section{概率中的基本概念}
+\subsection{随机实验}
+
+\begin{definition}
+    随机试验是指: 
+    \begin{itemize}
+        \item 试验结果不止一个，但能明确所有的结果; 
+        \item 试验前不能预知出现哪种结果。
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    随机事件: 对随机试验的结果的陈述称为\textbf{随机事件}，简称\textbf{事件}. 
+\end{definition}
+
+\begin{definition}
+    样本空间: 随机试验的每个可能结果$\omega$称为一个\textbf{样本点}. 全体样本点组成的集合$\Omega$称为\textbf{样本空间}. 
+    $$
+        \Omega:=\{\omega\}.
+    $$
+    每个\textbf{随机事件}都可用样本空间的某个子集表示，通常记为$A, B, C$等. 
+    在随机试验中，当事件中的一个样本点出现时，称该事件\textbf{发生}. 
+\end{definition}
+
+\subsection{事件的关系与运算}
+
+\begin{definition}[事件的关系] 
+    若事件$A$发生时，事件$B$一定发生. 则称事件$A$包含于事件$B$（或事件$B$ \textbf{包含} $A$），记作
+    $$A\subset B \ (\text{或}B\supset A)$$
+
+    对任意事件$A$，有$\emptyset \subset A\subset \Omega$. 
+
+    若$A\subset B$，且$B\subset A$，则称事件$A$与$B$ \textbf{相等}，记作$A=B$. 
+    
+\end{definition}
+
+下面来考察事件的运算: 
+
+\begin{definition}[事件的并]
+    
+        “事件$A$、$B$至少有一个发生”
+    称为事件$A$与$B$的\textbf{和}或\textbf{并}(union)，记作
+    $$A\cup B \ (\text{或}A+B)$$
+    也就是
+    $$A\cup B=\{\omega | \omega\in A \ \text{or}\ \omega\in B\}$$
+\end{definition}
+
+\begin{remark}
+    使用数学归纳法, 事件的并可以推广到多个的情形：如$n$个事件的并
+    $$\bigcup_{i=1}^{n} A_i =\text{“事件$A_1, \cdots, A_n$至少有一个发生”}$$
+    可数个事件的并
+    $$\bigcup_{i=1}^{\infty} A_i =\text{“事件$A_1, A_2, \cdots$至少有一个发生”}$$
+\end{remark}
+
+\begin{definition}
+        “事件$A$、$B$同时发生”
+    称为事件$A$与$B$的\textbf{积}或\textbf{交}(intersection)，记作
+    $$AB \ (\text{或}A\cap B)$$
+    也就是$$A\cap B=\{\omega | \omega\in A \ \text{and}\ \omega\in B\}$$
+\end{definition}
+
+\begin{remark}
+    事件的交可以推广到多个的情形：如$n$个事件的交
+    $$\bigcap_{i=1}^{n} A_i =\text{“事件$A_1, \cdots, A_n$全都发生”}$$
+    可数个事件的交
+    $$\bigcap_{i=1}^{\infty} A_i =\text{“事件$A_1, A_2, \cdots$全都发生”}$$
+\end{remark}
+
+\begin{definition}
+    “事件$A$发生，但$B$不发生”
+称为事件$A$与$B$的\textbf{差}，记作
+$$A-B$$
+也就是
+$$A- B=\{\omega | \omega\in A \ \text{and}\ \omega\notin B\}$$
+\end{definition}
+
+像集合那样, 我们同样可以引入事件的关系: 
+
+\begin{definition}
+    若$AB=\emptyset$，则称$A$与$B$ \textbf{互斥}（或称$A$与$B$ \textbf{不相容}），%(mutually exclusive)
+    即$A$与$B$不可能同时发生. 
+\end{definition}
+
+\begin{definition}
+    称$\Omega-A$为事件$A$的\textbf{对立}事件（或称$A$的\textbf{补}），记为$\overline{A}$. 
+    它表示“事件$A$不发生”. 
+\end{definition}
+
+
+像集合那样, 事件具有如下的运算规律: 
+\begin{itemize}
+    \item 交换律
+    \begin{itemize}
+        \item $AB=BA$，$A\cup B=B\cup A$
+    \end{itemize}
+    \item 结合律
+    \begin{itemize}
+        \item $(AB)C=A(BC)$，$(A\cup B)\cup C=A\cup(B\cup C)$
+    \end{itemize}
+    \item 分配律
+    \begin{itemize}
+        \item $A(B\cup C)=AB\cup AC$，$A(B-C)=AB-AC$
+    \end{itemize}
+    \item 对偶律
+    \begin{itemize}
+        \item $\overline{AB}=\overline{A}\cup\overline{B}$，$\overline{A\cup B}=\overline{A}\,\overline{B}$
+    \end{itemize}
+\end{itemize}
+
+下面来考察一些常见的化简运算关系的等式: 
+
+\begin{proposition}
+        对任意两个事件$A$和$B$，总有$ A-B=A-AB$. 
+\end{proposition}
+
+\begin{proposition}
+    事件$A$、$B$ \textbf{对立}当且仅当$A$、$B$\textbf{互斥}且$A\cup B=\Omega$. 
+\end{proposition}
+\begin{example}
+    设$A,B$为两个事件，则有
+        \begin{itemize}
+            \item $A\overline{B}=A-B=A-AB$; 
+            \item $A=AB\cup A\overline{B}$. 
+        \end{itemize}
+\end{example}
+
+\begin{solution}
+    用事件运算的分配律：
+    \begin{itemize}
+        \item $A\overline{B}=A(\Omega-B)=A\Omega-AB=A-AB$; 
+        \item $AB\cup A\overline{B}=A(B\cup\overline{B})=A\Omega=A$. 
+    \end{itemize}
+\end{solution}
+
+\begin{example}
+    $A$, $B$, $C$ 表示事件
+    \begin{itemize}
+        \item $A$发生: $A$; 
+        \item 仅$A$发生: $A\cap \bar{B}\cap \bar{C}$; 
+        \item 恰有一个发生：$A \bar B \bar C\cup \bar AB\bar C\cup \bar A\bar BC$;
+        \item 至少有一个发生：$A\cup B\cup C$;
+        \item 至多有一个发生：$\bar A\bar B\bar C\cup A \bar B \bar C \cup \bar AB\bar C\cup \bar A\bar BC$;
+        \item 都不发生：$\bar A\bar B\bar C$;
+        \item 不全部发生： $\overline{ABC}=\bar A\cup \bar B\cup \bar C$.
+    \end{itemize}
+\end{example}
