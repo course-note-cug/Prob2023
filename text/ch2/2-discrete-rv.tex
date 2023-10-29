@@ -2,38 +2,38 @@
 
 \begin{definition}[概率分布]
     若离散型随机变量$X$的所有可能值为$\{x_k\}$，分别对应概率$\{p_k\}$，则称
-$$P\{X=x_k\}=p_k, \quad k=1,2,\cdots$$
-为$X$的概率分布．
+    $$P\{X=x_k\}=p_k, \quad k=1,2,\cdots$$
+    为$X$的概率分布．
 \end{definition}
 
-为了方便起见, 可以把概率列表以得到直观描述: 
+为了方便起见, 可以把概率列表以得到直观描述:
 \[\begin{array}{|c||c|c|c|c|c|}\hline
-X & x_1 & x_2 & \cdots & x_k & \cdots \\ \hline
-P & p_1 & p_2 & \cdots & p_k & \cdots \\ \hline
-\end{array}\]
+        X & x_1 & x_2 & \cdots & x_k & \cdots \\ \hline
+        P & p_1 & p_2 & \cdots & p_k & \cdots \\ \hline
+    \end{array}\]
 
 由于每一个概率是非负的, 并且我们遍历的整个概率空间, 因此概率分布具有如下的性质:
 $\displaystyle \left\{ \begin{array}{l} p_k\ge 0, \quad k=1,2,\cdots \\
-\sum\limits_{k}{p_k}=1 \end{array} \right.$
+        \sum\limits_{k}{p_k}=1\end{array} \right.$
 
 有时候我们对于小于某一个特定值的变量的取值内容感兴趣.概率分布函数就是统计小于某一个
-特定值发生的概率. 
- 同时这种定义也可以让我们从一个具体的
-点之中脱身. 我们的视野就可以看得更广了, 这种技巧在连续的时候很有用处. 
+特定值发生的概率.
+同时这种定义也可以让我们从一个具体的
+点之中脱身. 我们的视野就可以看得更广了, 这种技巧在连续的时候很有用处.
 
 \begin{definition}[概率分布函数]
     设离散型随机变量$X$的概率分布为
     \begin{align*}
-    P\{X=x_k\}=p_k,\qquad k=1,2,\cdots.
+        P\{X=x_k\}=p_k,\qquad k=1,2,\cdots.
     \end{align*}
     则定义$X$的分布函数为
     \begin{align*}
-    F_X(x)=P\{X\le x\}=\sum_{x_k\le x} p_k,
+        F_X(x)=P\{X\le x\}=\sum_{x_k\le x} p_k,
     \end{align*}
     这里的和式是对所有满足$x_k\le x$的$p_k$求和．
-    \end{definition}
+\end{definition}
 
-有了这样的一番定义之后, 我们来看几个离散型随机变量. 
+有了这样的一番定义之后, 我们来看几个离散型随机变量.
 
 \subsection{经典的离散型随机变量}
 
@@ -42,101 +42,101 @@ $\displaystyle \left\{ \begin{array}{l} p_k\ge 0, \quad k=1,2,\cdots \\
 \begin{example}
     $100$件产品中，有$98$件是正品，$2$件是次品，今从中随机地抽取一件，若规定
     \[X=\left\{ \begin{array}{ll} 1, & \text{取到正品；} \\
-    0, &  \text{取到次品；} \end{array} \right.\]
+             0,      & \text{取到次品；}\end{array} \right.\]
     则随机变量$X$的概率分布表为
-$\begin{array}{|c|c|c|}\hline
-X & 0 & 1 \\ \hline
-P & 0.02 & 0.98 \\ \hline
-\end{array}$．
+    $\begin{array}{|c|c|c|}\hline
+            X & 0    & 1    \\ \hline
+            P & 0.02 & 0.98 \\ \hline
+        \end{array}$．
 \end{example}
 
 \begin{definition}[两点分布(0-1分布)]
     若随机变量$X$的概率分布为
     $\begin{array}{|c||c|c|}\hline
-    X & 0 & 1 \\ \hline
-    P & 1-p & p \\ \hline
-    \end{array}$，
+            X & 0   & 1 \\ \hline
+            P & 1-p & p \\ \hline
+        \end{array}$，
     则称$X$服从参数为$p$的两点分布（或 0-1分布）．记为$$X\sim B(1,p)$$
-    \end{definition}
+\end{definition}
 
-    \paragraph{(二-$\varepsilon$) 几何分布}
+\paragraph{(二-$\varepsilon$) 几何分布}
 
-    \begin{example}
-        抛一枚硬币, 硬币出现正面的概率为$p$, 请问前$k-1$次抛出反面, 第$k$次出现正面的概率. 
-    \end{example}
+\begin{example}
+    抛一枚硬币, 硬币出现正面的概率为$p$, 请问前$k-1$次抛出反面, 第$k$次出现正面的概率.
+\end{example}
 
-    \begin{definition}
-        若随机变量$X$的概率分布为
-        \[P\{X=k\}=p(1-p)^{k-1},\quad k=1,2,3\cdots,\]
-        则称$X$服从参数为$p$的几何分布，记为$X\sim G(p)$．
-        \end{definition}
+\begin{definition}
+    若随机变量$X$的概率分布为
+    \[P\{X=k\}=p(1-p)^{k-1},\quad k=1,2,3\cdots,\]
+    则称$X$服从参数为$p$的几何分布，记为$X\sim G(p)$．
+\end{definition}
 
-        几何分布是接下来的例子要说的二项分布, 当次数恰好等于1时的特例. 
+几何分布是接下来的例子要说的二项分布, 当次数恰好等于1时的特例.
 
-    \paragraph{(二) 二项分布}
+\paragraph{(二) 二项分布}
 
-    \begin{example}
-        若某射手每次射击命中的概率均为$p$，现进行$n$次独立射击，求恰有$k$次命中的概率．
-        \end{example}
-        % 需要 pifont 包
-        \def\1{\ding{51}} % 勾
-        \def\0{\ding{55}} % 叉
-        先研究射击次数$n=4$的特殊情形．此时有
+\begin{example}
+    若某射手每次射击命中的概率均为$p$，现进行$n$次独立射击，求恰有$k$次命中的概率．
+\end{example}
+% 需要 pifont 包
+\def\1{\ding{51}} % 勾
+\def\0{\ding{55}} % 叉
+先研究射击次数$n=4$的特殊情形．此时有
 
 
-        {$$
-        \begin{tabular}{|c|l|}
-          \hline
-          $k=0$ & \0\0\0\0 \\
-          \hline
-          $k=1$ & \1\0\0\0, \0\1\0\0, \0\0\1\0, \0\0\0\1 \\
-          \hline
-          $k=2$ & \1\1\0\0, \1\0\1\0, \1\0\0\1, \0\1\1\0, \0\1\0\1, \0\0\1\1 \\
-          \hline
-          $k=3$ & \1\1\1\0, \1\1\0\1, \1\0\1\1, \0\1\1\1 \\
-          \hline
-          $k=4$ & \1\1\1\1 \\
-          \hline
-        \end{tabular}
-        $$}
+{$$
+    \begin{tabular}{|c|l|}
+        \hline
+        $k=0$ & \0\0\0\0                                                   \\
+        \hline
+        $k=1$ & \1\0\0\0, \0\1\0\0, \0\0\1\0, \0\0\0\1                     \\
+        \hline
+        $k=2$ & \1\1\0\0, \1\0\1\0, \1\0\0\1, \0\1\1\0, \0\1\0\1, \0\0\1\1 \\
+        \hline
+        $k=3$ & \1\1\1\0, \1\1\0\1, \1\0\1\1, \0\1\1\1                     \\
+        \hline
+        $k=4$ & \1\1\1\1                                                   \\
+        \hline
+    \end{tabular}
+$$}
 
-        \begin{definition}[$n$重Bernoulli实验]
-            只有两种可能结果的试验称为Bernoulli试验．将一Bernoulli试验独立重复$n$次称为$n$重Bernoulli试验．
-            \end{definition}
+\begin{definition}[$n$重Bernoulli实验]
+    只有两种可能结果的试验称为Bernoulli试验．将一Bernoulli试验独立重复$n$次称为$n$重Bernoulli试验．
+\end{definition}
         
-        我们发现, 上面的问题就是$k$重Bernoulli实验恰好成功$k$次的概率. 根据计数的技巧, 我们发上发现:
+我们发现, 上面的问题就是$k$重Bernoulli实验恰好成功$k$次的概率. 根据计数的技巧, 我们发上发现:
 
-        \begin{theorem}[Bernoulli定理]
-            设一次试验中事件$A$发生的概率为$p(0<p<1)$，则$n$重Bernoulli试验中，事件$A$恰好发生$k(0\le k\le n)$ 次的概率为
-            \begin{align*}
-            b(k;n,p)={n\choose k} p^k (1-p)^{n-k}.
-            \end{align*}
-            \end{theorem}
+\begin{theorem}[Bernoulli定理]
+    设一次试验中事件$A$发生的概率为$p(0<p<1)$，则$n$重Bernoulli试验中，事件$A$恰好发生$k(0\le k\le n)$ 次的概率为
+    \begin{align*}
+        b(k;n,p)={n\choose k} p^k (1-p)^{n-k}.
+    \end{align*}
+\end{theorem}
 
-            对二项分布$B(n,p)$，当$n$充分大、$p$很小时，(但是保证$np_n=\lambda$不变)形成的函数曲线是什么? 
-            \begin{align*}
-                &{n \choose k}p_n^k(1-p_n)^{n-k}\\
-                ={}&\frac{n(n-1)\cdots (n-k+1)}{k!}(\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^{n-k}\\
-                ={}& \frac{\lambda^k}{k!}\textcolor{teal}{\Big(1\cdot (1-\frac{1}{n})\cdots (1-\frac{k-1}{n})\Big)}\textcolor{red}{(1-\frac{\lambda}{n})^n}\textcolor{blue}{(1-\frac{\lambda}{n})^{-k}}\\
-                \rightarrow {}& \frac{\lambda^k}{k!}\cdot \textcolor{teal}{1}\cdot \textcolor{red}{e^{-\lambda}}\cdot \textcolor{blue}{1}
-                \end{align*}
-        
-        因此我们发现, 当$n\to\infty$的时候, 有
-        \begin{theorem}
-            设$\lambda>0$为一个常数，$n$为任意正整数，且$np_n=\lambda$，则对任意一个\textcolor{blue}{固定的}非负整数$k$，
-            $$
-            \lim_{n\rightarrow \infty}{n\choose k}p_n^k(1-p_n)^{n-k}=\frac{\lambda^k}{k!}e^{-\lambda}.
-            $$
-            \end{theorem}
-        这就是Poisson分布. 
+对二项分布$B(n,p)$，当$n$充分大、$p$很小时，(但是保证$np_n=\lambda$不变)形成的函数曲线是什么?
+\begin{align*}
+                   & {n \choose k}p_n^k(1-p_n)^{n-k}                                                                                                                                                    \\
+    ={}            & \frac{n(n-1)\cdots (n-k+1)}{k!}(\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^{n-k}                                                                                                    \\
+    ={}            & \frac{\lambda^k}{k!}\textcolor{teal}{\Big(1\cdot (1-\frac{1}{n})\cdots (1-\frac{k-1}{n})\Big)}\textcolor{red}{(1-\frac{\lambda}{n})^n}\textcolor{blue}{(1-\frac{\lambda}{n})^{-k}} \\
+    \rightarrow {} & \frac{\lambda^k}{k!}\cdot \textcolor{teal}{1}\cdot \textcolor{red}{e^{-\lambda}}\cdot \textcolor{blue}{1}
+\end{align*}
 
-    \paragraph{(三) Poisson分布}
-    
-            Poisson分布的定义如下. 
-        \begin{definition}[Poisson分布]
-            如果随机变量$X$服从以下分布律
-            \[ P\{X=k\}=\frac{\lambda^k}{k!}e^{-\lambda},\quad k=0,1,\cdots \]
-            其中$\lambda>0$，则称$X$服从参数为$\lambda$的Poisson分布，记为
-            $X\sim P(\lambda).$
-            \end{definition}%
-            Poisson分布常与单位时间（或单位面积、单位产品等）上的计数过程相联系.
+因此我们发现, 当$n\to\infty$的时候, 有
+\begin{theorem}
+    设$\lambda>0$为一个常数，$n$为任意正整数，且$np_n=\lambda$，则对任意一个\textcolor{blue}{固定的}非负整数$k$，
+    $$
+        \lim_{n\rightarrow \infty}{n\choose k}p_n^k(1-p_n)^{n-k}=\frac{\lambda^k}{k!}e^{-\lambda}.
+    $$
+\end{theorem}
+这就是Poisson分布.
+
+\paragraph{(三) Poisson分布}
+
+Poisson分布的定义如下.
+\begin{definition}[Poisson分布]
+    如果随机变量$X$服从以下分布律
+    \[ P\{X=k\}=\frac{\lambda^k}{k!}e^{-\lambda},\quad k=0,1,\cdots \]
+    其中$\lambda>0$，则称$X$服从参数为$\lambda$的Poisson分布，记为
+    $X\sim P(\lambda).$
+\end{definition}%
+Poisson分布常与单位时间（或单位面积、单位产品等）上的计数过程相联系.
