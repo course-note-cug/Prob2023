@@ -100,14 +100,14 @@ P & 0.02 & 0.98 \\ \hline
         \end{tabular}
         $$}
 
-        \begin{definition}[$n$重伯努利实验]
-            只有两种可能结果的试验称为伯努利试验．将一伯努利试验独立重复$n$次称为$n$重伯努利试验．
+        \begin{definition}[$n$重Bernoulli实验]
+            只有两种可能结果的试验称为Bernoulli试验．将一Bernoulli试验独立重复$n$次称为$n$重Bernoulli试验．
             \end{definition}
         
-        我们发现, 上面的问题就是$k$重伯努利实验恰好成功$k$次的概率. 根据计数的技巧, 我们发上发现:
+        我们发现, 上面的问题就是$k$重Bernoulli实验恰好成功$k$次的概率. 根据计数的技巧, 我们发上发现:
 
-        \begin{theorem}[伯努利定理]
-            设一次试验中事件$A$发生的概率为$p(0<p<1)$，则$n$重伯努利试验中，事件$A$恰好发生$k(0\le k\le n)$ 次的概率为
+        \begin{theorem}[Bernoulli定理]
+            设一次试验中事件$A$发生的概率为$p(0<p<1)$，则$n$重Bernoulli试验中，事件$A$恰好发生$k(0\le k\le n)$ 次的概率为
             \begin{align*}
             b(k;n,p)={n\choose k} p^k (1-p)^{n-k}.
             \end{align*}
@@ -128,15 +128,15 @@ P & 0.02 & 0.98 \\ \hline
             \lim_{n\rightarrow \infty}{n\choose k}p_n^k(1-p_n)^{n-k}=\frac{\lambda^k}{k!}e^{-\lambda}.
             $$
             \end{theorem}
-        这就是泊松分布. 
+        这就是Poisson分布. 
 
-    \paragraph{(三) 泊松分布}
+    \paragraph{(三) Poisson分布}
     
-            泊松分布的定义如下. 
-        \begin{definition}[泊松分布]
+            Poisson分布的定义如下. 
+        \begin{definition}[Poisson分布]
             如果随机变量$X$服从以下分布律
             \[ P\{X=k\}=\frac{\lambda^k}{k!}e^{-\lambda},\quad k=0,1,\cdots \]
-            其中$\lambda>0$，则称$X$服从参数为$\lambda$的泊松分布，记为
+            其中$\lambda>0$，则称$X$服从参数为$\lambda$的Poisson分布，记为
             $X\sim P(\lambda).$
             \end{definition}%
-            泊松分布常与单位时间（或单位面积、单位产品等）上的计数过程相联系.
+            Poisson分布常与单位时间（或单位面积、单位产品等）上的计数过程相联系.
