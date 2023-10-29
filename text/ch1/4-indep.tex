@@ -1,0 +1,62 @@
+\section{事件的独立性}
+
+\begin{definition}
+    若两事件$A$、$B$满足
+    \begin{align*}
+        P(AB)= P(A) P(B),
+    \end{align*}
+    则称\textbf{事件$A$、$B$相互独立}．%independent
+\end{definition}
+
+实际意义：若$P(B)>0$，则上式等价于
+    \begin{align*}
+        P(A|B)= P(A),
+    \end{align*}
+    即\textbf{事件$A$的概率不受事件$B$发生与否的影响}．
+
+\begin{remark}
+    “两个事件互斥”和“两个事件相互独立”是不同的概念：
+    \begin{itemize}
+        \item 互斥 $\Rightarrow$ $P(A\cup B)=P(A)+P(B)$；
+        \item 独立 $\Rightarrow$ $P(AB)=P(A)P(B)$．
+    \end{itemize}
+    但两者也有关系：如果$P(A)>0$且$P(B)>0$，则两者不可能既是互斥的又是独立的．
+\end{remark}
+
+我们接下来看多个事件的独立性: 
+
+\begin{definition}
+    称$n(n\ge 2)$个事件$A_1, A_2, \cdots, A_n$相互独立，如果对任意一组指标
+    \begin{align*}
+        1\le i_1<i_2< \cdots <i_k\le n\quad (k\ge 2)
+    \end{align*}
+    都有
+    \begin{align*}
+        P(A_{i_1}A_{i_2}\cdots A_{i_k})=P(A_{i_1})P(A_{i_2})\cdots  P(A_{i_k}).
+    \end{align*}
+\end{definition}
+
+发现若$A$与$B$相互独立，且$B$与$C$相互独立，则$A$与$C$ \textbf{未必}相互独立．
+\begin{example}
+    从全体有两个孩子的家庭中随机选择一个家庭，并考虑下面三个事件：
+    \begin{itemize}
+        \item $A$为“第一个孩子是男孩”，
+        \item $B$为“两个孩子不同性别”，
+        \item $C$为“第一个孩子是女孩”．
+    \end{itemize}
+    容易验证$A$与$B$相互独立，$B$与$C$相互独立，但是$A$与$C$ \textbf{不独立}．
+
+    同样, 三个两两独立的也不一定都独立. 
+
+    伯恩斯坦四面体问题：一个正四面体有三面各涂上红，白，黑三种颜色。第四面同时涂上三种颜色。这四个面等概率出现在底面。以A, B, C分别表示四面体底面出现红，白，黑三种颜色的事件。问A, B, C是否相互独立？
+
+    $$
+            P(A)=P(B)=P(C)=2/4=1/2,
+        $$
+        $$
+            P(AB)=P(BC)=P(AC)=1/4,
+        $$
+        $$
+            P(ABC)=1/4\neq P(A)P(B)P(C).
+        $$
+\end{example}

@@ -7,74 +7,77 @@
 
 % \input{titlepage.tex}
 
+\part{概率论中基本的概念}
 \input{text/ch1/1-intro.tex}
 \input{text/ch1/2-prob-evt.tex}
 \input{text/ch1/3-cond-prob.tex}
+\input{text/ch1/4-indep.tex}
 
+\part{一维随机变量}
+\section{随机变量}
 
-\section{事件的独立性}
+我们已经知道了一个实值函数是什么: 如果对于每一个实数 $x$ 又有唯一的 $y$ 与之对应, 
+那么成为$y$ 为实变量$x$的函数. 这个定义可以推广到$x$不是实数的情形. 具体的, 如果
+我们把这个想法定义在样本空间上, 这样的函数就是随机变量. 意味着
 
-\begin{definition}
-    若两事件$A$、$B$满足
+\begin{definition*}
+    定义在样本空间上的函数就称为随机变量.
+\end{definition*}
+
+因为他们会为每一个样本点对应一个值, 在我们进行随机试验的时候, 这个值就好像是随机的一样. 
+
+\begin{definition}[随机变量]
+    设$\Omega$是某随机试验的样本空间．如果对于每个$\omega\in\Omega$，都有一个实数$X(\omega)$与其对应，这样就得到一个定义在$\Omega$上的函数
     \begin{align*}
-        P(AB)= P(A) P(B),
+    X=X(\omega),
     \end{align*}
-    则称\textbf{事件$A$、$B$相互独立}．%independent
+    称该函数为随机变量(random variable)．
+\end{definition}
+随机变量一般用大写英文字母$X$、$Y$、$Z$或小写希腊字母$\xi$、$\eta$、$\gamma$来表示．
+\begin{itemize}
+    \item 大写字母: 一个实验中的值
+    \item 小写字母: 某个具体实验中的取值
+\end{itemize}
+
+按照研究的顺序, 我们现在先研究离散型(只能取有限个或者可列个值), 然后使用微积分的技巧
+研究连续型(取得某一区间内的任何数值). 在这期间, 我们借助一些手段(如定义概率分布函数等)
+从而可以研究混合型(一部分连续, 一部分离散)的随机变量. 
+
+\section{离散型随机变量的概率分布}
+
+\begin{definition}[概率分布]
+    若离散型随机变量$X$的所有可能值为$\{x_k\}$，分别对应概率$\{p_k\}$，则称
+$$P\{X=x_k\}=p_k, \quad k=1,2,\cdots$$
+为$X$的概率分布．
 \end{definition}
 
-实际意义：若$P(B)>0$，则上式等价于
+为了方便起见, 可以把概率列表以得到直观描述: 
+\[\begin{array}{|c||c|c|c|c|c|}\hline
+X & x_1 & x_2 & \cdots & x_k & \cdots \\ \hline
+P & p_1 & p_2 & \cdots & p_k & \cdots \\ \hline
+\end{array}\]
+
+由于每一个概率是非负的, 并且我们遍历的整个概率空间, 因此概率分布具有如下的性质:
+$\displaystyle \left\{ \begin{array}{l} p_k\ge 0, \quad k=1,2,\cdots \\
+\sum\limits_{k}{p_k}=1 \end{array} \right.$
+
+有时候我们对于小于某一个特定值的变量的取值内容感兴趣.概率分布函数就是统计小于某一个
+特定值发生的概率. 
+ 同时这种定义也可以让我们从一个具体的
+点之中脱身. 我们的视野就可以看得更广了, 这种技巧在连续的时候很有用处. 
+
+\begin{definition}[概率分布函数]
+    设离散型随机变量$X$的概率分布为
     \begin{align*}
-        P(A|B)= P(A),
+    P\{X=x_k\}=p_k,\qquad k=1,2,\cdots.
     \end{align*}
-    即\textbf{事件$A$的概率不受事件$B$发生与否的影响}．
-
-\begin{remark}
-    “两个事件互斥”和“两个事件相互独立”是不同的概念：
-    \begin{itemize}
-        \item 互斥 $\Rightarrow$ $P(A\cup B)=P(A)+P(B)$；
-        \item 独立 $\Rightarrow$ $P(AB)=P(A)P(B)$．
-    \end{itemize}
-    但两者也有关系：如果$P(A)>0$且$P(B)>0$，则两者不可能既是互斥的又是独立的．
-\end{remark}
-
-我们接下来看多个事件的独立性: 
-
-\begin{definition}
-    称$n(n\ge 2)$个事件$A_1, A_2, \cdots, A_n$相互独立，如果对任意一组指标
+    则定义$X$的分布函数为
     \begin{align*}
-        1\le i_1<i_2< \cdots <i_k\le n\quad (k\ge 2)
+    F_X(x)=P\{X\le x\}=\sum_{x_k\le x} p_k,
     \end{align*}
-    都有
-    \begin{align*}
-        P(A_{i_1}A_{i_2}\cdots A_{i_k})=P(A_{i_1})P(A_{i_2})\cdots  P(A_{i_k}).
-    \end{align*}
-\end{definition}
+    这里的和式是对所有满足$x_k\le x$的$p_k$求和．
+    \end{definition}
 
-发现若$A$与$B$相互独立，且$B$与$C$相互独立，则$A$与$C$ \textbf{未必}相互独立．
-\begin{example}
-    从全体有两个孩子的家庭中随机选择一个家庭，并考虑下面三个事件：
-    \begin{itemize}
-        \item $A$为“第一个孩子是男孩”，
-        \item $B$为“两个孩子不同性别”，
-        \item $C$为“第一个孩子是女孩”．
-    \end{itemize}
-    容易验证$A$与$B$相互独立，$B$与$C$相互独立，但是$A$与$C$ \textbf{不独立}．
-
-    同样, 三个两两独立的也不一定都独立. 
-
-    伯恩斯坦四面体问题：一个正四面体有三面各涂上红，白，黑三种颜色。第四面同时涂上三种颜色。这四个面等概率出现在底面。以A, B, C分别表示四面体底面出现红，白，黑三种颜色的事件。问A, B, C是否相互独立？
-
-    $$
-            P(A)=P(B)=P(C)=2/4=1/2,
-        $$
-        $$
-            P(AB)=P(BC)=P(AC)=1/4,
-        $$
-        $$
-            P(ABC)=1/4\neq P(A)P(B)P(C).
-        $$
-\end{example}
-
-
+    
 
 \end{document}
