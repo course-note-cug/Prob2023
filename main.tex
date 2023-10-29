@@ -17,133 +17,117 @@
 \part{一维随机变量}
 \input{text/ch2/1-rv.tex}
 \input{text/ch2/2-discrete-rv.tex}
+\input{text/ch2/3-cont-rv.tex}
 
-\section{连续型随机变量}
-连续型随机变量 $X$ 的取值范围为一个区间．此时$X$取某个确定值的概率总是等于零．我们发现
-事件$X=a$可能发生，但$P\{X=a\}=0$．
+\section{随机变量的函数的分布}
 
-这就启发我们使用极限的想法来考虑之. $X$在某个小区间内取值的概率可以大于零．
-将区间分为若干段，研究$X$在各小区间取值的概率．分组的频率直方图刻画随机变量的概率分布,
-分组越细，频率直方图就越接近一条连续曲线．取极限, 就有:
+在物理实验中, 我们希望测量直径$d$, 从而得到圆的面积$S={1\over4} \pi d^2$. 
+但是测量是有误差的. 这时候我们发现, 随机变量$S$是随机变量$d$的函数. 记得
+随机变量是定义在样本空间上的函数; 而这样的一个样本空间上面的函数又可以定义
+另一个函数. 这就是我们做抽象的好处. 
 
-\begin{definition}{概率密度函数}
-    如果存在非负函数$f(x)$，满足
-    $$
-        P(X\leq x)=\int_{-\infty}^{x}f(t)dt,
-    $$
-    则称$X$为连续型随机变量，称$f(x)$为$X$的概率密度函数(pdf, probability density function).
-\end{definition}
-
-和概率分布函数一样, 具有如下的性质:
-    $$
-    (1)\,f(x)\ge 0,\quad (2)\ \int_{-\infty}^{+\infty}f(x)dx=1.
-$$
-
-这样确实可以来表述问题. 但是对于一半离散, 一半连续的随机变量, 该怎么统一起来?
-实际上, 我们希望``忽略''在转折点上面带来的影响. 这样, 我们可以使用上面的分布函数的
-思想进行.
-
-\begin{definition}
-    对任意随机变量$X$（离散或连续），称函数
-    $$F_X(x):=P\{X\le x\},\quad x\in \mathbb{R}$$
-    为$X$的分布函数．
-\end{definition}
-这是一个对于概率密度函数(或者概率分布)的累计, 自然, 它应该满足如下的性质:
-
+更一般地, 我们希望找到如下问题的一类解法: 
 \begin{itemize}
-    \item 对任意实数$a<b$，总有$F(a)\le F(b)$;
-    \item $0 \le F(x) \le 1$；
-    \item $F(-\infty)=0$，$F(+\infty)=1$．
+    \item 已知的随机变量 $X$ 的概率分布
+    \item 去求得它的函数 $Y=g(X)$ ($g$连续, 且已知)
 \end{itemize}
-分别对应着: 概率不可能为负数; 所有的概率必须在0和1之间; 并且所有的可能性加起来必须等于样本
-空间.
 
-\subsection{常见的连续性随机变量}
+首先来看一个离散情形下的例子. 这里我们主要演示这件事情主要在做什么事情. 
 
-\paragraph{(一) 均匀分布}
+TBD
 
-这可能是最基本的一个分布, 这个分布在一个区间内每个点的取值相同:
+再一个简单的例子, 我们可以运用离散和连续的情形的类比来解答它: 
 
-\begin{definition}
-    若随机变量$X$有概率密度
-    \begin{align*}
-        f(x)=\left\{\begin{array}{lcl}
-                        \frac1{b-a} &  & x\in [a,b]       \\
-                        0           &  & \mbox{otherwise}
-                    \end{array}\right. ,\qquad (a<b)
-    \end{align*}
-    则称$X$服从区间$[a,b]$上的均匀分布：$X\sim U(a,b)$.
-\end{definition}%
+\begin{example}
+  设随机变量为 $X$ $\sim$ $N (0, 1)$, 求$Y = e^{X}$的概率密度函数. 
+  ($N(0,1)$意味着$X\sim \frac1{\sqrt{2\pi}}e^{-x^2/2}$)
+\end{example}
+\begin{solution}
+  当$y \leq 0$时,
+  \[F_Y(y) = P\{Y \leq y\} = 0\]
+  \quad 故,
+  \[f_Y(y) = 0\]
+  
+  
+  \quad 当$y > 0$时,
+  \[F_Y(y) = P\{Y \leq y\} = P\{ e^{X} \leq y\} = P\{X \leq \ln^{y}\}= F_X(\ln^{y})\]
+  
+  \quad 对两端对$x$求导，得到
+  \[f_Y(y) = f_X(\ln^{y})(\ln^{y})' = \frac{1}{y}\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(\ln^y)^2}\]
 
+\end{solution}
 
-\paragraph{(二) 指数分布}
+我们发现在这种情形下, 有我们可以用如下的步骤清楚地表述我们所做的事情: 
 
-假设某医院平均每小时出生$\lambda$个婴儿, 也就是说
-\begin{itemize}
-    \item $1$小时内出生婴儿个数$N(1)$服从Poisson分布$P(\lambda)$．
-    \item $t$小时内出生婴儿个数$N(t)$服从Poisson分布$P(\lambda t)$．
-\end{itemize}
-我们希望研究婴儿出生的时间间隔$X$的概率分布．
+\begin{theorem}[两个随机变量的联系(关系是严格单调函数)]
+  设随机变量X具有概率密度$f_X(x),-\infty < x < \infty$,又设函数g(x)处处可导且恒有$g'(x)>0$(或恒有$g'(x)<0$),则$Y = g(X)$是连续型随机变量，其概率密度为
+  \begin{equation*}
+      f_Y(y)=
+      \begin{cases}
+          \displaystyle f_X[h(x)]\mid h'(x)\mid,\,\, &\alpha<y<\beta,\\
+          \displaystyle 0,\,\, &\text{其他},
+      \end{cases}
+  \end{equation*}
+  其中$\alpha = \min\{g(-\infty),g(+\infty)\},\beta = \max\{g(-\infty),g(+\infty)\}$,$h(y)$是$g(x)$的反函数.
+\end{theorem}
 
-
-当$t<0$时，有$F(t)=P\{X\le t\}=0$． 当$t\ge0$时，
-\begin{align*}
-    F(t) & =P\{X\le t\}=1-P\{X>t\}          \\
-         & =1-P\{N(t)=0\}=1-e^{-\lambda t}.
-\end{align*}
-
-因此，当$t<0$时，$f(t)=0$； 当$t\ge0$时，$f(t)=\lambda e^{-\lambda t}$．
-
-基于此, 我们给出指数分布的描述:
-\begin{definition}
-    如果随机变量$X$有以下概率密度
-    \begin{align*}
-        f(x)=\left\{\begin{array}{lcl}
-                        \lambda e^{-\lambda x} &  & x\ge 0           \\
-                        0                      &  & \mbox{otherwise}
-                    \end{array}\right. ,
-    \end{align*}
-    其中$\lambda>0$，则称$X$服从参数为$\lambda$的指数分布，记为
-    \[\pmb X\sim \text{Exp}(\lambda). \]
-    其分布函数为
-    \begin{align*}
-        F(x)=\left\{\begin{array}{lcl}
-                        1- e^{-\lambda x} &  & x\ge 0 \\
-                        0                 &  & x<0
-                    \end{array}\right. .
-    \end{align*}
-\end{definition}
-
-指数分布经常作为时间间隔或等待时间的分布. 其有一个非常重要的特性: 无记忆性.
-
-\begin{proposition}[指数分布的无记忆性]
-    随机变量$X$服从参数为$\lambda$的指数分布．设$s,t>0$，求以下条件概率
-    \[ P\{X>s+t|X>s\}.\]
-\end{proposition}
-
-\paragraph{(三) 正态分布}
-
-在《高等数学 II》中我们使用极坐标的换元法了解到了如下的事实:
+\begin{proof}
+  我们只证$g'(x)>0$的情况，此时$g(x)$在$(-\infty,\infty)$内严格单调增加，它的反函数$h(y)$存在，且在$(\alpha,\beta)$内严格单调增加、可导.
+    
+分别记X,Y的分布函数为$F_X(x),F_Y(y)$.现在先来求$Y$的分布函数$F_Y(y)$.
+ 
+因为$Y = g(X)$在$(\alpha,\beta)$内取值，故当$y \leq \alpha$时，$F_Y(y) = P\{Y \leq y\} = 0$;当$y \geq \beta$时，$F_Y(y) = P\{Y \leq y\} = 1$.
+ 
+ 当$\alpha < y < \beta$时，
+ $$
+ \begin{aligned}
+     \small F_Y(y) &= P\{Y \leq y\} = P\{g(X) \leq y\}\\
+     \small &= P\{X \leq h(y)\} = F_X[h(y)]
+ \end{aligned}
 $$
-    \int_{-\infty}^{+\infty}e^{-x^2} dx =\sqrt \pi
-$$
+将$F_Y(y)$关于$y$求导数，即得$Y$的概率密度.
 
-实际上, 这个性质比较好的函数稍加改造便可得到一个非常重要的分布函数 --
-正态分布函数. 我们在后面会发现, 当样本总体是大量的随机变量求和的时候,
-分布将不可避免地趋向于正态分布.
+\begin{align}
+  f_Y(y) =
+  \begin{cases}
+      \displaystyle f_X[h(y)]h'(y),\,\,  &\alpha < y < \beta,\\
+      \displaystyle 0,\,\,  &\text{其他}.
+  \end{cases}
+\end{align}
+对于$g'(x)<0$的情况可以同样地证明，此时有
+\begin{align}
+  \begin{cases}
+      f_Y(y)=
+      \displaystyle f_X[h(y)][-h'(y)],\,\, &\alpha < y < \beta,\\
+      \displaystyle 0,\,\, &\text{其他}.
+  \end{cases}
+\end{align}
+合并(1)(2)式可证定理成立.
+\end{proof}
 
-\begin{definition}
-    如果随机变量$X$有以下概率密度
+那么, 在不单调的情况下, 我们应该怎么办呢? 实际上, 我们应该分类讨论, 一个一个的来看. 如下
+所示. 
+
+\begin{example}
+  设随机变量为 $X$ $\sim$ $N (0, 1)$,$Y = 2X^2+1$的概率密度函数.
+\end{example}
+
+\begin{solution}
+  当$y < 1$时,
+    \[ F_Y(y) = P\{Y \leq y \} = 0,f_Y(y) = 0\]
+
+    \quad 当$y \geq 1$时，
     \begin{align*}
-        f(x)=\frac1{\sqrt{2\pi}\cdot\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},
+    F_Y(y) & =  P\{Y \leq y\}=P\left\{2 X^2+1 \leq y\right\} \\
+    & =P\left\{-\sqrt{\frac{y-1}{2}} \leq X\right.  \left.\leq \sqrt{\frac{y-1}{2}}\right\}\\
+    &=\Phi\left(\sqrt{\frac{y-1}{2}}\right)-\Phi\left(-\sqrt{\frac{y-1}{2}}\right) \\
+    & =2 \Phi\left(\sqrt{\frac{y-1}{2}}\right)-1\\
+    f_Y(y) &= \frac{\mathrm{d}[2\Phi(\sqrt{\frac{y-1}{2}}) - 1]}{\mathrm{d}y} = \frac{1}{2\sqrt{\pi(y-1)}}e^{\frac{-(y-1)}{4}}
     \end{align*}
-    其中$\mu,\sigma$为常数且$\sigma>0$，则称$X$服从正态分布，简记为%(normal distribution)
-    \begin{align*}
-        X \sim N(\mu,\sigma^2).
-    \end{align*}
-    称$N(0,1)$为标准正态分布.
-\end{definition}
+\end{solution}
+
 
 
 \end{document}
+
 
