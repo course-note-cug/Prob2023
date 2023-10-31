@@ -15,7 +15,7 @@
 \end{definition}
 
 和概率分布函数一样, 具有如下的性质:
-    $$
+$$
     (1)\,f(x)\ge 0,\quad (2)\ \int_{-\infty}^{+\infty}f(x)dx=1.
 $$
 
@@ -36,14 +36,14 @@ $$
     \item $F(-\infty)=0$，$F(+\infty)=1$．
 \end{itemize}
 分别对应着: 概率不可能为负数; 所有的概率必须在0和1之间; 并且所有的可能性加起来必须等于1(整个$P(\Omega)$的).
-    \begin{takeaway}
-        我们可以考察每个小区间出现的概率. 
+\begin{takeaway}
+    我们可以考察每个小区间出现的概率.
 
-    概率密度函数 的积分是 概率分布函数, 概率分布函数求导得到概率密度函数. 
+    概率密度函数 的积分是 概率分布函数, 概率分布函数求导得到概率密度函数.
 
     不论是离散型的或非离散型的随机变量 $X$, 都可以借助分布函数$F(x)=P\{X \leqslant x\}, \quad-\infty<x<\infty$
-    来描述. 
-    \end{takeaway}
+    来描述.
+\end{takeaway}
 \subsection{常见的连续性随机变量}
 
 \paragraph{(一) 均匀分布}
@@ -132,31 +132,31 @@ $$
 
 带入数据, 我们发现标准正态分布的概率密度函数(PDF)为
 \begin{align*}
-\varphi(x)=\frac1{\sqrt{2\pi}}e^{-\frac{x^2}{2}},
+    \varphi(x)=\frac1{\sqrt{2\pi}}e^{-\frac{x^2}{2}},
 \end{align*}
-前面奇怪的系数是保证它在做积分的时候满足规范化的条件. 
+前面奇怪的系数是保证它在做积分的时候满足规范化的条件.
 
 在这个问题中, 其分布函数
-  \begin{align*}
-  \Phi(x)=\frac1{\sqrt{2\pi}}\int_{-\infty}^xe^{-\frac{t^2}{2}}dt.
-  \end{align*}
-是没有显式的积分结果的. 通常这个结果需要查表得到. 
+\begin{align*}
+    \Phi(x)=\frac1{\sqrt{2\pi}}\int_{-\infty}^xe^{-\frac{t^2}{2}}dt.
+\end{align*}
+是没有显式的积分结果的. 通常这个结果需要查表得到.
 
-如果发现一个分布不是标准正态分布, 可以用线性变换把它变成标准正态分布. 
+如果发现一个分布不是标准正态分布, 可以用线性变换把它变成标准正态分布.
 
 \begin{proposition}
-  随机变量$X\sim N(\mu,\sigma^2)$, 则 $Z=\frac{X-\mu}{\sigma}\sim N(0,1)$.
-  \end{proposition}
+    随机变量$X\sim N(\mu,\sigma^2)$, 则 $Z=\frac{X-\mu}{\sigma}\sim N(0,1)$.
+\end{proposition}
 
-  \begin{proof}
+\begin{proof}
     { $Z=\frac{X-\mu}{\sigma}$ 的分布函数为$$
- \begin{aligned}
- P\{Z \leqslant x\} & =P\left\{{(X-\mu)}/{\sigma} \leqslant x\right\}=P\{X \leqslant \mu+\sigma x\} \\
- & =\frac{1}{\sqrt{2 \pi} \sigma} \int_{-\infty}^{\mu+\alpha t} \mathrm{e}^{-\frac{(t-\mu)^2}{2 \sigma^2}} \mathrm{~d} t
-\end{aligned}
-$$
-做变量代换, 令 $\frac{t-\mu}{\sigma}:=u$, 得$$
-\small P\{Z \leqslant x\}=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x \mathrm{e}^{-u^2 / 2} \mathrm{~d} u=\Phi(x),
-$$
-由此知 $Z=\frac{X-\mu}{\sigma} \sim N(0,1)$.}
+            \begin{aligned}
+                P\{Z \leqslant x\} & =P\left\{{(X-\mu)}/{\sigma} \leqslant x\right\}=P\{X \leqslant \mu+\sigma x\}                                         \\
+                                   & =\frac{1}{\sqrt{2 \pi} \sigma} \int_{-\infty}^{\mu+\alpha t} \mathrm{e}^{-\frac{(t-\mu)^2}{2 \sigma^2}} \mathrm{~d} t
+            \end{aligned}
+        $$
+        做变量代换, 令 $\frac{t-\mu}{\sigma}:=u$, 得$$
+            \small P\{Z \leqslant x\}=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x \mathrm{e}^{-u^2 / 2} \mathrm{~d} u=\Phi(x),
+        $$
+        由此知 $Z=\frac{X-\mu}{\sigma} \sim N(0,1)$.}
 \end{proof}
