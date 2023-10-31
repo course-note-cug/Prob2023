@@ -118,6 +118,13 @@
   \end{tikzpicture}\par\medskip%
 }
 
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\color{gray}\ttfamily\small}
+\usepackage{setspace}
+\newcommand{\lec}[1]{\reversemarginpar\marginnote{{\textbf{#1}}}}
+\newcommand{\mn}[1]{\marginnote{{#1}}}
+
+
 \newcommand{\stirling}[2]{\left\{{#1 \atop #2}\right\}}
 \newcommand{\binomt}[2]{\left(\left({#1 \atop #2}\right)\right)}
 \newcommand{\pf}[4]{#1_{#2}^{#3_{#4}}}
