@@ -5,7 +5,7 @@
     \begin{align*}
         P(B|A):=\frac{P(AB)}{P(A)}
     \end{align*}
-    为在\textbf{事件$A$发生条件下，事件$B$的条件概率}．
+    为在\textbf{事件$A$发生条件下，事件$B$的条件概率}．(记作 $P(B \mid A)$ )
 \end{definition}
 
 比如, 在古典概率模型中，
@@ -15,6 +15,17 @@
 
 条件概率也是概率, 因此它也具有概率的性质:
 
+$$
+\begin{aligned}
+& \mathbf{P}(A \mid A)=1 \\
+& \mathbf{P}(\varnothing \mid A)=0 \\
+& \mathbf{P}(B \mid A)=1, \quad B \supseteq A \\
+& \mathbf{P}\left(B_1+B_2 \mid A\right)=\mathbf{P}\left(B_1 \mid A\right)+\mathbf{P}\left(B_2 \mid A\right), B_1,B_2\text{互斥}
+\end{aligned}
+$$
+
+更抽象的, 我们有
+
 \begin{proposition}
     设$P(A)>0$，则
     \begin{itemize}
@@ -22,8 +33,16 @@
         \item $P(\Omega|A)=1$；
         \item 若事件序列$\{B_n\}_{n\ge 1}$两两互斥，则
               $$P\left( \left. \bigcup_{n=1}^{\infty} B_n \right| A\right)=\sum_{n=1}^{\infty} P(B_n|A)$$
+              .
     \end{itemize}
 \end{proposition}
+
+由这些性质可见, 对于固定的事件 $A$, 在概率空间 $(\Omega \cap A, \mathscr{B} \cap A)$ 上的条件概率 $\mathbf{P}(\cdot \mid A)$, 以及在空间 $(\Omega, \mathscr{C})$ 上的概率 $\mathbf{P}(\cdot)$ 具有同样的性质, 其中
+$$
+\mathscr{A} \cap A=\{B \cap A: B \in \mathscr{B}\}
+$$
+
+\subsection*{全概率公式}
 
 由于条件概率, 我们有概率的乘法公式:
 
@@ -45,7 +64,9 @@
     \end{align*}
 \end{corollary}
 
-我们希望把样本空间分类讨论.
+
+
+另一个简单而重要的公式称做全概率公式, 是利用条件概率计算复合事件的基本工具. 我们首先希望对样本空间进行划分. 然后再进行求解:
 
 \begin{definition}
     设$\Omega$为某试验的样本空间，$A_1, A_2, \cdots, A_n$为一组事件．如果以下条件成立：
@@ -57,6 +78,7 @@
     %或称$A_1, A_2, \cdots, A_n$为一个完备事件组．
 \end{definition}
 
+
 有了这样的分类之后, 我们就可以给出全概率了.
 
 \begin{theorem}[全概率公式]
@@ -65,6 +87,24 @@
         P(B)=\sum_{i=1}^n P(A_i) P(B|A_i).
     \end{align*}
 \end{theorem}
+
+\begin{proof}
+    考虑基本事件空间 $\Omega$ 的某个分割 $\mathscr{D}=\left\{A_1, \cdots, A_n\right\}$, 且 $\mathbf{P}\left(A_i\right)>0(i=1$, $2, \cdots, n)$. (这样的分割又称做不相容事件的完全事件组.) 显然,
+$$
+B=B A_1+\cdots+B A_n,
+$$
+
+因此
+$$
+\mathbf{P}(B)=\sum_{i=1}^n \mathbf{P}\left(B A_i\right),
+$$
+
+其中
+$$
+\mathbf{P}\left(B A_i\right)=\mathbf{P}\left(B \mid A_i\right) \mathbf{P}\left(A_i\right)
+$$
+\end{proof}
+
 
 \begin{example}
     假设要对研究生论文抄袭现象进行社会调查，我们设计两个具有\textbf{相同答案}的问题：
@@ -88,7 +128,11 @@
     $$P(B|A)=\frac{3}{10}$$
 \end{solution}
 
-有时候我们希望``执果索因''.
+\subsection{Bayes公式}
+设事件 $A$ 和 $B$ 的概率大于 $0: \mathbf{P}(A)>0, \mathbf{P}(B)>0$, 利用乘法公式, 我们可以先看$B$而非$A$, 得到: 
+$$\mathbf{P}(A B)=\mathbf{P}(A \mid B) \mathbf{P}(B).$$
+
+和刚刚得到的$\mathbf{P}(A B)=\mathbf{P}(B \mid A) \mathbf{P}(A)$对比, 得到了$$\mathbf{P}(A \mid B)=\frac{\mathbf{P}(A) \mathbf{P}(B \mid A)}{\mathbf{P}(B)}.$$
 
 \begin{theorem}[Bayes定理]
     设$0<P(A)<1$，$P(B)>0$，则有
@@ -96,7 +140,7 @@
         =\frac{P(A)P(B|A)}{P(A)P(B|A)+P(\overline{A})P(B|\overline{A})}$$
 \end{theorem}
 
-同样的我们有推论:
+假如事件组 $A_1, \cdots, A_n$ 是 $\Omega$ 的一个分割,那么有
 
 \begin{corollary}
     如果$A_1, A_2, \cdots A_n$ 是样本空间的一个划分，且都有正概率，则对任意正概率的事件$B$有
@@ -104,3 +148,33 @@
         P(A_i|B)=\frac{P(A_i)P(B|A_i)}{P(A_1)P(B|A_1)+\cdots+P(A_n)P(B|A_n)}.%,\ i=1,\cdots,n
     \]
 \end{corollary}
+
+\begin{asidebox}
+    实际上, 在统计应用中, 事件 $A_1, \cdots, A_n$ 组成事件组 $\left(A_1+\cdots+A_n=\Omega\right)$, 常称做 “假设” 或 “假说”, 而 $\mathbf{P}\left(A_i\right)$ 称做假设 $A_i$ 的\emph{先验}概率 $\left.\right)$. 条件概率 $\mathbf{P}\left(A_i \mid B\right)$ 称做假设 $A_i$ 在事件 $B$ 出现后的\emph{后验}概率. 
+\end{asidebox}
+
+\begin{example}
+    假设匣中有两枚硬币: $A_1$ 是一对称的硬币, “正面” $\mathrm{Z}$ 出现的概率等于 $1 / 2$, 而 $A_2$ 是一枚不对称的硬币, “正面” $\mathrm{Z}$ 出现的概率等于 $1 / 3$. 随意选出一枚硬币并将其投掷, 结果掷出正面. 问抽到硬币为对称硬币的概率如何?
+\end{example}
+
+\begin{solution}
+    建立相应的概率模型. 这里自然取集合 $\Omega=\left\{A_1 \mathrm{Z}, A_1 \mathrm{~F}, A_2 \mathrm{Z}, A_2 \mathrm{~F}\right\}$, 可以描绘选取和投掷的结局, 其中 $A_1 \mathrm{Z}$ 表示 “选中硬币” $A_1$, 结果掷出正面 $\mathrm{Z}$, 等等, 而 $\mathrm{F}$ 表示硬币郑出反面. 根据条件, 所考虑结局的概率应该是:
+$$
+\mathbf{P}\left(A_1\right)=\mathbf{P}\left(A_2\right)=\frac{1}{2}
+$$
+
+和
+$$
+\mathbf{P}\left(\mathrm{Z} \mid A_1\right)=\frac{1}{2}, \quad \mathbf{P}\left(\mathrm{Z} \mid A_2\right)=\frac{1}{3} .
+$$
+
+这些条件唯一决定各结局的概率:
+$$
+\mathbf{P}\left(A_1 \mathrm{Z}\right)=\frac{1}{4}, \mathbf{P}\left(A_1 \mathrm{~F}\right)=\frac{1}{4}, \mathbf{P}\left(A_2 \mathrm{Z}\right)=\frac{1}{6}, \mathbf{P}\left(A_2 \mathrm{~F}\right)=\frac{1}{3}
+$$
+
+那么, 根据贝叶斯公式, 所求的概率为
+$$
+\mathbf{P}\left(A_1 \mid \mathrm{Z}\right)=\frac{\mathbf{P}\left(A_1\right) \mathbf{P}\left(\mathrm{Z} \mid A_1\right)}{\mathbf{P}\left(A_1\right) \mathbf{P}\left(\mathrm{Z} \mid A_1\right)+\mathbf{P}\left(A_2\right) \mathbf{P}\left(\mathrm{Z} \mid A_2\right)}=\frac{3}{5}
+$$
+\end{solution}

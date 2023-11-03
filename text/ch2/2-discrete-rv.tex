@@ -1,5 +1,5 @@
 \section{离散型随机变量的概率分布}
-
+当实验者遇到描绘某些记载或读数的随机变量时, 则他关心的基本问题是, 该随机变量取各个数值的概率如何. 由此我们给出概率分布的定义:
 \begin{definition}[概率分布]
     若离散型随机变量$X$的所有可能值为$\{x_k\}$，分别对应概率$\{p_k\}$，则称
     $$P\{X=x_k\}=p_k, \quad k=1,2,\cdots$$
@@ -151,3 +151,12 @@ Poisson分布的定义如下.
     $X\sim P(\lambda).$
 \end{definition}%
 Poisson分布常与单位时间（或单位面积、单位产品等）上的计数过程相联系.
+
+\begin{takeaway}
+    三个重要离散型随机变量的分布:
+    \begin{itemize}
+        \item 几何分布$$X\sim G(p): P\{X=k\}=p(1-p)^{k-1}, \quad k=1,2,3 \cdots$$
+        \item 二项分布$$X\sim b(k ; n): P\{X=p\}=\binom nk p^k(1-p)^{n-k}$$
+        \item Poisson分布: $$X\sim P(\lambda): P\{X=k\}=\frac{\lambda^k}{k !} e^{-\lambda}, \quad k=0,1, \cdots$$
+    \end{itemize}
+\end{takeaway}

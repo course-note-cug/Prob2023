@@ -11,7 +11,7 @@
 \usepackage[english]{babel}
 \usepackage{framed}
 \usepackage[dvipsnames]{xcolor}
-\usepackage{tcolorbox}
+\usepackage[skins,breakable]{tcolorbox}
 \usepackage{awesomebox}
 \usepackage{mathrsfs}  
 \usepackage{xcolor}
@@ -25,23 +25,23 @@
 
 \declaretheoremstyle[name=定理]{thmsty}
 \declaretheorem[style=thmsty,numberwithin=section]{theorem}
-\tcolorboxenvironment{theorem}{colback=LightGray}
+\tcolorboxenvironment{theorem}{colback=LightGray,breakable}
 
 \declaretheoremstyle[name=命题,]{prosty}
 \declaretheorem[style=prosty,numberlike=theorem]{proposition}
-\tcolorboxenvironment{proposition}{colback=LightOrange}
+\tcolorboxenvironment{proposition}{colback=LightOrange,breakable}
 
 \declaretheoremstyle[name=原则,]{prcpsty}
 \declaretheorem[style=prcpsty,numberlike=theorem]{principle}
-\tcolorboxenvironment{principle}{colback=LightGreen}
+\tcolorboxenvironment{principle}{colback=LightGreen,breakable}
 
 \declaretheoremstyle[name=定义,]{prcpsty}
 \declaretheorem[style=prcpsty,numberlike=theorem]{definition}
-\tcolorboxenvironment{definition}{colback=white}
+\tcolorboxenvironment{definition}{colback=white,breakable}
 
 \declaretheoremstyle[name=推论,]{prcpsty}
 \declaretheorem[style=prcpsty,numberlike=theorem]{corollary}
-\tcolorboxenvironment{corollary}{colback=white}
+\tcolorboxenvironment{corollary}{colback=white,breakable}
 
 \newtheorem{example}{例子}[section]
 
@@ -81,7 +81,8 @@
   colback=gray!10,
   colframe=gray!60,
   fonttitle=\bfseries,
-  title={Aside}
+  title={Aside},
+  breakable=true
 }
 
 \usepackage{enumitem}

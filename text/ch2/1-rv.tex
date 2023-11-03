@@ -26,3 +26,21 @@
 按照研究的顺序, 我们现在先研究离散型(只能取有限个或者可列个值), 然后使用微积分的技巧
 研究连续型(取得某一区间内的任何数值). 在这期间, 我们借助一些手段(如定义概率分布函数等)
 从而可以研究混合型(一部分连续, 一部分离散)的随机变量.
+
+\subsection{*独立的随机变量}
+
+仿照事件的独立性的定义, 我们给出随机变量的独立性的定义. 同样, 这表示他们不彼此依赖. 
+
+\begin{definition}
+    设$\xi_1, \cdots, \xi_r$ 在 $\mathbb{R}^1$是一组  中 (有限) 集合 $X$ 上取值的随机称随机变量 $\xi_1, \cdots, \xi_r$ 为 (全体) 独立的, 如果对于任意 $x_1, \cdots, x_r \in X$,
+$$
+\mathbf{P}\left\{\xi_1=x_1, \cdots, \xi_r=x_r\right\}=\mathbf{P}\left\{\xi_1=x_1\right\} \cdots \mathbf{P}\left\{\xi_r=x_r\right\}
+$$
+\end{definition}
+
+\begin{shaded}
+    记 $\mathscr{X}$ 是 $X$ 中所有子集的代数, 上述的内容可以等价的写成: 对于任意 $B_1, \cdots, B_r \in \mathscr{X}$,
+    $$
+    \mathbf{P}\left\{\xi_1 \in B_1, \cdots, \xi_r \in B_r\right\}=\mathbf{P}\left\{\xi_1 \in B_1\right\} \cdots \mathbf{P}\left\{\xi_r \in B_r\right\}
+    $$
+\end{shaded}
