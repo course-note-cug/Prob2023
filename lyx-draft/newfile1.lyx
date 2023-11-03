@@ -1,0 +1,290 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-article
+\begin_preamble
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+\DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+\end_preamble
+\options UTF8
+\use_default_options true
+\begin_modules
+theorems-std
+\end_modules
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package none
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+我们在了解了集合之后, 就可以做很多工作了.
+ 但是在概率中, 我们希望对我们整个样本空间中的某些子集进行研究(如给这些子集一个概率等).
+ 这就要求我们介绍集合类的概念.
+ 
+\end_layout
+
+\begin_layout Definition
+以
+\begin_inset Formula $\Omega$
+\end_inset
+
+为某些子集上面的元素的集合称为
+\begin_inset Formula $\Omega$
+\end_inset
+
+的
+\series bold
+集类
+\series default
+.
+ 如果没有特别说明, 总是假定集类是非空的.
+ 即至少含有一个元素(可以是空集).
+\end_layout
+
+\begin_layout Definition
+设
+\begin_inset Formula $\{A_{i},i\in I\}$
+\end_inset
+
+是一个集类, 其中
+\begin_inset Formula $I$
+\end_inset
+
+为
+\series bold
+指标集
+\series default
+.
+ 它可以用来给几类中的元素``编号''.
+ 我们定义集类中元素的交和并:
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\begin{align*}
+\bigcap_{i\in I}A_{i} & :=\{\omega:\omega\in A_{i},\text{对任意的}i\in I\}\\
+\bigcup_{i\in I}A_{i} & :=\{\omega:\omega\in A_{i},\text{对某一个}i\in I\}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+集合构成的类也有对应的交换律, 分配率, 结合律以及de Morgan律.
+ 我们在《离散数学》课程中已经证明了.
+ 集合虽然不能像实数那样比大小, 但是我们还是可以使用包含和被包含这样的偏序关系为其刻画``上升''或``下降''的感觉.
+ 
+\end_layout
+
+\begin_layout Definition
+设
+\begin_inset Formula $\{A_{n}:n\geq1\}$
+\end_inset
+
+为一集合序列, 若对于每一个
+\begin_inset Formula $n$
+\end_inset
+
+, 有
+\begin_inset Formula $A_{n}\subseteq A_{n+1}$
+\end_inset
+
+(或
+\begin_inset Formula $A_{n}\supseteq A_{n+1}$
+\end_inset
+
+), 则称集合
+\series bold
+单调增(单调降)
+\series default
+.
+ 二者统称为
+\series bold
+单调列
+\series default
+.
+ 对单调增(或单调降)的序列
+\begin_inset Formula $(A_{n})$
+\end_inset
+
+, 我们分别定义
+\series bold
+集合列
+\begin_inset Formula $(A_{n})$
+\end_inset
+
+的极限
+\begin_inset Formula $A$
+\end_inset
+
+
+\series default
+为
+\begin_inset Formula $A:=\cup_{n}A_{n}$
+\end_inset
+
+(或
+\begin_inset Formula $A:=\cap_{n}A_{n}$
+\end_inset
+
+).
+ 通常记作
+\begin_inset Formula $A_{n}\uparrow A$
+\end_inset
+
+(或
+\begin_inset Formula $A_{n}\downarrow A$
+\end_inset
+
+).
+ 对于任意一个集列
+\begin_inset Formula $(A_{n}),$
+\end_inset
+
+令
+\begin_inset Formula 
+\[
+\limsup_{n\to\infty}A_{n}=\bigcap_{n=1}^{\infty}\bigcup_{k=n}^{\infty}A_{k}\quad\liminf A_{n}=\bigcup_{n=1}^{\infty}\bigcap_{k=n}^{\infty}A_{k}
+\]
+
+\end_inset
+
+ 为
+\begin_inset Formula $(A_{n})$
+\end_inset
+
+的
+\series bold
+上极限
+\series default
+和
+\series bold
+下极限
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+设
+\begin_inset Formula $\{A_{n},n\geq1\}$
+\end_inset
+
+为一集列, 若
+\begin_inset Formula $(A_{n})$
+\end_inset
+
+两两不相交(
+\begin_inset Formula $n\neq m\implies A_{n}\cap A_{m}=\emptyset$
+\end_inset
+
+),常用
+\begin_inset Formula $\sum_{n}A_{n}$
+\end_inset
+
+表示
+\begin_inset Formula $\cup_{n}A_{n}$
+\end_inset
+
+.
+ 若有
+\begin_inset Formula $\sum_{n}A_{n}=\Omega,$
+\end_inset
+
+则称
+\begin_inset Formula $\{A_{n}:n\geq1\}$
+\end_inset
+
+为
+\begin_inset Formula $\Omega$
+\end_inset
+
+的一个
+\series bold
+划分
+\series default
+.
+ 
+\end_layout
+
+\end_body
+\end_document

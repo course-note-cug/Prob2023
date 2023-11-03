@@ -1,0 +1,151 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-article
+\begin_preamble
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+\DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+\end_preamble
+\options UTF8
+\use_default_options true
+\begin_modules
+theorems-std
+\end_modules
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package none
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+我们在了解了集合之后, 就可以做很多工作了.
+ 但是在概率中, 我们希望对我们整个样本空间中的某些子集进行研究(如给这些子集一个概率等).
+ 这就要求我们介绍集合类的概念.
+ 
+\end_layout
+
+\begin_layout Definition
+以
+\begin_inset Formula $\Omega$
+\end_inset
+
+为某些子集上面的元素的集合称为
+\begin_inset Formula $\Omega$
+\end_inset
+
+的
+\series bold
+集类
+\series default
+.
+ 如果没有特别说明, 总是假定集类是非空的.
+ 即至少含有一个元素(可以是空集).
+\end_layout
+
+\begin_layout Definition
+设
+\begin_inset Formula $\{A_{i},i\in I\}$
+\end_inset
+
+是一个集类, 其中
+\begin_inset Formula $I$
+\end_inset
+
+为
+\series bold
+指标集
+\series default
+.
+ 它可以用来给几类中的元素``编号''.
+ 我们定义集类中元素的交和并:
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\begin{align*}
+\bigcap_{i\in I}A_{i} & =\{\omega:\omega\in A_{i},\text{对任意的}i\in I\}\\
+\bigcup_{i\in I}A_{i} & =\{\omega:\omega\in A_{i},\text{对某一个}i\in I\}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+集合构成的类也有对应的交换律, 分配率, 结合律以及de Morgan律.
+ 我们在《离散数学》课程中已经证明了.
+ 
+\end_layout
+
+\end_body
+\end_document

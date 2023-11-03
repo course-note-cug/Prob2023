@@ -13,6 +13,9 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tcolorbox}
 \usepackage{awesomebox}
+\usepackage{mathrsfs}  
+\usepackage{xcolor}
+\colorlet{shadecolor}{blue!10}
 
 \colorlet{LightGray}{White!90!Periwinkle}
 \colorlet{LightOrange}{Orange!15}
@@ -20,7 +23,7 @@
 
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
 
-\declaretheoremstyle[name=定理,]{thmsty}
+\declaretheoremstyle[name=定理]{thmsty}
 \declaretheorem[style=thmsty,numberwithin=section]{theorem}
 \tcolorboxenvironment{theorem}{colback=LightGray}
 

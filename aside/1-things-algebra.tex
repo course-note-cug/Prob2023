@@ -1,0 +1,33 @@
+% !TEX root = main.tex
+
+\subsection*{多知道一点: 更多集合化的描述}
+
+\paragraph{事件代数}
+
+在离散数学中, 我们知道``代数'':
+\begin{itemize}
+    \item [1)] $\Omega \in \mathscr{A}$,
+    \item    [2)] 若 $A \in \mathscr{A}, B \in \mathscr{A}$, 则集合 $A \cup B, A \cap B, A \backslash B$ 也都属于 $\mathscr{A}$.
+    
+\end{itemize}
+考虑集合 $A \subseteq \Omega$ 的某个集合 $\mathscr{C}_0$, 则利用集合运算 $\cup, \cap$ 与 $\backslash$ 可以由 $\mathscr{A}_0$ 构造新集系, 其中元素也是事件. 给这些事件补充上必然事件 $\Omega$ 和不可能事件 $\varnothing$, 得集系 $\mathscr{A}$, 则 $\mathscr{A}$ 是代数. 
+
+由以上的叙述, 可见作为事件系最好考虑本身是代数的集系. 以后, 我们正是考虑这样的集系.
+
+\begin{example}
+    1) $\mathscr{A}=\{\Omega, \varnothing\}$ 一 集系由 $\Omega$ 和空集 $\varnothing$ 构成, 称做平凡代数; 
+    
+    2) $\mathscr{A}=\{A, \bar{A}, \Omega, \varnothing\}$ 事件 $A$ 产生的集系;
+
+    3) $\mathscr{A}=\{A: A \subseteq \Omega\}-\Omega$ 全部子集的集系 (包括空集 $\varnothing$ ).
+\end{example}
+
+\paragraph{分割} 我们称集合系
+$$
+\mathscr{D}=\left\{D_1, \cdots, D_n\right\}
+$$
+
+构成集合 $\Omega$ 的一个分割, 而 $D_1, \cdots, D_n$ 是该分割的原子, 如果 $D_1, \cdots, D_n$ 非空且两两不相容, 而它们的和等于 $\Omega$ :
+$$
+D_1+\cdots+D_n=\Omega .
+$$
