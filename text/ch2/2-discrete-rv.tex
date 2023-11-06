@@ -1,7 +1,7 @@
 \section{离散型随机变量的概率分布}
 当实验者遇到描绘某些记载或读数的随机变量时, 则他关心的基本问题是, 该随机变量取各个数值的概率如何. 由此我们给出概率分布的定义:
 \begin{definition}[概率分布]
-    若离散型随机变量$X$的所有可能值为$\{x_k\}$，分别对应概率$\{p_k\}$，则称
+    若离散型随机变量$X$的所有可能值为$\{x_k\}$, 分别对应概率$\{p_k\}$, 则称
     $$P\{X=x_k\}=p_k, \quad k=1,2,\cdots$$
     为$X$的概率分布(分布律).
 \end{definition}
@@ -51,7 +51,7 @@ $\lim_{x\to a^+}f(x)=f(a)$.
 \paragraph{(一) 0-1分布(两点分布)}
 
 \begin{example}
-    $100$件产品中，有$98$件是正品，$2$件是次品，今从中随机地抽取一件，若规定
+    $100$件产品中, 有$98$件是正品, $2$件是次品, 今从中随机地抽取一件, 若规定
     \[X=\left\{ \begin{array}{ll} 1, & \text{取到正品；} \\
              0,      & \text{取到次品；}\end{array} \right.\]
     则随机变量$X$的概率分布表为
@@ -66,7 +66,7 @@ $\lim_{x\to a^+}f(x)=f(a)$.
     $\begin{array}{|c||c|c|}\hline
             X & 0   & 1 \\ \hline
             P & 1-p & p \\ \hline
-        \end{array}$，
+        \end{array}$, 
     则称$X$服从参数为$p$的两点分布（或 0-1分布）．记为$$X\sim B(1,p)$$
 \end{definition}
 
@@ -79,7 +79,7 @@ $\lim_{x\to a^+}f(x)=f(a)$.
 \begin{definition}
     若随机变量$X$的概率分布为
     \[P\{X=k\}=p(1-p)^{k-1},\quad k=1,2,3\cdots,\]
-    则称$X$服从参数为$p$的几何分布，记为$X\sim G(p)$．
+    则称$X$服从参数为$p$的几何分布, 记为$X\sim G(p)$．
 \end{definition}
 
 几何分布是接下来的例子要说的二项分布, 当次数恰好等于1时的特例.
@@ -87,7 +87,7 @@ $\lim_{x\to a^+}f(x)=f(a)$.
 \paragraph{(二) 二项分布}
 
 \begin{example}
-    若某射手每次射击命中的概率均为$p$，现进行$n$次独立射击，求恰有$k$次命中的概率．
+    若某射手每次射击命中的概率均为$p$, 现进行$n$次独立射击, 求恰有$k$次命中的概率．
 \end{example}
 % 需要 pifont 包
 \def\1{\ding{51}} % 勾
@@ -118,13 +118,13 @@ $$}
 我们发现, 上面的问题就是$k$重Bernoulli实验恰好成功$k$次的概率. 根据计数的技巧, 我们发上发现:
 
 \begin{theorem}[Bernoulli定理]
-    设一次试验中事件$A$发生的概率为$p(0<p<1)$，则$n$重Bernoulli试验中，事件$A$恰好发生$k(0\le k\le n)$ 次的概率为
+    设一次试验中事件$A$发生的概率为$p(0<p<1)$, 则$n$重Bernoulli试验中, 事件$A$恰好发生$k(0\le k\le n)$ 次的概率为
     \begin{align*}
         b(k;n,p)={n\choose k} p^k (1-p)^{n-k}.
     \end{align*}
 \end{theorem}
 
-对二项分布$B(n,p)$，当$n$充分大、$p$很小时，(但是保证$np_n=\lambda$不变)形成的函数曲线是什么?
+对二项分布$B(n,p)$, 当$n$充分大、$p$很小时, (但是保证$np_n=\lambda$不变)形成的函数曲线是什么?
 \begin{align*}
                    & {n \choose k}p_n^k(1-p_n)^{n-k}                                                                                                                                                    \\
     ={}            & \frac{n(n-1)\cdots (n-k+1)}{k!}(\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^{n-k}                                                                                                    \\
@@ -134,7 +134,7 @@ $$}
 
 因此我们发现, 当$n\to\infty$的时候, 有
 \begin{theorem}
-    设$\lambda>0$为一个常数，$n$为任意正整数，且$np_n=\lambda$，则对任意一个\textcolor{blue}{固定的}非负整数$k$，
+    设$\lambda>0$为一个常数, $n$为任意正整数, 且$np_n=\lambda$, 则对任意一个\textcolor{blue}{固定的}非负整数$k$, 
     $$
         \lim_{n\rightarrow \infty}{n\choose k}p_n^k(1-p_n)^{n-k}=\frac{\lambda^k}{k!}e^{-\lambda}.
     $$
@@ -147,7 +147,7 @@ Poisson分布的定义如下.
 \begin{definition}[Poisson分布]
     如果随机变量$X$服从以下分布律
     \[ P\{X=k\}=\frac{\lambda^k}{k!}e^{-\lambda},\quad k=0,1,\cdots \]
-    其中$\lambda>0$，则称$X$服从参数为$\lambda$的Poisson分布，记为
+    其中$\lambda>0$, 则称$X$服从参数为$\lambda$的Poisson分布, 记为
     $X\sim P(\lambda).$
 \end{definition}%
 Poisson分布常与单位时间（或单位面积、单位产品等）上的计数过程相联系.

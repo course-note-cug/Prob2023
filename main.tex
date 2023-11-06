@@ -36,6 +36,31 @@
 \input{text/ch3/3-dependent.tex}
 \input{text/ch3/4-rv-func.tex}
 
+\part{随机变量的数字特征}
+
+\section{数学期望}
+
+有这样的一个游戏: 花2元并投掷一颗均匀的骰子. 如果事件A = \{1, 2, 3\} 发生, 收到1元. 如果事件B = \{4, 5\} 发生, 收到2元. 如果事件C = \{6\} 发生, 收到6元. 你会参加这个游戏吗?
+
+\begin{webaside}
+    实际上, 真理元素的频道主实际上真的在路边做了这个实验. 可以参看他们的视频: \href{https://www.bilibili.com/video/BV1Xx411b7rM}{Bilibili: BV1Xx411b7rM}
+\end{webaside}
+
+可能我们的第一考虑是看看``平均''能得多少. 这样的随机变量$X$, \[
+    X =
+    \begin{cases}
+    1 & \text{如果事件 A 发生} \\
+    2 & \text{如果事件 B 发生} \\
+    6 & \text{如果事件 C 发生}
+    \end{cases}
+    \]
+    
+    事件A、B、C的概率分别是：
+    \[P(A) = \frac{3}{6}, \quad P(B) = \frac{2}{6}, \quad P(C) = \frac{1}{6}\]
+    
+    想法: 求平均值$1 \cdot P(A) + 2 \cdot P(B) + 6 \cdot P(C)= \frac{13}{6}$
+
+
 
 
 \end{document}

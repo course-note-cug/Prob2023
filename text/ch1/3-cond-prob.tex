@@ -1,14 +1,14 @@
 \section{条件概率}
 
 \begin{definition}
-    设$P(A)>0$，称
+    设$P(A)>0$, 称
     \begin{align*}
         P(B|A):=\frac{P(AB)}{P(A)}
     \end{align*}
-    为在\textbf{事件$A$发生条件下，事件$B$的条件概率}．(记作 $P(B \mid A)$ )
+    为在\textbf{事件$A$发生条件下, 事件$B$的条件概率}．(记作 $P(B \mid A)$ )
 \end{definition}
 
-比如, 在古典概率模型中，
+比如, 在古典概率模型中, 
 \begin{align*}
     P(B|A)=\frac{\mbox{事件$AB$包含的样本点数}}{\mbox{事件$A$包含的样本点数}}=\frac{n(AB)}{n(A)}.
 \end{align*}
@@ -27,11 +27,11 @@ $$
 更抽象的, 我们有
 
 \begin{proposition}
-    设$P(A)>0$，则
+    设$P(A)>0$, 则
     \begin{itemize}
-        \item 对任意事件$B$，均有$P(B|A)\ge 0$；
+        \item 对任意事件$B$, 均有$P(B|A)\ge 0$；
         \item $P(\Omega|A)=1$；
-        \item 若事件序列$\{B_n\}_{n\ge 1}$两两互斥，则
+        \item 若事件序列$\{B_n\}_{n\ge 1}$两两互斥, 则
               $$P\left( \left. \bigcup_{n=1}^{\infty} B_n \right| A\right)=\sum_{n=1}^{\infty} P(B_n|A)$$
               .
     \end{itemize}
@@ -47,17 +47,17 @@ $$
 由于条件概率, 我们有概率的乘法公式:
 
 \begin{theorem}[乘法公式]
-    由条件概率的定义，得到
+    由条件概率的定义, 得到
     \begin{itemize}
-        \item 如果$P(A)>0$，则有$P(AB)=P(A)P(B|A)$．
-        \item 如果$P(B)>0$，则有$P(AB)=P(B)P(A|B)$．
+        \item 如果$P(A)>0$, 则有$P(AB)=P(A)P(B|A)$．
+        \item 如果$P(B)>0$, 则有$P(AB)=P(B)P(A|B)$．
     \end{itemize}
 \end{theorem}
 
 我们同样可以把这个性质推广到$n$个物品的时候.
 
 \begin{corollary}
-    如果$P(A_1 A_2\cdots A_{n-1})>0$，则有\textbf{乘法公式}
+    如果$P(A_1 A_2\cdots A_{n-1})>0$, 则有\textbf{乘法公式}
     \begin{align*}
           & P(A_1A_2\cdots A_n)                                                \\
         = & P(A_1)P(A_2|A_1)P(A_3|A_1 A_2)\cdots P(A_n|A_1 A_2\cdots A_{n-1}).
@@ -69,10 +69,10 @@ $$
 另一个简单而重要的公式称做全概率公式, 是利用条件概率计算复合事件的基本工具. 我们首先希望对样本空间进行划分. 然后再进行求解:
 
 \begin{definition}
-    设$\Omega$为某试验的样本空间，$A_1, A_2, \cdots, A_n$为一组事件．如果以下条件成立：
+    设$\Omega$为某试验的样本空间, $A_1, A_2, \cdots, A_n$为一组事件．如果以下条件成立：
     \begin{itemize}
-        \item $A_1, A_2, \cdots, A_n$两两互斥，
-        \item $A_1 \cup A_2 \cup \cdots \cup A_n=\Omega$，
+        \item $A_1, A_2, \cdots, A_n$两两互斥, 
+        \item $A_1 \cup A_2 \cup \cdots \cup A_n=\Omega$, 
     \end{itemize}
     则称$A_1, A_2, \cdots , A_n$为样本空间$\Omega$的一个\textbf{划分}．
     %或称$A_1, A_2, \cdots, A_n$为一个完备事件组．
@@ -82,7 +82,7 @@ $$
 有了这样的分类之后, 我们就可以给出全概率了.
 
 \begin{theorem}[全概率公式]
-    如果$A_1, A_2, \cdots, A_n$ 是样本空间的划分，且都有正概率，则对任意事件$B$有
+    如果$A_1, A_2, \cdots, A_n$ 是样本空间的划分, 且都有正概率, 则对任意事件$B$有
     \begin{align*}
         P(B)=\sum_{i=1}^n P(A_i) P(B|A_i).
     \end{align*}
@@ -107,22 +107,22 @@ $$
 
 
 \begin{example}
-    假设要对研究生论文抄袭现象进行社会调查，我们设计两个具有\textbf{相同答案}的问题：
+    假设要对研究生论文抄袭现象进行社会调查, 我们设计两个具有\textbf{相同答案}的问题：
     \begin{itemize}
         \item 你的生日是否在7月1日以前？
         \item 你做论文时是否有过抄袭行为？
     \end{itemize}
-    同时提供给受访者一个放有等量红球和白球的袋子，
+    同时提供给受访者一个放有等量红球和白球的袋子, 
     受访者在不被观察的情况下从袋子中随机取一个球观察颜色后放回．
-    如果是红球回答第一个问题，白球回答第二个问题．
+    如果是红球回答第一个问题, 白球回答第二个问题．
 
-    假定受访者有150人，统计出共有60个回答“是”．问：有抄袭行为的比率是多少？
+    假定受访者有150人, 统计出共有60个回答“是”．问：有抄袭行为的比率是多少？
 \end{example}
 
 \begin{solution}
-    事件$A$表示抽到白球，事件$B$表示回答是，则有
+    事件$A$表示抽到白球, 事件$B$表示回答是, 则有
     $$P(B)=P(A)P(B|A)+P(\overline{A})P(B|\overline{A}).$$
-    代入已知的概率，得到
+    代入已知的概率, 得到
     $$\frac{60}{150}=\frac12\cdot P(B|A)+\frac12\cdot\frac12 $$
     求得
     $$P(B|A)=\frac{3}{10}$$
@@ -135,7 +135,7 @@ $$\mathbf{P}(A B)=\mathbf{P}(A \mid B) \mathbf{P}(B).$$
 和刚刚得到的$\mathbf{P}(A B)=\mathbf{P}(B \mid A) \mathbf{P}(A)$对比, 得到了$$\mathbf{P}(A \mid B)=\frac{\mathbf{P}(A) \mathbf{P}(B \mid A)}{\mathbf{P}(B)}.$$
 
 \begin{theorem}[Bayes定理]
-    设$0<P(A)<1$，$P(B)>0$，则有
+    设$0<P(A)<1$, $P(B)>0$, 则有
     $$P(A|B)=\frac{P(AB)}{P(B)}
         =\frac{P(A)P(B|A)}{P(A)P(B|A)+P(\overline{A})P(B|\overline{A})}$$
 \end{theorem}
@@ -143,7 +143,7 @@ $$\mathbf{P}(A B)=\mathbf{P}(A \mid B) \mathbf{P}(B).$$
 假如事件组 $A_1, \cdots, A_n$ 是 $\Omega$ 的一个分割,那么有
 
 \begin{corollary}
-    如果$A_1, A_2, \cdots A_n$ 是样本空间的一个划分，且都有正概率，则对任意正概率的事件$B$有
+    如果$A_1, A_2, \cdots A_n$ 是样本空间的一个划分, 且都有正概率, 则对任意正概率的事件$B$有
     \[
         P(A_i|B)=\frac{P(A_i)P(B|A_i)}{P(A_1)P(B|A_1)+\cdots+P(A_n)P(B|A_n)}.%,\ i=1,\cdots,n
     \]
@@ -152,6 +152,10 @@ $$\mathbf{P}(A B)=\mathbf{P}(A \mid B) \mathbf{P}(B).$$
 \begin{asidebox}
     实际上, 在统计应用中, 事件 $A_1, \cdots, A_n$ 组成事件组 $\left(A_1+\cdots+A_n=\Omega\right)$, 常称做 “假设” 或 “假说”, 而 $\mathbf{P}\left(A_i\right)$ 称做假设 $A_i$ 的\emph{先验}概率 $\left.\right)$. 条件概率 $\mathbf{P}\left(A_i \mid B\right)$ 称做假设 $A_i$ 在事件 $B$ 出现后的\emph{后验}概率. 
 \end{asidebox}
+
+\begin{webaside}
+    著名的科普视频频道主3Blue1Brown曾经对Bayes定律进行了可视化. 可以参考\href{https://www.bilibili.com/video/BV1R7411a76r}{Bilibili: BV1R7411a76r}.
+\end{webaside}
 
 \begin{example}
     假设匣中有两枚硬币: $A_1$ 是一对称的硬币, “正面” $\mathrm{Z}$ 出现的概率等于 $1 / 2$, 而 $A_2$ 是一枚不对称的硬币, “正面” $\mathrm{Z}$ 出现的概率等于 $1 / 3$. 随意选出一枚硬币并将其投掷, 结果掷出正面. 问抽到硬币为对称硬币的概率如何?

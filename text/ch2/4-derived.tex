@@ -60,7 +60,7 @@ $$
   \quad 当$y > 0$时,
   \[F_Y(y) = P\{Y \leq y\} = P\{ e^{X} \leq y\} = P\{X \leq \ln^{y}\}= F_X(\ln^{y})\]
   
-  \quad 对两端对$x$求导，得到
+  \quad 对两端对$x$求导, 得到
   \[f_Y(y) = f_X(\ln^{y})(\ln^{y})' = \frac{1}{y}\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(\ln^y)^2}\]
 
 \end{solution}
@@ -68,7 +68,7 @@ $$
 我们发现在这种情形下, 有我们可以用如下的步骤清楚地表述我们所做的事情: 
 
 \begin{theorem}[两个随机变量的联系(关系是严格单调函数)]
-  设随机变量X具有概率密度$f_X(x),-\infty < x < \infty$,又设函数g(x)处处可导且恒有$g'(x)>0$(或恒有$g'(x)<0$),则$Y = g(X)$是连续型随机变量，其概率密度为
+  设随机变量X具有概率密度$f_X(x),-\infty < x < \infty$,又设函数g(x)处处可导且恒有$g'(x)>0$(或恒有$g'(x)<0$),则$Y = g(X)$是连续型随机变量, 其概率密度为
   \begin{equation*}
       f_Y(y)=
       \begin{cases}
@@ -80,20 +80,20 @@ $$
 \end{theorem}
 
 \begin{proof}
-  我们只证$g'(x)>0$的情况，此时$g(x)$在$(-\infty,\infty)$内严格单调增加，它的反函数$h(y)$存在，且在$(\alpha,\beta)$内严格单调增加、可导.
+  我们只证$g'(x)>0$的情况, 此时$g(x)$在$(-\infty,\infty)$内严格单调增加, 它的反函数$h(y)$存在, 且在$(\alpha,\beta)$内严格单调增加、可导.
     
 分别记X,Y的分布函数为$F_X(x),F_Y(y)$.现在先来求$Y$的分布函数$F_Y(y)$.
  
-因为$Y = g(X)$在$(\alpha,\beta)$内取值，故当$y \leq \alpha$时，$F_Y(y) = P\{Y \leq y\} = 0$;当$y \geq \beta$时，$F_Y(y) = P\{Y \leq y\} = 1$.
+因为$Y = g(X)$在$(\alpha,\beta)$内取值, 故当$y \leq \alpha$时, $F_Y(y) = P\{Y \leq y\} = 0$;当$y \geq \beta$时, $F_Y(y) = P\{Y \leq y\} = 1$.
  
- 当$\alpha < y < \beta$时，
+ 当$\alpha < y < \beta$时, 
  $$
  \begin{aligned}
      \small F_Y(y) &= P\{Y \leq y\} = P\{g(X) \leq y\}\\
      \small &= P\{X \leq h(y)\} = F_X[h(y)]
  \end{aligned}
 $$
-将$F_Y(y)$关于$y$求导数，即得$Y$的概率密度.
+将$F_Y(y)$关于$y$求导数, 即得$Y$的概率密度.
 
 \begin{align}
   f_Y(y) =
@@ -102,7 +102,7 @@ $$
       \displaystyle 0,\,\,  &\text{其他}.
   \end{cases}
 \end{align}
-对于$g'(x)<0$的情况可以同样地证明，此时有
+对于$g'(x)<0$的情况可以同样地证明, 此时有
 \begin{align}
   \begin{cases}
       f_Y(y)=
@@ -124,7 +124,7 @@ $$
   当$y < 1$时,
     \[ F_Y(y) = P\{Y \leq y \} = 0,f_Y(y) = 0\]
 
-    \quad 当$y \geq 1$时，
+    \quad 当$y \geq 1$时, 
     \begin{align*}
     F_Y(y) & =  P\{Y \leq y\}=P\left\{2 X^2+1 \leq y\right\} \\
     & =P\left\{-\sqrt{\frac{y-1}{2}} \leq X\right.  \left.\leq \sqrt{\frac{y-1}{2}}\right\}\\
