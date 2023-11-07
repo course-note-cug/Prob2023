@@ -133,6 +133,8 @@
 \usepackage{marginnote}
 \renewcommand*{\marginfont}{\color{gray}\ttfamily\small}
 \usepackage{setspace}
+\newcounter{paranum}[section]
+\newcommand{\Par}[1]{\vspace{10pt}\noindent\textbf{\refstepcounter{paranum}\theparanum. }\textbf{#1}~~}
 \newcommand{\lec}[1]{\reversemarginpar\marginnote{{\textbf{#1}}}}
 \newcommand{\mn}[1]{\marginnote{{#1}}}
 

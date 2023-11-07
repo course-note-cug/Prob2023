@@ -1,0 +1,35 @@
+\section{某些经典的模型分布}
+
+\Par{二项分布}
+ 假设将一枚硬币接连郑 $n$ 次, 观测结果用有序数组 $\left(a_1, \cdots, a_n\right)$表示, 其中, 当第 $i$ 次郑出现正面时 $a_i=1$, 当第 $i$ 次掷出现反面时 $a_i=0$. 基本事件空间具有如下形式:
+$$
+\Omega=\left\{\omega: \omega=\left(a_1, \cdots, a_n\right), a_i=0 \text { 或 } 1\right\} .
+$$
+
+$$
+\Omega=\left\{\omega: \omega=\left(a_1, \cdots, a_n\right), a_i=0 \text { 或 } 1\right\} .
+$$
+
+赋予每一个基本事件 $\omega=\left(a_1, \cdots, a_n\right)$ 概率 (权重)
+$$
+p(\omega)=p^{\sum a_i} q^{n-\sum a_i},
+$$
+其中 $p$ 和 $q$ 非负且 $p+q=1$. 首先证明, 这样定义概率 (权重) $p(\omega)$ 是合理的. 为此,只需验证
+$$
+\sum_{\omega \in \Omega} p(\omega)=1
+$$
+
+考虑所有满足
+$$
+\sum_i a_i=k, \quad(k=0,1, \cdots, n)
+$$
+
+的基本事件 $\omega=\left(a_1, \cdots, a_n\right)$. 根据表 $1-4$ ( $k$ 个不可辨的 “ 1 ” 分配到 $n$ 个位置上),这样的基本事件个数等于 $\mathrm{C}_n^k$. 因此
+$$
+\sum_{\omega \in \Omega} p(\omega)=\sum_{k=0}^n \mathrm{C}_n^k p^k q^{n-k}=(p+q)^n=1 .
+$$
+
+设 $\mathscr{b}$ 是空间 $\Omega$ 的一切子集的代数, 在 $\mathscr{b}$ 上定义了概率:
+$$
+\mathbf{P}(A)=\sum_{\omega \in A} p(\omega), \quad A \in \mathscr{A}
+$$
