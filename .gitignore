@@ -4,6 +4,5 @@
 *.fdb_latexmk
 *.synctex*
 *.out
-*.pdf
 *.toc
 *.DS_Store
