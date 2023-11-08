@@ -15,6 +15,8 @@
 \usepackage{awesomebox}
 \usepackage{mathrsfs}  
 \usepackage{xcolor}
+\usepackage{wrapfig}
+
 \colorlet{shadecolor}{blue!10}
 
 \colorlet{LightGray}{White!90!Periwinkle}
@@ -45,6 +47,23 @@
 
 \newtheorem{example}{例子}[section]
 
+\usepackage{xsim}
+\DeclareExerciseEnvironmentTemplate{custom}{%
+  \begin{tcolorbox}[boxrule = 0pt]
+  \tcbox[on line,colback=teal,colframe=teal,coltext=white,size=small]{%
+    \faToggleOn\sffamily\bfseries\
+    \XSIMmixedcase{\GetExerciseName}
+    \GetExerciseProperty{counter}%
+  }\quad
+}{\hfill\textbf{$\#$}\end{tcolorbox}}
+
+\xsimsetup{
+  exercise/within = section,
+  exercise/template = custom ,
+  exercise/name = 练习
+}
+
+
 \newenvironment{remark}{%
   \par\medskip
   \noindent
@@ -53,7 +72,7 @@
   \par\medskip
 }
 
-\newenvironment{solution}{%
+\renewenvironment{solution}{%
   \par\medskip
   \noindent
   \textbf{解答:}

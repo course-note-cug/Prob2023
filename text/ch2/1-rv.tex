@@ -28,7 +28,44 @@
 研究连续型(取得某一区间内的任何数值). 在这期间, 我们借助一些手段(如定义概率分布函数等)
 从而可以研究混合型(一部分连续, 一部分离散)的随机变量.
 
-\subsection{*独立的随机变量}
+下面我们继续就着集合说一说随机变量的初步想法. 
+
+我们接下来考虑在有限个试验结局的情形. 设 $(\Omega, \mathscr{A}, \mathbf{P})$ 是某具有有限个结局试验的概率模型, $N(\Omega)$ 是 $\Omega$ 中基本事件的个数, 而 $\mathscr{B}$ 是 $\Omega$ 中所有子集的代数. 
+
+比如, 掷硬币. 
+
+\begin{example}
+    a) 对于接连两次掷硬币模型, 其基本事件空间为 $\Omega=\{\mathrm{ZZ}, \mathrm{ZF}, \mathrm{FZ}, \mathrm{FF}\}$, 其中 $\mathrm{Z}$ 为 正面, $\mathrm{F}$ 为 反面. 我们利用下面的表格定义随机变量 $X=X(\omega)$ 其中$\xi(\omega)$ 是对应于 $\omega$ 的 “正面” 出现的次数:
+    \begin{tabular}{c|c|c|c|c}
+        \hline$\omega$ & $\mathrm{ZZ}$ & $\mathrm{ZF}$ & $\mathrm{FZ}$ & $\mathrm{FF}$ \\
+        \hline$\xi(\omega)$ & 2 & 1 & 1 & 0 \\
+        \hline
+        \end{tabular}
+
+        b) 随机变量 $\xi$ 的另一简单的例子是某集合 $A \in \mathscr{A}$ 的示性函数 (亦称特征函数):
+        $$
+        \xi=I_A(\omega)
+        $$其中, $$
+        I_A(\omega)= \begin{cases}1, & \omega \in A \\ 0, & \omega \notin A\end{cases}
+        $$
+\end{example}
+
+当实验者遇到描绘某些记载或读数的随机变量时, 则他关心的基本问题是, 该随机
+变量取各个数值的概率如何. 换句话说, 他关心的不是概率 $\mathbf{P}$ 在 $(\Omega, \mathscr{A})$ 上的分布, 而是概率在随机变量之可能值的集合上的分布. 对于我们现在研究的情形, $\Omega$由有限个点构成, 则随机变量 $\xi$ 的值域 $X$ 也是有限的.
+
+设 $X=\left\{x_1, \cdots, x_m\right\}$, 其中$x_1, \cdots, x_m$ 是 $\xi$ 的全部可能值.
+
+记 $\mathscr{X}$ 为值域 $X$ 上一切子集的全体, 并设 $B \in \mathscr{X}$. 当 $X$ 是随机变量 $\xi$ 的值域时, 集合 $B$ 也可以视为某个事件.
+
+在 $(X, \mathscr{B})$ 上考虑由随机变量 $\xi$ 按照,
+$$
+P_{\xi}(B)=\mathbf{P}\{\omega: \xi(\omega) \in B\}, \quad B \in \mathscr{B}
+$$
+产生的概率 $P_{\xi}(\cdot)$. 显然, 这些概率的值完全决定于:
+$$
+P_{\xi}\left(x_i\right)=\mathbf{P}\left\{\omega: \xi(\omega)=x_i\right\}, \quad x_i \in X
+$$
+其中组数 $\left\{P_{\xi}\left(x_1\right), \cdots, P_{\xi}\left(x_m\right)\right\}$ 称做随机变量 $\xi$ 的概率分布.
 
 仿照事件的独立性的定义, 我们给出随机变量的独立性的定义. 同样, 这表示他们不彼此依赖. 
 

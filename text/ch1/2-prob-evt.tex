@@ -43,9 +43,65 @@
     则称$P(A)$为事件$A$的\textbf{概率}(probability).
 \end{definition}
 
+这里的事件用集合的语言描述, 考虑集合 $A \subseteq \Omega$ 的某个集系 $\mathscr{A}_0$, 则利用集合运算 $\cup, \cap$ 与 $\backslash$ 可以由 $\mathscr{A}_0$ 构造新集系, 其中元素也是事件. 给这些事件补充上必然事件 $\Omega$ 和不可能事件 $\varnothing$, 得集系 $\mathscr{A}$, 则 $\mathcal{A}$ 是代数. 所谓 “代数” 即 $\Omega$ 的这样的集系, 满足
+\begin{itemize}
+    \item [1)] $\Omega \in \mathcal{F}$,
+    \item    [2)] 若 $A \in \mathcal{F}, B \in \mathcal{F}$, 则集合 $A \cup B, A \cap B, A \backslash B$ 也都属于 $\mathcal{F}$.
+\end{itemize}
+
+例如这些内容
+\begin{example}
+    a) $\mathscr{A}=\{\Omega, \varnothing\}$集系由 $\Omega$ 和空集 $\varnothing$ 构成, 称做平凡代数;
+
+b) $\mathscr{A}=\{A, \bar{A}, \Omega, \varnothing\}$事件 $A$ 产生的集系;
+
+c) $\mathscr{A}=\{A: A \subseteq \Omega\}$ $\Omega$ 全部子集的集系 (包括空集 $\varnothing$ ).
+\end{example}
+
+这些事件代数可以按分割的方式得到: 我们称集系
+$$
+\mathscr{D}=\left\{D_1, \cdots, D_n\right\}
+$$
+
+构成集合 $\Omega$ 的一个分割, 而 $D_1, \cdots, D_n$ 是该分割的原子, 如果 $D_1, \cdots, D_n$ 非空且两两不相容, 而它们的和等于 $\Omega$ :
+$$
+D_1+\cdots+D_n=\Omega .
+$$
+
+例如, 假定集合 $\Omega$ 由 3 个点构成: $\Omega=\{1,2,3\}$, 则存在 5 个不同的分割:
+$$
+\begin{array}{ll}
+\mathscr{D}_1=\left\{D_1\right\} & D_1=\{1,2,3\} \\
+\mathscr{D}_2=\left\{D_1, D_2\right\} & D_1=\{1,2\}, D_2=\{3\} \\
+\mathscr{D}_3=\left\{D_1, D_2\right\} & D_1=\{1,3\}, D_2=\{2\} \\
+\mathscr{D}_4=\left\{D_1, D_2\right\} & D_1=\{2,3\}, D_2=\{1\} \\
+\mathscr{D}_5=\left\{D_1, D_2, D_3\right\} & D_1=\{1\}, D_2=\{2\} ; D_3=\{3\} .
+\end{array}
+$$
+
+\begin{wrapfigure}{l}{0.6\textwidth}
+    \input{fig/ch1/set-algebra.tex} 
+    \caption{集合代数}
+    \label{fig:set-alg}
+\end{wrapfigure}
+
+如果考虑 $\mathscr{D}$ 中一切集合的并连同空集 $\varnothing$, 则得到的集系是代数, 称做 $\mathscr{D}$ 产生的代数, 记作 $\sigma(\mathscr{D})$. 于是, 代数 $\sigma(\mathscr{D})$ 的元素由空集 $\varnothing$ 与分割 $\mathscr{D}$ 之原子中集合的和组成.
+这样, 如果 $\mathscr{D}$ 是 $\Omega$ 的某一分割, 则它与代数 $\mathscr{B}=\sigma(\mathscr{D})$ 一一对应. 如\cref{fig:set-alg}.
+
+
+
+逆命题也正确. $\mathscr{B}$ 是有限空间 $\Omega$ 的子集的代数, 则存在唯一分割 $\mathscr{D}$, 其原子是代数 $\mathscr{B}$ 的元素, 并且 $\mathscr{B}=\sigma(\mathscr{D})$. 事实上, 假设集合 $\mathscr{D} \in \mathscr{B}$ 并且具有性质:对于任意 $B \in \mathscr{B}$, 集合 $D \cap B$ 要么与 $D$ 重合, 要么是空集. 那么, 这样集合 $D$ 的全体组成分割 $\mathscr{D}$ 并且具有所要求的性质 $B=\sigma(\mathscr{D})$. 
+
+
+
 \begin{takeaway}
-    概率是在样本空间上面定义的一个函数, 满足: (1)非负性: 每个事件的概率必须大于等于0; (2)规范性
-    所有的事件概率``总和''等于1; (3) 可加性: 互斥事件的概率可以直接相加.
+    概率是在样本空间上面定义的一个函数, 满足: 
+    \begin{itemize}
+        \item (1)非负性: 每个事件的概率必须大于等于0; 
+        \item (2)规范性
+        所有的事件概率``总和''等于1; 
+        \item (3) 可加性: 互斥事件的概率可以直接相加.
+    \end{itemize}
 \end{takeaway}
     
 
@@ -112,6 +168,7 @@
 
 
 
+
 \subsection{几何概型}
 
 \begin{definition}
@@ -121,7 +178,7 @@
     $$
 \end{definition}
 
-``测度''可以先简单理解为面积. 并且我们发现, $P(A)=0$, 则$A$不一定是不可能事件.
+我们可以先简单地把``测度''理解为面积. 并且我们发现, 如果$P(A)=0$, 那么$A$不一定是不可能事件. 比如正方形区域中的一个点, 一个点的面积为0. 因此正方形中选一个点的概率总为0. 
 
 
 
