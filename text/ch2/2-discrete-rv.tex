@@ -34,10 +34,12 @@ $\displaystyle \left\{ \begin{array}{l} p_k\ge 0, \quad k=1,2,\cdots \\
     这里的和式是对所有满足$x_k\le x$的$p_k$求和．
 \end{definition}
 
-注意, 这样的定义下, 函数是右连续的. 也就是在一个间断点$a$的时候, 
-$\lim_{x\to a^+}f(x)=f(a)$.
+这里的概率分布函数满足如下的特征: 
+\begin{itemize}
+    \item [(1)] $F_{X}(-\infty)=0, F_{X}(+\infty)=1$;
+    \item [(2)] $F_{X}(x)$ 右连续: $F_{X}(x^+)=F_{X}(x)$, 并且是阶梯函数.
+\end{itemize}
 
-有了这样的一番定义之后, 我们来看几个离散型随机变量.
 
 \begin{takeaway}
     
@@ -48,6 +50,9 @@ $\lim_{x\to a^+}f(x)=f(a)$.
 
 
 \subsection{经典的离散型随机变量}
+
+
+有了上一章的一番定义之后, 我们来看几个离散型随机变量.
 
 \paragraph{(一) 0-1分布(两点分布)}
 
@@ -121,7 +126,7 @@ $$}
 \begin{theorem}[Bernoulli定理]
     设一次试验中事件$A$发生的概率为$p(0<p<1)$, 则$n$重Bernoulli试验中, 事件$A$恰好发生$k(0\le k\le n)$ 次的概率为
     \begin{align*}
-        b(k;n,p)={n\choose k} p^k (1-p)^{n-k}.
+        b(k;n,p):={n\choose k} p^k (1-p)^{n-k}.
     \end{align*}
 \end{theorem}
 
@@ -151,7 +156,15 @@ Poisson分布的定义如下.
     其中$\lambda>0$, 则称$X$服从参数为$\lambda$的Poisson分布, 记为
     $X\sim P(\lambda).$
 \end{definition}%
+\begin{wrapfigure}{l}{0.2\textwidth}
+    \scalebox{0.3}[0.3]{\input{fig/ch2/poisson.tex} }
+    \caption{Poisson分布}
+    \label{fig:poisson}
+\end{wrapfigure}
+\cref{fig:poisson}展示了不同$\lambda$对应的分布情况. 蓝色, 红色, 棕色分别对应的是$\lambda=1,4,7$的情形.
+
 Poisson分布常与单位时间（或单位面积、单位产品等）上的计数过程相联系.
+
 
 \begin{takeaway}
     三个重要离散型随机变量的分布:

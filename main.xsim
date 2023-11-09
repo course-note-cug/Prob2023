@@ -1,37 +1,37 @@
 \providecommand\numberofexercises{}
-\XSIM{solution-body}{exercise-=={用事件运算的分配律： \begin {itemize} \item $A\overline {B}=A(\Omega -B)=A\Omega -AB=A-AB$; \item $AB\cup A\overline {B}=A(B\cup \overline {B})=A\Omega =A$. \end {itemize}}||exercise-1=={要计算$f_X(x)=\int _{-\infty }^{\infty } f(x, y) \mathrm {d} y$, 由于 $$\frac {\left (y-\mu _2\right )^2}{\sigma _2^2}-2 \rho \frac {\left (x-\mu _1\right )\left (y-\mu _2\right )}{\sigma _1 \sigma _2}=\left (\frac {y-\mu _2}{\sigma _2}-\rho \frac {x-\mu _1}{\sigma _1}\right )^2-\rho ^2 \frac {\left (x-\mu _1\right )^2}{\sigma _1^2}$$, \par 于是$$f_X(x)=\frac {1}{2 \pi \sigma _1 \sigma _2 {\color {red}\sqrt {1-\rho ^2}}} \mathrm {e}^{-\frac {\left (x-\mu _1\right )^2}{2 \sigma _1^2}} \int _{-\infty }^{\infty } \mathrm {e}^{-\frac {1}{2\left (1-\rho ^2\right )}\left ({\color {red}\frac {y-\mu _2}{\sigma _2}-\rho \frac {x-\mu _1}{\sigma _1}}\right )^2} \mathrm {~d} y$$ 令 $$t:=\frac {1}{\sqrt {1-\rho ^2}}\left (\frac {y-\mu _2}{\sigma _2}-\rho \frac {x-\mu _1}{\sigma _1}\right )$$ \par 则有$$f_X(x)=\frac {1}{2 \pi \sigma _1} \mathrm {e}^{-\frac {\left (x-\mu _1\right )^2}{2 \sigma _1^2}} \int _{-\infty }^{\infty } \mathrm {e}^{-t^2 / 2} \mathrm {~d} t$$ 即 $$f_X(x)=\frac {1}{\sqrt {2 \pi } \sigma _1} \mathrm {e}^{-\frac {\left (x-\mu _1\right )^2}{2 \sigma _1^2}}, \quad -\infty <x<\infty ,$$ 同理有 \small $$f_Y(y)=\frac {1}{\sqrt {2 \pi } \sigma _2} \mathrm {e}^{-\frac {\left (y-\mu _2\right )^2}{2 \sigma _2^2}}, \quad -\infty <y<\infty .$$ \par 我们发现二维正态分布的两个边缘分布都是一维正态分布, 而且并不依赖$\rho $. 因此, 边缘分布一般不能决定联合分布.}}
-\XSIM{exercise-body}{exercise-1=={证明:}}
+\XSIM{solution-body}{}
+\XSIM{exercise-body}{exercise-1=={假设匣中有两枚硬币: $A_1$ 是一对称的硬币, “正面” $\mathrm {Z}$ 出现的概率等于 $1 / 2$, 而 $A_2$ 是一枚不对称的硬币, “正面” $\mathrm {Z}$ 出现的概率等于 $1 / 3$. 随意选出一枚硬币并将其投掷, 结果掷出正面. 问抽到硬币为对称硬币的概率如何?}||exercise-2=={袋子中有10个白球, 5个黑球. 现掷一枚均匀的骰子. 掷出几点就从袋中取几个球. 若已知取出的球全为白球, 求掷出3点的概率.}}
 \XSIM{goal}{exercise}{points}{0}
 \XSIM{totalgoal}{points}{0}
 \XSIM{goal}{exercise}{bonus-points}{0}
 \XSIM{totalgoal}{bonus-points}{0}
-\XSIM{order}{1}
+\XSIM{order}{1||2}
 \XSIM{use}{}
 \XSIM{use!}{}
-\XSIM{used}{exercise-1=={true}}
+\XSIM{used}{exercise-1=={true}||exercise-2=={true}}
 \XSIM{print}{}
 \XSIM{print!}{}
-\XSIM{printed}{exercise-1=={true}}
-\XSIM{total-number}{1}
-\XSIM{exercise}{1}
+\XSIM{printed}{exercise-1=={true}||exercise-2=={true}}
+\XSIM{total-number}{2}
+\XSIM{exercise}{2}
 \XSIM{types}{exercise}
-\XSIM{idtypes}{1=={exercise}}
-\XSIM{collections}{exercise-1=={all exercises}}
-\XSIM{collection:all exercises}{exercise-1}
-\setcounter{totalexerciseinall exercises}{1}
-\XSIM{id}{exercise-1=={1}}
-\XSIM{ID}{exercise-1=={1}}
-\XSIM{counter}{exercise-1=={4.1}}
-\XSIM{counter-value}{exercise-1=={1}}
+\XSIM{idtypes}{1=={exercise}||2=={exercise}}
+\XSIM{collections}{exercise-1=={all exercises}||exercise-2=={all exercises}}
+\XSIM{collection:all exercises}{exercise-1||exercise-2}
+\setcounter{totalexerciseinall exercises}{2}
+\XSIM{id}{exercise-1=={1}||exercise-2=={2}}
+\XSIM{ID}{exercise-1=={1}||exercise-2=={2}}
+\XSIM{counter}{exercise-1=={3.1}||exercise-2=={3.2}}
+\XSIM{counter-value}{exercise-1=={1}||exercise-2=={2}}
 \XSIM{solution}{}
-\XSIM{section-value}{exercise-1=={4}}
-\XSIM{section}{exercise-1=={4}}
-\XSIM{sectioning}{exercise-1=={{0}{4}{0}{0}{0}}}
+\XSIM{section-value}{exercise-1=={3}||exercise-2=={3}}
+\XSIM{section}{exercise-1=={3}||exercise-2=={3}}
+\XSIM{sectioning}{exercise-1=={{0}{3}{1}{0}{0}}||exercise-2=={{0}{3}{1}{0}{0}}}
 \XSIM{subtitle}{}
 \XSIM{points}{}
 \XSIM{bonus-points}{}
-\XSIM{page-value}{exercise-1=={20}}
-\XSIM{page}{exercise-1=={20}}
+\XSIM{page-value}{exercise-1=={18}||exercise-2=={18}}
+\XSIM{page}{exercise-1=={18}||exercise-2=={18}}
 \XSIM{tags}{}
 \XSIM{topics}{}
 \XSIM{userpoints}{}

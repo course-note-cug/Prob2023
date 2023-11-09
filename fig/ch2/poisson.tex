@@ -1,0 +1,15 @@
+
+\pgfmathdeclarefunction{poiss}{1}{%
+  \pgfmathparse{(#1^x)*exp(-#1)/(x!)}%
+}
+\begin{tikzpicture}
+    \begin{axis}[every axis plot post/.append style={
+      samples at = {0,...,30},
+      axis x line*=bottom,
+      axis y line*=left,
+      enlargelimits=upper}]
+      \addplot +[ycomb] {poiss(1)};
+      \addplot +[ycomb] {poiss(4)};
+      \addplot +[ycomb] {poiss(7)};
+    \end{axis}
+\end{tikzpicture}

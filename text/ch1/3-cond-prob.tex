@@ -140,6 +140,9 @@ $$\mathbf{P}(A B)=\mathbf{P}(A \mid B) \mathbf{P}(B).$$
         =\frac{P(A)P(B|A)}{P(A)P(B|A)+P(\overline{A})P(B|\overline{A})}$$
 \end{theorem}
 
+\begin{webaside}
+    著名的科普视频频道主3Blue1Brown曾经对Bayes定律进行了可视化. 可以参考\href{https://www.bilibili.com/video/BV1R7411a76r}{Bilibili: BV1R7411a76r}.
+\end{webaside}
 假如事件组 $A_1, \cdots, A_n$ 是 $\Omega$ 的一个分割,那么有
 
 \begin{corollary}
@@ -149,17 +152,12 @@ $$\mathbf{P}(A B)=\mathbf{P}(A \mid B) \mathbf{P}(B).$$
     \]
 \end{corollary}
 
-\begin{asidebox}
     实际上, 在统计应用中, 事件 $A_1, \cdots, A_n$ 组成事件组 $\left(A_1+\cdots+A_n=\Omega\right)$, 常称做 “假设” 或 “假说”, 而 $\mathbf{P}\left(A_i\right)$ 称做假设 $A_i$ 的\emph{先验}概率 $\left.\right)$. 条件概率 $\mathbf{P}\left(A_i \mid B\right)$ 称做假设 $A_i$ 在事件 $B$ 出现后的\emph{后验}概率. 
-\end{asidebox}
 
-\begin{webaside}
-    著名的科普视频频道主3Blue1Brown曾经对Bayes定律进行了可视化. 可以参考\href{https://www.bilibili.com/video/BV1R7411a76r}{Bilibili: BV1R7411a76r}.
-\end{webaside}
 
-\begin{example}
+\begin{exercise}
     假设匣中有两枚硬币: $A_1$ 是一对称的硬币, “正面” $\mathrm{Z}$ 出现的概率等于 $1 / 2$, 而 $A_2$ 是一枚不对称的硬币, “正面” $\mathrm{Z}$ 出现的概率等于 $1 / 3$. 随意选出一枚硬币并将其投掷, 结果掷出正面. 问抽到硬币为对称硬币的概率如何?
-\end{example}
+\end{exercise}
 
 \begin{solution}
     建立相应的概率模型. 这里自然取集合 $\Omega=\left\{A_1 \mathrm{Z}, A_1 \mathrm{~F}, A_2 \mathrm{Z}, A_2 \mathrm{~F}\right\}$, 可以描绘选取和投掷的结局, 其中 $A_1 \mathrm{Z}$ 表示 “选中硬币” $A_1$, 结果掷出正面 $\mathrm{Z}$, 等等, 而 $\mathrm{F}$ 表示硬币掷出反面. 根据条件, 所考虑结局的概率应该是:
@@ -183,10 +181,15 @@ $$
 $$
 \end{solution}
 
-% \begin{example}
-%     袋子中有10个白球, 5个黑球. 现掷一枚均匀的骰子. 掷出几点就从袋中取几个球. 若已知取出的球全为白球, 求掷出3点的概率. 
-% \end{example}
+\begin{exercise}
+    袋子中有10个白球, 5个黑球. 现掷一枚均匀的骰子. 掷出几点就从袋中取几个球. 若已知取出的球全为白球, 求掷出3点的概率. 
+\end{exercise}
 
-% \begin{solution}
-%     原问题的意思是在取出的球全为白球的条件下, 掷出三点的概率. 
-% \end{solution}
+\begin{solution}
+    原问题的意思是在取出的球全为白球的条件下, 掷出三点的概率. 设$B=\{\text{取出的球全是白球}\}$, $A=\{\text{掷出}i\text{点}\}(i=1,2,\cdots, 6)$.
+
+    \begin{align*}
+        P(A_3 | B) &= \frac{P(A_3)P(B|A_3)}{P(A_1)P(B|A_1)+P(A_2)P(B|A_2)+\cdots+P(A_6)P(B|A_6)} \\
+        &= \frac{\frac16 \times \frac{\binom 53}{\binom {15}3}}{\sum_{i=1}^5 \frac16\times \frac{\binom 5i}{\binom{15}i}+\frac16\times 0}=0.4835
+    \end{align*}
+\end{solution}
