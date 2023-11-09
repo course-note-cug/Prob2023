@@ -18,7 +18,16 @@
     事件A、B、C的概率分别是：
     \[P(A) = \frac{3}{6}, \quad P(B) = \frac{2}{6}, \quad P(C) = \frac{1}{6}\]
     
-    想法: 求结果的平均值$1 \cdot P(A) + 2 \cdot P(B) + 6 \cdot P(C)= \frac{13}{6}$.
+    那么, 求结果的平均值$1 \cdot P(A) + 2 \cdot P(B) + 6 \cdot P(C)= \frac{13}{6}$.
+
+    刚刚我们做的事情, 用更正式的语言, 实际上是就是有了一个 $(\Omega, \mathscr{A}, \mathbf{P})$ 这样的有限概率空间, 而 $X=X(\omega)$ 是某一随机变量, 其值域为 $\left\{x_1, \cdots, x_k\right\}$. 如果设 $A_i=\left\{\omega: X(\omega)=x_i\right\}$, 则显然 $\xi$ 可以表示为
+    $$
+    \xi(\omega)=\sum_{i=1}^k x_i I\left(A_i\right)
+    $$记 $p_i=\mathbf{P}\left\{\xi=x_i\right\}$. 直观上显然: 如果在 $n$ 次独立重复试验中观测随机变量 $X$的取值, 则取 $x_i$ 的值大致应该出现 $n p_i(i=1, \cdots, k)$ 次. 
+    因此, 根据 $n$ 次试验的结果, 计算的该随机变量的 “平均值” 大致为
+    $$
+    \frac{1}{n}\left[n p_1 x_1+\cdots+n p_k x_k\right]=\sum_{i=1}^k p_i x_i
+    $$
 
     \begin{definition}[离散型随机变量的期望]
         设离散型随机变量 $X$ 的分布律为
