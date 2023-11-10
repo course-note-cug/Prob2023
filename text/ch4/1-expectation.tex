@@ -167,8 +167,17 @@ $$
 \end{aligned}
 $$
 
-这个为什么如此简单? 实际上因为期望有一些性质. 我们来看一看期望的若干性质. 
+这个为什么如此简单? 实际上因为期望有一些性质. 我们下一节会提到原因. 
     \end{shaded}
+
+    有些分布没有数学期望. 比如Cauchy分布: $f_X(x)=\frac{4}{\pi} \frac{4}{1+x^2},-\infty<x<+\infty$. 我们在求它的积分的时候, 就会发现
+    $$
+\begin{aligned}
+& \frac{4}{\pi} \int_{-\infty}^{\infty}|x| \frac{4}{1+x^2} \\
+= & \int_0^{+\infty} \frac{2 x}{1+x^2} d x \\
+= & \int_0^{+\infty} \frac{1}{1+y} d y=\ln (1+y)<+\infty .
+\end{aligned}
+$$发散. 因此Cauchy分布没有数学期望. 
 
     \subsection{数学期望的重要性质}
     
@@ -246,43 +255,3 @@ $$
         \item 则$$\Ep{g(X,Y)}=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}g(x,y)f(x,y)\dd x\dd y.$$
     \end{itemize}  
 
-    \subsection{条件数学期望}
-
-    \begin{definition}
-        设随机变量$X$在$y=y_i$的条件下的条件分布列为
-        $$
-        p_{i|j}=P(X=x_i | Y=y_j),
-        $$
-        若级数$\sum_i x_i p_{i|j}$绝对收敛, 那么称此级数$Y=Y_i$条件下$X$的条件数学期望, 记为$\Ep{X|Y=y_i}$.
-    \end{definition}
-
-    我们可以把样本空间构成一组不相交的集合$A_1, A_2, \cdots, A_n$, 因此可以在每个小块上面计算期望值. 也就是: $$
-    E[x]=P\left(A_1\right) E\left[X \mid A_1\right]+\cdots+P\left(A_n\right) E\left[X \mid A_n\right] .
-    $$
-    这个可以使用全概率公式, 两边乘上其对应的系数得到. 
-
-
-    有了这样的记号, 我们给出指数分布的又一说明: 
-    我们把原来的事件划分为不相交的两类. 
-    $$
-    \begin{aligned}
-    & A_1:\{x=1\}, \quad A_2:\{x>1\} . \\
-    & E[x]=P(x=1) E[x \mid x=1]+P(x>1) E[x \mid x>1] .
-    \end{aligned}
-    $$
-    那么计算它就得到了: 
-    $$
-\begin{aligned}
-E[X] & =P(x=1) E[x \mid x=1]+P(x>1) E[x \mid x>1] . \\
-& =p \cdot 1+(1-p)\boxed{~~?~~}
-\end{aligned}
-$$
-我们关注$E[x \mid x>1]$的情形, $$
-\begin{aligned}
-E[x \mid x-1>0] & =E[x-1 \mid x-1>0]+1 \\
-& =E[x]+1
-\end{aligned}
-$$
-由于指数分布的无记忆性, 上面的式子就是$E[x]+1$. 
-
-上面的式子经过整理得到$E[x]=p \cdot 1+(1-p)(E[x]+1)$. 我们由此解答出来$E[x]$, 因此就得到期望值为$1/p$. 

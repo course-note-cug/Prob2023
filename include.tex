@@ -17,6 +17,17 @@
 \usepackage{xcolor}
 \usepackage{wrapfig}
 
+
+\usepackage{pstricks-add}
+\usepackage{epsfig}
+\usepackage{pst-grad} % For gradients
+\usepackage{pst-plot} % For axes
+\usepackage[space]{grffile} % For spaces in paths
+\usepackage{etoolbox} % For spaces in paths
+\makeatletter % For spaces in paths
+\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
+\makeatother
+
 \colorlet{shadecolor}{blue!10}
 
 \colorlet{LightGray}{White!90!Periwinkle}
@@ -169,7 +180,7 @@
 \newcommand{\dd}{\mathrm{d}}
 \newcommand{\Ep}[1]{\mathbb E[#1]}
 
-\newcommand{\red}[1]{{{\color{red}#1}}}
+\renewcommand{\red}[1]{{{\color{red}#1}}}
 \newcommand{\teal}[1]{{{\color{teal}#1}}}
-\newcommand{\blue}[1]{{{\color{blue}#1}}}
+\renewcommand{\blue}[1]{{{\color{blue}#1}}}
 \newcommand{\purple}[1]{{{\color{purple}#1}}}
