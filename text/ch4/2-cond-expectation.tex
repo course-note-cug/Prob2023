@@ -87,9 +87,9 @@ $$
         \caption{班主任探访的规律}
         \label{fig:meeting-supervisor-pattern}
     \end{wrapfigure}
-    \paragraph{第一幕 Markov链带来的稳定分布} 有三个喜欢自学的聪明学生A,B,C. 他们整天喜欢在宿舍学习. 这自然会使他们的班主任不开心. 这就会导致班主任每天就去他们的寝室去观察, 以确保他们确实在学习. 
+    \paragraph{第一幕 Markov链带来的稳定分布} 有三个喜欢自学的好奇学生A,B,C. 他们整天喜欢在宿舍学习. 这自然会使他们的班主任不开心. 这就会导致班主任每天就去他们的寝室去观察, 以确保他们确实在学习. 
     
-    由于他们足够聪明, 经过一段时间的观察, 他们认为班主任会按照如\cref{fig:meeting-supervisor-pattern}这样的的规律来``探访''他们.  如果我们只看$A$同学和黑色的箭头, 其意义如下: 
+    由于他们足够观察的足够仔细, 经过一段时间的观察, 他们认为班主任会按照如\cref{fig:meeting-supervisor-pattern}这样的的规律来``探访''他们.  如果我们只看$A$同学和黑色的箭头, 其意义如下: 
 
     若今天班主任找$A$同学, 那么明天: 
     \begin{itemize}
@@ -107,6 +107,64 @@ $$
     A \to B \to A\to C \to A \to C\to C\to C\to A\to B.
     $$
 
-    在这10天里面, $P(A\text{被找到}), P(B\text{被找到}),P(C\text{被找到})$的概率分别为4/10, 2/10, 4/10. 
-    
-    
+    在这10天里面, $P(A\text{被找到}), P(B\text{被找到}),P(C\text{被找到})$的概率分别为4/10, 2/10, 4/10. 因此, 他们面临的第一个问题就是在前$n$天($n\to \infty$)的时候期望的结果是多少. 
+
+    事实上, 上面的状态转换关系是一个图. 可以用$3\times 3$的矩阵表示如下(第一行和第一列为标示,$M[C][B]$表示第一天老师在$C$, 第二天去$B$的概率.):   
+    $$
+M=\left[\begin{array}{cccc}
+&\text { A } & \text {B} & \text {C} \\
+\text{A}&0.2 & 0.6 & 0.2 \\
+\text{B}&0.3 & 0 & 0.7 \\
+\text{C}& 0.5 & 0 & 0.5
+\end{array}\right]
+$$以及最初的状态(比如找了B, 初始状态用$1\times 3$的矩阵表示为$
+\pi_0=\left[\begin{array}{ccc}
+\text{A} & \text{B} & \text {C} \\
+0 & 1 & 0
+\end{array}\right]
+$)若达到了稳定状态, 意味着找到这样的一个$\pi$, 使得$\pi A=\pi$. 这就是矩阵的特征向量.在这个情况下, 这个稳定的$\pi$为$\pi=\left[\frac{25}{71}, \frac{15}{71}, \frac{31}{71}\right]$.
+
+为什么这样是对的呢? 我们考虑到达了状态$j$,从$i$状态开始,在 $n$ 步后, 定义为$P_{ij}(n)$. 同样如果我们有一个矩阵$$
+M=\left[\begin{array}{ccc}
+A_{11} & A_{12} & A_{13} \\ 
+A_{21} & A_{22} & A_{23} \\ 
+A_{31} & A_{32} & A_{33} \\ 
+\end{array}\right]
+$$
+那么用一步从0到达2只有一种可能的情况:$P_{02}(1)=A_{02}$.  两步从0到2到达的一种情况就要分情况了. 
+$$
+\begin{aligned}
+ P_{02}(2)&=A_{01} \times A_{12}+A_{00} \times A_{02}+A_{02} \times A_{22} \\
+=& \left[\begin{array}{lll}
+A_{00} & A_{01} & A_{02}
+\end{array}\right] \times\left[\begin{array}{l}
+A_{02} \\
+A_{12} \\
+A_{22}
+\end{array}\right] \\
+&
+\end{aligned}
+$$
+类似的, 有$$
+P_{10}(2)=\left[\begin{array}{lll}
+A_{10} & A_{11} & A_{12}
+\end{array}\right] \times\left[\begin{array}{c}
+A_{00} \\
+A_{10} \\
+A_{20}
+\end{array}\right]
+$$
+把每个状态都列举一遍, 我们就可以使用矩阵乘法. 也就是$$
+P(2)=A^2=\left[\begin{array}{ccc}
+0.5 & 0.2 & 0.3 \\
+0.6 & 0.2 & 0.2 \\
+0.1 & 0.8 & 0.1
+\end{array}\right] \times\left[\begin{array}{ccc}
+0.5 & 0.2 & 0.3 \\
+0.6 & 0.2 & 0.2 \\
+0.1 & 0.8 & 0.1
+\end{array}\right]
+$$也就是$P_{i_j}(n)=A_{i j}^n$. 
+
+\paragraph{第二幕 Markov链的期望时间} 现在, 他们摸清楚了每一次他们老师来的模式. 
+现在他们的想法是...
