@@ -39,7 +39,7 @@
 \input{text/ch4/1-expectation.tex}
 \input{text/ch4/2-cond-expectation.tex}
 
-\section{期望相关不等式}
+\section{期望相关的不等式}
 
 \paragraph{1. Jensen不等式} 先从一个简单的例子开始. 假设我们从$[1,99]$的范围内选取一个正方形的边长$X$, 问面积的期望是多少? 根据上面的公式, 我们知道$\Ep{X^2}= \int_{0}^{99} x^2 dx = 9950/3$. 
 
@@ -88,18 +88,14 @@ $$
 $$
 \end{proof}
 
-类似的情形可以延伸到两个随机变量. 请看下例: 
-
-\begin{example}
-    证明随机变量 $ X, Y , \mathbb{E}[X Y]^2 \leqslant \mathbb{E}\left[X^2\right] \mathbb{E}\left[Y^2\right]$
-\end{example}
-\begin{solution}
-    我们使用均值不等式$a b \leqslant \frac{a^2+b^2}{2}$. 令$\tilde{X}=\frac{X}{\mathbb{E}\left[X^2\right]}, \tilde{Y}=\frac{Y}{\mathbb{E}\left[Y^2\right]}$
+\paragraph{2. Cauchy-Schwarz不等式}
+证明:  $ X, Y , \mathbb{E}[|X Y|]^2 \leqslant \mathbb{E}\left[X^2\right] \mathbb{E}\left[Y^2\right]$
     
-    <待补充>
-\end{solution}
+  
+    
+    首先考虑
 
-\paragraph{2. Markov不等式} 概率和期望之间有什么联系? 
+\paragraph{3. Markov不等式} 概率和期望之间有什么联系? 
 \end{document}
 
 
