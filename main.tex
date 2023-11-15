@@ -89,13 +89,57 @@ $$
 \end{proof}
 
 \paragraph{2. Cauchy-Schwarz不等式}
-证明:  $ X, Y , \mathbb{E}[|X Y|]^2 \leqslant \mathbb{E}\left[X^2\right] \mathbb{E}\left[Y^2\right]$
+这个不等式说的是下面的一个事情: 
+
+对于随机变量  $ X, Y $, 我们有$ \mathbb{E}[|X Y|]^2 \leqslant \mathbb{E}\left[X^2\right] \mathbb{E}\left[Y^2\right]$
     
   
     
-    首先考虑
+    首先考虑$\Ep{X^2} = \int_{-\infty}^{\infty} x^2 f_X(x), \Ep{X^2} = \int_{-\infty}^{\infty} y^2 f_Y(y)$. 为了方便起见, 不妨设$\Ep{X}, \Ep{Y}$都大于0. 假若我们引入新变量, 使得我们的$\tilde{X}, \tilde{Y}$的值都在 0到1之间: 
+    $$
+    \tilde{X}:= \frac{X}{\sqrt{\Ep{X^2}}},\tilde{Y}:= \frac{Y}{\sqrt{\Ep{Y^2}}} 
+    $$
+    这个时候由于任意的值有基本不等式, 故随机变量也要满足基本不等式描述的: $2|\tilde{X}\tilde{Y}|\leq \tilde{X^2}\tilde{Y^2}$. 对两边取期望, 有$2\Ep{\tilde{X}\tilde{Y}}\leq \Ep{\tilde{X^2}}\Ep{\tilde{Y^2}}=2$. 因此有$\Ep{\tilde{X}\tilde{Y}}\leq 1$, 自然
+    $$
+        \Ep{|X Y|}^2 = \mathbb{E}\left[X^2\right] \mathbb{E}\left[Y^2\right]
+    $$ 
 
-\paragraph{3. Markov不等式} 概率和期望之间有什么联系? 
+    \begin{asidebox}
+        这个不等式我们在线性代数课程上面讲解向量的模的时候也有一个类似的不等式. 也就是如果一个线性空间$V$中$u,v\in V$, 那么有
+        $$
+        |\langle u, v\rangle| \leq\|u\|\|v\|.
+        $$
+        其中, $||\cdot||$是$\cdot$的范数. 
+
+        向量的范数一般定义为$\sqrt{\langle v, v\rangle}$. 
+    \end{asidebox}
+
+\paragraph{3. Markov不等式} 概率和期望之间有什么联系? 在\cref{eg:expectation-calc}中, 我们了解到了期望计算和概率相联系的一种形式: $\Ep{X}=\int_0^\infty P(X>t) dt$. 自然的, $P(X>\epsilon)$和$\Ep{X}$有联系. 
+
+\begin{theorem}
+    Markov不等式: 
+    $$
+\forall \varepsilon>0, P(x>\varepsilon) \leqslant \frac{\mathbb{E}[x]}{\varepsilon}
+$$
+\end{theorem}
+
+\begin{wrapfigure}{l}{0.6\textwidth}
+    \includegraphics[width=0.6\textwidth]{fig/ch4/markov-ineq.jpg} 
+    \caption{Markov不等式限制的方式}
+    \label{fig:markov-ineq}
+\end{wrapfigure}
+
+我们采用最粗暴的限制限制手段. 如\cref.{fig:markov-ineq}, 仅仅考虑$0\leq t\leq \epsilon, 0<y<P(x>\epsilon)$的部分. 因此, 我们可以得到证明: 
+$$
+\begin{aligned}
+\mathbb{E}[x] & \geqslant \int_0^{\varepsilon} P(x>t) d t \\
+& \geqslant \int_0^{\varepsilon} P(x>\varepsilon) d t \\
+& =\varepsilon P(x>\varepsilon)
+\end{aligned}
+$$
+
+于是我们可以得到想要的不等式. 
+
 \end{document}
 
 
