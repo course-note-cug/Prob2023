@@ -1,37 +1,37 @@
 \providecommand\numberofexercises{}
 \XSIM{solution-body}{}
-\XSIM{exercise-body}{exercise-1=={假设匣中有两枚硬币: $A_1$ 是一对称的硬币, “正面” $\mathrm {Z}$ 出现的概率等于 $1 / 2$, 而 $A_2$ 是一枚不对称的硬币, “正面” $\mathrm {Z}$ 出现的概率等于 $1 / 3$. 随意选出一枚硬币并将其投掷, 结果掷出正面. 问抽到硬币为对称硬币的概率如何?}||exercise-2=={袋子中有10个白球, 5个黑球. 现掷一枚均匀的骰子. 掷出几点就从袋中取几个球. 若已知取出的球全为白球, 求掷出3点的概率.}}
+\XSIM{exercise-body}{exercise-1=={假设匣中有两枚硬币: $A_1$ 是一对称的硬币, “正面” $\mathrm {Z}$ 出现的概率等于 $1 / 2$, 而 $A_2$ 是一枚不对称的硬币, “正面” $\mathrm {Z}$ 出现的概率等于 $1 / 3$. 随意选出一枚硬币并将其投掷, 结果掷出正面. 问抽到硬币为对称硬币的概率如何?}||exercise-2=={袋子中有10个白球, 5个黑球. 现掷一枚均匀的骰子. 掷出几点就从袋中取几个球. 若已知取出的球全为白球, 求掷出3点的概率.}||exercise-3=={$A, B, C, D$四人竞拍, 价高者得. 假设你是$A$, 已知$B, C, D$三人竞拍价互相独立, 切服从$U(7,11)$. 如$A$中标可以以10转让, 如何报价使得$A$获得的期望收益最大?}}
 \XSIM{goal}{exercise}{points}{0}
 \XSIM{totalgoal}{points}{0}
 \XSIM{goal}{exercise}{bonus-points}{0}
 \XSIM{totalgoal}{bonus-points}{0}
-\XSIM{order}{1||2}
+\XSIM{order}{1||2||3}
 \XSIM{use}{}
 \XSIM{use!}{}
-\XSIM{used}{exercise-1=={true}||exercise-2=={true}}
+\XSIM{used}{exercise-1=={true}||exercise-2=={true}||exercise-3=={true}}
 \XSIM{print}{}
 \XSIM{print!}{}
-\XSIM{printed}{exercise-1=={true}||exercise-2=={true}}
-\XSIM{total-number}{2}
-\XSIM{exercise}{2}
+\XSIM{printed}{exercise-1=={true}||exercise-2=={true}||exercise-3=={true}}
+\XSIM{total-number}{3}
+\XSIM{exercise}{3}
 \XSIM{types}{exercise}
-\XSIM{idtypes}{1=={exercise}||2=={exercise}}
-\XSIM{collections}{exercise-1=={all exercises}||exercise-2=={all exercises}}
-\XSIM{collection:all exercises}{exercise-1||exercise-2}
-\setcounter{totalexerciseinall exercises}{2}
-\XSIM{id}{exercise-1=={1}||exercise-2=={2}}
-\XSIM{ID}{exercise-1=={1}||exercise-2=={2}}
-\XSIM{counter}{exercise-1=={3.1}||exercise-2=={3.2}}
-\XSIM{counter-value}{exercise-1=={1}||exercise-2=={2}}
+\XSIM{idtypes}{1=={exercise}||2=={exercise}||3=={exercise}}
+\XSIM{collections}{exercise-1=={all exercises}||exercise-2=={all exercises}||exercise-3=={all exercises}}
+\XSIM{collection:all exercises}{exercise-1||exercise-2||exercise-3}
+\setcounter{totalexerciseinall exercises}{3}
+\XSIM{id}{exercise-1=={1}||exercise-2=={2}||exercise-3=={3}}
+\XSIM{ID}{exercise-1=={1}||exercise-2=={2}||exercise-3=={3}}
+\XSIM{counter}{exercise-1=={3.1}||exercise-2=={3.2}||exercise-3=={13.1}}
+\XSIM{counter-value}{exercise-1=={1}||exercise-2=={2}||exercise-3=={1}}
 \XSIM{solution}{}
-\XSIM{section-value}{exercise-1=={3}||exercise-2=={3}}
-\XSIM{section}{exercise-1=={3}||exercise-2=={3}}
-\XSIM{sectioning}{exercise-1=={{0}{3}{1}{0}{0}}||exercise-2=={{0}{3}{1}{0}{0}}}
+\XSIM{section-value}{exercise-1=={3}||exercise-2=={3}||exercise-3=={13}}
+\XSIM{section}{exercise-1=={3}||exercise-2=={3}||exercise-3=={13}}
+\XSIM{sectioning}{exercise-1=={{0}{3}{1}{0}{0}}||exercise-2=={{0}{3}{1}{0}{0}}||exercise-3=={{0}{13}{2}{0}{0}}}
 \XSIM{subtitle}{}
 \XSIM{points}{}
 \XSIM{bonus-points}{}
-\XSIM{page-value}{exercise-1=={18}||exercise-2=={18}}
-\XSIM{page}{exercise-1=={18}||exercise-2=={18}}
+\XSIM{page-value}{exercise-1=={18}||exercise-2=={18}||exercise-3=={54}}
+\XSIM{page}{exercise-1=={18}||exercise-2=={18}||exercise-3=={54}}
 \XSIM{tags}{}
 \XSIM{topics}{}
 \XSIM{userpoints}{}

@@ -60,3 +60,75 @@
         P(ABC)=1/4\neq P(A)P(B)P(C).
     $$
 \end{example}
+
+
+\subsection{多知道一点: 朴素的Bayes分类器}
+我们希望对事情做分类. 
+
+我们有 $n$ 个训练示例的集合, 每个对象具有一系列特征: $\left(X_1, X_2, \cdots, X_m\right)$ ，对于每个 $X_i$ 都在一组特定区域取值。
+每个 $D_i$ 由表达其特征的一组值（方便起见写作向量形式）
+$$
+x_i=\left(x_{i 1}, x_{i 2}, \cdots, x_{i m}\right)
+$$
+对象可能的分类集合 $C=\left\{C_1, C_2, \cdots, C_t\right\} . C\left(D_i\right)$ 是 $D_i$ 的分类. 
+形式化的说, 我们就有了下面的一组集合供我们训练. 
+$$\left\{\left(D_1, C\left(D_1\right)\right),\left(D_2, C\left(D_2\right), \cdots,\left(D_n, C\left(D_n\right)\right)\right\}\right.$$
+
+假设我们有一个足够大的训练集, 然后, 对于每个向量\( y=\left(y_1, \cdots, y_m\right) \)和每一个$c_j$, 我们完全可以使用训练集计算一个这样的经验条件概率: 具有特征向量$y$的对象被分类为$C_j$.
+
+根据条件概率的定义, 我们知道$p_{y,j}$的计算公式
+$$
+P_{y, j}=\frac{P\left\{\left(\forall i, x_i=y_i\right) \wedge c\left(D_i\right)=c_i\right\}}{P\left\{\forall i, x_i=y_i\right\}}
+$$
+
+当一个具有特征$x^*$的对象过来的时候, 我们计算$P\{c(D^*)=c_j | x^* =(x_1^*,\cdots, x_n^*)\}$的估计. 最后, 我们返回一个向量$(p_{x^*, 1},p_{x^*, 2},\cdots, p_{x^*, n})$,表示它被划分到各个类的概率大小.
+
+这种方法的难处在于我们需要大量的准确的样本. 即使我们的特征只能取得0和1两个值, 如果有$m$个特征, 我们也要获得$2^m$个特征值与之对应. 
+
+如果我们的这些特征相互独立, 我们就可以加快这个进程: 
+$$
+\begin{aligned}
+P\left(c\left(D^*\right)=c_j \mid x^*\right) & =\frac{P\left(x^* \mid c\left(D^*\right)=c_j\right) \cdot P\left(c\left(D^*\right)=c_j\right)}{P\left(x^*\right)} \\
+& =\frac{\prod_{k=1}^m P\left(x_k^*=x_i \mid c\left(D^*\right)=c_j\right) \cdot P\left(c\left(D^*\right)=c_j\right)}{P\left(x^*\right)} .
+\end{aligned}
+$$
+其中$x_k^*$是$x^*$的第$k$个分量. 由于每个特征的可能数量一定, 在$m$个特征的时候, 我们只需要学习$O(m|C|)$的概率估计. 
+
+训练过程很简单: 
+\begin{itemize}
+    \item 对于每一类$c_j$, 看一看被分类为$c_j$与总共的占比为多少, 并用此计算$$
+    \hat{P}\left(c\left(D^*\right)=c_j\right)=\frac{\left|\left\{i \mid c\left(D_i\right)=c_j\right\}\right|}{|D|}
+    $$这里$\hat P$表示我们算的是经验概率.
+    \item 对于每一个特征$X_k$和对应的特征值$x_k$, 我们注意这个特征值$x_k$被分到$c_j$那一类的占比. 也就是$$
+    \hat{P}\left(x_k^*=x_k \mid c\left(D^*\right)=c_j\right)=\frac{\left|\left\{i: x_k^i=x_k, c\left(D_i\right)=c_j\right\}\right|}{\left\{i \mid c\left(D_i\right)=c_j\right\} \mid} .
+    $$
+\end{itemize}
+
+一旦我们训练好了分类器, 当一个具有特征向量$x^*=(x_1^*, \cdots, x_m^*)$新的对象$D_i^*$来了的时候, 对于每一个$c_j$, 我们就可以计算$$
+\left(\prod_{k=1}^m \hat{P}\left(x_k^*=x_k \mid c\left(D^*\right)=c_j\right)\right) \hat{P}\left(c\left(D^*\right)=c_j\right)
+$$
+并且取最大值, 得到它最可能在的分类. 
+
+总结一下, 我们的算法如\cref{algo:Bayes-class}所示. 
+
+\begin{algorithm}
+    \caption{朴素Bayes分类器算法}
+    \label{algo:Bayes-class}
+    \KwData{所有分类的集合$C$, 特征以及对应的特征值$F_1, F_2, \cdots, F_m$, 用于分类项目的训练集$D$}
+
+    训练阶段
+    \begin{itemize}
+        \item [1] 对于每一类$c\in C$, 特征$k=1,2,\cdots, m$, 以及特征值$x_k\in F_k$, 计算$$
+        \hat{P}\left(x_k^*=x_k \mid c\left(D^*\right)=c\right)=\frac{\left|\left\{i: x_k^i=x_k, c\left(D_i\right)=c\right\}\right|}{\left\{i \mid c\left(D_i\right)=c\right\} \mid} .
+        $$
+        \item [2] 对于每一类$c\in C$, 计算$$
+        \hat{P}\left(c\left(D^*\right)=c\right)=\frac{\left|\left\{i \mid c\left(D_i\right)=c\right\}\right|}{|D|} .
+        $$
+    \end{itemize}
+
+    给具有特征向量$x^*=x=\left(x_1, \ldots, x_m\right)$的新的对象$D^*$归一个类: 
+    \begin{itemize}
+        \item [1] 最有可能的分类: $$c\left(D^*\right)=\arg \max _{c_j \in C}\left(\prod_{k=1}^m \hat{P}\left(x_k^*=x_k \mid c\left(D^*\right)=c_j\right)\right) \hat{P}\left(c\left(D^*\right)=c_j\right) .$$
+        \item [2] 计算可能的分类分布:$$\hat{P}\left(c\left(D^*\right)=c_j\right)=\frac{\left(\prod_{k=1}^m \hat{P}\left(x_k^*=x_k \mid c\left(D^*\right)=c_j\right)\right) \hat{P}\left(c\left(D^*\right)=c_j\right)}{\hat{P}\left(x^*=x\right)}$$
+    \end{itemize}
+\end{algorithm}
