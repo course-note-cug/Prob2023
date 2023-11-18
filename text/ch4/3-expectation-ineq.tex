@@ -15,6 +15,7 @@
 $$
 \end{proof}
 
+\mn{-- 高数老师告诉过我, 高等数学里面和数学分析里面函数的凹凸性定义是相反的. 求偏导的时候求的顺序也是相反的. 那我应该相信谁?  \\ -- 相信定义. }
 实际上, 这只是Jensen不等式的一个例子. Jensen不等式会告诉我们, 对于任意的一个凸函数$f$, 都会有$\Ep{f(X)}\geq f(\Ep{X})$. 
 
 \begin{asidebox}
@@ -50,6 +51,8 @@ $$
 \paragraph{2. Cauchy-Schwarz不等式}
 这个不等式说的是下面的一个事情: 
 
+
+\mn{这使我想到了线性代数的时候学习内积空间的时候的痛苦... }
 对于随机变量  $ X, Y $, 我们有$ \mathbb{E}[|X Y|]^2 \leqslant \mathbb{E}\left[X^2\right] \mathbb{E}\left[Y^2\right]$
     
   
@@ -78,7 +81,7 @@ $$
 \begin{theorem}
     Markov不等式: 
     $$
-\forall \varepsilon>0, P(x>\varepsilon) \leqslant \frac{\mathbb{E}[x]}{\varepsilon}
+\forall \varepsilon>0, P(X>\varepsilon) \leqslant \frac{\mathbb{E}[X]}{\varepsilon}
 $$
 \end{theorem}
 
@@ -88,6 +91,7 @@ $$
     \label{fig:markov-ineq}
 \end{wrapfigure}
 
+\mn{-- 怎么说把这个东西切了就切了? 有点太粗暴了吧! \\ -- 实际上期望是它的一阶矩, 如果我们知道了更高阶的矩, 我们得到的信息就多了. }
 我们采用最粗暴的限制限制手段. 如\cref{fig:markov-ineq}, 仅仅考虑$0\leq t\leq \epsilon, 0<y<P(x>\epsilon)$的部分. 因此, 我们可以得到证明: 
 $$
 \begin{aligned}

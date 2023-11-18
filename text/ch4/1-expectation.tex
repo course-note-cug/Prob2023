@@ -20,10 +20,11 @@
     
     那么, 求结果的平均值$1 \cdot P(A) + 2 \cdot P(B) + 6 \cdot P(C)= \frac{13}{6}$.
 
-    刚刚我们做的事情, 用更正式的语言, 实际上是就是有了一个 $(\Omega, \mathscr{A}, \mathbf{P})$ 这样的有限概率空间, 而 $X=X(\omega)$ 是某一随机变量, 其值域为 $\left\{x_1, \cdots, x_k\right\}$. 如果设 $A_i=\left\{\omega: X(\omega)=x_i\right\}$, 则显然 $\xi$ 可以表示为
+    刚刚我们做的事情, 用更正式的语言, 实际上是就是有了一个 $(\Omega, \mathscr{A}, \mathbf{P})$ 这样的有限概率空间, 而 $X=X(\omega)$ 是某一随机变量, 其值域为 $\left\{x_1, \cdots, x_k\right\}$. 如果设 $A_i=\left\{\omega: X(\omega)=x_i\right\}$, 则显然 $X$ 可以表示为
+    \mn{\small 下面的歌词阐述了我们在做选择的时候内心的权衡: “可万一对了呢 ~会不会 ~我会不会更快乐 ~可万一错了呢 ~这一切 ~我是否可以承受”\\--《万一对了呢》 ChiliChill}
     $$
-    \xi(\omega)=\sum_{i=1}^k x_i I\left(A_i\right)
-    $$记 $p_i=\mathbf{P}\left\{\xi=x_i\right\}$. 直观上显然: 如果在 $n$ 次独立重复试验中观测随机变量 $X$的取值, 则取 $x_i$ 的值大致应该出现 $n p_i(i=1, \cdots, k)$ 次. 
+    X(\omega)=\sum_{i=1}^k x_i I\left(A_i\right)
+    $$记 $p_i=\mathbf{P}\left\{X=x_i\right\}$. 直观上显然: 如果在 $n$ 次独立重复试验中观测随机变量 $X$的取值, 则取 $x_i$ 的值大致应该出现 $n p_i(i=1, \cdots, k)$ 次. 
     因此, 根据 $n$ 次试验的结果, 计算的该随机变量的 “平均值” 大致为
     $$
     \frac{1}{n}\left[n p_1 x_1+\cdots+n p_k x_k\right]=\sum_{i=1}^k p_i x_i
@@ -136,7 +137,7 @@ $$
 
     \begin{shaded}
         \paragraph{*二项分布} 它描述的是在$n$次独立重复的Bernoili试验中，设每次试验中事件A发生的概率为$p$。用$X$表示$n$重伯努利试验中事件A发生的{\red{次数}}.
-
+        \mn{像这样对二项式的操作在计算机科学中是很有必要了解的. 因为我们总是在分析算法的时候用到他们. }
         其概率概率分布为$$P(X=k)={n\choose k} p^k q^{n-k}.$$
         因此
     $$
@@ -270,3 +271,43 @@ $$发散. 因此Cauchy分布没有数学期望.
         \item 则$$\Ep{g(X,Y)}=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}g(x,y)f(x,y)\dd x\dd y.$$
     \end{itemize}  
 
+\subsection*{多知道一点: 快速排序的期望运行时间}
+
+我们在《算法导论》的课程上了解了如下的随机快速排序算法. 使用自然语言大概可以看做\cref{algo:quick-sort}. 
+\begin{algorithm}
+    \caption{随机快速排序算法}
+    \label{algo:quick-sort}
+    \KwIn{待排序的数组$S=[x_1, x_2, \cdots, x_n]$}
+    \KwOut{排序后的数组$S$.}
+    \begin{itemize}
+        \item 如果$S$只有一个或者零个元素, 返回$S$. 否则继续. 
+        \item 随机选择$S$中的元素$s$作为基准元素. 
+        \item 把$S$分为两个小的列表$S_1, S_2$. 其中, 任何一个$S_1$中的元素比$s$要小, 任何一个$S_2$中的元素比$s$要大.
+        \item 对$S_1, S_2$进行快速排序. 
+        \item 返回列表$[S_1, x, S_2]$.
+    \end{itemize}
+\end{algorithm}
+
+我们声称: 每一次从元素中独立地随机选取基准, 那么对于任意的输入, 快速排序比较的期望次数为$2n\lg n + O(n)$. 
+
+\begin{proof}
+    设$y_1, y_2, \cdots, y_n$是输入值$x_1, x_2, \cdots, x_n$按照升序排列的结果. 我们定义$X_{ij}(i<j)$是一个随机变量. 如果在算法执行的某一时刻$y_i$和$y_j$发生了比较, $X_{ij}$取值为1, 否则为0. 那么比较的总次数满足
+    $$
+    X=\sum_{i=1}^{n-1}\sum_{j=i+1}^n X_{ij}
+    $$
+    根据期望的线性性, $\Ep{X}=\Ep{\sum_{i=1}^{n-1}\sum_{j=i+1}^n X_{ij}}=\sum_{i=1}^{n-1}\sum_{j=i+1}^n \Ep{X_{ij}}$. 
+
+    由于$X_{ij}$只能取0和1, 是指示变量, $\Ep{X_{ij}}$是$X_{ij}$等于1的概率. 
+
+    什么时候$y_i$和$y_j$会发生比较呢? 我们发现$y_i$和$y_j$发生比较, 当且仅当$y_i$或$y_j$是从集合$Y_{ij}=\{y_i, y_{i+1}, \cdots, y_{j-1},y_j\}$中选取的一个基准元素. 否则, 他们会被分在不同的子列表中, 因而不会比较. 
+
+    由于我们的基准元素是独立选取的, 因此$y_i$和$y_j$是从$Y_{ij}$中选取的一个基准元素的概率, 也就是$X_{ij}$取1的概率, 是$2/(j-i+1)$. 也就是
+    $$
+    \begin{aligned}
+        \Ep{X}&=\sum_{i=1}^{n-1} \sum_{j=i+1}^{n} \frac 2{j-i+1}\\
+        &\varsub{k:=j-i+1}{1.5cm} \sum_{i=1}^{n-1}\sum_{k=2}^{n-i+1} \frac 2k = \sum_{k=2}^n \sum_{i=1}^{n+1-k} \frac 2k \\ 
+        &= \sum_{k=2}^n (n+1-k) \frac 2k = \left((n+1)\sum_{k=2}^n \frac 2k\right)-2(n-1) \\
+        &= (2n+2) \sum_{k=1}^n \frac 1k - 4n.
+    \end{aligned} 
+    $$
+\end{proof}
