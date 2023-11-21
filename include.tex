@@ -70,7 +70,7 @@
 }{\hfill\textbf{$\#$}\end{tcolorbox}}
 
 \xsimsetup{
-  exercise/within = section,
+  exercise/within = part,
   exercise/template = custom ,
   exercise/name = 练习
 }
@@ -88,6 +88,14 @@
   \par\medskip
   \noindent
   \textbf{解答:}
+}{%
+  \par\medskip
+}
+
+\newenvironment{solution*}{%
+  \par\medskip
+  \noindent 
+  \small\textbf{提示或解答:}
 }{%
   \par\medskip
 }

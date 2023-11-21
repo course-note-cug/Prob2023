@@ -39,6 +39,7 @@
 \input{text/ch4/1-expectation.tex}
 \input{text/ch4/2-cond-expectation.tex}
 \input{text/ch4/3-expectation-ineq.tex}
+\input{exercise/ch4/exp.tex}
 
 \section{方差}
 随机变量 $X$ 的方差, 表征 $X$ 取值的散布程度. 最简单的想法是: 可以使用$\Ep{|X-\Ep{X}|}$来表征. 但是, 由于带着绝对值在求导的时候会带来不少麻烦, 我们考虑使用平方来操作, 也就是$\Ep{(X-\Ep{X})^2}$. 
@@ -59,6 +60,28 @@ $$
 \end{itemize}
 
 其实, 方差说特别也不特别, 它实际上就是随机变量 $X$ 的函数 $g(X)=(X-E(X))^2$的期望. 
+
+对这个式子做一些简单的化简, 我们发现, 要计算一个数的方差, 我们只需要计算$\Ep{X}$以及$\Ep{X^2}$即可. 
+
+   \begin{proposition}
+       随机变量 $X$ 的方差可按下列公式计算.
+   $$
+   D(X)=E\left(X^2\right)-[E(X)]^2 .
+   $$
+   \end{proposition}
+   
+   其证明如下: 
+   \begin{proof}
+       由数学期望的性质 $1^{\circ}, 2^{\circ}, 3^{\circ}$ 得
+   $$
+   \begin{aligned}
+   D(X) & =E\left\{[X-E(X)]^2\right\}=E\left\{X^2-2 X E(X)+[E(X)]^2\right\} \\
+   & =E\left(X^2\right)-2 E(X) E(X)+[E(X)]^2 \\
+   & =E\left(X^2\right)-[E(X)]^2 .
+   \end{aligned}
+   $$
+      \end{proof}
+
 
 
 
@@ -120,29 +143,7 @@ $$
 $$
    \end{proof}
 
-   有了上述的三条性质, 我们就可以给出一个更加简单的方差计算公式. 使得方差只与$\Ep{X}$和$\Ep{X^2}$有关系. 
-
-   \begin{proposition}
-       随机变量 $X$ 的方差可按下列公式计算.
-   $$
-   D(X)=E\left(X^2\right)-[E(X)]^2 .
-   $$
-   \end{proposition}
    
-   其证明如下: 
-   \begin{proof}
-       由数学期望的性质 $1^{\circ}, 2^{\circ}, 3^{\circ}$ 得
-   $$
-   \begin{aligned}
-   D(X) & =E\left\{[X-E(X)]^2\right\}=E\left\{X^2-2 X E(X)+[E(X)]^2\right\} \\
-   & =E\left(X^2\right)-2 E(X) E(X)+[E(X)]^2 \\
-   & =E\left(X^2\right)-[E(X)]^2 .
-   \end{aligned}
-   $$
-      \end{proof}
-
-     
-    这是一个相当重要的等式. 这就意味着, 我们要求得方差, 就要求出$\Ep{X}$和$\Ep{X^2}$ 就行了. 我们来看几个常见的随机变量的方差. 
 
     \subsection{常见分布的方差}
     \paragraph{1. 均匀分布} 由于期望$\Ep{X}$我们已经求过了, 我们来看平方的期望$\Ep{X^2}$. 经过简单的计算, 我们发现$$

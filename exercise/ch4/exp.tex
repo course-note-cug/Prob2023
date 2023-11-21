@@ -1,0 +1,73 @@
+\section*{练习题}
+
+\begin{exercise}
+    某个大楼有10层, 某次有25人在一楼搭乘电梯上楼. 假设每人都等可能地在2到10层中的任何一层出电梯, 并且出电梯与否互相独立. 同时在2到10层中没有人上电梯. 并且电梯只有在有人要出电梯的时候才停止. 求电梯停下的总次数的数学期望. 
+\end{exercise}
+
+\begin{solution*}
+每个人在第$i$层下的概率为$P_i=1/9, i=1,2,\cdots, 10$. 记第$k$个人在第$i$层下电梯记作$A_{k,i}$. 那么对于任意的$i$, $P(A_k)=1/9, P(\overline{A_k})=8/9. (k=1,2,\cdots, 25)$. 又因为$A_{1, i}, \cdots, A_{25, i}$相互独立, 那么第$i$层无人下电梯的概率为
+$$
+P\left(\prod_{i=1}^{25} \overline{A_k}\right) = \prod_{i=1}^{25}P\left(\overline{A_k}\right) = \left(\frac89\right), (k=1,2,\cdots, 25).
+$$
+
+设$X_i$是指示第$i$层有没有人下的示性函数, 那么, $P(X=0)=(8/9)^{25}$, $P(X=1)=1-(8/9)^{25}$.
+
+因此电梯停的总次数为$X=\sum_{i=2}^{10}X_i=9\times\left(1-(8/9)^{25}\right)$
+\end{solution*}
+
+\begin{exercise}
+    设随机变量$X,Y$相互独立, 且都服从$N(\mu, \sigma^2)$. 设$Z=\max\{X,Y\}$. 求$\Ep{Z}$.
+\end{exercise}
+
+\begin{solution*}
+    正则化变量. 令$U:=\frac{X-\mu}{\sigma}, V:=\frac{Y-\mu}{\sigma}$. 那么$X=\sigma U+\mu, Y=\sigma V+\mu$. 由于$X,Y$独立, 因此$U,V$独立. 且 $U \sim N(0,1), V \sim N(0,1)$. 发现$Z=\max \{X, Y\}=\max \{\sigma U+\mu, \sigma V+\mu\}=\sigma \max (U, V)+\mu$.
+
+    要求$\max (U, V)=\frac{1}{2}(U+V+|U-V|)$, 我们要知道$|U-V|$的分布. 令$T:=U-V \sim N(0,2)$. 考虑$$E(|T|)=\int_{-\infty}^{+\infty}|t| \frac{1}{\sqrt{2 \pi} \cdot \sqrt{2}} e^{-\frac{t^2}{2 \times 2}} d t=\frac{2}{\sqrt{\pi}}.$$ 因此得到$E[\max (U, V)]=\frac{1}{2}(E U+E V+E|U-V|)=\frac{1}{\sqrt{\pi}}$. 从而$E[\max \{X, Y\}]=\sigma E[\max (U, V)]+\mu=\frac{\sigma}{\sqrt{\pi}}+\mu$. 
+\end{solution*}
+
+\begin{exercise}
+    对于任意的整数$k>1$, 证明$\Ep{X^k}\geq (\Ep{X})^k$.
+\end{exercise}
+
+\begin{solution*}
+    使用Jensen不等式. 令$f(x):=x^n$. 
+\end{solution*}
+
+\begin{exercise}
+    (负二项分布) 现在考虑投掷一枚硬币, 直到第$k$次出现正面的投掷次数的$X$的分布. 其中每次投掷硬币出现是独立的, 概率为$p$. 证明: 对于$n>k$, 这个分布是
+    $$
+    P(X=n) = \binom{n-1}{k-1}p^k(1-p)^k.
+    $$
+\end{exercise}
+
+\begin{solution*}
+    可以考虑在出现最后一次正面之前, 我们需要在$n-1$个空格里面插入$k-1$个正面. 其余的是反面. 由此可以得到这个等式的意义. 
+\end{solution*}
+
+\begin{exercise}
+    对于一枚每次投出正面的概率是$p$的硬币, 每次投掷之间互相独立, 直到第$k$次正面出现的时候, 期望的投掷次数是多少? 
+\end{exercise}
+
+\begin{solution*}
+
+    方法1. 令$\Ep{N_k}:=$有$n$个正面投掷的期望数. 令$X_1$是第一次投掷的结果. 如果第一次的结果是反面, 那么还会回到$N_k$, 但是期望会加1. 反之, 就会到达$N_{k-1}$, 同样期望会加一. 也就是
+    $$
+E\left[N_k \mid X_1=T\right]=1+E\left[N_k\right]
+$$
+$$
+E\left[N_k \mid X_1=H\right]=1+E\left[N_{k-1}\right]
+$$
+
+因此有表达式$E\left[N_k\right]=E\left[N_k \mid X_1=H\right] \cdot P\left(X_1=H\right)+E\left[N_k \mid X_1=T\right] \cdot P\left(X_1=T\right)$. 解之, 得到$E\left[N_k\right]=E\left[N_{k-1}\right]+\frac{1}{p}$. 因此是
+
+    高中生: 考虑$f_i$代表现在已经扔出了$i$个正面, 还需要扔的期望数. 根据这个定义$f_k=0$, $f_{k-1}=(1-p)(f_{k-1}+1)+p(f_k+1)$. 
+
+\end{solution*}
+
+\begin{exercise}
+     数字$1,2,\cdots, n$可以用如下的排列函数$\pi:[1..n] \to [1..n]$表示. 其中, $\pi(i)$是$i$在这个排列中的序号. 排列$\pi$的不动点是满足$\pi(x)=x$的$x$的集合. 求从所有排列中选取一个排列的不动点的期望. 
+\end{exercise}
+
+\begin{solution*}
+    
+\end{solution*}

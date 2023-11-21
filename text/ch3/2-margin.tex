@@ -40,7 +40,7 @@
   \mn{在一门学习了正则表达式的课程里面我们知道了*. 我们可以确信概率论和正则表达式是很相关的(确信)}
     其中, 下标中的$\red \bullet$类似通配符: $p_{i\bullet}$ 是由 $p_{i j}$ 关于 $j$ 求和后得到的, 反之亦然. 这样的记号将有助于理解连续的情形.
 
-    \subsection{连续情形}
+    \subsection{连续情形的边缘分布}
 
     \begin{definition*}
       对于连续型随机变量 $(X, Y)$, 设它的概率密度为 $f(x, y)$, 由于
@@ -95,7 +95,7 @@
 
 \begin{solution}
   要计算$f_X(x)=\int_{-\infty}^{\infty} f(x, y) \mathrm{d} y$, 由于
-            $$\frac{\left(y-\mu_2\right)^2}{\sigma_2^2}-2 \rho \frac{\left(x-\mu_1\right)\left(y-\mu_2\right)}{\sigma_1 \sigma_2}=\left(\frac{y-\mu_2}{\sigma_2}-\rho \frac{x-\mu_1}{\sigma_1}\right)^2-\rho^2 \frac{\left(x-\mu_1\right)^2}{\sigma_1^2}$$,
+            $$\frac{\left(y-\mu_2\right)^2}{\sigma_2^2}-2 \rho \frac{\left(x-\mu_1\right)\left(y-\mu_2\right)}{\sigma_1 \sigma_2}=\left(\frac{y-\mu_2}{\sigma_2}-\rho \frac{x-\mu_1}{\sigma_1}\right)^2-\rho^2 \frac{\left(x-\mu_1\right)^2}{\sigma_1^2},$$
 
             于是$$f_X(x)=\frac{1}{2 \pi \sigma_1 \sigma_2 {\color{red}\sqrt{1-\rho^2}}} \mathrm{e}^{-\frac{\left(x-\mu_1\right)^2}{2 \sigma_1^2}} \int_{-\infty}^{\infty} \mathrm{e}^{-\frac{1}{2\left(1-\rho^2\right)}\left({\color{red}\frac{y-\mu_2}{\sigma_2}-\rho \frac{x-\mu_1}{\sigma_1}}\right)^2} \mathrm{~d} y$$
         令 $$t:=\frac{1}{\sqrt{1-\rho^2}}\left(\frac{y-\mu_2}{\sigma_2}-\rho \frac{x-\mu_1}{\sigma_1}\right)$$
@@ -103,7 +103,7 @@
         则有$$f_X(x)=\frac{1}{2 \pi \sigma_1} \mathrm{e}^{-\frac{\left(x-\mu_1\right)^2}{2 \sigma_1^2}} \int_{-\infty}^{\infty} \mathrm{e}^{-t^2 / 2} \mathrm{~d} t$$
         即 $$f_X(x)=\frac{1}{\sqrt{2 \pi} \sigma_1} \mathrm{e}^{-\frac{\left(x-\mu_1\right)^2}{2 \sigma_1^2}}, \quad-\infty<x<\infty,$$
         同理有
-        \small $$f_Y(y)=\frac{1}{\sqrt{2 \pi} \sigma_2} \mathrm{e}^{-\frac{\left(y-\mu_2\right)^2}{2 \sigma_2^2}}, \quad-\infty<y<\infty.$$
+         $$f_Y(y)=\frac{1}{\sqrt{2 \pi} \sigma_2} \mathrm{e}^{-\frac{\left(y-\mu_2\right)^2}{2 \sigma_2^2}}, \quad-\infty<y<\infty.$$
 
         我们发现二维正态分布的两个边缘分布都是一维正态分布, 而且并不依赖$\rho$. 
         因此, 边缘分布一般不能决定联合分布. 
@@ -115,9 +115,9 @@
 
 \begin{definition}
   设$(X_1,X_2,\dots,X_n)$的分布函数$F(x_1,x_2,\dots,x_n)$为已知, 则$(X_1,X_2,\dots,X_n)$的$k(1 \leq k < n )$维边缘分布函数就随之确定, 例如$(X_1,X_2,\dots,X_n)$关于$X_1$、关于$(X_1,X_2)$的边缘分布函数分别为
-    \[F_{X_1}(x_1) = F(x_1,\infty,\infty,\dots,\infty)\],
-    \[F_{X_1,X_2}(x_1,x_2) = F(x_1,x_2,\infty,\infty,\dots,\infty)\].
+    \[F_{X_1}(x_1) = F(x_1,\infty,\infty,\dots,\infty),\]
+    \[F_{X_1,X_2}(x_1,x_2) = F(x_1,x_2,\infty,\infty,\dots,\infty).\]
 又若$f(x_1,x_2,\dots,x_n)$是$(X_1,X_2,\dots,X_n)$的概率密度, 则$(X_1,X_2,\dots,X_n)$关于$X_1$、关于$(X_1,X_2)$的边缘概率密度分别为
     \[f_{X_1}(x_1) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}
-    \dots \int_{-\infty}^{\infty}f(x_1,x_2,\dots,x_n)d{x_2}d{x_3}\dots d{x_n}\].
+    \dots \int_{-\infty}^{\infty}f(x_1,x_2,\dots,x_n)d{x_2}d{x_3}\dots d{x_n}.\]
 \end{definition}
