@@ -40,185 +40,22 @@
 \input{text/ch4/2-cond-expectation.tex}
 \input{text/ch4/3-expectation-ineq.tex}
 \input{exercise/ch4/exp.tex}
+\input{text/ch4/4-vari-intro.tex}
 
-\section{方差}
-随机变量 $X$ 的方差, 表征 $X$ 取值的散布程度. 最简单的想法是: 可以使用$\Ep{|X-\Ep{X}|}$来表征. 但是, 由于带着绝对值在求导的时候会带来不少麻烦, 我们考虑使用平方来操作, 也就是$\Ep{(X-\Ep{X})^2}$. 
+\section{Chebyshev不等式}
 
-\begin{definition}
-    定义 设 $X$ 是一个随机变量, 若 $E\left\{[X-E(X)]^2\right\}$ 存在, 则称 $\Ep{(X-\Ep{x})^2}$ 为 $X$ 的方差, 记为 $D(X)$ 或 $\operatorname{Var}(X)$, 即
-$$
-D(X)=\operatorname{Var}(X):=\Ep{(X-\Ep{X})^2}.
-$$
-\end{definition}
+利用随机变量的期望和方差, 我们可以推出Chebushev不等式, 来得到更好的界限. 
 
-在应用上还引入量 $\sqrt{D(X)}$, 记为 $\sigma(X)$, 称为标准差或均方差.
+\begin{theorem}
+    对于任意的$a>0$, 有
+    $$
+    P(|X-\Ep{X}|\geq a)\leq \frac{D(X)}{a^2}
+    $$
+\end{theorem}
 
-其实际意义是明显的: 我们查看方差的大小
-\begin{itemize}
-    \item $D(X)$ 较小:  $X$ 的取值比较集中在 $\Ep X $ 的附近
-    \item $D(X)$ 较大: 表示 $X$ 的取值较分散.
-\end{itemize}
-
-其实, 方差说特别也不特别, 它实际上就是随机变量 $X$ 的函数 $g(X)=(X-E(X))^2$的期望. 
-
-对这个式子做一些简单的化简, 我们发现, 要计算一个数的方差, 我们只需要计算$\Ep{X}$以及$\Ep{X^2}$即可. 
-
-   \begin{proposition}
-       随机变量 $X$ 的方差可按下列公式计算.
-   $$
-   D(X)=E\left(X^2\right)-[E(X)]^2 .
-   $$
-   \end{proposition}
-   
-   其证明如下: 
-   \begin{proof}
-       由数学期望的性质 $1^{\circ}, 2^{\circ}, 3^{\circ}$ 得
-   $$
-   \begin{aligned}
-   D(X) & =E\left\{[X-E(X)]^2\right\}=E\left\{X^2-2 X E(X)+[E(X)]^2\right\} \\
-   & =E\left(X^2\right)-2 E(X) E(X)+[E(X)]^2 \\
-   & =E\left(X^2\right)-[E(X)]^2 .
-   \end{aligned}
-   $$
-      \end{proof}
-
-
-
-
-   \subsection{方差的性质}
-
-   我们首先从抽象的层面说明方差具有哪些性质. 实际上, 这只是个关于期望的性质的练习 -- 方差只是求解一堆数学期望而已. 我们先假设下面所遇到的随机变量其方差存在: 
-
-   \paragraph{1. 常数的方差是0} 设 $C$ 是常数, 则 $D(C)=0$.
-   \begin{proof}
-    代入定义,有 $D(C)=E\left\{[C-E(C)]^2\right\}=0$.
-   \end{proof}
-
-
-   \paragraph{2. 一个变量的线性变换后的方差} 设 $X$ 是随机变量, $C$ 是常数, 则有
-   $$
-   D(C X)=C^2 D(X), \quad D(X+C)=D(X) .
-   $$
-
-   \begin{proof}
+\begin{proof}
     
-    $$
-\begin{aligned}
-D(C X) & =E\left\{[C X-E(C X)]^2\right\}=C^2 E\left\{[X-E(X)]^2\right\}=C^2 D(X) \\
-D(X+C) & =E\left\{[X+C-E(X+C)]^2\right\}=E\left\{[X-E(X)]^2\right\}=D(X)
-\end{aligned}
-$$
-   \end{proof}
-
-   \paragraph{3. 两个随机变量和的方差} 设 $X, Y$ 是两个随机变量, 则有
-   $$
-   D(X+Y)=D(X)+D(Y)+2 E\{(X-E(X))(Y-E(Y))\} .
-   $$
-   
-   特别, 若 $X, Y$ 相互独立, 则有
-   $$
-   D(X+Y)=D(X)+D(Y) .
-   $$
-   
-   这一性质可以推广到任意有限多个相互独立的随机变量之和的情况.
-
-   \begin{proof}
-    $$
-\begin{aligned}
-D(X+Y)= & E\left\{[(X+Y)-E(X+Y)]^2\right\} \\
-= & E\left\{[(X-E(X))+(Y-E(Y))]^2\right\} \\
-= & E\left\{(X-E(X))^2\right\}+E\left\{(Y-E(Y))^2\right\} \\
-& +2 E\{[(X-E(X)][Y-E(Y)]\} \\
-= & D(X)+D(Y)+2 E\{[X-E(X)][Y-E(Y)]\} .
-\end{aligned}
-$$
-
-对于其中的$ E\{[(X-E(X)][Y-E(Y)]\}$一项: $$
-\begin{aligned}
-& 2 E\{[(X-E(X)][Y-E(Y)]\} \\
-& =2 E\{X Y-X E(Y)-Y E(X)+E(X) E(Y)\} \\
-& =2\{E(X Y)-E(X) E(Y)-E(Y) E(X)+E(X) E(Y)\} \\
-& =2\{E(X Y)-E(X) E(Y)\} .
-\end{aligned}
-$$
-   \end{proof}
-
-   
-
-    \subsection{常见分布的方差}
-    \paragraph{1. 均匀分布} 由于期望$\Ep{X}$我们已经求过了, 我们来看平方的期望$\Ep{X^2}$. 经过简单的计算, 我们发现$$
-    E\left(X^2\right)=\int_{-\infty}^{\infty} x^2 f(x) d x=\frac{b^2+a b+a^2}{3}
-    $$
-    
-    因此
-    $$
-    D(X)=E\left(X^2\right)-E(X)^2=\frac{(b-a)^2}{12}.
-    $$
-
-    \paragraph{2. Poisson分布} 我们回忆参数为$\lambda$的Poisson分布的概率分布是$f(k )=\frac{e^{-\lambda} \lambda^k}{k !}$. 同样的, 
-    $$
-    \begin{aligned}
-    E\left(X^2\right) & =\sum_{k=0}^{\infty} k^2 \frac{\lambda^k e^{-\lambda}}{k !}=\sum_{k=1}^{\infty} k e^{-\lambda} \lambda \frac{\lambda^{k-1}}{(k-1) !} \\
-    & =\sum_{k=1}^{\infty}(k-1+1) \lambda e^{-\lambda} \frac{\lambda^{k-1}}{(k-1) !} \\
-    & =\sum_{k=1}^{\infty}(k-1) \lambda e^{-\lambda} \frac{\lambda^{k-1}}{(k-1) !}+\lambda e^{-\lambda} \sum_{k=1}^{\infty} \frac{\lambda^{k-1}}{(k-1) !} \\
-    & =\lambda^2 e^{-\lambda} \sum_{k=2}^{\infty} \frac{\lambda^{k-2}}{(k-2) !}+\lambda \\
-    & =\lambda^2+\lambda \\
-    D(X) & =\lambda^2+\lambda-\lambda^2=\lambda
-    \end{aligned}
-    $$
-
-    \paragraph{3. 指数分布} 回忆它的概率分布函数为$$
-    f(x)=\lambda e^{-\lambda x}, x \geq 0
-    $$并且$\Ep{X}=1/\lambda$. 我们还是关注$\Ep{X^2}$. 
-    $$
-\begin{aligned}
-E X^2 & =\int_0^{+\infty} x^2 \lambda e^{-\lambda x} d x \\
-& =-\int_0^{+\infty} x^2 d e^{-\lambda x}=-\left.x^2 e^{-\lambda x}\right|_0 ^{+\infty}+\int_0^{+\infty} 2 x e^{-\lambda x} d x 
-\end{aligned}
-$$
-
-因此
-$$
-\operatorname{Var}(\mathrm{X})=E X^2-(E X)^2=\frac{1}{\lambda^2}
-$$
-
-\paragraph{4. 正态分布} 我们发现正态分布的通用表达式比较麻烦. 我们首先计算标准正态分布的方差, 然后试图通过线性变换的方法得到原来的正态分布表达式. 回忆$N(0,1)=\varphi(x)=\frac{1}{\sqrt{2 \pi}} e^{-\frac{x^2}{2}}$. 
-
-计算的大概过程大概如下: 
-\begin{itemize}
-    \item 写出表达式: $E\left(X^2\right)=\int_{-\infty}^{+\infty} \frac{1}{\sqrt{2 \pi}} x^2 e^{-\frac{x^2}{2}} d x$
-    \item 由于是偶函数, $E\left(X^2\right)=2 \int_0^{+\infty} \frac{1}{\sqrt{2 \pi}} x^2 e^{-\frac{x^2}{2}} d x$
-    \item 希望计算出$\int_0^{+\infty} \frac{1}{\sqrt{2 \pi}} x^2 e^{-\frac{x^2}{2}} d x$.
-    \item 极坐标换元, 得到值为$1/2$.
-    \item 因此$\Ep{X^2}=1$.
-    \item $D(X)=E\left(X^2\right)-(E(X))^2=1-0^2=1$
-    \item 通过标准化得到方差
-\end{itemize}
-
-接着我们做线性变换代换回去. 
-$$
-\begin{aligned}
-& X \sim N\left(\mu, \sigma^2\right), Z \sim N(0,1) \\
-& Z=\frac{X-\mu}{\sigma} \sim N(0,1) \\
-& D(Z)=D\left(\frac{X-\mu}{\sigma}\right)=D\left(\frac{X}{\sigma}-\frac{\mu}{\sigma}\right)=D\left(\frac{X}{\sigma}\right)=\frac{1}{\sigma^2} D(X)=1
-\end{aligned}
-$$
-得到$D(x)=\sigma^2$.
-
-\paragraph{5. 几何分布 } 我们回忆其分布函数为$P(X=k)=(1-p)^{k-1} p$ $\frac{1}{p}$, 以及$\Ep X=1/p$. 方便起见, 令$q:=1-p$. 
-
-那么
-$$\begin{aligned} D(X) & =E\left(X^2\right)-(E(X))^2 \\ & =\sum_{k=1}^{\infty} k^2 q^{k-1} p-\frac{1}{p^2} \\ & =p\left[\sum_{k=1}^{\infty}(k+1) k q^{k-1}-\sum_{k=1}^{\infty} k q^{k-1}\right]-\frac{1}{p^2} \\ & =p\left(\frac{\mathrm{d}^2}{\mathrm{~d} q^2} \sum_{k=1}^{\infty} q^{k+1}-\frac{\mathrm{d}}{\mathrm{d} q} \sum_{k=1}^{\infty} q^k\right)-\frac{1}{p^2} \\ & =p\left[\frac{2}{(1-q)^3}-\frac{1}{(1-q)^2}\right]-\frac{1}{p^2}=\frac{q}{p^2} .\end{aligned}$$
-
-\paragraph{6. 二项分布} 
-我们在上一节里面用非常痛苦的方法求解了它的期望. 这里, 我们还是先不用任何的性质, 再来痛苦地求解一下它的方差. 
-
-$$\begin{aligned} E\left(k^2\right) & =\sum_{k=0}^n k^2 p(k) \\ & =\sum_{k=1}^n k^2\left(\begin{array}{l}n \\ k\end{array}\right) p^k q^{n-k} \\ & =\sum_{k=1}^n[{k}({k}-1)+{k}]\left(\begin{array}{l}n \\ k\end{array}\right) p^k q^{n-k} \\ & =\sum_{k=1}^n k(k-1)\left(\begin{array}{l}n \\ k\end{array}\right) p^k q^{n-k}+\sum_{k=1}^n k\left(\begin{array}{l}n \\ k\end{array}\right) p^k q^{n-k} \\ & =\sum_{k=1}^n k(k-1) \frac{n !}{k !(n-k) !} p^k q^{n-k}+n p \\ & =n(n-1) p^2 \sum_{k=1}^n \frac{(n-2) !}{(k-2) !(n-k) !} p^{k-2} q^{(n-2)-(k-2)}+n p \\ & =n(n-1) p^2+n p\end{aligned}$$
-
-因此$D (X)=\Ep {X^2}-(\Ep X)^2=n(n-1) p^2+n p-(n p)^2=n p(1-p)$. 
-
-这和我们期望的性质也是吻合的. 毕竟, 这就是$n$次独立的0-1分布. 我们的结果也是支持这一点的. 
-
+\end{proof}
 
 \end{document}
 
