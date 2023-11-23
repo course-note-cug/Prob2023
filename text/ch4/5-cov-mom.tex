@@ -1,0 +1,142 @@
+\section{协方差. 矩}
+
+\paragraph{1. 随机变量的协方差}在上一节中, 在看两个随机变量的和的方差的时候, 我们注意到$\operatorname{Var}[X+Y]=\operatorname{Var}[X]+\operatorname{Var}[Y]+\mathbf{E}[(X-\mathbf{E}[X])(Y-\mathbf{E}[Y])]$. 为了方便起见, 我们使用记号$\operatorname{Cov}(X, Y)$来代表$\mathbf{E}[(X-\mathbf{E}[X])(Y-\mathbf{E}[Y])]$. 我们很快会看到这样做的好处. 
+
+\begin{definition}
+    两个随机变量 $X$ 和 $Y$ 的\emph{协方差}定义做
+$$
+\operatorname{Cov}(X, Y):=\mathbf{E}[(X-\mathbf{E}[X])(Y-\mathbf{E}[Y])]
+$$
+\end{definition}
+
+自然地, 我们首先来看看矩的性质. 实际上, 两个随机变量的矩类似于双线性函数. 
+
+\begin{itemize}
+    \item 交换性: $\operatorname{Cov}(X, Y)=\operatorname{Cov}(Y, X)$.
+    \item 双线性性: $\operatorname{Cov}(a X, b Y)=a b \operatorname{Cov}(X, Y). a, b$ 是常数.
+    \item 可加性: $\operatorname{Cov}\left(X_1+X_2, Y\right)=\operatorname{Cov}\left(X_1, Y\right)+\operatorname{Cov}\left(X_2, Y\right)$.
+\end{itemize}
+
+这些性质可以直接带入定义证明. 
+
+\paragraph{2. 随机变量的相关系数} 我们希望对于两个随机变量考察是不是有线性关系. 也就是, 假设我们有两个随机变量$X,Y$. 我们希望以 $X$ 的线性函数 $a+b X$ 来近似表示 $Y$. 自然, 我们可以用$E\left[(Y-(a+b X))^2\right]$表示拟合的好坏程度. 这个期望值越小越好. 我们的目标是求最佳近似式 $a+b X$ 中的$a,b$ .
+也就是最小化$e$.
+ $$
+\begin{aligned}
+e & :=E\left[(Y-(a+b X))^2\right] \\
+& =E\left(Y^2\right)+b^2 E\left(X^2\right)+a^2-2 b E(X Y)+2 a b E(X)-2 a E(Y)
+\end{aligned}
+$$
+这个式子中, $a,b$是变量. 对$e$求关于$a,b $的偏导数, 看一看可能的极值点.
+$$
+\left\{\begin{array}{l}
+\frac{\partial e}{\partial a}=2 a+2 b E(X)-2 E(Y)=0, \\
+\frac{\partial e}{\partial b}=2 b E\left(X^2\right)-2 E(X Y)+2 a E(X)=0 .
+\end{array}\right. \implies \begin{array}{ll}
+b_0 & =\frac{\operatorname{Cov}(X, Y)}{D(X)} \\
+a_0 & =E(Y)-E(X) \frac{\operatorname{Cov}(X, Y)}{D(X)} .
+\end{array}
+$$
+回带, 得到
+$$
+\begin{aligned}
+\min _{a, b} E\left\{[Y-(a+b X)]^2\right\} & =E\left\{\left[Y-\left(a_0+b_0 X\right)\right]^2\right\} \\
+& =\left(1-\teal{\frac{\operatorname{Cov}^2(X, Y)}{{D(X)} {D(Y)}}}\right) D(Y)  .
+\end{aligned}
+$$
+注意上述表达式中的青色的内容. 我们发现这样一个事情可以用来衡量对应变量之间的相关性. 于是我们给这个一个新定义: 
+
+\begin{definition}
+    我们定义
+    $$
+    \rho_{X Y}=\frac{\operatorname{Cov}(X, Y)}{\sqrt{D(X)} \sqrt{D(Y)}}
+    $$
+    为随机变量 $X$ 与 $Y$ 的相关系数.
+\end{definition}
+
+根据上述的推演, 我们猜测: 相关系数总是小于1的. 以及如果相关系数等于1的话, 那么一定会有相关系数的绝对值等于1. 下面我们描述这两个性质并给出证明: 
+
+\begin{itemize}
+    \item $\left|\rho_{X Y}\right| \leqslant 1$.
+    \item $\left|\rho_{X Y}\right|=1$ 的充要条件是, 存在常数 $a, b$ 使$\{Y=a+b X\}=1$.
+\end{itemize}
+
+
+\begin{proof}
+    \qquad $1^{\circ}$ 因为$E\left\{\left[Y-\left(a_0 + b_0X\right)\right]^2\right\}$及$D\left(Y\right)$的非负性, 
+     知$1-\rho_{X Y}^2 \geq 0$,亦即$\left| \rho_{X Y} \right| \leq 1.$
+
+     
+    \qquad $2^{\circ}$ 若$\left|\rho_{X Y}\right| = 1$,有:
+    $$
+       E\left\{\left[Y - (a_0 + b_0X)^2\right]\right\} = 0.
+    $$
+    
+    从而:
+    $$
+        0 =E\left\{\left[Y - (a_0 + b_0X)^2\right]\right\} 
+    $$
+    $$
+        = D\left[Y - (a_0+b_0X)\right] + \left\{E\left[Y - \left(a_0+b_0X\right)\right]\right\}^2,
+   $$
+    故有:
+    $$
+     D\left[Y - (a_0+b_0X)\right] = 0
+    $$
+    $$
+    E\left[Y - \left(a_0+b_0X\right)\right] = 0
+    $$
+
+    \[P\{Y - (a_0 + b_0X) = 0\} = 1, P\{Y = a_0 + b_0X\} = 1.\]
+        反之, 若存在常数 $a^*$, $b^*$ 使得：
+        \[P\{Y = a^* + b^*X\} = 1, P\{Y - (a^* + b^*X) = 0\} = 1,\]
+        于是 \qquad $P\{[Y - (a^* + b^*X)]^2 = 0\} = 1.$\\
+        即得 \qquad $E\{[Y - (a^* + b^*X)]^2\} = 0.$\\
+        故有 \qquad $0 =E\left\{\left[Y - (a^* + b^*X)^2\right]\right\}$
+        \[
+             =E\left\{\left[Y - (a_0 + b_0X)^2\right]\right\} =\left(1-\rho_{X Y}^2\right) D(Y)  .
+        \]
+        即得 \qquad $\left|\rho_{X Y}\right| = 1.$
+\end{proof}
+
+由于$e$是$\left|\rho_{X Y}\right|$的严格单调减少函数. 当$\left|\rho_{X Y}\right|$较大时$e$较小, 表面$X,Y$(就线性关系而言)联系较紧密. 但是, 如果我们发现$|\rho_{XY}|=0$, 那么说不说明两个随机变量独立呢? 实际上并不一定. 因为不相关只是就线性关系而言, 而相互独立是就一般关系而言. 没有线性关系, 倒是有可能有平方关系, 以及各种各样奇怪的关系. 只是用线性的方式拟合并不好. 
+
+所以我们要特别强调: 
+
+\begin{center}
+    \boxed{\text{相互独立的变量相关系数一定等于0, 相关系数等于0的变量不一定独立.}}
+\end{center}
+
+\begin{example}
+    设$(X,Y)$的分布律为
+         $$
+                \begin{array}{l|cccc|c}
+                    \hline Y \ddots X         & -2            & -1            & 1            & 2            & P\{Y=j\}     \\
+                    \hline 1        &0  & \frac{1}{4}            & \frac{1}{4}            & 0            & \frac{1}{2} \\
+                    4               & \frac{1}{4}            & 0 & 0 & \frac{1}{4} & \frac{1}{2} \\
+                    \hline P\{X=i\} & \frac{1}{4} & \frac{1}{4} & \frac{1}{4} & \frac{1}{4} & 1            \\
+                    \hline
+                \end{array}
+            $$
+\end{example}
+
+\begin{solution}
+    易知$E\left(X\right) = 0,E\left(Y\right) = \frac{5}{2},E\left(X Y\right) = 0$,于是$\rho_{X Y} = 0$,$X,Y$不相关，这表示不存在线性关系，但，$P\left\{X = -2,Y = 1\right\} = 0 \neq P\left\{ X = -2\right\}P\left\{Y = 1\right\}$,知$X,Y$不是相互独立的。
+\end{solution}
+
+\paragraph{3. 矩的相关概念} 方差中, 我们用到了$\Ep{X^2}$和$\Ep{X}$进而求出$D(X)$. 实际上, 在有些时候, 我们可能会求解$\Ep{X^3}$, $\Ep{X^4},\cdots$, 进而运用期望的线性性求解有关多项式的期望. 在这里, 为了统一语言, 我们给出一连串的如下的定义, 以保证在未来说到的时候会清楚的理解. 
+
+\begin{definition}
+
+    (1)设 $X$ 和 $Y$ 是随机变量, 若
+    $
+    E\left(X^k\right), \quad k=1,2, \cdots
+    $存在, 称它为 $X$ 的 $k$ 阶原点矩, 简称 $k$ 阶矩.
+
+    (2)若 $\quad E\left(X^k Y^l\right), \quad k, l=1,2, \cdots$存在,称它为 $X$ 和 $Y$ 的 $k+l$ 阶混合矩.
+
+    (3)设 $X$ 和 $Y$ 是随机变量, 
+        若 $$ E\left\{[X-E(X)]^k\right\}, k=2,3, \cdots$$存在, 称它为 $X$ 的 $k$ 阶中心矩.
+
+     (4)若 $E\left\{[X-E(X)]^k[Y-E(Y)]^{l}\right\}, \quad k, l=1,2, \cdots$存在, 称它为 $X$ 和 $Y$ 的 $k+l$ 阶混合中心矩.
+\end{definition}

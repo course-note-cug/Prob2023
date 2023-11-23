@@ -72,7 +72,7 @@ $$
 
     \subsection{常见分布的数学期望}
 
-    \paragraph{Bernouli分布} 它描述的是只先进行一次事件试验，该事件发生的概率为$p$，不发生的概率为$1-p$. 也就是
+    \paragraph{Bernouli分布} 它描述的是只先进行一次事件试验, 该事件发生的概率为$p$, 不发生的概率为$1-p$. 也就是
     \begin{itemize}
         \item $P(X=1)=p$
         \item $P(X=0)=1-p$
@@ -95,7 +95,7 @@ $$
 $$
 
 \paragraph{几何分布}
-回忆: 对与$G(X=k)$的几何分布, 表达的意思是前$k-1$次皆失败，第$k$次成功的概率。因此, 其概率是
+回忆: 对与$G(X=k)$的几何分布, 表达的意思是前$k-1$次皆失败, 第$k$次成功的概率. 因此, 其概率是
     $$
     P\{X=k\}=(1-p)^{k-1} p
     $$
@@ -136,7 +136,7 @@ $$
 
 
     \begin{shaded}
-        \paragraph{*二项分布} 它描述的是在$n$次独立重复的Bernoili试验中，设每次试验中事件A发生的概率为$p$。用$X$表示$n$重伯努利试验中事件A发生的{\red{次数}}.
+        \paragraph{*二项分布} 它描述的是在$n$次独立重复的Bernoili试验中, 设每次试验中事件A发生的概率为$p$. 用$X$表示$n$重伯努利试验中事件A发生的{\red{次数}}.
         \mn{像这样对二项式的操作在计算机科学中是很有必要了解的. 因为我们总是在分析算法的时候用到他们. }
         其概率概率分布为$$P(X=k)={n\choose k} p^k q^{n-k}.$$
         因此
@@ -190,18 +190,18 @@ $$发散. 因此Cauchy分布没有数学期望.
 
     \subsection{数学期望的重要性质}
     
-    \paragraph{1.(常数的数学期望)} 设$C$是常数，则有$\Ep C = C.$
+    \paragraph{1.(常数的数学期望)} 设$C$是常数, 则有$\Ep C = C.$
 
     事实上, 直观来看, 每一次我们得到的都一定是$C$. 因此有其合理性. 
 
-    \paragraph{2. (常数进出数学期望)} 设$C$是常数, $X$是一个随机变量，则有
+    \paragraph{2. (常数进出数学期望)} 设$C$是常数, $X$是一个随机变量, 则有
     \[
         \Ep {CX} = C\Ep X.
     \]
     
     这是因为常数可以自由进出求和号/积分号. 
 
-    \paragraph{3. (两个随机变量之和)}设$X,Y$是两个随机变量，则有
+    \paragraph{3. (两个随机变量之和)}设$X,Y$是两个随机变量, 则有
     \[
         E\left(X+Y\right) = E\left(X\right) + E\left(Y\right).
     \]
@@ -215,7 +215,7 @@ $$发散. 因此Cauchy分布没有数学期望.
 
     上面的$2^\circ$和$3^\circ$合在一起被称作期望的线性性质. 这和我们在线性代数中的线性空间的理论中的一部分很相似. 
 
-    \paragraph{4. (两个\red{独立}的随机变量之积)} 设$X,Y$是相互独立的随机变量，则有\[
+    \paragraph{4. (两个\red{独立}的随机变量之积)} 设$X,Y$是相互独立的随机变量, 则有\[
         E\left(XY\right) = E\left(X\right)E\left(Y\right).
     \]
 
@@ -223,7 +223,7 @@ $$发散. 因此Cauchy分布没有数学期望.
 
     这是因为只有独立的情况下, 联合随机变量的内容才可以得到拆开. 
 
-    若$X$和$Y$相互独立，
+    若$X$和$Y$相互独立, 
         
         \begin{align}
             E\left(XY\right) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}xyf_{X,Y}\left(x,y\right){d}x{d}y = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}xyf_X\left(x\right)f_Y\left(y\right){d}x{d}y\notag\\

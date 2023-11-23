@@ -67,7 +67,7 @@ D(X+C) & =E\left\{[X+C-E(X+C)]^2\right\}=E\left\{[X-E(X)]^2\right\}=D(X)
 $$
    \end{proof}
 
-   \paragraph{3. 两个随机变量和的方差} 设 $X, Y$ 是两个随机变量, 则有
+   \paragraph{3. 两个随机变量和的方差} 设 $X, Y$ 是两个随机变量, 则有\mn{可不要忘记了这个2. !}
    $$
    D(X+Y)=D(X)+D(Y)+2 E\{(X-E(X))(Y-E(Y))\} .
    $$
@@ -112,7 +112,7 @@ $$
     D(X)=E\left(X^2\right)-E(X)^2=\frac{(b-a)^2}{12}.
     $$
 
-    \paragraph{2. Poisson分布} 我们回忆参数为$\lambda$的Poisson分布的概率分布是$f(k )=\frac{e^{-\lambda} \lambda^k}{k !}$. 同样的, 
+    \paragraph{2. Poisson 分布} 我们回忆参数为$\lambda$的Poisson分布的概率分布是$f(k )=\frac{e^{-\lambda} \lambda^k}{k !}$. 同样的, 
     $$
     \begin{aligned}
     E\left(X^2\right) & =\sum_{k=0}^{\infty} k^2 \frac{\lambda^k e^{-\lambda}}{k !}=\sum_{k=1}^{\infty} k e^{-\lambda} \lambda \frac{\lambda^{k-1}}{(k-1) !} \\
@@ -195,3 +195,48 @@ $$\begin{aligned} E\left(k^2\right) & =\sum_{k=0}^n k^2 p(k) \\ & =\sum_{k=1}^n 
         \label{table:mean-var}
 \end{table}
 总的来说, 我们有\cref{table:mean-var}的表格总结我们的结果. 
+
+
+\subsection{Chebyshev不等式}
+
+利用随机变量的期望和方差, 我们可以推出Chebushev不等式, 来得到更好的界限. 
+
+\begin{theorem}
+    对于任意的$a>0$, 有
+    $$
+    P(|X-\Ep{X}|\geq a)\leq \frac{D(X)}{a^2}
+    $$
+\end{theorem}
+
+\begin{proof}
+    由于有绝对值, 我们首先将绝对值去掉, 得到
+    $$
+P(|X-\mathbf{E}[X]| \geq a)=P\left((X-\mathbf{E}[X])^2 \geq a^2\right)
+$$
+由于$(X-\Ep{X})^2$是一个非负的变量, 使用Markov不等式得到: 
+$$P\left((X-\mathbf{E}[X])^2 \geq a^2\right) \leq \frac{\mathbf{E}\left[(X-\mathbf{E}[X])^2\right]}{a^2}=\frac{\operatorname{Var}[X]}{a^2}$$
+
+
+\end{proof}
+
+这个定理在说什么? 这意味着, 它与期望相差的程度的概率可以使用方差的相关性质来描述. 
+
+有了这个定理, 我们可以得到关于方差的另一个重要的性质: 
+
+\paragraph{4. 方差为0的充要条件} $\quad D(X)=0$ 的充要条件是 $X$ 以概率 1 取常数 $E(X)$, 即
+$$
+P\{X=E(X)\}=1
+$$
+
+\begin{proof}
+    充分性. 设 $P\{X=E(X)\}=1$, 则有 $P\left\{X^2=[E(X)]^2\right\}=1$, 于是
+    $$
+    D(X)=E\left(X^2\right)-[E(X)]^2=0 .
+    $$
+    
+    必要性: 用反证法假设 $P\{X=E(X)\}<1$, 则对于某一个数 $\varepsilon>0$, 有 $P\{|X-E(X)| \geqslant \varepsilon\}>0$, 但由切比雪夫不等式, 对于任意 $\varepsilon>0$, 由 刚才的不等关系$P\{|X-\mu| \geqslant \varepsilon\} \leqslant \frac{\sigma^2}{\varepsilon^2}$, $\sigma^2=$ 0 , 由于有
+    $$
+    P\{|X-E(X)| \geqslant \varepsilon\}=0,
+    $$
+    矛盾, 于是 $P\{X=E(X)\}=1$.
+\end{proof}

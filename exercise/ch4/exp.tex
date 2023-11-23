@@ -52,23 +52,35 @@ $$
 
     方法1. 令$\Ep{N_k}:=$有$n$个正面投掷的期望数. 令$X_1$是第一次投掷的结果. 如果第一次的结果是反面, 那么还会回到$N_k$, 但是期望会加1. 反之, 就会到达$N_{k-1}$, 同样期望会加一. 也就是
     $$
-E\left[N_k \mid X_1=T\right]=1+E\left[N_k\right]
+\Ep{N_k \mid X_1=T}=1+\Ep{N_k}
 $$
 $$
-E\left[N_k \mid X_1=H\right]=1+E\left[N_{k-1}\right]
+\Ep{N_k \mid X_1=H}=1+E\left[N_{k-1}\right]
 $$
 
-因此有表达式$E\left[N_k\right]=E\left[N_k \mid X_1=H\right] \cdot P\left(X_1=H\right)+E\left[N_k \mid X_1=T\right] \cdot P\left(X_1=T\right)$. 解之, 得到$E\left[N_k\right]=E\left[N_{k-1}\right]+\frac{1}{p}$. 因此是
+因此有表达式$\Ep{N_k}=\Ep{N_k \mid X_1=H} \cdot P\left(X_1=H\right)+\Ep{N_k \mid X_1=T} \cdot P\left(X_1=T\right)$. 解之, 得到$\Ep{N_k}=\Ep{N_{k-1}}+\frac{1}{p}$. 因此是 $\Ep{N_k}=n/p$.
 
     高中生: 考虑$f_i$代表现在已经扔出了$i$个正面, 还需要扔的期望数. 根据这个定义$f_k=0$, $f_{k-1}=(1-p)(f_{k-1}+1)+p(f_k+1)$. 
 
 \end{solution*}
+
+
+\begin{exercise}
+    我们在一个$n$张不同的卡牌中进行带放回的抽卡, 抽出每一张卡的概率相等. 请问我们期望抽取多少次, 才能把所有的卡牌见到一遍? 
+\end{exercise}
+
+\begin{solution*}
+    可以考虑当前已经见到了$k$个卡牌, 那么还有$k/n$个情况回到当前的状态, $n-k/n$的情况到达见到的少一个的状态. 
+\end{solution*}
+
+\begin{exercise}
+    我们一遍一遍地投掷一个均匀的筛子. 在连续出现两个6之前, 期望的投掷次数是多少? (答案不是36).
+\end{exercise}
+
+
 
 \begin{exercise}
      数字$1,2,\cdots, n$可以用如下的排列函数$\pi:[1..n] \to [1..n]$表示. 其中, $\pi(i)$是$i$在这个排列中的序号. 排列$\pi$的不动点是满足$\pi(x)=x$的$x$的集合. 求从所有排列中选取一个排列的不动点的期望. 
 \end{exercise}
 
 
-\begin{solution*}
-    
-\end{solution*}
