@@ -1,0 +1,77 @@
+\section{中位数和平均值}
+
+我们在初中的时候学过了一列数的中位数. 下面我们试着把这个定义拓展到随机变量中. 
+
+一个朴素的想法是, 我们定义$P(X\leq n)\geq 1/2$, 以及$P(X\geq m)\geq 1/2$为随机变量$X$的中位数. 因为有离散的奇数个随机变量的取值的时候, 把它们的值按照某一次序排列$x_1, x_2, \cdots, x_{2k+1}$, 那么中位数就是$x_{k+1}$. 如果有偶数个值$x_1, x_2, \cdots, x_{2k}$, 那么$(x_k, x_{k+1})$上面的任何一个值都是中位数. 
+
+随机变量$X$的期望$\Ep{X}$通常和中位数是不一样的. 那么他们之间有什么关系呢? 
+
+\begin{theorem}
+    对于期望存在, 中位数存在的随机变量$X$, 设其期望为$\Ep{X}$, 中位数为$m$, 那么: 
+    \begin{itemize}
+        \item 期望$\Ep{X}$是使得$\Ep{(X-c)^2}$最小的$c$的值;
+        \item 中位数$m$是使得$\Ep{|X-c|}$最小的$c$的值;
+    \end{itemize}
+\end{theorem}
+
+\begin{proof}
+    第一个性质可以使用期望的线性性说明. $\mathbf{E}\left[(X-c)^2\right]=\mathbf{E}\left[X^2\right]-2 c \mathbf{E}[X]+c^2$. 对于$c$求导数, 即可得到我们要的性质. 
+
+    第二个性质我们可以考虑: 对于任何一个不是中位数的值$c$和任何中位数$m$, 有$\mathbf{E}[|X-c|]>\mathbf{E}[|X-m|]$. 等价地, 也就是说$\mathbf{E}[|X-c|-|X-m|]>0$. 
+
+    不是一般性, 假设我们能够让上述式子最小的$c$的值大于中位数$m$的值, 也就是$c>m$.(我们会看到如果$c<m$也可以有类似的方法证明得到) 由于$c$不是中位数, $P(X>c)<1/2$. 我们接下来考虑等式里面的任何一个量$x$和$c$的关系. 对于$x,c$的关系, 有
+    \begin{itemize}
+        \item 如果$x \geq c,|x-c|-|x-m|=m-c$.
+        \item 如果$m<x<c,|x-c|-|x-m|=c+m-2x>m-c$.
+        \item 如果$x \leq m,|x-c|-|x-m|=c-m$.
+    \end{itemize}
+
+    综上考虑, 我们有
+    $$\begin{aligned} & \mathbf{E}[|X-c|-|X-m|] \\ & \quad=\operatorname{P}(X \geq c)(m-c)+\sum_{x: m<x<c} \operatorname{P}(X=x)(c+m-2 x)+\operatorname{P}(X \leq m)(c-m) .\end{aligned}$$
+
+    我们发现关键就是探讨中间的那一项求和会造成什么影响. 这时候, 我们需要考虑两种情况:
+    \begin{itemize}
+        \item [$1^\circ$] 如果$\operatorname{P}(m<X<c)=0$, 那么$$
+        \begin{aligned}
+        \mathbf{E}[|X-c|-|X-m|] & =\operatorname{P}(X \geq c)(m-c)+\operatorname{P}(X \leq m)(c-m) \\
+        & >\frac{1}{2}(m-c)+\frac{1}{2}(c-m) &(\text{因为}\operatorname{P}(X \geq c)<1 / 2 \text { 且 } m<c)\\
+        & =0,
+        \end{aligned}
+        $$
+        \item [$2^\circ$] 如果$\operatorname{P}(m<X<c)\neq 0$, 那么
+        $$\begin{aligned}
+            \mathbf{E} & {[|X-c|-|X-m|] } \\
+            & =\operatorname{Pr}(X \geq c)(m-c)+\sum_{x: m<x<c} \operatorname{Pr}(X=x)(c+m-2 x)\\
+            &~~~~+\operatorname{Pr}(X \leq m)(c-m) \\
+            & >\operatorname{Pr}(X>m)(m-c)+\operatorname{Pr}(X \leq m)(c-m) &(\text{因为 }\forall x. c+m-2 x>m-c)\\
+            & >\frac{1}{2}(m-c)+\frac{1}{2}(c-m) \\
+            & =0,
+            \end{aligned}$$
+    \end{itemize}
+
+    综上所述, 这个总是大于0. 因此我们的定理成立. 
+\end{proof}
+
+并且, 我们会发现标准差, 中位数, 期望之间有一个很有趣的关系: 
+
+\begin{theorem}
+    如果$X$是随机变量, 且具有有限的标准差$\sigma$, 期望$\mu$和中位数$m$, 那么
+    $$
+    |\mu-m| \leq \sigma .
+    $$
+\end{theorem}
+
+意味着中位数和期望差的不远, 只要我们的方差足够小. 
+
+\begin{proof}
+    $$
+    \begin{aligned}
+        |\mu-m| & =|\mathbf{E}[X]-m| \\
+        & =|\mathbf{E}[X-m]|  \\
+        & \leq \mathbf{E}[|X-m|] & (\text{Jensen不等式}) \\
+        & \leq \mathbf{E}[|X-\mu|] & (\text{中位数会最小化}\Ep{|X-c|}) \\
+        & \leq \sqrt{\mathbf{E}\left[(X-\mu)^2\right]} & (\text{Jensen不等式}) \\
+        & =\sigma .
+        \end{aligned}
+    $$
+\end{proof}

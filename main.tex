@@ -44,22 +44,8 @@
 \input{exercise/ch4/exp.tex}
 \input{text/ch4/4-vari-intro.tex}
 \input{text/ch4/5-cov-mom.tex}
+\input{text/ch4/6-median-mean.tex}
 
-\section{中位数和平均值}
-
-我们在初中的时候学过了一列数的中位数. 下面我们试着把这个定义拓展到随机变量中. 
-
-一个朴素的想法是, 我们定义$P(X\leq n)\geq 1/2$, 以及$P(X\geq m)\geq 1/2$为随机变量$X$的中位数. 因为有离散的奇数个随机变量的取值的时候, 把它们的值按照某一次序排列$x_1, x_2, \cdots, x_{2k+1}$, 那么中位数就是$x_{k+1}$. 如果有偶数个值$x_1, x_2, \cdots, x_{2k}$, 那么$(x_k, x_{k+1})$上面的任何一个值都是中位数. 
-
-随机变量$X$的期望$\Ep{X}$通常和中位数是不一样的. 那么他们之间有什么关系呢? 
-
-\begin{theorem}
-    对于期望存在, 中位数存在的随机变量$X$, 设其期望为$\Ep{X}$, 中位数为$m$, 那么: 
-    \begin{itemize}
-        \item 期望$\Ep{X}$是使得$\Ep{(X-c)^2}$最小的$c$的值;
-        \item 中位数$m$是使得$\Ep{|X-c|}$最小的$c$的值;
-    \end{itemize}
-\end{theorem}
 
 \end{document}
 
