@@ -46,6 +46,35 @@
 \input{text/ch4/5-cov-mom.tex}
 \input{text/ch4/6-median-mean.tex}
 
+\part{概率的极限定理}
+\input{text/ch5/1-cov-seqs.tex}
+
+
+\section{大数定律和强大数定律}
+
+\begin{theorem}[Chebyshev大数律] 
+    设 $X_1, X_2, \cdots$ 是相互独立的随机变量序列, $\mathrm{E}\left(X_i\right)=\mu_i, \operatorname{var}\left(X_i\right)=\sigma_i^2(i \geqslant 1)$ 且 $\left\{\sigma_i^2, i \geqslant 1\right\}$ 有界, 设 $S_n=\sum_{i=1}^n X_i$ $(n \geqslant 1)$, 则
+$$
+\frac{S_n-\mathrm{E}\left(S_n\right)}{n} \stackrel{P}{\longrightarrow} 0 \quad(n \rightarrow \infty) .
+$$
+\end{theorem}
+
+\begin{proof}
+    设 $\sigma_i^2 \leqslant M($ 一切 $i \geqslant 1$ ). 利用Chebyshev不等式知
+$$
+\begin{aligned}
+P\left(\left|\frac{S_n-\mathrm{E}\left(S_n\right)}{n}\right| \geqslant \varepsilon\right) & =P\left(\left|S_n-\mathrm{E}\left(S_n\right)\right| \geqslant n \varepsilon\right) \\
+& \leqslant \frac{1}{n^2 \varepsilon^2} \operatorname{Var}\left(S_n\right) .
+\end{aligned}
+$$
+
+由于 $X_1, \cdots, X_n$ 两两不相关, $\operatorname{Var}\left(S_n\right)=\sum_{i=1}^n \operatorname{Var}\left(X_i\right) \leqslant n M$. 于是
+$$
+P\left(\left|\frac{S_n-\mathrm{E}\left(S_n\right)}{n}\right| \geqslant \varepsilon\right) \leqslant \frac{M}{n \varepsilon^2} \quad(\text { 一切 } \varepsilon>0) .
+$$
+由此得证. 
+
+\end{proof}
 
 \end{document}
 
