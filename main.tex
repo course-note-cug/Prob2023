@@ -50,7 +50,7 @@
 \input{text/ch5/1-cov-seqs.tex}
 
 
-\section{大数定律和强大数定律}
+\section{弱大数定律}
 
 \begin{theorem}[Chebyshev大数律] 
     设 $X_1, X_2, \cdots$ 是相互独立的随机变量序列, $\mathrm{E}\left(X_i\right)=\mu_i, \operatorname{var}\left(X_i\right)=\sigma_i^2(i \geqslant 1)$ 且 $\left\{\sigma_i^2, i \geqslant 1\right\}$ 有界, 设 $S_n=\sum_{i=1}^n X_i$ $(n \geqslant 1)$, 则
@@ -74,6 +74,33 @@ P\left(\left|\frac{S_n-\mathrm{E}\left(S_n\right)}{n}\right| \geqslant \varepsil
 $$
 由此得证. 
 
+\end{proof}
+
+我们就立刻可以得到这样的一个有用的推论: 
+
+\begin{corollary}
+    设 $X_1, X_2, \cdots$ 是相互独立同分布的随机变量序列, $\mu=\mathrm{E}\left(X_1\right)$ 和 $\sigma^2=\operatorname{var}\left(X_1\right)$ 都存在, $S_n=\sum_{i=1}^n X_i(n \geqslant 1)$, 则
+    $$
+    \frac{S_n}{n} \stackrel{P}{\longrightarrow} \mu \quad(n \rightarrow \infty) .
+    $$
+\end{corollary}
+
+这是我们最常用到的大数律, 其中方差存在的条件可以去掉, 而且可以证明更强的结论, 但证明较复杂, 我们在这里就不证明了. 
+
+实际上, 这个形式最初有Bernouli在做二项分布的时候首次提出. 他注意到了如下的事实: 
+
+\begin{corollary}
+    设单次试验中事件 $A$ 发生的概率是 $p$, 在 $n$ 次独立试验 $(n \geqslant 2)$ 中 $A$ 发生了 $\nu_n$ 次, 则
+$$
+\frac{\nu_n}{n} \stackrel{P}{\longrightarrow} p(n \rightarrow \infty) .
+$$
+\end{corollary}
+
+\begin{proof}令
+$$
+X_i= \begin{cases}1, & \text { 第 } i \text { 次试验中 } A \text { 发生, } \\ 0, & \text { 第 } i \text { 次试验中 } A \text { 不发生 }\end{cases}
+$$
+$(i=1,2, \cdots)$, 则 $\frac{\nu_n}{n}=\frac{1}{n} \sum_{i=1}^n X_i$. 由于 $X_1, X_2, \cdots$ 是相互独立同分布的随机变量序列, $\mathrm{E}\left(X_i\right)=p, \operatorname{var}\left(X_i\right)=p(1-p)(i \geqslant 1)$. 因此成立.
 \end{proof}
 
 \end{document}
