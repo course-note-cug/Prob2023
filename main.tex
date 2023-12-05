@@ -50,7 +50,156 @@
 \input{text/ch5/1-cov-seqs.tex}
 \input{text/ch5/2-lln.tex}
 
+\section{Chernoff界和Hoeffding界}
 
+我们导出两个比较有用的界限. 这两个界限可以告诉我们关于分布的尾部其实是呈指数式衰减的. 这些界限是通过将Markov不等式应用于随机变量的矩生成函数而得出的. 在讨论之前, 我们先介绍重要的一个重要的概念, 也就是矩的生成函数. 
+
+\subsection{矩的生成函数}
+
+\begin{definition}
+    对于一个随机变量 $X$, 它的矩生成函数为$$M_X(t)=\mathbf{E}\left[\mathrm{e}^{t X}\right].$$
+\end{definition}
+
+我们主要考察它在0附近的存在性和性质. 这样的一个函数$M_X(t)$实际上捕捉了$X$的所有矩. 我们马上会看到这一点.
+
+\begin{theorem}
+    假设随机变量 $X$ 的矩生成函数为 $M_X(t)$。
+在可以交换期望值和微分操作的前提下，对于所有 $n > 1$，我们可以得到
+$$E[X^n] = M_X^{(n)}(0),$$这里的 $M_X^{(n)}(0)$ 表示 $M_X(t)$ 在 $t = 0$ 处的第 $n$ 阶导数的值。
+
+\end{theorem}
+\begin{proof}
+    假设我们可以交换积分和期望的次序, 那么有$M_X^{(n)}(t)=\mathbf{E}\left[X^n \mathrm{e}^{t X}\right]$. 带入$t=0$, 得到$M_X^{(n)}(0)=\mathbf{E}\left[X^n\right]$. 
+\end{proof}
+
+\begin{example}
+    下面我们来看一个例子, 矩的生成函数是如何编码一个随机变量的所有的矩的. 对于一个参数为$p$的几何分布($\operatorname{P}(X=n)=(1-p)^{n-1} p$), 那么对于$t<-\ln(1-p)$, 有
+    $$\begin{aligned} M_X(t) & =\mathbf{E}\left[\mathrm{e}^{t X}\right] \\ & =\sum_{k=1}^{\infty}(1-p)^{k-1} p \mathrm{e}^{t k} \\ & =\frac{p}{1-p} \sum_{k=1}^{\infty}(1-p)^k \mathrm{e}^{t k} \\ & =\frac{p}{1-p}\left(\left(1-(1-p) \mathrm{e}^t\right)^{-1}-1\right)\end{aligned}$$
+
+    也就是
+    $$\begin{aligned} & M_X^{(1)}(t)=p\left(1-(1-p) \mathrm{e}^t\right)^{-2} \mathrm{e}^t \quad \text { 并且 } \\ & M_X^{(2)}(t)=2 p(1-p)\left(1-(1-p) \mathrm{e}^t\right)^{-3} \mathrm{e}^{2 t}+p\left(1-(1-p) \mathrm{e}^t\right)^{-2} \mathrm{e}^t\end{aligned}$$
+
+    带入得到$\mathbf{E}[X]=1 / p$, 以及$\mathbf{E}\left[X^2\right]=(2-p) / p^2$. 与我们先前计算的结果相符.
+\end{example}
+
+
+另一个有用的特性是，随机变量的矩生成函数（或者说变量的所有矩）可以独特地描述其分布。
+不过, 证明太过复杂, 我们略去. 
+
+\begin{theorem}
+假设 $X$ 和 $Y$ 是两个随机变量。如果存在一个 $\delta > 0$，使得在区间 $(-\delta, \delta)$ 内对于所有 $t$ 都满足
+$M_X(t) = M_Y(t)$，那么 $X$ 和 $Y$ 将拥有相同的分布。
+
+\end{theorem}
+
+上面的定理在确定独立随机变量之和的分布的时候非常有用. 
+
+下面的一个性质是关于两个随机变量的矩的和的. 
+\begin{theorem}
+    如果 $X$ 和 $Y$ 是独立随机变量, 那么, $$M_{X+Y}(t)=M_X(t) M_Y(t).$$
+\end{theorem}
+
+\begin{proof}
+    使用变量的独立性, 再使用幂的性质, 就得到了:$$M_{X+Y}(t)=\mathbf{E}\left[\mathrm{e}^{t(X+Y)}\right]=\mathbf{E}\left[\mathrm{e}^{t X} \mathrm{e}^{t Y}\right]=\mathbf{E}\left[\mathrm{e}^{t X}\right] \mathbf{E}\left[\mathrm{e}^{t Y}\right]=M_X(t) M_Y(t).$$
+\end{proof}
+
+\subsection{推导得到Chernoff界}
+
+对于一个随机变量, 我们要想得到Chernoff界, 我们需要对于矩的生成函数$e^{tx}$选择一个比较好的$t$, 然后使用Markov不等式. 也就是, 对于任意的$t>0$, 有$$\operatorname{P}(X \geq a)=\operatorname{P}\left(\mathrm{e}^{t X} \geq \mathrm{e}^{t a}\right) \leq \frac{\mathbf{E}\left[\mathrm{e}^{t X}\right]}{\mathrm{e}^{t a}}$$我们取出所有$t>0$中使它最小的一个, 有$$
+\operatorname{P}(X \geq a) \leq \min _{t>0} \frac{\mathbf{E}\left[\mathrm{e}^{t X}\right]}{\mathrm{e}^{t a}}.$$
+
+同样的, 对于$t<0$, 有
+$$
+\operatorname{P}(X \leq a)=\operatorname{P}\left(\mathrm{e}^{t X} \geq \mathrm{e}^{t a}\right) \leq \frac{\mathbf{E}\left[\mathrm{e}^{t X}\right]}{\mathrm{e}^{t a}}
+$$
+因此
+$$
+\operatorname{P}(X \leq a) \leq \min _{t<0} \frac{\mathbf{E}\left[\mathrm{e}^{t X}\right]}{\mathrm{e}^{t a}}
+$$
+
+从这种方法导出的界叫做Chernoff界. 由于实际选取的$t$不一样, 我们得到的界的形式可能并不唯一. 
+
+现在, 我们推导Chernoff界最常用的一种形式. 也就是若干个Poisson试验的和. 这些实验不一定同分布,  也就是令$X_1, X_2, \cdots, X_n$是一系列独立的Poisson实验, 也就是$\operatorname{P}\left(X_i=1\right)=p_i$. 令$X=\sum_{i=1}^n X_i$, 定义均值$\mu$为
+$$
+\mu=\mathbf{E}[X]=\mathbf{E}\left[\sum_{i=1}^n X_i\right]=\sum_{i=1}^n \mathbf{E}\left[X_i\right]=\sum_{i=1}^n p_i
+$$
+现在我们想关心 $X$ 偏离其期望的概率, 比如偏离$\delta \mu(\delta>0)$的概率是多少.  也就是看看$\operatorname{P}(X \geq(1+\delta) \mu)$以及$\operatorname{P}(X \leq(1-\delta) \mu)$的大小是多少.
+
+要得到Chernoff界, 对于每一个$X_i$首先我们使用矩生成函数: 
+$$
+\begin{aligned}
+M_{X_i}(t) & =\mathbf{E}\left[\mathrm{e}^{t X_i}\right] \\
+& =p_i \mathrm{e}^t+\left(1-p_i\right) \\
+& =1+p_i\left(\mathrm{e}^t-1\right) \\
+& \leq \mathrm{e}^{p_i\left(\mathrm{e}^t-1\right)}, & (\text{使用不等式} 1+y\leq e^y)
+\end{aligned}
+$$
+
+由于$n$个随机变量等于矩生成函数相乘, 以及每一个矩生成函数唯一决定了一个分布, 我们知道这些随机变量的和的矩的生成函数为: 
+
+$$
+\begin{aligned}
+M_X(t) & =\prod_{i=1}^n M_{X_i}(t) \\
+& \leq \prod_{i=1}^n \mathrm{e}^{p_i\left(\mathrm{e}^t-1\right)} \\
+& =\exp \left\{\sum_{i=1}^n p_i\left(\mathrm{e}^t-1\right)\right\} \\
+& =\mathrm{e}^{\left(\mathrm{e}^t-1\right) \mu} .
+\end{aligned}
+$$
+
+有了这样的矩的生成函数, 我们就可以得到对应的Chernoff界. 
+\begin{theorem}
+    假设$X_1, X_2, \cdots, X_n$是互相独立的Poisson实验, 满足$\operatorname{P}\left(X_i=1\right)=p_i$. 令$X=\sum_{i=1}^n X_i$, 均值$\mu=\mathbf{E}[X]$, 有如下的Chernoff界: 
+    \begin{itemize}
+        \item 对于任意的$\delta>0$, $$\operatorname{P}(X \geq(1+\delta) \mu) \leq\left(\frac{\mathrm{e}^\delta}{(1+\delta)^{(1+\delta)}}\right)^\mu$$
+        \item 对于任意的$0<\delta\leq 1$, $$
+        \operatorname{P}(X \geq(1+\delta) \mu) \leq \mathrm{e}^{-\mu \delta^2 / 3}$$
+        \item 对于$R\geq 6\mu$, $$
+        \operatorname{P}(X \geq R) \leq 2^{-R}$$
+    \end{itemize}
+\end{theorem}
+
+该定理的第一个界是最强的，我们正是从这个界限推导出其他两个界限. 这些更加简单的界很多情况下容易叙述和计算. 
+
+\begin{proof}
+    使用Markov不等式, 对于任意的$t>0$, 我们有: 
+    $$
+\begin{aligned}
+\operatorname{P}(X \geq(1+\delta) \mu) & =\operatorname{P}\left(\mathrm{e}^{t X} \geq \mathrm{e}^{t(1+\delta) \mu}\right) \\
+& \leq \frac{\mathbf{E}\left[\mathrm{e}^{t X}\right]}{\mathrm{e}^{t(1+\delta) \mu}} \\
+& \leq \frac{\mathrm{e}^{\left(\mathrm{e}^t-1\right) \mu}}{\mathrm{e}^{t(1+\delta) \mu}} .
+\end{aligned}
+$$
+我们置$t=\ln(1+\delta)>0$得到
+$$
+\operatorname{P}(X \geq(1+\delta) \mu) \leq\left(\frac{\mathrm{e}^\delta}{(1+\delta)^{(1+\delta)}}\right)^\mu.
+$$
+也就是第一个等式. 要得到第二个等式, 我们需要说明, 对于$0<\delta\leq 1$, 有
+$$
+\frac{\mathrm{e}^\delta}{(1+\delta)^{(1+\delta)}} \leq \mathrm{e}^{-\delta^2 / 3}
+$$
+两边同时取对数, 就转化为普通高中生也会做的问题了. 具体地, 我们取$f(\delta)=\delta-(1+\delta) \ln (1+\delta)+\frac{\delta^2}{3} \leq 0$, 计算$f(\delta)$的导数, 
+$$
+\begin{aligned}
+f^{\prime}(\delta) & =1-\frac{1+\delta}{1+\delta}-\ln (1+\delta)+\frac{2}{3} \delta \\
+& =-\ln (1+\delta)+\frac{2}{3} \delta \\
+f^{\prime \prime}(\delta) & =-\frac{1}{1+\delta}+\frac{2}{3} .
+\end{aligned}
+$$
+我们看到对于 $0 \leq \delta < \frac{1}{2}$，有 $f''(\delta) < 0$，而对于 $\delta > \frac{1}{2}$，有 $f''(\delta) > 0$。因此在区间 $[0, 1]$ 上，$f'(\delta)$ 先减小后增加。
+考虑到 $f'(0) = 0$ 和 $f'(1) < 0$，我们可以推断在区间 $[0, 1]$ 中 $f'(\delta) \leq 0$。由于 $f(0) = 0$，所以在该区间内 $f(\delta) \leq 0$。
+于是得到了第二个式子. 
+
+对于第三个式子, 令$R=(1+\delta) \mu$, 那么, 对于$R\geq 6\mu$, $\delta=R / \mu-1 \geq 5$. 因此, 使用第一个式子, 有$$\begin{aligned} \operatorname{P}(X \geq(1+\delta) \mu) & \leq\left(\frac{\mathrm{e}^\delta}{(1+\delta)^{(1+\delta)}}\right)^\mu \\ & \leq\left(\frac{\mathrm{e}}{1+\delta}\right)^{(1+\delta) \mu} \\ & \leq\left(\frac{\mathrm{e}}{6}\right)^R \\ & \leq 2^{-R} .\end{aligned}$$
+\end{proof}
+
+上面探讨了高于平均值的概率. 其实对于低于平均值偏差为$\delta$的概率, 我们也有类似的结果: 
+\begin{theorem}
+    假设$X_1, X_2, \cdots, X_n$是互相独立的Poisson实验, 满足$\operatorname{P}\left(X_i=1\right)=p_i$. 令$X=\sum_{i=1}^n X_i$, 均值$\mu=\mathbf{E}[X]$, 对于$0<\delta<1$, 有
+    \begin{itemize}
+        \item $$\operatorname{Pr}(X \leq(1-\delta) \mu) \leq\left(\frac{\mathrm{e}^{-\delta}}{(1-\delta)^{(1-\delta)}}\right)^\mu$$
+        \item $$\operatorname{Pr}(X \leq(1-\delta) \mu) \leq \mathrm{e}^{-\mu \delta^2 / 2}$$
+    \end{itemize}
+\end{theorem}
 
 \end{document}
 
