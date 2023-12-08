@@ -67,6 +67,12 @@ $$
     此时记做 $\xi_n \stackrel{w}{\longrightarrow} \eta$ (或 $\xi_n \stackrel{d}{\longrightarrow} \eta$ ).
 \end{definition}
 
+其中依分布收敛和随机变量的矩母函数很有关联. 如果我们设 $Y_1, Y_2, \dots$ 是一系列随机变量, $Y_i$的分布函数为$F_i$. 自然, 它的矩母函数为$M_X(t)=\Ep{ e^{t X}}$, 是一个随机变量. 我们(不加证明地)给出下面的定理. 这在后面证明大数定律的时候很有用处. 
+
+\begin{theorem}
+    如果我们设 $Y_1, Y_2, \dots$ 是一系列随机变量. $Y_i$的分布函数为$F_i$, 矩母函数为$M_i$. 令$Y$是一个随机变量, 且$Y$的分布函数为$F$, 矩母函数为$M$. 如果$\forall t,$ 都有$\lim _{n \rightarrow \infty} M_n(t)=M(t)$, 那么对于所有使得$F(t)$连续的$t$, 都有$F_n \stackrel{w}{\longrightarrow} F$. 
+\end{theorem}
+
 \paragraph{3. 三个收敛性的联系}
 
 \begin{theorem}

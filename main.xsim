@@ -1,37 +1,37 @@
 \providecommand\numberofexercises{}
 \XSIM{solution-body}{}
-\XSIM{exercise-body}{exercise-1=={假设匣中有两枚硬币: $A_1$ 是一对称的硬币, “正面” $\mathrm {Z}$ 出现的概率等于 $1 / 2$, 而 $A_2$ 是一枚不对称的硬币, “正面” $\mathrm {Z}$ 出现的概率等于 $1 / 3$. 随意选出一枚硬币并将其投掷, 结果掷出正面. 问抽到硬币为对称硬币的概率如何?}||exercise-2=={袋子中有10个白球, 5个黑球. 现掷一枚均匀的骰子. 掷出几点就从袋中取几个球. 若已知取出的球全为白球, 求掷出3点的概率.}||exercise-3=={$A, B, C, D$四人竞拍, 价高者得. 假设你是$A$, 已知$B, C, D$三人竞拍价互相独立, 切服从$U(7,11)$. 如$A$中标可以以10转让, 如何报价使得$A$获得的期望收益最大?}||exercise-4=={某个大楼有10层, 某次有25人在一楼搭乘电梯上楼. 假设每人都等可能地在2到10层中的任何一层出电梯, 并且出电梯与否互相独立. 同时在2到10层中没有人上电梯. 并且电梯只有在有人要出电梯的时候才停止. 求电梯停下的总次数的数学期望.}||exercise-5=={设随机变量$X,Y$相互独立, 且都服从$N(\mu , \sigma ^2)$. 设$Z=\max \{X,Y\}$. 求$\Ep {Z}$.}||exercise-6=={对于任意的整数$k>1$, 证明$\Ep {X^k}\geq (\Ep {X})^k$.}||exercise-7=={(负二项分布) 现在考虑投掷一枚硬币, 直到第$k$次出现正面的投掷次数的$X$的分布. 其中每次投掷硬币出现是独立的, 概率为$p$. 证明: 对于$n>k$, 这个分布是 $$ P(X=n) = \binom {n-1}{k-1}p^k(1-p)^k. $$}||exercise-8=={对于一枚每次投出正面的概率是$p$的硬币, 每次投掷之间互相独立, 直到第$k$次正面出现的时候, 期望的投掷次数是多少?}||exercise-9=={我们在一个$n$张不同的卡牌中进行带放回的抽卡, 抽出每一张卡的概率相等. 请问我们期望抽取多少次, 才能把所有的卡牌见到一遍?}||exercise-10=={我们一遍一遍地投掷一个均匀的筛子. 在连续出现两个6之前, 期望的投掷次数是多少? (答案不是36).}||exercise-11=={数字$1,2,\cdots , n$可以用如下的排列函数$\pi :[1..n] \to [1..n]$表示. 其中, $\pi (i)$是$i$在这个排列中的序号. 排列$\pi $的不动点是满足$\pi (x)=x$的$x$的集合. 求从所有排列中选取一个排列的不动点的期望.}}
+\XSIM{exercise-body}{exercise-14=={排列 $\pi : [1, n] \rightarrow [1, n]$ 可以表示为一张图. 我们可以这样做: 为每个数字 $i, i = 1, \dots , n$ 设立一个顶点。如果排列将数字 $i$ 映射到数字 $\pi (i)$，则从顶点 $i$ 到顶点 $\pi (i)$ 绘制一个有向边。这导致一个由不相交循环构成的图。注意，其中一些循环可能是自环。在 $n$ 个数字的随机排列中，期望的循环数是多少？}||exercise-1=={假设匣中有两枚硬币: $A_1$ 是一对称的硬币, “正面” $\mathrm {Z}$ 出现的概率等于 $1 / 2$, 而 $A_2$ 是一枚不对称的硬币, “正面” $\mathrm {Z}$ 出现的概率等于 $1 / 3$. 随意选出一枚硬币并将其投掷, 结果掷出正面. 问抽到硬币为对称硬币的概率如何?}||exercise-2=={袋子中有10个白球, 5个黑球. 现掷一枚均匀的骰子. 掷出几点就从袋中取几个球. 若已知取出的球全为白球, 求掷出3点的概率.}||exercise-3=={$A, B, C, D$四人竞拍, 价高者得. 假设你是$A$, 已知$B, C, D$三人竞拍价互相独立, 切服从$U(7,11)$. 如$A$中标可以以10转让, 如何报价使得$A$获得的期望收益最大?}||exercise-4=={某个大楼有10层, 某次有25人在一楼搭乘电梯上楼. 假设每人都等可能地在2到10层中的任何一层出电梯, 并且出电梯与否互相独立. 同时在2到10层中没有人上电梯. 并且电梯只有在有人要出电梯的时候才停止. 求电梯停下的总次数的数学期望.}||exercise-5=={设随机变量$X,Y$相互独立, 且都服从$N(\mu , \sigma ^2)$. 设$Z=\max \{X,Y\}$. 求$\Ep {Z}$.}||exercise-6=={对于任意的整数$k>1$, 证明$\Ep {X^k}\geq (\Ep {X})^k$.}||exercise-7=={(负二项分布) 现在考虑投掷一枚硬币, 直到第$k$次出现正面的投掷次数的$X$的分布. 其中每次投掷硬币出现是独立的, 概率为$p$. 证明: 对于$n>k$, 这个分布是 $$ P(X=n) = \binom {n-1}{k-1}p^k(1-p)^k. $$}||exercise-8=={对于一枚每次投出正面的概率是$p$的硬币, 每次投掷之间互相独立, 直到第$k$次正面出现的时候, 期望的投掷次数是多少?}||exercise-9=={我们在一个$n$张不同的卡牌中进行带放回的抽卡, 抽出每一张卡的概率相等. 请问我们期望抽取多少次, 才能把所有的卡牌见到一遍?}||exercise-10=={我们一遍一遍地投掷一个均匀的筛子. 在连续出现两个6之前, 期望的投掷次数是多少? (答案不是36).}||exercise-11=={数字$1,2,\cdots , n$可以用如下的排列函数$\pi :[1..n] \to [1..n]$表示. 其中, $\pi (i)$是$i$在这个排列中的序号. 排列$\pi $的不动点是满足$\pi (x)=x$的$x$的集合. 求从所有排列中选取一个排列的不动点的期望.}||exercise-12=={假设 $a_1, a_2, \dots , a_n$ 是 {1, 2, $\dots $, $n$} 的一个随机排列，等可能地是 $n!$ 种可能的排列之一。当对列表 $a_1, a_2, \dots , a_n$ 进行排序时，元素 $a_i$ 必须移动 $|a_i - i|$ 个位置才能到达其在排序后的位置。求出$$ \mathbf {E}\left [\sum _{i=1}^n\left |a_i-i\right |\right ] $$ 也就是元素移动的期望总距离.}||exercise-13=={排列 $\pi : [1, n] \rightarrow [1, n]$ 可以表示为一张图. 我们可以这样做: 为每个数字 $i, i = 1, \dots , n$ 设立一个顶点。如果排列将数字 $i$ 映射到数字 $\pi (i)$，则从顶点 $i$ 到顶点 $\pi (i)$ 绘制一个有向边。这导致一个由不相交环构成的图。注意，其中一些环可能是自环。在 $n$ 个数字的随机排列中，期望的环的数量是多少？}}
 \XSIM{goal}{exercise}{points}{0}
 \XSIM{totalgoal}{points}{0}
 \XSIM{goal}{exercise}{bonus-points}{0}
 \XSIM{totalgoal}{bonus-points}{0}
-\XSIM{order}{1||2||3||4||5||6||7||8||9||10||11}
+\XSIM{order}{14||1||2||3||4||5||6||7||8||9||10||11||12||13}
 \XSIM{use}{}
 \XSIM{use!}{}
-\XSIM{used}{exercise-1=={true}||exercise-2=={true}||exercise-3=={true}||exercise-4=={true}||exercise-5=={true}||exercise-6=={true}||exercise-7=={true}||exercise-8=={true}||exercise-9=={true}||exercise-10=={true}||exercise-11=={true}}
+\XSIM{used}{exercise-14=={true}||exercise-1=={true}||exercise-2=={true}||exercise-3=={true}||exercise-4=={true}||exercise-5=={true}||exercise-6=={true}||exercise-7=={true}||exercise-8=={true}||exercise-9=={true}||exercise-10=={true}||exercise-11=={true}||exercise-12=={true}||exercise-13=={true}}
 \XSIM{print}{}
 \XSIM{print!}{}
-\XSIM{printed}{exercise-1=={true}||exercise-2=={true}||exercise-3=={true}||exercise-4=={true}||exercise-5=={true}||exercise-6=={true}||exercise-7=={true}||exercise-8=={true}||exercise-9=={true}||exercise-10=={true}||exercise-11=={true}}
-\XSIM{total-number}{11}
-\XSIM{exercise}{11}
+\XSIM{printed}{exercise-14=={true}||exercise-1=={true}||exercise-2=={true}||exercise-3=={true}||exercise-4=={true}||exercise-5=={true}||exercise-6=={true}||exercise-7=={true}||exercise-8=={true}||exercise-9=={true}||exercise-10=={true}||exercise-11=={true}||exercise-12=={true}||exercise-13=={true}}
+\XSIM{total-number}{13}
+\XSIM{exercise}{13}
 \XSIM{types}{exercise}
-\XSIM{idtypes}{1=={exercise}||2=={exercise}||3=={exercise}||4=={exercise}||5=={exercise}||6=={exercise}||7=={exercise}||8=={exercise}||9=={exercise}||10=={exercise}||11=={exercise}}
-\XSIM{collections}{exercise-1=={all exercises}||exercise-2=={all exercises}||exercise-3=={all exercises}||exercise-4=={all exercises}||exercise-5=={all exercises}||exercise-6=={all exercises}||exercise-7=={all exercises}||exercise-8=={all exercises}||exercise-9=={all exercises}||exercise-10=={all exercises}||exercise-11=={all exercises}}
-\XSIM{collection:all exercises}{exercise-1||exercise-2||exercise-3||exercise-4||exercise-5||exercise-6||exercise-7||exercise-8||exercise-9||exercise-10||exercise-11}
-\setcounter{totalexerciseinall exercises}{11}
-\XSIM{id}{exercise-1=={1}||exercise-2=={2}||exercise-3=={3}||exercise-4=={4}||exercise-5=={5}||exercise-6=={6}||exercise-7=={7}||exercise-8=={8}||exercise-9=={9}||exercise-10=={10}||exercise-11=={11}}
-\XSIM{ID}{exercise-1=={1}||exercise-2=={2}||exercise-3=={3}||exercise-4=={4}||exercise-5=={5}||exercise-6=={6}||exercise-7=={7}||exercise-8=={8}||exercise-9=={9}||exercise-10=={10}||exercise-11=={11}}
-\XSIM{counter}{exercise-1=={I.1}||exercise-2=={I.2}||exercise-3=={IV.1}||exercise-4=={IV.2}||exercise-5=={IV.3}||exercise-6=={IV.4}||exercise-7=={IV.5}||exercise-8=={IV.6}||exercise-9=={IV.7}||exercise-10=={IV.8}||exercise-11=={IV.9}}
-\XSIM{counter-value}{exercise-1=={1}||exercise-2=={2}||exercise-3=={1}||exercise-4=={2}||exercise-5=={3}||exercise-6=={4}||exercise-7=={5}||exercise-8=={6}||exercise-9=={7}||exercise-10=={8}||exercise-11=={9}}
+\XSIM{idtypes}{14=={exercise}||1=={exercise}||2=={exercise}||3=={exercise}||4=={exercise}||5=={exercise}||6=={exercise}||7=={exercise}||8=={exercise}||9=={exercise}||10=={exercise}||11=={exercise}||12=={exercise}||13=={exercise}}
+\XSIM{collections}{exercise-14=={all exercises}||exercise-1=={all exercises}||exercise-2=={all exercises}||exercise-3=={all exercises}||exercise-4=={all exercises}||exercise-5=={all exercises}||exercise-6=={all exercises}||exercise-7=={all exercises}||exercise-8=={all exercises}||exercise-9=={all exercises}||exercise-10=={all exercises}||exercise-11=={all exercises}||exercise-12=={all exercises}||exercise-13=={all exercises}}
+\XSIM{collection:all exercises}{exercise-14||exercise-1||exercise-2||exercise-3||exercise-4||exercise-5||exercise-6||exercise-7||exercise-8||exercise-9||exercise-10||exercise-11||exercise-12||exercise-13}
+\setcounter{totalexerciseinall exercises}{13}
+\XSIM{id}{exercise-14=={14}||exercise-1=={1}||exercise-2=={2}||exercise-3=={3}||exercise-4=={4}||exercise-5=={5}||exercise-6=={6}||exercise-7=={7}||exercise-8=={8}||exercise-9=={9}||exercise-10=={10}||exercise-11=={11}||exercise-12=={12}||exercise-13=={13}}
+\XSIM{ID}{exercise-1=={1}||exercise-2=={2}||exercise-3=={3}||exercise-4=={4}||exercise-5=={5}||exercise-6=={6}||exercise-7=={7}||exercise-8=={8}||exercise-9=={9}||exercise-10=={10}||exercise-11=={11}||exercise-12=={12}||exercise-13=={13}||exercise-14=={14}}
+\XSIM{counter}{exercise-14=={IV.12}||exercise-1=={I.1}||exercise-2=={I.2}||exercise-3=={IV.1}||exercise-4=={IV.2}||exercise-5=={IV.3}||exercise-6=={IV.4}||exercise-7=={IV.5}||exercise-8=={IV.6}||exercise-9=={IV.7}||exercise-10=={IV.8}||exercise-11=={IV.9}||exercise-12=={IV.10}||exercise-13=={IV.11}}
+\XSIM{counter-value}{exercise-14=={12}||exercise-1=={1}||exercise-2=={2}||exercise-3=={1}||exercise-4=={2}||exercise-5=={3}||exercise-6=={4}||exercise-7=={5}||exercise-8=={6}||exercise-9=={7}||exercise-10=={8}||exercise-11=={9}||exercise-12=={10}||exercise-13=={11}}
 \XSIM{solution}{}
-\XSIM{section-value}{exercise-1=={3}||exercise-2=={3}||exercise-3=={13}||exercise-4=={15}||exercise-5=={15}||exercise-6=={15}||exercise-7=={15}||exercise-8=={15}||exercise-9=={15}||exercise-10=={15}||exercise-11=={15}}
-\XSIM{section}{exercise-1=={3}||exercise-2=={3}||exercise-3=={13}||exercise-4=={15}||exercise-5=={15}||exercise-6=={15}||exercise-7=={15}||exercise-8=={15}||exercise-9=={15}||exercise-10=={15}||exercise-11=={15}}
-\XSIM{sectioning}{exercise-1=={{0}{3}{1}{0}{0}}||exercise-2=={{0}{3}{1}{0}{0}}||exercise-3=={{0}{13}{2}{0}{0}}||exercise-4=={{0}{15}{0}{0}{0}}||exercise-5=={{0}{15}{0}{0}{0}}||exercise-6=={{0}{15}{0}{0}{0}}||exercise-7=={{0}{15}{0}{0}{0}}||exercise-8=={{0}{15}{0}{0}{0}}||exercise-9=={{0}{15}{0}{0}{0}}||exercise-10=={{0}{15}{0}{0}{0}}||exercise-11=={{0}{15}{0}{0}{0}}}
+\XSIM{section-value}{exercise-14=={15}||exercise-1=={3}||exercise-2=={3}||exercise-3=={13}||exercise-4=={15}||exercise-5=={15}||exercise-6=={15}||exercise-7=={15}||exercise-8=={15}||exercise-9=={15}||exercise-10=={15}||exercise-11=={15}||exercise-12=={15}||exercise-13=={15}}
+\XSIM{section}{exercise-14=={15}||exercise-1=={3}||exercise-2=={3}||exercise-3=={13}||exercise-4=={15}||exercise-5=={15}||exercise-6=={15}||exercise-7=={15}||exercise-8=={15}||exercise-9=={15}||exercise-10=={15}||exercise-11=={15}||exercise-12=={15}||exercise-13=={15}}
+\XSIM{sectioning}{exercise-14=={{0}{15}{0}{0}{0}}||exercise-1=={{0}{3}{1}{0}{0}}||exercise-2=={{0}{3}{1}{0}{0}}||exercise-3=={{0}{13}{2}{0}{0}}||exercise-4=={{0}{15}{0}{0}{0}}||exercise-5=={{0}{15}{0}{0}{0}}||exercise-6=={{0}{15}{0}{0}{0}}||exercise-7=={{0}{15}{0}{0}{0}}||exercise-8=={{0}{15}{0}{0}{0}}||exercise-9=={{0}{15}{0}{0}{0}}||exercise-10=={{0}{15}{0}{0}{0}}||exercise-11=={{0}{15}{0}{0}{0}}||exercise-12=={{0}{15}{0}{0}{0}}||exercise-13=={{0}{15}{0}{0}{0}}}
 \XSIM{subtitle}{}
 \XSIM{points}{}
 \XSIM{bonus-points}{}
-\XSIM{page-value}{exercise-1=={19}||exercise-2=={19}||exercise-3=={55}||exercise-4=={61}||exercise-5=={61}||exercise-6=={62}||exercise-7=={62}||exercise-8=={62}||exercise-9=={62}||exercise-10=={62}||exercise-11=={63}}
-\XSIM{page}{exercise-1=={19}||exercise-2=={19}||exercise-3=={55}||exercise-4=={61}||exercise-5=={61}||exercise-6=={62}||exercise-7=={62}||exercise-8=={62}||exercise-9=={62}||exercise-10=={62}||exercise-11=={63}}
+\XSIM{page-value}{exercise-14=={63}||exercise-1=={19}||exercise-2=={19}||exercise-3=={55}||exercise-4=={61}||exercise-5=={61}||exercise-6=={62}||exercise-7=={62}||exercise-8=={62}||exercise-9=={62}||exercise-10=={62}||exercise-11=={63}||exercise-12=={63}||exercise-13=={63}}
+\XSIM{page}{exercise-14=={63}||exercise-1=={19}||exercise-2=={19}||exercise-3=={55}||exercise-4=={61}||exercise-5=={61}||exercise-6=={62}||exercise-7=={62}||exercise-8=={62}||exercise-9=={62}||exercise-10=={62}||exercise-11=={63}||exercise-12=={63}||exercise-13=={63}}
 \XSIM{tags}{}
 \XSIM{topics}{}
 \XSIM{userpoints}{}
