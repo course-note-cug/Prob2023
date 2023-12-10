@@ -50,37 +50,8 @@
 \part{概率的极限定理}
 \input{text/ch5/1-cov-seqs.tex}
 \input{text/ch5/2-lln.tex}
+\input{text/ch5/3-clt.tex}
 
-\section{中心极限定理}
-
-许多随机变量是大量的相互独立的随机因素的综合影响之和所形成的. 我们说明, 这种随机变量往往近似地服从正态分布.
-
-我们首先查看独立同分布的情况. 
-
-\begin{theorem}[中心极限定理]
-    设 $X_1, \ldots, X_n$ 是 $n$ 个独立同分布的随机变量，其均值为 $\mu$，方差为 $\sigma^2$。令 $\bar{X}_n=\frac{1}{n} \sum_{i=1}^n X_i$。那么对于任意的 $a$ 和 $b$，
-    $$
-    \lim _{n \rightarrow \infty} \operatorname{P}\left(a \leq \frac{\bar{X}_n-\mu}{\sigma / \sqrt{n}} \leq b\right) \stackrel{D}{\longrightarrow} \Phi(b)-\Phi(a)
-    $$
-    这里 $\Phi$ 是标准正态分布函数。
-        \end{theorem}
-
-    \begin{proof}
-        首先标准化变量: 令$Z_i=\left(X_i-\mu\right) / \sigma$, 那么期望为0, 方差为1. 并且得到$$
-            \frac{\bar{X}_n-\mu}{\sigma / \sqrt{n}}=\frac{\sqrt{n}}{n} \sum_{i=1}^n \frac{X_i-\mu}{\sigma}=\frac{\sum_{i=1}^n Z_i}{\sqrt{n}} .
-            $$
-            要用依收敛分布性质, 需要说明$$
-            \lim _{n \rightarrow \infty} \mathbf{E}\left[\mathrm{e}^{t \sum_{i=1}^n Z_i / \sqrt{n}}\right]=\mathrm{e}^{t^2 / 2}
-            $$
-            设$M(t)=\mathbf{E}\left[\mathrm{e}^{t Z_i}\right]$是$Z_i$的矩母生成函数, 那么$Z_i / \sqrt{n}$的矩母生成函数为$\mathbf{E}\left[\mathrm{e}^{t Z_i / \sqrt{n}}\right]=M\left(\frac{t}{\sqrt{n}}\right)$. 由于独立同分布, 有$\mathbf{E}\left[\mathrm{e}^{t \sum_{i=1}^n Z_i / \sqrt{n}}\right]=\left(M\left(\frac{t}{\sqrt{n}}\right)\right)^n$.令$L(t)=\ln M(t)$, 由于$M(0)=1$, 得到$L(0)=0$.
-
-            观察边界点的一阶, 二阶导数:$L^{\prime}(0)=\frac{M^{\prime}(0)}{M(0)}=\Ep{Z_i}=0$, $L^{\prime \prime}(0)=\frac{M(0) M^{\prime \prime}(0)-\left(M^{\prime}(0)\right)^2}{(M(0))^2}=\mathbf{E}\left[Z_i^2\right]=1$.
-
-            现在, 我们只要说明$(M(t / \sqrt{n}))^n \rightarrow \mathrm{e}^{t^2 / 2}$, 即$n L(t / \sqrt{n}) \rightarrow t^2 / 2$即可. 
-            使用洛必达法则两次就可以成功说明之.
-        $$\begin{aligned} \lim _{n \rightarrow \infty} \frac{L(t / \sqrt{n})}{n^{-1}} & =\lim _{n \rightarrow \infty} \frac{-L^{\prime}(t / \sqrt{n}) n^{-3 / 2} t}{-2 n^{-2}} \\ & =\lim _{n \rightarrow \infty} \frac{L^{\prime}(t / \sqrt{n}) t}{2 n^{-1 / 2}} \\ & =\lim _{n \rightarrow \infty} \frac{-L^{\prime \prime}(t / \sqrt{n}) n^{-3 / 2} t^2}{-2 n^{-3 / 2}} \\ & =\lim _{n \rightarrow \infty} L^{\prime \prime}(t / \sqrt{n}) \frac{t^2}{2} \\ & =\frac{t^2}{2} .\end{aligned}$$
-
-    \end{proof}
 
 
 \end{document}

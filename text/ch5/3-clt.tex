@@ -1,0 +1,124 @@
+\section{中心极限定理}
+
+许多随机变量是大量的相互独立的随机因素的综合影响之和所形成的. 我们说明, 这种随机变量往往近似地服从正态分布.
+
+我们首先查看独立同分布的情况. 
+
+\begin{theorem}[中心极限定理]
+    \label{thm:clt-iid}
+    设 $X_1, \ldots, X_n$ 是 $n$ 个独立同分布的随机变量，其均值为 $\mu$，方差为 $\sigma^2$。令 $\bar{X}_n=\frac{1}{n} \sum_{i=1}^n X_i$。那么对于任意的 $a$ 和 $b$，
+    $$
+    \lim _{n \rightarrow \infty} \operatorname{P}\left(a \leq \frac{\bar{X}_n-\mu}{\sigma / \sqrt{n}} \leq b\right) \stackrel{D}{\longrightarrow} \Phi(b)-\Phi(a)
+    $$
+    这里 $\Phi$ 是标准正态分布函数。
+        \end{theorem}
+
+    \begin{proof}
+        首先标准化变量: 令$Z_i=\left(X_i-\mu\right) / \sigma$, 那么期望为0, 方差为1. 并且得到$$
+            \frac{\bar{X}_n-\mu}{\sigma / \sqrt{n}}=\frac{\sqrt{n}}{n} \sum_{i=1}^n \frac{X_i-\mu}{\sigma}=\frac{\sum_{i=1}^n Z_i}{\sqrt{n}} .
+            $$
+            要用\cref{thm:dist-moment}的依收敛分布性质, 需要说明$$
+            \lim _{n \rightarrow \infty} \mathbf{E}\left[\mathrm{e}^{t \sum_{i=1}^n Z_i / \sqrt{n}}\right]=\mathrm{e}^{t^2 / 2}
+            $$
+            设$M(t)=\mathbf{E}\left[\mathrm{e}^{t Z_i}\right]$是$Z_i$的矩母生成函数, 那么$Z_i / \sqrt{n}$的矩母生成函数为$\mathbf{E}\left[\mathrm{e}^{t Z_i / \sqrt{n}}\right]=M\left(\frac{t}{\sqrt{n}}\right)$. 由于独立同分布, 有$\mathbf{E}\left[\mathrm{e}^{t \sum_{i=1}^n Z_i / \sqrt{n}}\right]=\left(M\left(\frac{t}{\sqrt{n}}\right)\right)^n$.令$L(t)=\ln M(t)$, 由于$M(0)=1$, 得到$L(0)=0$.
+
+            观察边界点的一阶, 二阶导数:$L^{\prime}(0)=\frac{M^{\prime}(0)}{M(0)}=\Ep{Z_i}=0$, $L^{\prime \prime}(0)=\frac{M(0) M^{\prime \prime}(0)-\left(M^{\prime}(0)\right)^2}{(M(0))^2}=\mathbf{E}\left[Z_i^2\right]=1$.
+
+            现在, 我们只要说明$(M(t / \sqrt{n}))^n \rightarrow \mathrm{e}^{t^2 / 2}$, 即$n L(t / \sqrt{n}) \rightarrow t^2 / 2$即可. 
+            使用洛必达法则两次就可以成功说明之.
+        $$\begin{aligned} \lim _{n \rightarrow \infty} \frac{L(t / \sqrt{n})}{n^{-1}} & =\lim _{n \rightarrow \infty} \frac{-L^{\prime}(t / \sqrt{n}) n^{-3 / 2} t}{-2 n^{-2}} \\ & =\lim _{n \rightarrow \infty} \frac{L^{\prime}(t / \sqrt{n}) t}{2 n^{-1 / 2}} \\ & =\lim _{n \rightarrow \infty} \frac{-L^{\prime \prime}(t / \sqrt{n}) n^{-3 / 2} t^2}{-2 n^{-3 / 2}} \\ & =\lim _{n \rightarrow \infty} L^{\prime \prime}(t / \sqrt{n}) \frac{t^2}{2} \\ & =\frac{t^2}{2} .\end{aligned}$$
+
+    \end{proof}
+
+    实际上, 在数学期望, 方差都存在, 但是不同的时候, 同样也有大数定律成立: 
+
+    \begin{theorem}
+        \label{thm:clt-gen}
+        设 $X_1, X_2, \cdots$ 是相互独立的随机变量序列, $\mu_i=\mathrm{E}\left(X_i\right), \sigma_i^2=\operatorname{var}\left(X_i\right)(i \geqslant 1)$ 都存在,且存在 $r>2$ 使得下式成立:
+$$
+\lim _{n \rightarrow \infty} \frac{1}{B_n^r} \sum_{i=1}^n \mathrm{E}\left|X_i-\mu_i\right|^r=0
+$$
+
+这里 $B_n=\sqrt{\sigma_1^2+\cdots+\sigma_n^2}(n \geqslant 1)$. 设 $S_n=\sum_{i=1}^n X_i(n \geqslant 1)$, 则对一切 $x$ 成立:
+$$
+P\left(\frac{S_n-\mathrm{E}\left(S_n\right)}{\sqrt{\operatorname{var}\left(S_n\right)}} \leqslant x\right)=\int_{-\infty}^x \frac{1}{\sqrt{2 \pi}} \mathrm{e}^{-\frac{u^2}{2}} \mathrm{~d} u
+$$
+    \end{theorem}
+
+    从这两个定理知(我们的条件实际应用的过程中一般都是满足的), 当 $n$ 较大时,
+$$
+P\left(\frac{S_n-\mathrm{E}\left(S_n\right)}{\sqrt{\operatorname{var}\left(S_n\right)}} \leqslant x\right) \approx \Phi(x)
+$$
+     我们时常使用这个关系求解问题. 
+
+     \begin{example}
+        一加法器同时收到 20 个噪声电压 $V_k(k=1, \cdots, 20)$, 橆设它们是相互独立的, 且都服从 $(0,10)$ 上的均匀分布. 设 $V=\sum_{k=1}^{20} V_k$, 求 $P(V>105)$
+     \end{example}
+
+     \begin{solution}
+        由假设知 $\mathrm{E}\left(V_1\right)=5, \operatorname{var}\left(X_1\right)=\frac{100}{12}$. 从\cref{thm:clt-iid}知 $\frac{V-20 \times 5}{\sqrt{20 \times 100 / 12}}$ 近似服从 $N(0,1)$.
+
+        于是
+        $$
+        \begin{aligned}
+        P(V>105) & =P\left(\frac{V-20 \times 5}{\sqrt{20 \times 100 / 12}}>\frac{105-20 \times 5}{\sqrt{20 \times 100 / 12}}\right) \\
+        & =P\left(\frac{V-20 \times 5}{\sqrt{20 \times 100 / 12}}>0.387\right) \\
+        & \approx 1-\Phi(0.387)=0.348 .
+        \end{aligned}
+        $$ 
+     \end{solution}
+
+
+     \begin{example}
+        一份考卷由 99 道题组成, 按从易到难的次序排列. 某学生答对第 1 题的概率是 0.99 , 答对第 2 题的概率是 $0.98, \cdots$, 答对第 $i$题的概率是 $1-i / 100(i=1,2, \cdots, 99)$. 若规定正确回答 60 道题以上 (含 60 道题)才算通过考试,试问: 该学生通过考试的可能性有多大?
+     \end{example}
+
+     \begin{solution}
+        对 $i=1,2, \cdots, 99$, 令
+$$
+X_i= \begin{cases}1, & \text { 若该学生答对第 } i \text { 题, } \\ 0, & \text { 若该学生未答对第 } i \text { 题, }\end{cases}
+$$
+
+则 $P\left(X_i=1\right)=p_i=1-i / 100, P\left(X_i=0\right)=1-p_i$.
+显然, 该学生通过考试的可能性由概率 $P\left(\sum_{i=1}^{99} X_i \geqslant 60\right)$ 来刻画. 为了计算这个概率, 我们可以设想还有 $X_{100}, X_{101}, \cdots$ 使得 $\left\{X_n, n \geqslant 1\right\}$ 是相互独立的随机变量序列且 $X_{99+i}$ 与 $X_{99}$ 有相同的分布 (一切 $\left.i \geqslant 1\right)$. 易知
+$$
+\begin{gathered}
+\mathrm{E}\left(X_i\right)= \begin{cases}p_i, & 1 \leqslant i \leqslant 99, \\
+p_{99}, & i>99\end{cases} \\
+\operatorname{var}\left(X_i\right)= \begin{cases}p_i\left(1-p_i\right), & 1 \leqslant i \leqslant 99, \\
+p_{99}\left(1-p_{99}\right), & i>99 .\end{cases}
+\end{gathered}
+$$
+于是当 $n \geqslant 99$ 时,
+$$
+B_n^2 \triangleq \sum_{i=1}^n \operatorname{var}\left(X_i\right)=\sum_{i=1}^{99} p_i\left(1-p_i\right)+(n-99) p_{99}\left(1-p_{99}\right) .
+$$
+
+由于 $\left|X_i-\mathrm{E}\left(X_i\right)\right|^3 \leqslant\left(X_i-\mathrm{E}\left(X_i\right)\right)^2$, 知
+$$
+\sum_{i=1}^n \mathrm{E}\left|X_i-\mathrm{E}\left(X_i\right)\right|^3 \leqslant \sum_{i=1}^n \mathrm{E}\left(X_i-\mathrm{E}\left(X_i\right)\right)^2=B_n^2 .
+$$
+
+于是$$
+\lim _{n \rightarrow \infty} \frac{1}{B_n^3} \sum_{i=1}^n \mathrm{E}\left|X_i-\mathrm{E}\left(X_i\right)\right|^3=0 .
+$$
+
+这表明 \cref{thm:clt-gen} 要求的条件满足 (取 $r=3$ ). 易知
+$$
+\begin{gathered}
+\mathrm{E}\left(\sum_{i=1}^{99} X_i\right)=\sum_{i=1}^{99} \mathrm{E}\left(X_i\right)=\sum_{i=1}^{99} p_i=49.5, \\
+B_{99}^2=\sum_{i=1}^{99} \operatorname{var}\left(X_i\right)=\sum_{i=1}^{99} p_i\left(1-p_i\right)=16.665 .
+\end{gathered}
+$$
+
+利用\cref{thm:clt-gen}知
+$$
+\begin{aligned}
+P\left(\sum_{i=1}^{99} X_i \geqslant 60\right)&=P\left(\frac{\sum_{i=1}^{99} X_i-49.5}{\sqrt{16.665}} \geqslant \frac{60-49.5}{\sqrt{16.665}}\right)  \\
+& =P\left(\frac{\sum_{i=1}^{99} X_i-49.5}{\sqrt{16.665}} \geqslant 2.5735\right) \approx 1-\Phi(2.5735) \\
+& =0.005 .
+\end{aligned}
+$$
+
+这表明, 该学生通过考试的可能性很小, 大约只有千分之五.
+     \end{solution}
