@@ -52,7 +52,126 @@
 \input{text/ch5/2-lln.tex}
 \input{text/ch5/3-clt.tex}
 
+\part{数理统计简介}
+\input{text/ch6/1-intro.tex}
+\input{text/ch6/2-mle.tex}
 
+\section{矩估计}
+
+设 $X_1, \cdots, X_n$ 为来自总体 $X \sim F_\theta(\theta \in \theta)$ 的一个样本. 根据大数定律有
+$$\bar{X}=\frac{1}{n} \sum_{i=1}^n X_i \stackrel{P}{\longrightarrow} \mathrm{E}(X) := \mathrm{E}_\theta(X)$$
+
+由于上式中 $X$ 的分布与参数 $\theta$ 有关, 常把 $X$ 的期望 $\mathrm{E}(X)$ 记为$\mathrm{E}_\theta(X)$. 
+
+由于当 $n$ 充分大时 $\bar{X}$ 与 $\mathrm{E}_\theta(X)$ 非常靠近, 我们干脆就利用$a_1 \triangleq \bar{X}$ 作为 $\alpha_1 \triangleq \mathrm{E}_\theta(X)$ 的估计, 这个估计称为 $\mathrm{E}_g(X)$ 的矩估计.通裳 $\alpha_t$ $\triangleq \mathrm{E}_\theta\left(X^l\right)$ 称为 $l$ 阶总体矩, 而 $a_l \triangleq \frac{1}{n} \sum_{i=1}^n X_i^l$ 称为 $l$ 阶样本矩. 由大数定律知, 可用各阶样本矩去估计相应的总体矩. 由此而得矩估计这个名称. 依这个思想, 可利用
+$$
+a_2=\frac{1}{n} \sum_{i=1}^n X_i^2
+$$
+
+作为$\alpha_2 =\mathrm E_\theta ({X^2})$的估计. 只要这些矩存在. 下面我们给这样的想法一个定义. 
+
+\begin{definition}
+    设 $X_1, \cdots, X_n$ 为来自总体 $X \sim F_\theta(\theta \in \Theta)$ 的一个样本. 若所涉及的矩存在, 则
+
+(1) $l$ 阶样本矩 $a_l=\frac{1}{n} \sum_{i=1}^n X_i^l$ 为相应的总体矩 $\alpha_l=\mathrm{E}_\theta\left(X^l\right)$ 的矩估计, $l=1,2, \cdots$;
+
+
+(2) 若存在连续函数 $\phi$ 使 $g(\theta)=\phi\left(\alpha_1, \cdots, \alpha_k\right)$ 成立, 则 $g(\theta)$ 的矩估计定义为
+$$
+\widehat{g(\theta)}=\phi\left(a_1, \cdots, a_k\right),
+$$
+
+其中 $a_l$ 为相应于总体矩 $\alpha_l(l=1, \cdots, k)$ 的样本矩.
+\end{definition}
+
+同样的, 我们给出一个简单的例子说明它的原理. 
+\begin{example}
+    在某炸药制造厂, 一天中发生着火现象的次数 $X$ 是一个随机变量, 假设它服从以 $\lambda>0$ 为参数的泊松分布, 参数 $\lambda$ 为未知. 现有以下的样本值, 试估计参数 $\lambda$.
+
+\begin{tabular}{c|ccccccc|c} 
+    着火次数 $k$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & \\
+    \hline 发生 $k$ 次着火的天数 $n_k$ & 75 & 90 & 54 & 22 & 6 & 2 & 1 & $\sum=250$
+    \end{tabular}
+\end{example}
+
+\begin{solution}
+    用样本均值来估计总体均值. 
+    $$
+    \begin{aligned}
+    \bar{x} & =\frac{\sum_{k=0}^6 k n_k}{\sum_{k=0}^6 n_k} \\
+    & =\frac{1}{250}[0 \times 75+1 \times 90+2 \times 54+3 \times 22+4 \times 6+5 \times 2+6 \times 1]\\
+    0&=1.22,\text { 即 } E(X)=\lambda \text { 的估计为 } 1.22 \text {. }
+    \end{aligned}
+    $$
+\end{solution}
+
+让我们回顾一下上一节中做过的一些例子, 看看矩估计和ML估计得到的结果是否一致. 
+
+\begin{example}
+    设总体 $X$ 的均值 $\mu$ 及方差 $\sigma^2$ 都存在, 且有 $\sigma^2>0$. 但 $\mu, \sigma^2$ 均为未知.又设 $X_1, X_2, \cdots, X_n$ 是来自 $X$ 的样本. 试求 $\mu, \sigma^2$ 的矩估计量.
+\end{example}
+
+\begin{solution}
+    由于$\left\{\begin{array}{l}\mu_1=E(X)=\mu, \\ \mu_2=E\left(X^2\right)=D(X)+[E(X)]^2=\sigma^2+\mu^2 .\end{array}\right.$解得
+$$
+\left\{\begin{array}{l}
+\mu=\mu_1, \\
+\sigma^2=\mu_2-\mu_1^2 .
+\end{array}\right.
+$$
+
+分别以 $A_1, A_2$ 代替 $\mu_1, \mu_2$, 得 $\mu$ 和 $\sigma^2$ 的矩估计量分别为
+$$
+\begin{aligned}
+& \hat{\mu}=A_1=\bar{X}, \\
+& \hat{\sigma^2}=A_2-A_1^2=\frac{1}{n} \sum_{i=1}^n X_i^2-\bar{X}^2=\frac{1}{n} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2 .
+\end{aligned}
+$$
+\end{solution}
+
+
+\begin{example}
+    设总体 $X$ 在 $[a, b]$ 上服从均匀分布, $a, b$ 末知. $X_1, X_2, \cdots, X_n$ 是来自 $X$ 的样本, 试求 $a, b$ 的矩估计量.
+\end{example}
+
+\begin{solution}
+    即
+    $$
+    \begin{aligned}
+    & \mu_1=E(X)=(a+b) / 2, \\
+    & \mu_2=E\left(X^2\right)=D(X)+[E(X)]^2 \\
+    &=(b-a)^2 / 12+(a+b)^2 / 4 . \\
+    &\left\{\begin{array}{l}
+    a+b=2 \mu_1, \\
+    b-a=\sqrt{12\left(\mu_2-\mu_1^2\right)} .
+    \end{array}\right.
+    \end{aligned}
+    $$
+    
+    解这一方程组得
+    $$
+    a=\mu_1-\sqrt{3\left(\mu_2-\mu_1^2\right)}, \quad b=\mu_1+\sqrt{3\left(\mu_2-\mu_1^2\right)} .
+    $$
+
+    分别以 $A_1, A_2$ 代替 $\mu_1, \mu_2$, 得到 $a, b$ 的矩估计量分别为 (注意到 $\frac{1}{n} \sum_{i=1}^n X_i^2-\bar{X}^2=$ $\left.\frac{1}{n} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2\right)$
+$$
+\begin{aligned}
+& \hat{a}=A_1-\sqrt{3\left(A_2-A_1^2\right)}=\bar{X}-\sqrt{\frac{3}{n} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2}, \\
+& \hat{b}=A_1+\sqrt{3\left(A_2-A_1^2\right)}=\bar{X}+\sqrt{\frac{3}{n} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2} .
+\end{aligned}
+$$
+\end{solution}
+
+可以看到, 对于有些问题, 矩估计和ML估计得到的结果是不一样的. 就这个例子而言, 在上一节中我们得到的结果$\max _{1 \leq i \leq n}\left\{X_i\right\}$不相符合. 矩估计 $2 \bar{X}$ 还有一个很不好的性质, 当出现情况 $2 \bar{X}<$ $\max _{1 \leq i \leq n}\left\{X_i\right\}$ 时, 就会变得很不合理. 在本例的模型中, 数据不会超过 $[0, \theta]$ 这个范围, 因此 $\theta$ 的估计值 $\hat{\theta}$ 也应该满足要求 $x_i \leq \hat{\theta}, i=1, \cdots, n$. 但条件 $2 \bar{X}$ $<\max _{1 \leq i \leq n}\left\{X_i\right\}$ 说明数据已经超出了 $[0, \hat{\theta}]=[0,2 \bar{X}]$ 这个范围, 出现了矛盾. 这是矩估计的不足之处.
+
+此外, 矩估计不是唯一的. 如果这个例子中我们使用二阶矩估计的话, 就有
+$$
+\alpha_2=\mathrm{E}_\theta\left(X^2\right)=\frac{1}{\theta} \int_0^\theta x^2 \mathrm{~d} x=\left.\frac{1}{\theta} \frac{x^3}{3}\right|_0 ^\theta=\frac{\theta^2}{3},
+$$
+
+故 $a_2=\frac{1}{n} \sum_{i=1}^n X_i^2$ 是 $\frac{\theta^2}{3}$ 的矩估计. 由 $\alpha_2=\frac{\theta^2}{3}$ 解出 $\theta=\sqrt{3 \alpha_2}$, 也就是$\theta$ 的矩估计为 $\sqrt{3 a_2}=\sqrt{\frac{3}{n} \sum_{i=1}^n X_i^2}$.
+
+既然矩估计不唯一, 我们选择哪个好? 
 
 \end{document}
 

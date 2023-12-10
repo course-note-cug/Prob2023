@@ -41,7 +41,7 @@ $$
 
     概率密度函数 的积分是 概率分布函数, 概率分布函数求导得到概率密度函数.
 
-    不论是离散型的或非离散型的随机变量 $X$, 都可以借助分布函数$F(x)=P\{X \leqslant x\}, \quad-\infty<x<\infty$
+    不论是离散型的或非离散型的随机变量 $X$, 都可以借助分布函数$F(x)=P\{X \leq x\}, \quad-\infty<x<\infty$
     来描述.
 \end{takeaway}
 \subsection{常见的连续性随机变量}
@@ -156,12 +156,12 @@ $$
 \begin{proof}
     { $Z=\frac{X-\mu}{\sigma}$ 的分布函数为$$
             \begin{aligned}
-                P\{Z \leqslant x\} & =P\left\{{(X-\mu)}/{\sigma} \leqslant x\right\}=P\{X \leqslant \mu+\sigma x\}                                         \\
+                P\{Z \leq x\} & =P\left\{{(X-\mu)}/{\sigma} \leq x\right\}=P\{X \leq \mu+\sigma x\}                                         \\
                                    & =\frac{1}{\sqrt{2 \pi} \sigma} \int_{-\infty}^{\mu+\alpha t} \mathrm{e}^{-\frac{(t-\mu)^2}{2 \sigma^2}} \mathrm{~d} t
             \end{aligned}
         $$
         做变量代换, 令 $\frac{t-\mu}{\sigma}:=u$, 得$$
-            \small P\{Z \leqslant x\}=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x \mathrm{e}^{-u^2 / 2} \mathrm{~d} u=\Phi(x),
+            \small P\{Z \leq x\}=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x \mathrm{e}^{-u^2 / 2} \mathrm{~d} u=\Phi(x),
         $$
         由此知 $Z=\frac{X-\mu}{\sigma} \sim N(0,1)$.}
 \end{proof}
@@ -188,6 +188,6 @@ $$
 
 一个概率密度函数的条件概率我们应当如何定义? 使用微积分的方法, 我们不研究单个点上面的情况, 我们转而研究一个``小区间''.
 
-研究在给定 $\xi<X_1 \leqslant \xi+h$ 下事件 $X_2 \leqslant \eta$ 的条件概率. 也就是$$\mathrm{P}\left\{X_2 \leqslant \eta \mid \xi<X_1 \leqslant \xi+h\right\}=\frac{\int_{\xi}^{\xi+h}  \int_{-\infty}^\eta f(x, y) \mathrm{d} y\mathrm{~d} x}{\int_{\xi}^{\xi+h} f_X(x) \mathrm{d} x}$$, 把分子和分母同除以 $h$, 当 $h \rightarrow 0$ 时, 右边趋于$$U_{\xi}(\eta)=\frac{1}{f_X(\xi)} \int_{-\infty}^\eta f(\xi, y) \mathrm{d} y$$
+研究在给定 $\xi<X_1 \leq \xi+h$ 下事件 $X_2 \leq \eta$ 的条件概率. 也就是$$\mathrm{P}\left\{X_2 \leq \eta \mid \xi<X_1 \leq \xi+h\right\}=\frac{\int_{\xi}^{\xi+h}  \int_{-\infty}^\eta f(x, y) \mathrm{d} y\mathrm{~d} x}{\int_{\xi}^{\xi+h} f_X(x) \mathrm{d} x}$$, 把分子和分母同除以 $h$, 当 $h \rightarrow 0$ 时, 右边趋于$$U_{\xi}(\eta)=\frac{1}{f_X(\xi)} \int_{-\infty}^\eta f(\xi, y) \mathrm{d} y$$
 所以, 对于固定的 $\xi$, 这是 $\eta$ 的一个分布函数, 它的密度为$$u_{\xi}(\eta)=\frac{1}{f_X(\xi)} f(\xi, \eta).$$ 我们把这个定义做这种情形下的条件概率. 
 

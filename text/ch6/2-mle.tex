@@ -1,0 +1,168 @@
+\section{极大似然估计(最大似然估计)}
+
+把上一节的内容总结一下. 我们通常用
+$$
+X=\left(X_1, \cdots, X_n\right) \sim P_0, \quad \theta \in \Theta
+$$
+的形式来表示一个统计模型. 这样的一个统计模型给出了若干个备选的样本分布$\Theta$, 但是并没有告诉我们应该选择哪一个$\theta$作为我们的估计. 因此, 如何选择$\theta$就成了我们要解决的问题. 
+
+根据离散和连续之别, 我们给出离散和连续的统计模型的定义:
+
+\begin{definition}
+    \label{def:mle1}
+    设 $\left(X_1, \cdots, X_n\right)$ 为互相独立选取的样本, 其中 $X_i(i=1, \cdots, n)$ 为离散型随机变量,样本分布列具有下列一般形式:
+$$
+P_\theta\left(\left(X_1, \cdots, X_n\right)=\left(x_1, \cdots, x_n\right)\right)=\prod_{i=1}^n P_\theta\left(X_i=x_i\right), \quad \theta \in \Theta,
+$$
+
+此处 $\theta$ 为参数 . 
+\end{definition}
+
+由于 $\left(X_1, \cdots, X_n\right)$ 的分布与 $\theta$ 有关, 常把其有关事件的概率 $P(\cdot)$ 记为 $P_\theta(\cdot)$.
+
+\begin{definition}
+    \label{def:mle2}
+    对于连续型随机变量而言, 此时 $X_i(i=1, \cdots, n)$ 为连续型随机变量, 样本 $\left(X_1, \cdots, X_n\right)$ 具有联合密度
+$$
+\prod_{i=1}^n p\left(x_i, \theta\right), \quad \theta \in \Theta
+$$
+\end{definition}
+
+当观察值 $\left(x_1, \cdots, x_n\right)$ 得到以后, 在许多待选的总体参数 $\theta$ 中, 哪个与此数据最匹配呢? 比如在离散的时候, 事件 $\left\{\left(X_1, \cdots, X_n\right)=\left(x_1, \cdots\right., \left.x_n\right)\right\}$ 的概率. 我们希望挑选使 $P_\theta\left(\left(X_1, \cdots, X_n\right)=\left(x_1, \cdots, x_n\right)\right)$达到最大的 $\theta$ 值作为真值的估计. 也就是调整$\theta$, 使得我们上述定义中的两个式子的值达到最大值. 
+
+为了方便起见, 我们把上述的两个式子中表示的称作\emph{似然函数}$L(\theta)$: 即离散情况下$L(\theta):=P_\theta\left(\left(X_1, \cdots, X_n\right)=\left(x_1, \cdots, x_n\right)\right)=\prod_{i=1}^n P_\theta\left(X_i=x_i\right), \quad \theta \in \Theta;$连续情况下$L(\theta):=\prod_{i=1}^n p\left(x_i, \theta\right), \quad \theta \in \Theta$.
+
+这就引出我们的第一种估计参数的方法: 极大似然估计法(Maximal Likelihood Estimation). 为了简单起见, 我们称他为ML估计. 
+
+\begin{definition}
+    设 $\theta \in \Theta$ 为统计模型 $\left(X_1, \cdots, X_n\right) \sim P_\theta$ 的参数. 统计模型可为连续型, 也可为离散型. 设 $x_1, \cdots, x_n$ 为总体的样本值. 若存在 $\hat{\theta}\left(x_1, \cdots, x_n\right)$ 使得
+$$
+L\left(\hat{\theta}\left(x_1, \cdots, x_n\right)\right)=\max _{\theta \in \boldsymbol{\theta}} L(\theta),
+$$
+
+其中 $L(\cdot)$ 为 \cref{def:mle1} 或 \cref{def:mle2} 所给出的似然函数, 则称 $\hat{\theta}\left(x_1, \cdots, x_n\right)$ 为 $\theta$的最大似然估计 (简称 ML 估计).
+\end{definition}
+
+需要说明的是, 这种估计方法并不能称为绝对的准则. 但是它是对于大多数统计模型都可以工作的一个方法. 我们用如下的例子具体体会一下其感觉. 
+
+\begin{example}
+    假设一个坛子内有 3 个球, 其中有黑球, 也有白球. 此时只有两种情况发生, 坛子中有一个黑球和两个白球或两个黑球和一个白球,但不知道那一种情况是真实的. 我们用 $\theta$ 表示坛子中黑球的个数, 则 $\theta$ 只可能有两种情况, $\theta=1$ 或 $\theta=2$. 现在从中随机地抽取一个球, 用 $X$ 表示摸到球的状况: $X=1$ 表示摸到的是黑球, $X=0$ 表示摸到的是白球. $X$ 是一个随机变量,它的分布就刻画了坛子之中黑、白球的分布状况. 设 $\theta=1$, 即坛子内有一个黑球和两个白球, 此时, $X$ 的分布为
+
+    $$
+P_1(X=1)=\frac{1}{3}, \quad P_1(X=0)=\frac{2}{3}
+$$
+
+当 $\theta=2$ 时, 即坛子中有两个黑球和一个白球, $X$ 的分布为
+$$
+P_2(X=1)=\frac{2}{3}, \quad P_2(X=0)=\frac{1}{3} .
+$$
+
+由此看出,坛子内球的状况不同, $X$ 的分布也不同. 由 $X$ 的分布可以定坛子内球的状态. 这样, 我们建立了一个统计模型
+$$
+P_\theta(X=1)=\frac{\theta}{3}, \quad P_\theta(X=0)=1-\frac{\theta}{3}, \quad \theta=1,2 .
+$$
+
+这个问题原本是一个猜测问题, 坛子中有几个黑球是不知道的, 即 $\theta=$ 1 或 $\theta=2$ 是未知的. 现在假定我们摸到的是一个黑球, 即事件 $\{X=1\}$发生. 参数 $\theta$ 的取值有两种可能, 当参数 $\theta=2$ 时, $P_2(X=1)=\frac{2}{3}$; 当参数 $\theta=1$ 时, $P_1(X=1)=\frac{1}{3}$. 究竟猜 $\theta=2$, 还是猜 $\theta=1$ ? 根据最大似然的思想, 毫无疑问, 选择 $\hat{\theta}=2$, 即认定坛子内有两个黑球. 事实上, 从直观的角度看来, 取 $\hat{\theta}=2$ 的理由也是十分充分的. 设想当 $\theta=2$, 即坛子中有两个黑球时, 摸到黑球的可能性比当 $\theta=1$, 即坛子中有一个黑球时, 摸到黑球的可能性大. 要我们猜 $\theta=1$ 或 $\theta=2$ 时, 当然应该猜成 $\hat{\theta}=$ 2. 类似地, 当我们摸到的是一个白球时, $P_2(X=0)=\frac{1}{3}, P_1(X=0)=$ $\frac{2}{3}$, 此时应选择 $\hat{\theta}=1$, 即认定坛子中有两个白球和一个黑球. 注意, $\hat{\theta}$ 不过是一个估计, 我们不能确知坛子内黑球个数的真实情况, 除非一次摸出两个球来观察它们的颜色. 这就是最大似然基本思想的来历.
+\end{example}
+
+理解了这样的思想, 我们来进行简单的应用. 
+
+\begin{example}
+    设 $X \sim b(1, p) . X_1, X_2, \cdots, X_n$ 是来自 $X$ 的一个样本, 试求参数 $p$ 的最大似然估计量.
+\end{example}
+
+\begin{solution}
+    设 $x_1, x_2, \cdots, x_n$ 是相应于样本 $X_1, X_2, \cdots, X_n$ 的一个样本值. $X$ 的分布律为
+$$
+P\{X=x\}=p^x(1-p)^{1-x}, \quad x=0,1 .
+$$
+
+故似然函数为
+$$
+\begin{gathered}
+L(p)=\prod_{i=1}^n p^{x_i}(1-p)^{1-x_i}=p^{\sum_{i=1}^n x_i}(1-p)^{n-\sum_{i=1}^n x_i}, \\
+\text{取对数, 求最大值, 有}\ln L(p)=\left(\sum_{i=1}^n x_i\right) \ln p+\left(n-\sum_{i=1}^n x_i\right) \ln (1-p), \\
+\text{令}\frac{\mathrm{d}}{\mathrm{d} p} \ln L(p)=\frac{\sum_{i=1}^n x_i}{p}-\frac{n-\sum_{i=1}^n x_i}{1-p}=0,
+\end{gathered}
+$$
+
+解得 $p$ 的最大似然估计值
+$$
+\hat{p}=\frac{1}{n} \sum_{i=1}^n x_i=\bar{x} .
+$$
+$p$ 的最大似然估计量为
+$$
+\hat{p}=\frac{1}{n} \sum_{i=1}^n X_i=\bar{X} .
+$$
+\end{solution}
+
+\begin{example}
+    设 $X \sim N\left(\mu, \sigma^2\right), \mu, \sigma^2$ 为未知参数, $x_1, x_2, \cdots, x_n$ 是来自 $X$ 的一个样本值. 求 $\mu, \sigma^2$ 的最大似然估计量.
+\end{example}
+
+\begin{solution}
+    $X$ 的概率密度为
+$$
+f\left(x ; \mu, \sigma^2\right)=\frac{1}{\sqrt{2 \pi} \sigma} \exp \left[-\frac{1}{2 \sigma^2}(x-\mu)^2\right],
+$$
+
+似然函数为
+$$
+\begin{aligned}
+L\left(\mu, \sigma^2\right) & =\prod_{i=1}^n \frac{1}{\sqrt{2 \pi} \sigma} \exp \left[-\frac{1}{2 \sigma^2}\left(x_i-\mu\right)^2\right] \\
+& =(2 \pi)^{-n / 2}\left(\sigma^2\right)^{-n / 2} \exp \left[-\frac{1}{2 \sigma^2} \sum_{i=1}^n\left(x_i-\mu\right)^2\right] .
+\end{aligned}
+$$
+
+而
+$$
+\begin{aligned}
+& \ln L=-\frac{n}{2} \ln (2 \pi)-\frac{n}{2} \ln \sigma^2-\frac{1}{2 \sigma^2} \sum_{i=1}^n\left(x_i-\mu\right)^2 . \\
+& \left\{\begin{array}{l}
+\frac{\partial}{\partial \mu} \ln L=\frac{1}{\sigma^2}\left(\sum_{i=1}^n x_i-n \mu\right)=0, \\
+\frac{\partial}{\partial \sigma^2} \ln L=-\frac{n}{2 \sigma^2}+\frac{1}{2\left(\sigma^2\right)^2} \sum_{i=1}^n\left(x_i-\mu\right)^2=0 .
+\end{array}\right.
+\end{aligned}
+$$
+
+由前一式解得 $\hat{\mu}=\frac{1}{n} \sum_{i=1}^n x_i=\bar{x}$, 代入后一式得 $\hat{\sigma}^2=\frac{1}{n} \sum_{i=1}^n\left(x_i-\bar{x}\right)^2$. 因此得 $\mu$和 $\sigma^2$ 的最大似然估计量分别为
+$$
+\hat{\mu}=\bar{X}, \quad \hat{\sigma}^2=\frac{1}{n} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2
+$$
+
+
+\end{solution}
+
+上面的问题我们都没有或者很少用到约束条件. 下面我们来看一看用到约束条件的情形. 毕竟根据定义, 我们的目标是最大化, 而不是取对数之后求导. 
+
+\begin{example}
+    设总体 $X$ 在 $[a, b]$ 上服从均匀分布, $a, b$ 未知, $x_1, x_2, \cdots, x_n$ 是一个样本值. 试求 $a, b$ 的最大似然估计量.
+   \end{example} 
+
+\begin{solution}
+    记 $x_{(1)}=\min \left\{x_1, x_2, \cdots, x_n\right\}, x_{(n)}=\max \left\{x_1, x_2, \cdots, x_n\right\} . X$ 的概率密度是
+$$
+f(x ; a, b)= \begin{cases}\frac{1}{b-a}, & a \leq x \leq b, \\ 0, & \text { 其他. }\end{cases}
+$$
+
+似然函数为
+$$
+L(a, b)= \begin{cases}\frac{1}{(b-a)^n}, & a \leq x_1, x_2, \cdots, x_n \leq b, \\ 0, & \text { 其他. }\end{cases}
+$$
+
+把$x_1, \cdots, x_n$按照大小从小到大重排为$x_{(1)}, \cdots, x_{(n)}$.由于 $a \leq x_1, x_2, \cdots, x_n \leq b$, 等价于 $a \leq x_{(1)},\cdots, x_{(n)} \leq b$. 似然函数可写成
+    $$
+    L(a, b)= \begin{cases}\frac{1}{(b-a)^n}, a \leq x_{(1)}, & b \geqslant x_{(n)}, \\ 0, & \text { 其他. }\end{cases}
+    $$
+    于是对于满足条件 $a \leq x_{(1)}, b \geqslant x_{(n)}$ 的任意 $a, b$ 有
+    $$
+    L(a, b)=\frac{1}{(b-a)^n} \leq \frac{1}{\left(x_{(n)}-x_{(1)}\right)^n} .
+    $$
+    即 $L(a, b)$ 在 $a=x_{(1)}, b=x_{(n)}$ 时取到最大值 $\left(x_{(n)}-x_{(1)}\right)^{-n}$. 故 $a, b$ 的最大似然估计值为
+    $$
+    \hat{a}=x_{(1)}=\min _{1 \leq i \leq n} x_i, \quad \hat{b}=x_{(n)}=\max _{1 \leq i \leq n} x_i .
+    $$
+    $a, b$ 的最大似然估计量为$\hat{a}=\min _{1 \leq i \leq n} X_i, \quad \hat{b}=\max _{1 \leq i \leq n} X_i .$
+
+
+\end{solution}

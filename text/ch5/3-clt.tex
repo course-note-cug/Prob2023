@@ -41,13 +41,13 @@ $$
 
 这里 $B_n=\sqrt{\sigma_1^2+\cdots+\sigma_n^2}(n \geqslant 1)$. 设 $S_n=\sum_{i=1}^n X_i(n \geqslant 1)$, 则对一切 $x$ 成立:
 $$
-P\left(\frac{S_n-\mathrm{E}\left(S_n\right)}{\sqrt{\operatorname{var}\left(S_n\right)}} \leqslant x\right)=\int_{-\infty}^x \frac{1}{\sqrt{2 \pi}} \mathrm{e}^{-\frac{u^2}{2}} \mathrm{~d} u
+P\left(\frac{S_n-\mathrm{E}\left(S_n\right)}{\sqrt{\operatorname{var}\left(S_n\right)}} \leq x\right)=\int_{-\infty}^x \frac{1}{\sqrt{2 \pi}} \mathrm{e}^{-\frac{u^2}{2}} \mathrm{~d} u
 $$
     \end{theorem}
 
     从这两个定理知(我们的条件实际应用的过程中一般都是满足的), 当 $n$ 较大时,
 $$
-P\left(\frac{S_n-\mathrm{E}\left(S_n\right)}{\sqrt{\operatorname{var}\left(S_n\right)}} \leqslant x\right) \approx \Phi(x)
+P\left(\frac{S_n-\mathrm{E}\left(S_n\right)}{\sqrt{\operatorname{var}\left(S_n\right)}} \leq x\right) \approx \Phi(x)
 $$
      我们时常使用这个关系求解问题. 
 
@@ -83,9 +83,9 @@ $$
 显然, 该学生通过考试的可能性由概率 $P\left(\sum_{i=1}^{99} X_i \geqslant 60\right)$ 来刻画. 为了计算这个概率, 我们可以设想还有 $X_{100}, X_{101}, \cdots$ 使得 $\left\{X_n, n \geqslant 1\right\}$ 是相互独立的随机变量序列且 $X_{99+i}$ 与 $X_{99}$ 有相同的分布 (一切 $\left.i \geqslant 1\right)$. 易知
 $$
 \begin{gathered}
-\mathrm{E}\left(X_i\right)= \begin{cases}p_i, & 1 \leqslant i \leqslant 99, \\
+\mathrm{E}\left(X_i\right)= \begin{cases}p_i, & 1 \leq i \leq 99, \\
 p_{99}, & i>99\end{cases} \\
-\operatorname{var}\left(X_i\right)= \begin{cases}p_i\left(1-p_i\right), & 1 \leqslant i \leqslant 99, \\
+\operatorname{var}\left(X_i\right)= \begin{cases}p_i\left(1-p_i\right), & 1 \leq i \leq 99, \\
 p_{99}\left(1-p_{99}\right), & i>99 .\end{cases}
 \end{gathered}
 $$
@@ -94,9 +94,9 @@ $$
 B_n^2 \triangleq \sum_{i=1}^n \operatorname{var}\left(X_i\right)=\sum_{i=1}^{99} p_i\left(1-p_i\right)+(n-99) p_{99}\left(1-p_{99}\right) .
 $$
 
-由于 $\left|X_i-\mathrm{E}\left(X_i\right)\right|^3 \leqslant\left(X_i-\mathrm{E}\left(X_i\right)\right)^2$, 知
+由于 $\left|X_i-\mathrm{E}\left(X_i\right)\right|^3 \leq\left(X_i-\mathrm{E}\left(X_i\right)\right)^2$, 知
 $$
-\sum_{i=1}^n \mathrm{E}\left|X_i-\mathrm{E}\left(X_i\right)\right|^3 \leqslant \sum_{i=1}^n \mathrm{E}\left(X_i-\mathrm{E}\left(X_i\right)\right)^2=B_n^2 .
+\sum_{i=1}^n \mathrm{E}\left|X_i-\mathrm{E}\left(X_i\right)\right|^3 \leq \sum_{i=1}^n \mathrm{E}\left(X_i-\mathrm{E}\left(X_i\right)\right)^2=B_n^2 .
 $$
 
 于是$$

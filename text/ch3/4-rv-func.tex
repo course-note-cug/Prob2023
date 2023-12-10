@@ -20,7 +20,7 @@ $$
 大致思路: 
     \begin{itemize}
         \item 先来求 $Z=X+Y$ 的分布函数 $F_Z(z)$
-        \item $F_Z(z)=P\{Z \leqslant z\}=\iint_{x+y \leqslant z} f_{X,Y}(x, y) \mathrm{d} x \mathrm{~d} y$
+        \item $F_Z(z)=P\{Z \leq z\}=\iint_{x+y \leq z} f_{X,Y}(x, y) \mathrm{d} x \mathrm{~d} y$
     \end{itemize}
     $$\begin{aligned}
         F_Z(z)&=\int_{-\infty}^{\infty}\left[\int_{-\infty}^{\purple {z-y}} f({\red{x}}, y) \mathrm{d} {\red{x}}\right] \mathrm{d} y \\ 
@@ -92,7 +92,7 @@ $$
 
 $$
 \begin{aligned}
-F_{Y / X}(z) & =P\{Y / X \leqslant z\}=\iint_{\stackrel{y / x \leqslant z}{x<0}} f(x, y) \mathrm{d} y \mathrm{~d} x+\iint_{\stackrel{y / x \leqslant z}{x>0}} f(x, y) \mathrm{d} y \mathrm{~d} x \\
+F_{Y / X}(z) & =P\{Y / X \leq z\}=\iint_{\stackrel{y / x \leq z}{x<0}} f(x, y) \mathrm{d} y \mathrm{~d} x+\iint_{\stackrel{y / x \leq z}{x>0}} f(x, y) \mathrm{d} y \mathrm{~d} x \\
 & =\int_{-\infty}^0\left[\int_{z x}^{\infty} f(x, y) \mathrm{d} y\right] \mathrm{d} x+\int_0^{\infty}\left[\int_{-\infty}^{z x} f(x, y) \mathrm{d} y\right] \mathrm{d} x \\
 & \varsub{y:=xu}{1cm} \int_{-\infty}^0\left[\int_z^{-\infty} x f(x, x u) \mathrm{d} u\right] \mathrm{d} x+\int_0^{\infty}\left[\int_{-\infty}^z x f(x, x u) \mathrm{d} u\right] \mathrm{d} x \\
 & =\int_{-\infty}^0\left[\int_{-\infty}^z(-x) f(x, x u) \mathrm{d} u\right] \mathrm{d} x+\int_0^{\infty}\left[\int_{-\infty}^z x f(x, x u) \mathrm{d} u\right] \mathrm{d} x \\
@@ -102,9 +102,9 @@ $$
 
 遵循同样的模式, 同样可以求出: $Z=XY$的概率分布. 
 $$
-\begin{aligned} & F_{XY}(z)=P\{XY\leqslant z\}\\
- & =\iint_{\substack{xy\leqslant z\\
- x<0}}f(x,y)\dd y\dd x+\iint_{\substack{xy\leqslant z\\
+\begin{aligned} & F_{XY}(z)=P\{XY\leq z\}\\
+ & =\iint_{\substack{xy\leq z\\
+ x<0}}f(x,y)\dd y\dd x+\iint_{\substack{xy\leq z\\
  x>0}}f(x,y)\dd y\dd x\\
  & =\int_{-\infty}^{0}\left(\int_{z/x}^{+\infty}f(x,y)\dd y\right)\dd x+\int_{0}^{+\infty}\left(\int_{-\infty}^{z/x}f(x,y)\dd y\right)\dd x\\
  & \varsub{y:=u/x}{1.5cm}\int_{-\infty}^{0}\left(\int_{z/x}^{+\infty}f\left(x,\frac{u}{x}\right)d\left(\frac{u}{x}\right)\right)\dd x+\int_{0}^{+\infty}\left(\int_{-\infty}^{z/x}f\left(x,\left(\frac{u}{x}\right)\dd x\right)\right)\\
@@ -120,7 +120,7 @@ $X, Y$ 是两个\emph{相互独立}的随机变量, 它们的分布函数分别�
 
    $$
 \begin{aligned}
-F_{\min }(z) & =P\{N \leqslant z\}=1-P\{N>z\} \\
+F_{\min }(z) & =P\{N \leq z\}=1-P\{N>z\} \\
 & =1-P\{X>z, Y>z\}=1-P\{X>z\} \cdot P\{Y>z\}
 \end{aligned}
 $$

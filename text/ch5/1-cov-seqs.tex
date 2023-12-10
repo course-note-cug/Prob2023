@@ -10,8 +10,8 @@
     $$
     $(i=1,2, \cdots)$, 则 $X_1, X_2, \cdots$ 是随机变量序列. 所谓 $n$ 次独立试验, 就是指随机变量 $X_1, \cdots, X_n$ 相互独立. 显然 $A$ 发生的次数 $\mu_n=\sum_{i=1}^n X_i$. 记 $X_n=\frac{1}{n} \sum_{i=1}^n X_i(n \geqslant 1)$. 问题是: 当 $n$ 很大时, 随机变量 $X_n$ 是否与常数 $P(A)$ 很接近?
 
-    我们可以对于任何随机变量 $X$, 我们可以使用比较简单的离散型随机变量 $X^*$ 来近似 $X, 0 \leqslant X-X^*<\varepsilon$, 这里我们选取比较简单的分段函数$X^*$ , 它与 $\varepsilon$ 有关.$$
-    X^*= \begin{cases}0, & 0 \leqslant X<\varepsilon, \\ -\varepsilon, & -\varepsilon \leqslant X<0, \\ \varepsilon, & \varepsilon \leqslant X<2 \varepsilon, \\ \cdots \cdots & \cdots \cdots \\ k \varepsilon, & k \varepsilon \leqslant X<(k+1) \varepsilon \quad(k \text { 是任何整数) }, \\ \cdots \cdots & \cdots \cdots\end{cases}
+    我们可以对于任何随机变量 $X$, 我们可以使用比较简单的离散型随机变量 $X^*$ 来近似 $X, 0 \leq X-X^*<\varepsilon$, 这里我们选取比较简单的分段函数$X^*$ , 它与 $\varepsilon$ 有关.$$
+    X^*= \begin{cases}0, & 0 \leq X<\varepsilon, \\ -\varepsilon, & -\varepsilon \leq X<0, \\ \varepsilon, & \varepsilon \leq X<2 \varepsilon, \\ \cdots \cdots & \cdots \cdots \\ k \varepsilon, & k \varepsilon \leq X<(k+1) \varepsilon \quad(k \text { 是任何整数) }, \\ \cdots \cdots & \cdots \cdots\end{cases}
     $$
      实际上, $X^*=\left\lfloor\frac{1}{\varepsilon} X\right\rfloor \varepsilon$. 令 $\varepsilon=\frac{1}{n}, X_n=X^*$, 则 $n$ 很大时 $X_n$与 $X$ 任意接近.
 \end{example}
@@ -19,7 +19,7 @@
 \begin{example}
     一个射手向一目标连续射击 6000 次, 每次射中的概率是 $\frac{1}{6}$,问: 射中次数在 900 至 1100 之间的概率是多少? 这个问题从理论上不难回答, 从第一章知这个概盗等于 $\sum_{k=900}^{1100} {6000\choose k}\left(\frac{1}{6}\right)^k\left(\frac{5}{6}\right)^{5000-k}$, 但具体数值如何算出, 这就不容易了. 用 $\mu_{6000}$ 表示 6000 次射击中射中的次数, 能否找到比较简单的随机变量 $\eta$, 其分布函数比较好算( 或其数值可从造好的表中查出), 使得 $\mu_{6000}$ 与 $\eta$ 很接近或者说
 $$
-P\left(900 \leqslant \mu_{6000} \leqslant 1100\right) \approx P(900 \leqslant \eta \leqslant 1100) .
+P\left(900 \leq \mu_{6000} \leq 1100\right) \approx P(900 \leq \eta \leq 1100) .
 $$
 \end{example}
 
@@ -30,7 +30,7 @@ $$
 \begin{gathered}
 \left\{\left|X_n-\eta\right| \geqslant \varepsilon\right\}:=\left\{\omega:\left|X_n(\omega)-\eta(\omega)\right| \geqslant \varepsilon\right\}, \\
 \left\{\lim _{n \rightarrow \infty} X_n=\eta\right\}:=\left\{\omega: \lim _{n \rightarrow \infty} X_n(\omega):=\eta(\omega)\right\}, \\
-\left\{X_n \leqslant x\right\}:=\left\{\omega: X_n(\omega) \leqslant x\right\}, \quad\{\eta \leqslant x\}=\{\omega: \eta(\omega) \leqslant x\} .
+\left\{X_n \leq x\right\}:=\left\{\omega: X_n(\omega) \leq x\right\}, \quad\{\eta \leq x\}=\{\omega: \eta(\omega) \leq x\} .
 \end{gathered}
 $$
 
@@ -61,7 +61,7 @@ $$
 \begin{definition}
     称 $X_1, X_2, \cdots$ 若收敛(依分布收敛)于 $\eta$, 若对 $\eta$ 的分布函数 $F(x)$ 的任何连续点 $x$, 皆成立
     $$
-    \lim _{n \rightarrow \infty} P\left(X_n \leqslant x\right)=P(\eta \leqslant x) .
+    \lim _{n \rightarrow \infty} P\left(X_n \leq x\right)=P(\eta \leq x) .
     $$
     
     此时记做 $X_n \stackrel{w}{\longrightarrow} \eta$ (或 $X_n \stackrel{d}{\longrightarrow} \eta$ ).
@@ -85,20 +85,20 @@ $$
 $B=\left\{\omega\right.$ : 有无穷多个 $n$ 使得 $\left.\left|X_n(\omega)-\eta(\omega)\right| \geqslant \varepsilon\right\}$,
 $B_m=\left\{\omega\right.$ : 有 $n \geqslant m$ 使得 $\left.\left|X_n(\omega)-\eta(\omega)\right| \geqslant \varepsilon\right\}$,则 $B_m \supset B_{m+1}, B=\bigcap_{m=1}^{\infty} B_m$.
 
-于是 $\lim _{m \rightarrow \infty} P\left(B_m\right)=P(B) \leqslant P(A)=0$. 因为 $P\left(\left|X_m-\eta\right| \geqslant \varepsilon\right) \leqslant$ $P\left(B_m\right)$. 所以 $\lim P\left(\left|X_m-\eta\right| \geqslant \varepsilon\right)=0$. 这就证明了 $X_n \stackrel{P}{\longrightarrow} \eta$.
+于是 $\lim _{m \rightarrow \infty} P\left(B_m\right)=P(B) \leq P(A)=0$. 因为 $P\left(\left|X_m-\eta\right| \geqslant \varepsilon\right) \leq$ $P\left(B_m\right)$. 所以 $\lim P\left(\left|X_m-\eta\right| \geqslant \varepsilon\right)=0$. 这就证明了 $X_n \stackrel{P}{\longrightarrow} \eta$.
 \end{proof}
 
 应注意的是, 上述定理的逆不成立. 下面的例子给出一个反例: 
 
 \begin{example}
-    设 $\Omega=(0,1), \mathscr{F}$ 由 $(0,1)$ 中所有 Borel 子集组成, $P$ 是这样的概率测度: 对任何区间 $(a, b)(0 \leqslant a<b \leqslant 1), P((a, b))=b-a$. 在概率空间 $(\Omega, \mathscr{F}, P)$ 上考虑下列随机变量序列.
+    设 $\Omega=(0,1), \mathscr{F}$ 由 $(0,1)$ 中所有 Borel 子集组成, $P$ 是这样的概率测度: 对任何区间 $(a, b)(0 \leq a<b \leq 1), P((a, b))=b-a$. 在概率空间 $(\Omega, \mathscr{F}, P)$ 上考虑下列随机变量序列.
 
     对任何正整数 $k$ 及 $j=1,2, \cdots, 2^k$, 令
 $$
 \begin{aligned}
 X_{k 1} & = \begin{cases}1, & 0<\omega<\frac{1}{2^k}, \\
 0, & \text { 其他; }\end{cases} \\
-X_{k j} & = \begin{cases}1, & \frac{j-1}{2^k} \leqslant \omega<\frac{j}{2^k}, \quad(j>1) . \\
+X_{k j} & = \begin{cases}1, & \frac{j-1}{2^k} \leq \omega<\frac{j}{2^k}, \quad(j>1) . \\
 0, & \text { 其他 }\end{cases}
 \end{aligned}
 $$
@@ -113,30 +113,30 @@ $$
 \end{theorem}
 
 \begin{proof}
-    设 $x_0$ 是 $\eta$ 的分布函数 $F(x)$ 的连续点. 记 $F_n(x)=P\left(X_n \leqslant\right.$ $x)(n \geqslant 1)$. 易知, 对任何 $\varepsilon>0$, 有
+    设 $x_0$ 是 $\eta$ 的分布函数 $F(x)$ 的连续点. 记 $F_n(x)=P\left(X_n \leq\right.$ $x)(n \geqslant 1)$. 易知, 对任何 $\varepsilon>0$, 有
 $$
 \begin{aligned}
-\left\{X_n \leqslant x_0\right\} & =\left\{X_n-\eta+\eta \leqslant x_0\right\} \\
-& \subset\left\{X_n-\eta \leqslant-\varepsilon\right\} \cup\left\{\eta \leqslant x_0+\varepsilon\right\},
+\left\{X_n \leq x_0\right\} & =\left\{X_n-\eta+\eta \leq x_0\right\} \\
+& \subset\left\{X_n-\eta \leq-\varepsilon\right\} \cup\left\{\eta \leq x_0+\varepsilon\right\},
 \end{aligned}
 $$
 
 于是
 $$
-P\left(X_n \leqslant x_0\right) \leqslant P\left(X_n-\eta \leqslant-\varepsilon\right)+P\left(\eta \leqslant x_0+\varepsilon\right) .
+P\left(X_n \leq x_0\right) \leq P\left(X_n-\eta \leq-\varepsilon\right)+P\left(\eta \leq x_0+\varepsilon\right) .
 $$
 
-故$$\red{F_n\left(x_0\right)-F\left(x_0\right)} \leqslant P\left(\left|X_n-\eta\right| \geqslant \varepsilon\right)+F\left(x_0+\varepsilon\right)-F\left(x_0\right) .$$
+故$$\red{F_n\left(x_0\right)-F\left(x_0\right)} \leq P\left(\left|X_n-\eta\right| \geqslant \varepsilon\right)+F\left(x_0+\varepsilon\right)-F\left(x_0\right) .$$
 
 类似地, 有
 $$
-\left\{X_n \leqslant x_0\right\} \supset\left\{X_n-\eta \leqslant-\varepsilon, \eta \leqslant x_0-\varepsilon\right\} .
+\left\{X_n \leq x_0\right\} \supset\left\{X_n-\eta \leq-\varepsilon, \eta \leq x_0-\varepsilon\right\} .
 $$
 
 于是$$
 \begin{aligned}
-P\left(X_n \leqslant x_0\right) & \geqslant P\left(X_n-\eta \leqslant \varepsilon \text { 且 } \eta \leqslant x_0-\varepsilon\right) \\
-& \geqslant P\left(\eta \leqslant x_0-\varepsilon\right)-P\left(X_n-\eta>\varepsilon\right)
+P\left(X_n \leq x_0\right) & \geqslant P\left(X_n-\eta \leq \varepsilon \text { 且 } \eta \leq x_0-\varepsilon\right) \\
+& \geqslant P\left(\eta \leq x_0-\varepsilon\right)-P\left(X_n-\eta>\varepsilon\right)
 \end{aligned}
 $$
 (因为 $P(A \cap B) \geqslant P(B)-P(\bar{A})$ ).
@@ -149,7 +149,7 @@ F_n\left(x_0\right) & \geqslant F\left(x_0-\varepsilon\right)-P\left(\left|X_n-\
 $$
 
 由于上述两个红色的式子可见, $$
-\left|F_n\left(x_0\right)-F\left(x_0\right)\right| \leqslant F\left(x_0+\varepsilon\right)-F\left(x_0-\varepsilon\right)+P\left(\left|X_n-\eta\right| \geqslant \varepsilon\right) .
+\left|F_n\left(x_0\right)-F\left(x_0\right)\right| \leq F\left(x_0+\varepsilon\right)-F\left(x_0-\varepsilon\right)+P\left(\left|X_n-\eta\right| \geqslant \varepsilon\right) .
 $$
 由于 $x_0$ 是 $F(x)$ 的连续点, 因此对任何 $\delta>0$, 有 $\varepsilon>0$ 满足 $F\left(x_0+\varepsilon\right)$ $F\left(x_0-\varepsilon\right)<\frac{\delta}{2}$. 再取 $n_0$, 当 $n \geqslant n_0$ 时, $P\left(\left|X_n-\eta\right| \geqslant \varepsilon\right)<\frac{\delta}{2}$. 于是对一切 $n$ $\geqslant n_0$ 有 $\left|F_n\left(x_0\right)-F\left(x_0\right)\right|<\delta$. 这就证明了 $F_n\left(x_0\right) \rightarrow F\left(x_0\right)(n \rightarrow \infty)$. 故 $X_n \stackrel{w}{\longrightarrow} \eta$.
 \end{proof}
@@ -179,17 +179,17 @@ $$
     设 $x_0$ 是 $X$ 的分布函数 $F(x)$ 的连续点. 对于 $\varepsilon>0$, 易知
 $$
 \begin{aligned}
-P\left(X_n+\eta_n \leqslant x_0\right) & \leqslant P\left(\eta_n \leqslant-\varepsilon\right)+P\left(X_n \leqslant x_0+\varepsilon\right) \\
-& \leqslant P\left(\left|\eta_n\right| \geqslant \varepsilon\right)+P\left(X_n \leqslant x_0+\varepsilon\right),
+P\left(X_n+\eta_n \leq x_0\right) & \leq P\left(\eta_n \leq-\varepsilon\right)+P\left(X_n \leq x_0+\varepsilon\right) \\
+& \leq P\left(\left|\eta_n\right| \geqslant \varepsilon\right)+P\left(X_n \leq x_0+\varepsilon\right),
 \end{aligned}
 $$
 
 于是
 $$
 \begin{aligned}
-&P\left(X_n+\eta_n \leqslant x_0\right)-F\left(x_0\right)\\
+&P\left(X_n+\eta_n \leq x_0\right)-F\left(x_0\right)\\
 &\begin{aligned}
-\leqslant & P\left(\left|\eta_n\right| \geqslant \varepsilon\right)+P\left(X_n \leqslant x_0+\varepsilon\right)-F\left(x_1+\varepsilon\right) \\
+\leq & P\left(\left|\eta_n\right| \geqslant \varepsilon\right)+P\left(X_n \leq x_0+\varepsilon\right)-F\left(x_1+\varepsilon\right) \\
 & +F\left(x_0+\varepsilon\right)-F\left(x_0\right) . \qquad\qquad\qquad (*)
 \end{aligned}
 \end{aligned}
@@ -197,50 +197,50 @@ $$
 另一方面,
 $$
 \begin{aligned}
-P\left(X_n+\eta_n \leqslant x_0\right) & \geqslant P\left(X_n \leqslant x_0-\varepsilon, \eta_n \leqslant \varepsilon\right) \\
-& \geqslant P\left(X_n \leqslant x_0-\varepsilon\right)-P\left(\eta_n>\varepsilon\right) \\
-& \geqslant P\left(X_n \leqslant x_0-\varepsilon\right)-P\left(\left|\eta_n\right| \geqslant \varepsilon\right)\qquad\qquad\qquad (**)
+P\left(X_n+\eta_n \leq x_0\right) & \geqslant P\left(X_n \leq x_0-\varepsilon, \eta_n \leq \varepsilon\right) \\
+& \geqslant P\left(X_n \leq x_0-\varepsilon\right)-P\left(\eta_n>\varepsilon\right) \\
+& \geqslant P\left(X_n \leq x_0-\varepsilon\right)-P\left(\left|\eta_n\right| \geqslant \varepsilon\right)\qquad\qquad\qquad (**)
 \end{aligned}
 $$
 
 于是
 $$
 \begin{aligned}
-P\left(X_n+\right. & \left.\eta_n \leqslant x_0\right)-F\left(x_0\right) \\
-\geqslant & P\left(X_n \leqslant x_0-\varepsilon\right)-F\left(x_0-\varepsilon\right)+F\left(x_0-\varepsilon\right) \\
+P\left(X_n+\right. & \left.\eta_n \leq x_0\right)-F\left(x_0\right) \\
+\geqslant & P\left(X_n \leq x_0-\varepsilon\right)-F\left(x_0-\varepsilon\right)+F\left(x_0-\varepsilon\right) \\
 & -F\left(x_0\right)-P\left(\left|\eta_n\right| \geqslant \varepsilon\right) .
 \end{aligned}
 $$
 
 任给定 $\delta>0$, 取 $\varepsilon_1>0$ 足够小使得 $F\left(x_0+\varepsilon_1\right)-F\left(x_0\right)<\frac{\delta}{3}$ 且 $x_0+\varepsilon_1$ 是 $F(x)$的连续点 (单调函数在任何小区间内均有连续点.). 由于 $X_n \stackrel{w}{\longrightarrow} X, \eta_n \stackrel{P}{\longrightarrow} 0$, 有 $n_1$ 使得对一切 $n \geqslant n_1$,
 $$
-P\left(X_n \leqslant x_0+\varepsilon_1\right)-F\left(x_0+\varepsilon_1\right)<\frac{\delta}{3}, \quad P\left(\left|\eta_n\right| \geqslant \varepsilon_1\right)<\frac{\delta}{3} .
+P\left(X_n \leq x_0+\varepsilon_1\right)-F\left(x_0+\varepsilon_1\right)<\frac{\delta}{3}, \quad P\left(\left|\eta_n\right| \geqslant \varepsilon_1\right)<\frac{\delta}{3} .
 $$
 
 于是,从 (*)式知,当 $n \geqslant n_1$ 时,
 $$
-P\left(X_n+\eta_n \leqslant x_0\right)-F\left(x_0\right)<\delta . \qquad (\circ)
+P\left(X_n+\eta_n \leq x_0\right)-F\left(x_0\right)<\delta . \qquad (\circ)
 $$
 
 再取 $\varepsilon_2>0$ 使得 $F\left(x_0\right)-F\left(x_0-\varepsilon_2\right)<\frac{0}{3}$ 且 $x_0-\varepsilon_2$ 是 $F(x)$ 的连续点, 于是有 $n_2$使得当 $n \geqslant n_2$ 时, 恒有
 $$
 \begin{gathered}
-P\left(X_n \leqslant x_0-\varepsilon_2\right)-F\left(x_0-\varepsilon_2\right)>-\frac{\delta}{3}, \\
+P\left(X_n \leq x_0-\varepsilon_2\right)-F\left(x_0-\varepsilon_2\right)>-\frac{\delta}{3}, \\
 P\left(\left|\eta_n\right| \geqslant \varepsilon_2\right)<\frac{\delta}{3},
 \end{gathered}
 $$
 
 于是从 (**)式知, 当 $n \geqslant n_2$ 时, 有
 $$
-P\left(X_n+\eta_n \leqslant x_0\right)-F\left(x_0\right)>-\delta . \quad \quad (\circ\circ)
+P\left(X_n+\eta_n \leq x_0\right)-F\left(x_0\right)>-\delta . \quad \quad (\circ\circ)
 $$
 
 从 ($\circ$)和 ($\circ\circ$) 式知 $n \geqslant \max \left(n_1, n_2\right)$ 时,
 $$
-\left|P\left(X_n+\eta_n \leqslant x_0\right)-F\left(x_0\right)\right|<\delta .
+\left|P\left(X_n+\eta_n \leq x_0\right)-F\left(x_0\right)\right|<\delta .
 $$
 
-这就证明了 $\lim _{n \rightarrow \infty} P\left(X_n+\eta_n \leqslant x_0\right)=F\left(x_0\right)$. 故 $X_n+\eta_n \stackrel{w}{\longrightarrow} X$.
+这就证明了 $\lim _{n \rightarrow \infty} P\left(X_n+\eta_n \leq x_0\right)=F\left(x_0\right)$. 故 $X_n+\eta_n \stackrel{w}{\longrightarrow} X$.
 \end{proof}
 }}
 
