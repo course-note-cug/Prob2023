@@ -1,0 +1,126 @@
+\section{估计的无偏性. 样本数字特征}
+
+\subsection{估计的无偏性}
+
+在前面两节的内容中, 我们介绍了两种估计的方法: 最大似然法和矩估计法. 并且看到使用不同的方法, 结果往往是不同的. 那么, 哪一种方式更好? 为了解决这个问题, 人们提出了估计量的评价标准. 其中之一就是无偏性. 
+\begin{definition}
+    设 $X_1, \cdots, X_n \sim \operatorname{iid} F(x, \theta), \theta \in \Theta$ 为一个统计模型, $g(\theta)$为待估量. 统计量 $T\left(X_1, \cdots, X_n\right)$ 称为 $g(\theta)$ 的无偏估计, 如果 $T$ 满足
+$$
+\mathrm{E}_\theta\left(T\left(X_1, \cdots, X_n\right)\right)=g(\theta), \quad \forall \theta \in \Theta .
+$$
+\end{definition}
+
+直观上来看, 无偏估计在平均意义下是准确的. 
+
+\begin{example}
+    设某工厂产品的不合格品率为固定的常数 $p, p \in(0,1)$, 即在正常的情况下工厂产品的不合格品率保持不变. 产品检验员每天抽取 5 件产品进行检验, 并采用 $X / 5$ 作为不合格品率的估计, 此处 $X$ 为 5 件产品中的不合格品件数. 这样不合格品率的估计值只可能是下列 6 个数之一: $0,0.2,0.4,0.6,0.8,1$. 显然估计的精度不会高, 这是由样本量所决定的. 经计算知, $\hat{p}=X / 5$ 是 $p$ 的一个无偏估计. 利用大数定律可知, 将每天的估计值进行平均, 长时期的积累, 这个平均值会与真值接近. 无偏估计的优点也就在于此. 对于产品检验员来说, 由一次检验的结果得到的估计不会很精确, 但重复使用无偏估计, 长期积累的平均数会趋于不合格品率的真值. 
+\end{example}
+
+\begin{example}
+    在\cref{ex:normal}中, 我们知道了正态分布的ML估计为: 
+    $$\hat{\mu}=\bar{X} \quad \text{和} \quad \hat{\sigma}^2=\frac{1}{n} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2.$$
+    现在考虑他们是不是无偏的. 
+
+    对于 $\hat{\mu}=\bar{X}$, 利用期望的性质和正态分布的定义可得
+$$
+\mathrm{E}(\hat{\mu})=\frac{1}{n} \sum_{i=1}^n \mathrm{E}\left(X_i\right)=\mathrm{E}\left(X_1\right)=\mu,
+$$
+
+即 $\hat{\mu}$ 是 $\mu$ 的无偏估计.
+
+现在来看$\hat\sigma^2$的无偏性. 对其做变形: 
+$$\begin{aligned} \hat{\sigma}^2 & =\frac{1}{n} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2=\frac{1}{n} \sum_{i=1}^n\left[X_i-\mu-(\bar{X}-\mu)\right]^2 \\ & =\frac{1}{n} \sum_{i=1}^n\left(X_i-\mu\right)^2+(\bar{X}-\mu)^2-\frac{2}{n}(\bar{X}-\mu) \sum_{i=1}^n\left(X_i-\mu\right) \\ & =\frac{1}{n} \sum_{i=1}^n\left(X_i-\mu\right)^2-(\bar{X}-\mu)^2 .\end{aligned}$$
+因此
+$$\mathrm{E}\left(\hat{\sigma}^2\right)=\frac{1}{n} \sum_{i=1}^n \mathrm{E}\left[\left(X_i-\mu\right)^2\right]-\mathrm{E}\left[(\bar{X}-\mu)^2\right]\qquad(*)$$
+
+由于 $X_1, \cdots, X_n \sim \operatorname{iid} N\left(\mu, \sigma^2\right)$, 其中 $\sigma^2$ 就是总体 $X \sim N\left(\mu, \sigma^2\right)$ 的方差,故
+$$
+\frac{1}{n} \sum_{i=1}^n \mathrm{E}\left[\left(X_i-\mu\right)^2\right]=\frac{1}{n} \sum_{i=1}^n \sigma^2=\sigma^2 \text {. }
+$$
+对于 $(*)$ 式右边第二项,利用独立随机变量和的方差等于各随机变量方差的和的性质, 可知
+$$
+\mathrm{E}\left[(\bar{X}-\mu)^2\right]=\operatorname{var}(\bar{X})=\frac{1}{n} \operatorname{var}\left(X_1\right)=\frac{1}{n} \sigma^2
+$$
+因此带入$(*)$得到
+$$\mathrm{E}\left(\hat{\sigma}^2\right)=\sigma^2-\frac{1}{n} \sigma^2=\frac{n-1}{n} \sigma^2$$
+
+因此, 上述的估计不是$\sigma^2$的无偏估计. 不过, 我们可以对于其稍作修改, 估计$\sigma^2$为$$S_n^2=\frac{1}{n-1} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2.$$
+\end{example}
+
+上例中, 我们将 $\sigma^2$ 的 ML 估计 $\hat{\sigma}^2$ 作适当的修正, 得到 $\sigma^2$ 的无偏估计 $S_n^2=\frac{1}{n-1} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2$. 其实, 总体方差 $\sigma^2$ 的无偏估计 $S_n^2$ 具有普遍适用性, 即使我们所研究的总体不是正态总体, $S_n^2$ 仍然是 $\operatorname{var}(X)$ 的无偏估计. 这是我们对于样本方差的定义. 
+
+\begin{theorem}
+    设总体 $X$ 的方差 $\operatorname{var}(X)$ 存在且为有限, $X_1, \cdots, X_n$ 为 $X$ 的一个样本, 则
+$$
+S_n^2=\frac{1}{n-1} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2
+$$
+
+为 $\operatorname{var}(X)$ 的无偏估计.
+\end{theorem}
+
+\begin{proof}
+    首先将 $\sum_{i=1}\left(X_i-\bar{X}\right)^2$ 进行化简:
+$$
+\begin{aligned}
+\sum_{i=1}^n\left(X_i-\bar{X}\right)^2&=\sum_{i=1}^n\left[X_i-\mu-(\bar{X}-\mu)\right]^2 & \\
+& =\sum_{i=1}^n\left(X_i-\mu\right)^2+n(\bar{X}-\mu)^2-2(\bar{X}-\mu) \sum_{i=1}^n\left(X_i-\mu\right) \\
+& =\sum_{i=1}^n\left(X_i-\mu\right)^2-n(\bar{X}-\mu)^2,
+\end{aligned}
+$$
+
+其中 $\mu=\mathrm{E}(X)$. 然后对两边求期望, 得
+$$
+\begin{aligned}
+\mathrm{E}\left[\sum_{i=1}^n\left(X_i-\bar{X}\right)^2\right]&=\mathrm{E}\left[\sum_{i=1}^n\left(X_i-\mu\right)^2\right]-n \mathrm{E}\left[(\bar{X}-\mu)^2\right] \\
+&=n \operatorname{var}\left(X_1\right)-n \operatorname{var}(\bar{X})&\\
+&=n \operatorname{var}\left(X_1\right)-\operatorname{var}\left(X_1\right) \\
+&=(n-1) \operatorname{var}(X)
+\end{aligned}
+$$
+\end{proof}
+
+在上面的推导中, 我们没有用到任何关于正态分布的性质. 因此我们更倾向于选择这个为样本的方差. 
+
+\subsection{样本的数字特征}
+
+于是, 对于样本而言, 我们做如下的定义: 
+
+\begin{definition}
+    若$X_1, X_2, \cdots, X_n$ 是来自总体$X$的一个样本, 令$\bar X = \frac 1n \sum_{i=1}^{n}X_i$, 则称$\bar X$为样本均值或样本平均数. 
+\end{definition}
+
+样本均值也是一个统计量. 它是一个随机变量, 表征样本观测值的``中心''. 因此, 当给出一组数据$x_1, x_2, \cdots, x_n$, 样本均值为$\bar x=\frac 1n \sum_{i=1}^n x_i$.
+
+既然$\bar X$是一个随机变量, 我们可以求出它的均值和方差. 
+
+\begin{theorem}
+    若$X_1, X_2, \cdots, X_n$ 是来自总体$X$的一个样本, 若$\Ep{X}=\mu$, $D(X)=\sigma^2$, 那么
+    \begin{itemize}
+        \item $\Ep{\bar X}=\mu, D(X)=\frac 1n \sigma^2$.
+        \item 当$n$充分大的时候, $\bar X$近似服从正态分布$N(\mu, \sigma^2/n)$.
+    \end{itemize} 
+\end{theorem}
+
+\begin{proof}
+    我们只说明(1). (2)可以使用独立同分布的中心极限定理说明.
+    下面说明(1). 因为$X_1, X_2, \cdots, X_n$ 是 iid. rv. 所以
+    $$
+    \Ep{\bar X} = \mathbb{E}\left(\frac 1n \sum_{i=1}^{n}X_i\right)=\frac 1n n\mu = \mu.
+    $$
+    对于方差, 
+    $$
+    D{\bar X} = D\left(\frac 1n \sum_{i=1}^{n}X_i\right)=\frac 1{n^2} n\sigma = \frac {\sigma^2}{n}.
+    $$
+\end{proof}
+
+接下来看样本方差. 正如我们之前定义的, 我们选用哪个无偏的进行估计. 
+
+\begin{definition}
+    若$X_1, X_2, \cdots, X_n$ 是来自总体$X$的一个样本, 令 
+    $$
+S_n^2=\frac{1}{n-1} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2
+$$
+为样本方差. 且称$\sqrt{S^2}$为样本标准差. 
+\end{definition}
+
+样本方差的期望就是我们的总体方差, 就像我们刚刚证明的一样. 
