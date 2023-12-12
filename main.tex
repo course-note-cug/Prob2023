@@ -176,7 +176,7 @@ $U$统计量是标准化的正态分布.
 
 \section{区间估计}
 
-设 $X_1, \cdots, X_n \sim \mathrm{iid} F_\theta(\theta \in \Theta)$ 为某统计模型, 其中 $\theta$ 可为向量参数.现设我们的目的是估计 $g(\theta)$. 本节以前所讨论的估计是用一个“点” $T\left(X_1, \cdots, X_n\right)$ 去估计 $g(\theta)$ 的值, 称为点估计. 但实际工作者对点估计并不满意, 其主要原因是我们不好把握点估计 $T\left(X_1, \cdots, X_n\right)$ 与 $g(\theta)$ 之间的差距. 为解决这个问题, 统计学家提出用置信区间来估计 $g(\theta)$. 
+设 $X_1, \cdots, X_n \sim \mathrm{iid} F_\theta(\theta \in \Theta)$ 为某统计模型, 其中 $\theta$ 可为向量参数.现设我们的目的是估计 $g(\theta)$. 本节以前所讨论的估计是用一个``点'' $T\left(X_1, \cdots, X_n\right)$ 去估计 $g(\theta)$ 的值, 称为点估计. 但实际工作者对点估计并不满意, 其主要原因是我们不好把握点估计 $T\left(X_1, \cdots, X_n\right)$ 与 $g(\theta)$ 之间的差距. 为解决这个问题, 统计学家提出用置信区间来估计 $g(\theta)$. 
 
 \begin{example}
     在测量问题中,设 $X_1, \cdots, X_n \sim \operatorname{iid} N\left(a, \sigma^2\right)$, 其中参数 $a \in(-\infty,+\infty), \sigma^2>0$. 我们的目的是要知道被测对象 $a$ 的真值. 由于误差的存在, 由统计学的知识知, 要精确地知道 $a$ 的值是不可能的, 因此只能得到 $a$ 的近似值. 若用点估计 $T\left(X_1, \cdots, X_n\right)$ 去估计 $a$ 的值, 我们不知道 $T$ 是比 $a$ 大还是比 $a$ 小, 也不知道 $T$ 离 $a$ 有多远. 虽然我们能知道误差的大致分布, 但实际工作者对点估计还是不放心. 不过如果给出两个统计量 $\underline T$ 和 $\bar{T}$, 满足 $\underline T \leq a \leq$ $\bar{T}$,这样实际工作者就放心了. 但是 $\underline{T}$ 和 $\bar{T}$ 都是随机变量,我们不能保证 $P(\underline{T} \leq a \leq \bar{T})=1$. 从而, 对给定很小的正数 $\alpha$, 若能保证 $P(\underline{T} \leq a \leq \bar T)\geq 1-\alpha $, 我们就满意了. 现在, 我们称$[\underline T, \bar{T}]$ 为置信度是 $1-\alpha$ 的置信区间.

@@ -2,7 +2,7 @@
 
 \paragraph{1. 引例} 设$X_1, X_2, \cdots$ 是一列随机变量, 我们希望知道 $n$ 很大时 $X_n$ 近似地是什么样的随机变量. 这也称为随机变量的收敛性. 
 
-我们在起初的时候说明了公理的方法描述了概率. 但是, 这些公理化的方法是不是真的描述了我们想要的呢? 也就是: 具有直观上的“频率的稳定值”的含义呢?(见\cref{sec:prob-stat-defn}.) 更加正式地说, 若 $A$ 在 $n$ 次独立试验中发生了 $\mu_n$次, 问: 当 $n$ 很大时, $\frac{\mu_n}{n}$ 是否与 $P(A)$ 很接近?
+我们在起初的时候说明了公理的方法描述了概率. 但是, 这些公理化的方法是不是真的描述了我们想要的呢? 也就是: 具有直观上的``频率的稳定值''的含义呢?(见\cref{sec:prob-stat-defn}.) 更加正式地说, 若 $A$ 在 $n$ 次独立试验中发生了 $\mu_n$次, 问: 当 $n$ 很大时, $\frac{\mu_n}{n}$ 是否与 $P(A)$ 很接近?
 
 \begin{example}
     先考虑使用示性函数做的一个简单的例子. 令$$
@@ -103,7 +103,7 @@ X_{k j} & = \begin{cases}1, & \frac{j-1}{2^k} \leq \omega<\frac{j}{2^k}, \quad(j
 \end{aligned}
 $$
 
-这些 $\left\{X_{k j}: k \geqslant 1, j=1,2, \cdots, 2^k\right\}$ 可排成一个序列: $X_{11}, X_{12}, X_{21}, X_{22}$, $X_{23}, X_{24}, X_{31}, X_{32}, \cdots, X_{38}, X_{41}, \cdots$ (用 “字典排列法”, 按第 1 个下标 $k$ 从小到大排, 第 1 个下标相同者则按第 2 个下标从小到大排). 把这个序列依次记为 $X_1, X_2, \cdots$. 易知, 对每个 $n \geqslant 1$ 有 $k_n$ 和 $j_n$ 使得 $X_n=X_{k_n j_n}$ 对任何 $\varepsilon \in(0,1), P\left(\left|X_n\right| \geqslant \varepsilon\right)=P\left(X_n=1\right)=\frac{1}{2^{k_n}}$. 由于 $n \rightarrow \infty$ 时 $k_n \rightarrow \infty$, 故有 $\lim _{n \rightarrow \infty} P\left(\left|X_n\right| \geqslant \varepsilon\right)=0$. 这表明 $X_n \stackrel{P}{\longrightarrow} 0$.
+这些 $\left\{X_{k j}: k \geqslant 1, j=1,2, \cdots, 2^k\right\}$ 可排成一个序列: $X_{11}, X_{12}, X_{21}, X_{22}$, $X_{23}, X_{24}, X_{31}, X_{32}, \cdots, X_{38}, X_{41}, \cdots$ (用 ``字典排列法'', 按第 1 个下标 $k$ 从小到大排, 第 1 个下标相同者则按第 2 个下标从小到大排). 把这个序列依次记为 $X_1, X_2, \cdots$. 易知, 对每个 $n \geqslant 1$ 有 $k_n$ 和 $j_n$ 使得 $X_n=X_{k_n j_n}$ 对任何 $\varepsilon \in(0,1), P\left(\left|X_n\right| \geqslant \varepsilon\right)=P\left(X_n=1\right)=\frac{1}{2^{k_n}}$. 由于 $n \rightarrow \infty$ 时 $k_n \rightarrow \infty$, 故有 $\lim _{n \rightarrow \infty} P\left(\left|X_n\right| \geqslant \varepsilon\right)=0$. 这表明 $X_n \stackrel{P}{\longrightarrow} 0$.
 
 但是, 对任何 $\omega \in(0,1), \lim _{n \rightarrow \infty} X_n(\omega)$ 不存在. 实际上, 对任何 $\omega$和 $k$ 有唯一的 $j_k$ 使得 $X_{k j_k}(\omega)=1$, 从而 $j \neq j_k$ 时 $X_{k j}(\omega)=0$. 由此可见,数列 $X_1(\omega), X_2(\omega), \cdots$ 中有无穷多个是 1 , 又有无穷多个是 0 , 因而 $\lim _{n \rightarrow \infty} X_n(\omega)$ 不存在.
 \end{example}

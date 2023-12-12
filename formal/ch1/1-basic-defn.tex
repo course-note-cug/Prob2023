@@ -7,12 +7,12 @@ $$
 称做 (有限) 基本事件空间, 或样本空间.
 
 \begin{example}
-    对于 “掷一枚硬币”, 基本事件空间由两个点组成:
+    对于 ``掷一枚硬币'', 基本事件空间由两个点组成:
 $$
 \Omega=\{\mathrm{Z}, \mathrm{F}\},
 $$
 
-其中 Z 表示出现 “正面”, 而 $\mathrm{F}$ 表示出现 “反面”. (这时假设, 诸如 “硬币在棱上立着”, “硬币丢失”.$\cdots \cdots$ 的情况不会出现.) 也就是假设不出现 “正面” 就出现 “反面”.
+其中 Z 表示出现 ``正面'', 而 $\mathrm{F}$ 表示出现 ``反面''. (这时假设, 诸如 ``硬币在棱上立着'', ``硬币丢失''.$\cdots \cdots$ 的情况不会出现.) 也就是假设不出现 ``正面'' 就出现 ``反面''.
 
     将一枚硬币重复掷 $n$ 次, 基本事件空间为
 $$
@@ -22,7 +22,7 @@ $$
 且基本事件的总数 $N(\Omega)=2^n$.
 \end{example}
 
-\paragraph{2. 事件及其关系和运算} 除基本事件空间的概念外, 现在引进重要概念事件. 事件的概念, 是建立所考察试验的各种概率模型 (“理论”) 的基础. 在试验的结果中, 试验者一般并不关心究竟出现了哪种具体的结局, 而关心出现的结局属于一切结局集合的哪个子集. 满足试验条件的一切子集 $A \subseteq \Omega$, 分为两种类型: “结局 $\omega \in A$ ” 或 “结局 $\omega \notin A$ ”. 我们称这样的子集 $A$ 为事件.
+\paragraph{2. 事件及其关系和运算} 除基本事件空间的概念外, 现在引进重要概念事件. 事件的概念, 是建立所考察试验的各种概率模型 (``理论'') 的基础. 在试验的结果中, 试验者一般并不关心究竟出现了哪种具体的结局, 而关心出现的结局属于一切结局集合的哪个子集. 满足试验条件的一切子集 $A \subseteq \Omega$, 分为两种类型: ``结局 $\omega \in A$ '' 或 ``结局 $\omega \notin A$ ''. 我们称这样的子集 $A$ 为事件.
 
 \begin{example}
     将一枚硬币重复掷三次, 一切可能结局的空间 $\Omega$, 由 8 个点构成:
@@ -30,12 +30,12 @@ $$
 \Omega=\{000,001,010,011,100,101,110,111\}
 $$
 
-其中 0 和 1 分别表示郑出 “正面” 和 “反面”. 如果由 “一组条件” 可以记录 (确定、测量等) 所有 3 次郑硬币的结果, 则例如
+其中 0 和 1 分别表示郑出 ``正面'' 和 ``反面''. 如果由 ``一组条件'' 可以记录 (确定、测量等) 所有 3 次郑硬币的结果, 则例如
 $$
 A=\{000,001,010,100\}
 $$
 
-就是事件: “将一枚硬币重复掷三次” 正面至少出现两次. 假如由 “一组条件” 只能确定第一次郑出的结果, 则 $A$ 已经不能称为事件, 因为关于 “试验的具体结局 $\omega$ 是否属于 $A "$, 既不能肯定也不能否定.
+就是事件: ``将一枚硬币重复掷三次'' 正面至少出现两次. 假如由 ``一组条件'' 只能确定第一次郑出的结果, 则 $A$ 已经不能称为事件, 因为关于 ``试验的具体结局 $\omega$ 是否属于 $A "$, 既不能肯定也不能否定.
 \end{example}
 
 \subparagraph{事件的运算}
@@ -51,7 +51,7 @@ $$
     $$
     为两个集合 $A$ 与 $B$ 的交, 表示由既属于集合 $A$ 同时又属于集合 $B$ 的点形成的集合. 用概率论的语言, $A \cap B$ 表示事件 \{事件 $A$ 与 $B$ 同时出现 $\}$.
     \item \emph{补.} 如果 $A$ 是 $\Omega$ 的子集, 则称 $\bar{A}=\{\omega \in \Omega: \omega \notin A\}$ 为集合 $A$ 补, 表示 $\Omega$ 中不属于 $A$ 的点的集合.
-    \item \emph{差.} 属于 $B$ 但不属于 $A$ 的点的集合称做 $B$ 与 $A$ 的差, 记作 $B \backslash A$. 那么, $\bar{A}=$ $\Omega \backslash A$. 用概率的语言, $\bar{A}$ 表示事件 “ $A$ 不出现”. 例如, 事件 $A=\{00,01,10\}$, 则事件 $\bar{A}=\{11\}$ 表示接连两次掷出反面.
+    \item \emph{差.} 属于 $B$ 但不属于 $A$ 的点的集合称做 $B$ 与 $A$ 的差, 记作 $B \backslash A$. 那么, $\bar{A}=$ $\Omega \backslash A$. 用概率的语言, $\bar{A}$ 表示事件 `` $A$ 不出现''. 例如, 事件 $A=\{00,01,10\}$, 则事件 $\bar{A}=\{11\}$ 表示接连两次掷出反面.
 \end{itemize}
 
 \subparagraph{不可能事件和必然事件} 一般用 $\varnothing$ 表示空集. 概率论中空集 $\varnothing$ 称做不可能事件, 集合 $\Omega$ 自然称做必然事件. 
@@ -60,7 +60,7 @@ $$
     \item \emph{和. } 当 $A$ 与 $B$ 不相交时 $(A B=\varnothing)$, 集合 $A$ 与 $B$ 的并称做集合 $A$ 与 $B$ 的和,记作 $A+B$.
 \end{itemize}
 
-\subparagraph{事件代数} 考虑集合 $A \subseteq \Omega$ 的某个集系 $\mathscr{B}_0$, 则利用集合运算 $\cup, \cap$ 与 $\backslash$ 可以由 $\mathscr{C}_0$ 构造新集系, 其中元素也是事件. 给这些事件补充上必然事件 $\Omega$ 和不可能事件 $\varnothing$, 得集系 $\mathscr{A}$, 则 $\mathcal{A}$ 是代数. 所谓 “代数” 即 $\Omega$ 的这样的集系, 满足
+\subparagraph{事件代数} 考虑集合 $A \subseteq \Omega$ 的某个集系 $\mathscr{B}_0$, 则利用集合运算 $\cup, \cap$ 与 $\backslash$ 可以由 $\mathscr{C}_0$ 构造新集系, 其中元素也是事件. 给这些事件补充上必然事件 $\Omega$ 和不可能事件 $\varnothing$, 得集系 $\mathscr{A}$, 则 $\mathcal{A}$ 是代数. 所谓 ``代数'' 即 $\Omega$ 的这样的集系, 满足
 \begin{itemize}
     \item [1)] $\Omega \in \mathscr{A}$,
     \item [2)] 若 $A \in \mathscr{A}, B \in \mathscr{A}$, 则集合 $A \cup B, A \cap B, A \backslash B$ 也都属于 $\mathscr{C}$.
@@ -102,7 +102,7 @@ $$
 
 逆命题也正确. 设 $\mathscr{B}$ 是有限空间 $\Omega$ 的子集的代数, 则存在唯一分割 $\mathscr{D}$, 其原子是代数 $\mathscr{B}$ 的元素, 并且 $\mathscr{B}=\sigma(\mathscr{D})$. 事实上, 假设集合 $\mathscr{D} \in \mathscr{B}$ 并且具有性质:对于任意 $B \in \mathscr{B}$, 集合 $D \cap B$ 要么与 $D$ 重合, 要么是空集. 那么, 这样集合 $D$ 的全体组成分割 $\mathscr{D}$ 并且具有所要求的性质 $B=\sigma(\mathscr{D})$. 对于例 a), 取只含一个集合的 $D_1=\Omega$ 平凡分割; 对于例 b), $\mathscr{D}=\{A, \bar{A}\}$. 对于例 c), $\mathscr{D}$ 是只含一个点的集合 $\left\{\omega_i\right\}, \omega_i \in \Omega$ 的最细小分割, 即 $\mathscr{D}$ 产生的代数是 $\Omega$ 的一切子集的代数.
 
-对两个分割 $\mathscr{D}_1$ 和 $\mathscr{D}_2$, 如果 $\sigma\left(\mathscr{D}_1\right) \subseteq \sigma\left(\mathscr{D}_2\right)$, 则称分割 $\mathscr{D}_2$ 比分割 $\mathscr{D}_1$ “细小", 记作 $\mathscr{D}_1 \preccurlyeq \mathscr{D}_2$.
+对两个分割 $\mathscr{D}_1$ 和 $\mathscr{D}_2$, 如果 $\sigma\left(\mathscr{D}_1\right) \subseteq \sigma\left(\mathscr{D}_2\right)$, 则称分割 $\mathscr{D}_2$ 比分割 $\mathscr{D}_1$ ``细小", 记作 $\mathscr{D}_1 \preccurlyeq \mathscr{D}_2$.
 
 像前面一样, 假设空间 $\Omega$ 有有限个点 $\omega_1, \cdots, \omega_N$ 构成, 记 $N(\mathscr{A})$ 为例 $\left.\mathrm{c}\right)$ 中组成体系 $\mathscr{C}$ 的集合的总数. 我们证明 $N(\mathscr{A})=2^N$. 事实上, 每一个非空集合 $A \in \mathscr{A}$可以表示为 $A=\left\{\omega_{i_1}, \cdots, \omega_{i_k}\right\}(1 \leq k \leq N)$, 其中 $\omega_{i_j} \in \Omega$. 将该集合与由 0 或 1 形成的序列
 $$
@@ -117,7 +117,7 @@ $$
 其中包括空集 $\varnothing$.
 
 \paragraph{3. 概率空间}
-为建立只有有限种可能结局的随机试验的概率模型 (理论), 我们暂时完成了最初的两步: 引进了基本事件空间 $\Omega$, 并建立了 $\Omega$ 子集的某种体系 $\mathscr{b}$ —代数, 其中的子集称做事件. 有时把 $\mathscr{E}=(\Omega, \mathscr{A})$ 等同于试验. 现在进行下一步: 赋予每一个基本事件 (每一种结局或现象) $\omega_i \in \Omega(i=1, \cdots, N)$ 某种 “权”, 记作 $p\left(\omega_i\right)$ 或 $p_i$, 称做基本事件 (结局) $\omega_i$ 的概率. 假设 $p\left(\omega_i\right)$ 满足条件:
+为建立只有有限种可能结局的随机试验的概率模型 (理论), 我们暂时完成了最初的两步: 引进了基本事件空间 $\Omega$, 并建立了 $\Omega$ 子集的某种体系 $\mathscr{b}$ —代数, 其中的子集称做事件. 有时把 $\mathscr{E}=(\Omega, \mathscr{A})$ 等同于试验. 现在进行下一步: 赋予每一个基本事件 (每一种结局或现象) $\omega_i \in \Omega(i=1, \cdots, N)$ 某种 ``权'', 记作 $p\left(\omega_i\right)$ 或 $p_i$, 称做基本事件 (结局) $\omega_i$ 的概率. 假设 $p\left(\omega_i\right)$ 满足条件:
 a) $0 \leq p\left(\omega_i\right) \leq 1$ (非负性),
 b) $p\left(\omega_1\right)+\cdots+p\left(\omega_N\right)=1$ (规范性).
 从给定的基本事件 $\omega_i$ 的概率 $p\left(\omega_i\right)$ 出发, 按公式
@@ -133,7 +133,7 @@ $$
 (\Omega, \mathscr{A}, \mathbf{P})
 $$
 
-为 “概率空间”, 其中 $\Omega=\left\{\omega_1, \cdots, \omega_N\right\}, \mathscr{A}$ 是 $\Omega$ 的子集的代数, 而 $\mathbf{P}=\{\mathbf{P}(A): A \in$ $\mathscr{B}\}$. 概率空间决定 (定义) 只有有限种可能结局 (基本事件) 的, 随机试验的概率模型 (理论). 
+为 ``概率空间'', 其中 $\Omega=\left\{\omega_1, \cdots, \omega_N\right\}, \mathscr{A}$ 是 $\Omega$ 的子集的代数, 而 $\mathbf{P}=\{\mathbf{P}(A): A \in$ $\mathscr{B}\}$. 概率空间决定 (定义) 只有有限种可能结局 (基本事件) 的, 随机试验的概率模型 (理论). 
 \end{definition}
 
 显然, $\mathbf{P}\left(\left\{\omega_i\right\}\right)=p\left(\omega_i\right)(i=1, \cdots, N)$. 
@@ -142,7 +142,7 @@ $$
 
 从数学观点来看十分清楚, 对于有限基本事件空间, 只要赋予基本事件 $\omega_1, \cdots$, $\omega_N$ 以满足 $p_1+\cdots+p_N=1$ 的非负实数 $p_1, \cdots, p_N$, 就可以得到一切可以想象的 (有限的) 概率空间.
 
-对于具体的情形, 所确定的数值的正确性, 可以一定程度地利用以后将要介绍的大数定律来验证. 在上述情形下, 根据大数定律, 对于给定的在相同条件下进行的较长 “独立” 试验系列, 基本事件出现的频率 “十分接近” 它们相应的概率.
+对于具体的情形, 所确定的数值的正确性, 可以一定程度地利用以后将要介绍的大数定律来验证. 在上述情形下, 根据大数定律, 对于给定的在相同条件下进行的较长 ``独立'' 试验系列, 基本事件出现的频率 ``十分接近'' 它们相应的概率.
 
 鉴于赋予试验基本事件以概率值的困难, 我们指出, 存在许多实际情形, 在这些情形下由于对称性或均衡性的直观, 把一切可能出现的基本事件视为等可能的是合理的. 因此, 假如基本事件空间 $\Omega$ 由点 $\omega_1, \cdots, \omega_N$ 构成, 其中 $N<\infty$, 则
 $$

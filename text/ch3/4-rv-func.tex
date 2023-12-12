@@ -72,17 +72,15 @@ f_X * f_Y=\int_{-\infty}^{\infty} f_X(z-y) f_Y(y) \mathrm{d} y=\int_{-\infty}^{\
 $$
 
 \begin{asidebox}
-    为什么叫卷积? 
-    \begin{itemize}
-        \item 答案1: 英语convolution的翻译, $f(t)=\int h(\tau) g(t-\tau) d \tau$就像是把函数翻转过来了
-        \item 更直观的答案
-        \begin{itemize}
-            \item 拿一张二维纸片, 把纸片沿副对角线($z$值)卷起来;
-            \item 重叠的那些点的值相加;
-            \item 卷起来的纸上面取一个点, 展开正好成了一个直线. 
-        \end{itemize}
-    \end{itemize}
+    直观理解卷积: 先把纸片翻一下, 然后平移, 最后对应相乘相加. 如\cref{fig:convolution}.
 \end{asidebox}
+
+\begin{figure}
+    \center
+    \includegraphics[width=\textwidth]{fig/ch3/convolution.png}
+    \caption{直观理解卷积}
+    \label{fig:convolution}
+\end{figure}
 
 \paragraph{(二)$Z=Y/X,Z=XY$的分布}
 
