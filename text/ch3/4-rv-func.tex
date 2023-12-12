@@ -20,7 +20,7 @@ $$
 大致思路: 
     \begin{itemize}
         \item 先来求 $Z=X+Y$ 的分布函数 $F_Z(z)$
-        \item $F_Z(z)=P\{Z \leq z\}=\iint_{x+y \leq z} f_{X,Y}(x, y) \mathrm{d} x \mathrm{~d} y$
+        \item $F_Z(z)=P(Z \leq z)=\iint_{x+y \leq z} f_{X,Y}(x, y) \mathrm{d} x \mathrm{~d} y$
     \end{itemize}
     $$\begin{aligned}
         F_Z(z)&=\int_{-\infty}^{\infty}\left[\int_{-\infty}^{\purple {z-y}} f({\red{x}}, y) \mathrm{d} {\red{x}}\right] \mathrm{d} y \\ 
@@ -86,11 +86,11 @@ $$
 
 设 $(X, Y)$ 是二维连续型随机变量, 它具有概率密度 $f_{X,Y}(x, y)$.连续型随机变量$Z=Y/X$的概率密度是多少?
 
-我们还是还是首先设出$F_{Y/X}(z)=P\{Y/X\leq z\}$. 但是这里由于函数的不连续性, 需要分两种情况: $x<0, x>0$分别考虑:
+我们还是还是首先设出$F_{Y/X}(z)=P(Y/X\leq z)$. 但是这里由于函数的不连续性, 需要分两种情况: $x<0, x>0$分别考虑:
 
 $$
 \begin{aligned}
-F_{Y / X}(z) & =P\{Y / X \leq z\}=\iint_{\stackrel{y / x \leq z}{x<0}} f(x, y) \mathrm{d} y \mathrm{~d} x+\iint_{\stackrel{y / x \leq z}{x>0}} f(x, y) \mathrm{d} y \mathrm{~d} x \\
+F_{Y / X}(z) & =P(Y / X \leq z)=\iint_{\stackrel{y / x \leq z}{x<0}} f(x, y) \mathrm{d} y \mathrm{~d} x+\iint_{\stackrel{y / x \leq z}{x>0}} f(x, y) \mathrm{d} y \mathrm{~d} x \\
 & =\int_{-\infty}^0\left[\int_{z x}^{\infty} f(x, y) \mathrm{d} y\right] \mathrm{d} x+\int_0^{\infty}\left[\int_{-\infty}^{z x} f(x, y) \mathrm{d} y\right] \mathrm{d} x \\
 & \varsub{y:=xu}{1cm} \int_{-\infty}^0\left[\int_z^{-\infty} x f(x, x u) \mathrm{d} u\right] \mathrm{d} x+\int_0^{\infty}\left[\int_{-\infty}^z x f(x, x u) \mathrm{d} u\right] \mathrm{d} x \\
 & =\int_{-\infty}^0\left[\int_{-\infty}^z(-x) f(x, x u) \mathrm{d} u\right] \mathrm{d} x+\int_0^{\infty}\left[\int_{-\infty}^z x f(x, x u) \mathrm{d} u\right] \mathrm{d} x \\
@@ -100,7 +100,7 @@ $$
 
 遵循同样的模式, 同样可以求出: $Z=XY$的概率分布. 
 $$
-\begin{aligned} & F_{XY}(z)=P\{XY\leq z\}\\
+\begin{aligned} & F_{XY}(z)=P(XY\leq z)\\
  & =\iint_{\substack{xy\leq z\\
  x<0}}f(x,y)\dd y\dd x+\iint_{\substack{xy\leq z\\
  x>0}}f(x,y)\dd y\dd x\\
@@ -118,8 +118,8 @@ $X, Y$ 是两个\emph{相互独立}的随机变量, 它们的分布函数分别�
 
    $$
 \begin{aligned}
-F_{\min }(z) & =P\{N \leq z\}=1-P\{N>z\} \\
-& =1-P\{X>z, Y>z\}=1-P\{X>z\} \cdot P\{Y>z\}
+F_{\min }(z) & =P(N \leq z\}=1-P\{N>z) \\
+& =1-P(X>z, Y>z\}=1-P(X>z) \cdot P\{Y>z)
 \end{aligned}
 $$
 

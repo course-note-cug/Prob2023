@@ -2,7 +2,7 @@
 回顾上一节介绍的基本想法: 
 \begin{definition}[概率分布]
     若离散型随机变量$X$的所有可能值为$\{x_k\}$, 分别对应概率$\{p_k\}$, 则称
-    $$P\{X=x_k\}=p_k, \quad k=1,2,\cdots$$
+    $$P(X=x_k)=p_k, \quad k=1,2,\cdots$$
     为$X$的概率分布(分布律).
 \end{definition}
 
@@ -25,11 +25,11 @@ $\displaystyle \left\{ \begin{array}{l} p_k\ge 0, \quad k=1,2,\cdots \\
 \begin{definition}[概率分布函数]
     设离散型随机变量$X$的概率分布为
     \begin{align*}
-        P\{X=x_k\}=p_k,\qquad k=1,2,\cdots.
+        P(X=x_k)=p_k,\qquad k=1,2,\cdots.
     \end{align*}
     则定义$X$的分布函数为
     \begin{align*}
-        F_X(x)=P\{X\le x\}=\sum_{x_k\le x} p_k,
+        F_X(x)=P(X\le x)=\sum_{x_k\le x} p_k,
     \end{align*}
     这里的和式是对所有满足$x_k\le x$的$p_k$求和. 
 \end{definition}
@@ -84,7 +84,7 @@ $\displaystyle \left\{ \begin{array}{l} p_k\ge 0, \quad k=1,2,\cdots \\
 
 \begin{definition}
     若随机变量$X$的概率分布为
-    \[P\{X=k\}=p(1-p)^{k-1},\quad k=1,2,3\cdots,\]
+    \[P(X=k)=p(1-p)^{k-1},\quad k=1,2,3\cdots,\]
     则称$X$服从参数为$p$的几何分布, 记为$X\sim G(p)$. 
 \end{definition}
 
@@ -157,7 +157,7 @@ $$}
 Poisson分布的定义如下.
 \begin{definition}[Poisson分布]
     如果随机变量$X$服从以下分布律
-    \[ P\{X=k\}=\frac{\lambda^k}{k!}e^{-\lambda},\quad k=0,1,\cdots \]
+    \[ P(X=k)=\frac{\lambda^k}{k!}e^{-\lambda},\quad k=0,1,\cdots \]
     其中$\lambda>0$, 则称$X$服从参数为$\lambda$的Poisson分布, 记为
     $X\sim P(\lambda).$
 \end{definition}%
@@ -169,8 +169,8 @@ Poisson分布常与单位时间（或单位面积、单位产品等）上的计�
 \begin{takeaway}
     三个重要离散型随机变量的分布:
     \begin{itemize}
-        \item 几何分布$$X\sim G(p): P\{X=k\}=p(1-p)^{k-1}, \quad k=1,2,3 \cdots$$
-        \item 二项分布$$X\sim b(k ; n): P\{X=p\}=\binom nk p^k(1-p)^{n-k}$$
-        \item Poisson分布: $$X\sim P(\lambda): P\{X=k\}=\frac{\lambda^k}{k !} e^{-\lambda}, \quad k=0,1, \cdots$$
+        \item 几何分布$$X\sim G(p): P(X=k)=p(1-p)^{k-1}, \quad k=1,2,3 \cdots$$
+        \item 二项分布$$X\sim b(k ; n): P(X=p)=\binom nk p^k(1-p)^{n-k}$$
+        \item Poisson分布: $$X\sim P(\lambda): P(X=k)=\frac{\lambda^k}{k !} e^{-\lambda}, \quad k=0,1, \cdots$$
     \end{itemize}
 \end{takeaway}

@@ -1,7 +1,7 @@
 \section{随机变量}
 下面我们继续就说一说随机变量的初步想法. 
 
-我们考虑在有限个试验结局的情形. 设 $(\Omega, \mathscr{A}, \mathbf{P})$ 是某具有有限个结局试验的概率模型, $N(\Omega)$ 是 $\Omega$ 中基本事件的个数, 而 $\mathscr{A}$ 是 $\Omega$ 中所有子集的代数. 
+我们考虑在有限个试验结局的情形. 设 $(\Omega, \mathscr{A}, P)$ 是某具有有限个结局试验的概率模型, $N(\Omega)$ 是 $\Omega$ 中基本事件的个数, 而 $\mathscr{A}$ 是 $\Omega$ 中所有子集的代数. 
 
 比如, 掷硬币. 
 
@@ -22,7 +22,7 @@
 \end{example}
 
 当实验者遇到描绘某些记载或读数的随机变量时, 则他关心的基本问题是, 该随机
-变量取各个数值的概率如何. 换句话说, 他关心的不是概率 $\mathbf{P}$ 在 $(\Omega, \mathscr{A})$ 上的分布, 而是概率在随机变量之可能值的集合上的分布. 对于我们现在研究的情形, $\Omega$由有限个点构成, 则随机变量 $X$ 的值域 $X$ 也是有限的.
+变量取各个数值的概率如何. 换句话说, 他关心的不是概率 $P$ 在 $(\Omega, \mathscr{A})$ 上的分布, 而是概率在随机变量之可能值的集合上的分布. 对于我们现在研究的情形, $\Omega$由有限个点构成, 则随机变量 $X$ 的值域 $X$ 也是有限的.
 
 设 $X=\left\{x_1, \cdots, x_m\right\}$, 其中$x_1, \cdots, x_m$ 是 $X$ 的全部可能值.
 
@@ -30,11 +30,11 @@
 
 在 $(X, \mathscr{B})$ 上考虑由随机变量 $X$ 按照,
 $$
-P_{X}(B)=\mathbf{P}\{\omega: X(\omega) \in B\}, \quad B \in \mathscr{B}
+P_{X}(B)=P\{\omega: X(\omega) \in B\}, \quad B \in \mathscr{B}
 $$
 产生的概率 $P_{X}(\cdot)$. 显然, 这些概率的值完全决定于:
 $$
-P_{X}\left(x_i\right)=\mathbf{P}\left\{\omega: X(\omega)=x_i\right\}, \quad x_i \in X
+P_{X}\left(x_i\right)=P\left\{\omega: X(\omega)=x_i\right\}, \quad x_i \in X
 $$
 其中组数 $\left\{P_{X}\left(x_1\right), \cdots, P_{X}\left(x_m\right)\right\}$ 称做随机变量 $X$ 的概率分布.
 
@@ -43,7 +43,7 @@ $$
 \begin{definition*}
     设 $x \in \mathbb{R}^1$. 函数
 $$
-F_{X}(x)=\mathbf{P}\{\omega: X(\omega) \leq x\}
+F_{X}(x)=P\{\omega: X(\omega) \leq x\}
 $$
 
 称做随机变量 $X$ 的分布函数,
@@ -85,13 +85,13 @@ $$
 \begin{definition}
     设$X_1, \cdots, X_r$ 在 $\mathbb{R}^1$是一组  中 (有限) 集合 $X$ 上取值的随机称随机变量 $X_1, \cdots, X_r$ 为 (全体) 独立的, 如果对于任意 $x_1, \cdots, x_r \in X$,
 $$
-\mathbf{P}\left\{X_1=x_1, \cdots, X_r=x_r\right\}=\mathbf{P}\left\{X_1=x_1\right\} \cdots \mathbf{P}\left\{X_r=x_r\right\}
+P\left\{X_1=x_1, \cdots, X_r=x_r\right\}=P\left\{X_1=x_1\right\} \cdots P\left\{X_r=x_r\right\}
 $$
 \end{definition}
 
 \begin{shaded}
     记 $\mathscr{X}$ 是 $X$ 中所有子集的代数, 上述的内容可以等价的写成: 对于任意 $B_1, \cdots, B_r \in \mathscr{X}$,
     $$
-    \mathbf{P}\left\{X_1 \in B_1, \cdots, X_r \in B_r\right\}=\mathbf{P}\left\{X_1 \in B_1\right\} \cdots \mathbf{P}\left\{X_r \in B_r\right\}
+    P\left\{X_1 \in B_1, \cdots, X_r \in B_r\right\}=P\left\{X_1 \in B_1\right\} \cdots P\left\{X_r \in B_r\right\}
     $$
 \end{shaded}

@@ -1,6 +1,6 @@
 \section{连续型随机变量}
 连续型随机变量 $X$ 的取值范围为一个区间. 此时$X$取某个确定值的概率总是等于零. 我们发现
-事件$X=a$可能发生, 但$P\{X=a\}=0$. 
+事件$X=a$可能发生, 但$P(X=a)=0$. 
 
 这就启发我们使用极限的想法来考虑之. $X$在某个小区间内取值的概率可以大于零. 
 将区间分为若干段, 研究$X$在各小区间取值的概率. 分组的频率直方图刻画随机变量的概率分布,
@@ -25,7 +25,7 @@ $$
 
 \begin{definition}
     对任意随机变量$X$（离散或连续）, 称函数
-    $$F_X(x):=P\{X\le x\},\quad x\in \mathbb{R}$$
+    $$F_X(x):=P(X\le x),\quad x\in \mathbb{R}$$
     为$X$的分布函数. 
 \end{definition}
 这是一个对于概率密度函数(或者概率分布)的累计, 自然, 它应该满足如下的性质:
@@ -41,7 +41,7 @@ $$
 
     概率密度函数 的积分是 概率分布函数, 概率分布函数求导得到概率密度函数.
 
-    不论是离散型的或非离散型的随机变量 $X$, 都可以借助分布函数$F(x)=P\{X \leq x\}, \quad-\infty<x<\infty$
+    不论是离散型的或非离散型的随机变量 $X$, 都可以借助分布函数$F(x)=P(X \leq x), \quad-\infty<x<\infty$
     来描述.
 \end{takeaway}
 \subsection{常见的连续性随机变量}
@@ -72,10 +72,10 @@ $$
 我们希望研究婴儿出生的时间间隔$X$的概率分布. 
 
 
-当$t<0$时, 有$F(t)=P\{X\le t\}=0$.  当$t\ge0$时, 
+当$t<0$时, 有$F(t)=P(X\le t)=0$.  当$t\ge0$时, 
 \begin{align*}
-    F(t) & =P\{X\le t\}=1-P\{X>t\}          \\
-         & =1-P\{N(t)=0\}=1-e^{-\lambda t}.
+    F(t) & =P(X\le t\}=1-P\{X>t)          \\
+         & =1-P(N(t)=0)=1-e^{-\lambda t}.
 \end{align*}
 
 因此, 当$t<0$时, $f(t)=0$;  当$t\ge0$时, $f(t)=\lambda e^{-\lambda t}$. 
@@ -104,11 +104,11 @@ $$
 
 \begin{proposition}[指数分布的无记忆性]
     随机变量$X$服从参数为$\lambda$的指数分布. 设$s,t>0$, 即有
-    \[ P\{X>s+t|X>s\}=P\{X>t\}.\]
+    \[ P(X>s+t|X>s\}=P\{X>t).\]
 \end{proposition}
 
 \begin{proof}
-    证明无记忆性, 只要证明 $\forall s, t \geq 0$, 有 $P\{X \leq s\}=P\{X \leq s+t \mid X \geq t\}$容易计算, $P\{X \leq s+t \mid X \geq t\}=\frac{P\{t<X \leq s+t\}}{P\{X \geq t\}}=\frac{\int_1^{s+t} \lambda e^{-\lambda x} d x}{\int_t^{+\infty} \lambda e^{-\lambda x} d x}=\frac{e^{-\lambda t}-e^{-\lambda(s+t)}}{e^{-\lambda t}}=1-e^{-\lambda s}$ $P\{X \leq s\}=\int_0^s \lambda e^{-\lambda x} d x=1-e^{-\lambda s}$
+    证明无记忆性, 只要证明 $\forall s, t \geq 0$, 有 $P(X \leq s\}=P(X \leq s+t \mid X \geq t\}$容易计算, $P(X \leq s+t \mid X \geq t\}=\frac{P\{t<X \leq s+t)}{P\{X \geq t)}=\frac{\int_1^{s+t} \lambda e^{-\lambda x} d x}{\int_t^{+\infty} \lambda e^{-\lambda x} d x}=\frac{e^{-\lambda t}-e^{-\lambda(s+t)}}{e^{-\lambda t}}=1-e^{-\lambda s}$ $P\{X \leq s)=\int_0^s \lambda e^{-\lambda x} d x=1-e^{-\lambda s}$
 \end{proof}
 
 \paragraph{(三) 正态分布}
@@ -156,12 +156,12 @@ $$
 \begin{proof}
     { $Z=\frac{X-\mu}{\sigma}$ 的分布函数为$$
             \begin{aligned}
-                P\{Z \leq x\} & =P\left\{{(X-\mu)}/{\sigma} \leq x\right\}=P\{X \leq \mu+\sigma x\}                                         \\
+                P(Z \leq x\} & =P\left\{{(X-\mu)}/{\sigma} \leq x\right\}=P\{X \leq \mu+\sigma x)                                         \\
                                    & =\frac{1}{\sqrt{2 \pi} \sigma} \int_{-\infty}^{\mu+\alpha t} \mathrm{e}^{-\frac{(t-\mu)^2}{2 \sigma^2}} \mathrm{~d} t
             \end{aligned}
         $$
         做变量代换, 令 $\frac{t-\mu}{\sigma}:=u$, 得$$
-            \small P\{Z \leq x\}=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x \mathrm{e}^{-u^2 / 2} \mathrm{~d} u=\Phi(x),
+            \small P(Z \leq x)=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x \mathrm{e}^{-u^2 / 2} \mathrm{~d} u=\Phi(x),
         $$
         由此知 $Z=\frac{X-\mu}{\sigma} \sim N(0,1)$.}
 \end{proof}
