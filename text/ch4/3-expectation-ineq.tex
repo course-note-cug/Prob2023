@@ -7,10 +7,10 @@
     考虑$Y=(X-\Ep{X})^2$, 随机变量$Y$非负, 意味着其期望也是非负的. 所以有
     $$
 \begin{aligned}
-0 \leq \mathbf{E}[Y] & =\mathbf{E}\left[(X-\mathbf{E}[X])^2\right] \\
-& =\mathbf{E}\left[X^2-2 X \mathbf{E}[X]+(\mathbf{E}[X])^2\right] \\
-& =\mathbf{E}\left[X^2\right]-2 \mathbf{E}[X \mathbf{E}[X]]+(\mathbf{E}[X])^2 \\
-& =\mathbf{E}\left[X^2\right]-(\mathbf{E}[X])^2
+0 \leq \mathbb{E}[Y] & =\mathbb{E}\left[(X-\mathbb{E}[X])^2\right] \\
+& =\mathbb{E}\left[X^2-2 X \mathbb{E}[X]+(\mathbb{E}[X])^2\right] \\
+& =\mathbb{E}\left[X^2\right]-2 \mathbb{E}[X \mathbb{E}[X]]+(\mathbb{E}[X])^2 \\
+& =\mathbb{E}\left[X^2\right]-(\mathbb{E}[X])^2
 \end{aligned}
 $$
 \end{proof}
@@ -27,11 +27,11 @@ $$
 \end{asidebox}
 
 \begin{theorem}
-    如果$f$是凸函数, 那么$\mathbf{E}[f(X)] \geq f(\mathbf{E}[X])$. 
+    如果$f$是凸函数, 那么$\mathbb{E}[f(X)] \geq f(\mathbb{E}[X])$. 
 \end{theorem}
 
 \begin{proof}
-    假设 $f$ 有Taylor 展开式. 令 $\mu=\mathbf{E}[X]$. 根据Taylor中值定理,存在一个值 $c$ 使得
+    假设 $f$ 有Taylor 展开式. 令 $\mu=\mathbb{E}[X]$. 根据Taylor中值定理,存在一个值 $c$ 使得
 $$
 \begin{aligned}
 f(x) & =f(\mu)+f^{\prime}(\mu)(x-\mu)+\frac{f^{\prime \prime}(c)(x-\mu)^2}{2} \\
@@ -41,9 +41,9 @@ $$
 由于$f$是凸函数, 得到 $f^{\prime \prime}(c)>0$ . 两边同时取期望, 得到: 
 $$
 \begin{aligned}
-\mathbf{E}[f(X)] & \geq \mathbf{E}\left[f(\mu)+f^{\prime}(\mu)(X-\mu)\right] \\
-& =\mathbf{E}[f(\mu)]+f^{\prime}(\mu)(\mathbf{E}[X]-\mu) \\
-& =f(\mu)=f(\mathbf{E}[X]) .
+\mathbb{E}[f(X)] & \geq \mathbb{E}\left[f(\mu)+f^{\prime}(\mu)(X-\mu)\right] \\
+& =\mathbb{E}[f(\mu)]+f^{\prime}(\mu)(\mathbb{E}[X]-\mu) \\
+& =f(\mu)=f(\mathbb{E}[X]) .
 \end{aligned}
 $$
 \end{proof}

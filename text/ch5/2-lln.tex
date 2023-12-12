@@ -4,9 +4,9 @@
 我们先来看构建概率极限定理的一些工具.
 
 \begin{theorem}[Chebyshev大数律] 
-    设 $X_1, X_2, \cdots$ 是相互独立的随机变量序列, $\mathrm{E}\left(X_i\right)=\mu_i, \operatorname{var}\left(X_i\right)=\sigma_i^2(i \geqslant 1)$ 且 $\left\{\sigma_i^2, i \geqslant 1\right\}$ 有界, 设 $S_n=\sum_{i=1}^n X_i$ $(n \geqslant 1)$, 则
+    设 $X_1, X_2, \cdots$ 是相互独立的随机变量序列, $\mathbb{E}\left(X_i\right)=\mu_i, \operatorname{var}\left(X_i\right)=\sigma_i^2(i \geqslant 1)$ 且 $\left\{\sigma_i^2, i \geqslant 1\right\}$ 有界, 设 $S_n=\sum_{i=1}^n X_i$ $(n \geqslant 1)$, 则
 $$
-\frac{S_n-\mathrm{E}\left(S_n\right)}{n} \stackrel{P}{\longrightarrow} 0 \quad(n \rightarrow \infty) .
+\frac{S_n-\mathbb{E}\left(S_n\right)}{n} \stackrel{P}{\longrightarrow} 0 \quad(n \rightarrow \infty) .
 $$
 \end{theorem}
 
@@ -14,14 +14,14 @@ $$
     设 $\sigma_i^2 \leq M($ 一切 $i \geqslant 1$ ). 利用Chebyshev不等式知
 $$
 \begin{aligned}
-P\left(\left|\frac{S_n-\mathrm{E}\left(S_n\right)}{n}\right| \geqslant \varepsilon\right) & =P\left(\left|S_n-\mathrm{E}\left(S_n\right)\right| \geqslant n \varepsilon\right) \\
+P\left(\left|\frac{S_n-\mathbb{E}\left(S_n\right)}{n}\right| \geqslant \varepsilon\right) & =P\left(\left|S_n-\mathbb{E}\left(S_n\right)\right| \geqslant n \varepsilon\right) \\
 & \leq \frac{1}{n^2 \varepsilon^2} \operatorname{Var}\left(S_n\right) .
 \end{aligned}
 $$
 
 由于 $X_1, \cdots, X_n$ 两两不相关, $\operatorname{Var}\left(S_n\right)=\sum_{i=1}^n \operatorname{Var}\left(X_i\right) \leq n M$. 于是
 $$
-P\left(\left|\frac{S_n-\mathrm{E}\left(S_n\right)}{n}\right| \geqslant \varepsilon\right) \leq \frac{M}{n \varepsilon^2} \quad(\text { 一切 } \varepsilon>0) .
+P\left(\left|\frac{S_n-\mathbb{E}\left(S_n\right)}{n}\right| \geqslant \varepsilon\right) \leq \frac{M}{n \varepsilon^2} \quad(\text { 一切 } \varepsilon>0) .
 $$
 由此得证. 
 
@@ -30,7 +30,7 @@ $$
 我们就立刻可以得到这样的一个有用的推论: 
 
 \begin{corollary}
-    设 $X_1, X_2, \cdots$ 是相互独立同分布的随机变量序列, $\mu=\mathrm{E}\left(X_1\right)$ 和 $\sigma^2=\operatorname{var}\left(X_1\right)$ 都存在, $S_n=\sum_{i=1}^n X_i(n \geqslant 1)$, 则
+    设 $X_1, X_2, \cdots$ 是相互独立同分布的随机变量序列, $\mu=\mathbb{E}\left(X_1\right)$ 和 $\sigma^2=\operatorname{var}\left(X_1\right)$ 都存在, $S_n=\sum_{i=1}^n X_i(n \geqslant 1)$, 则
     $$
     \frac{S_n}{n} \stackrel{P}{\longrightarrow} \mu \quad(n \rightarrow \infty) .
     $$
@@ -49,7 +49,7 @@ $$
 $$
 X_i= \begin{cases}1, & \text { 第 } i \text { 次试验中 } A \text { 发生, } \\ 0, & \text { 第 } i \text { 次试验中 } A \text { 不发生 }\end{cases}
 $$
-$(i=1,2, \cdots)$, 则 $\frac{\nu_n}{n}=\frac{1}{n} \sum_{i=1}^n X_i$. 由于 $X_1, X_2, \cdots$ 是相互独立同分布的随机变量序列, $\mathrm{E}\left(X_i\right)=p, \operatorname{var}\left(X_i\right)=p(1-p)(i \geqslant 1)$. 因此成立.
+$(i=1,2, \cdots)$, 则 $\frac{\nu_n}{n}=\frac{1}{n} \sum_{i=1}^n X_i$. 由于 $X_1, X_2, \cdots$ 是相互独立同分布的随机变量序列, $\mathbb{E}\left(X_i\right)=p, \operatorname{var}\left(X_i\right)=p(1-p)(i \geqslant 1)$. 因此成立.
 \end{proof}
 
 上面的两个推论, 尤其是第一个推论是我们最常用到的大数律, 其中方差存在的条件可以去掉, 而且可以证明更强的结论, 但证明较复杂, 我们在这里就不证明了. 那么如果对于数学期望不存在的时候, 是否存在常数$a$使得$\sum_{i=1}^n X_i \stackrel{P}{\longrightarrow} a \quad(n \rightarrow \infty)$? 我们看一个例子: 
@@ -71,9 +71,9 @@ $$
 那么什么时候类似的定律成立? 我们给出如下事实: 
 
 \begin{theorem}
-     [Cantelli 强大数律] 设 $X_1, X_2, \cdots$ 是相互独立的随机变量序列, $\mathrm{E}\left(X_i\right)=\mu_i, \mathrm{E}\left(X_i-\mu_i\right)^4 \leq M$ (一切 $i \geqslant 1 ; M$ 是一个常数), $S_n=$ $\sum_{i=1}^n X_i(n \geqslant 1)$, 则当 $n \rightarrow \infty$ 时,
+     [Cantelli 强大数律] 设 $X_1, X_2, \cdots$ 是相互独立的随机变量序列, $\mathbb{E}\left(X_i\right)=\mu_i, \mathbb{E}\left(X_i-\mu_i\right)^4 \leq M$ (一切 $i \geqslant 1 ; M$ 是一个常数), $S_n=$ $\sum_{i=1}^n X_i(n \geqslant 1)$, 则当 $n \rightarrow \infty$ 时,
 $$
-\frac{S_n-\mathrm{E}\left(S_n\right)}{n} \stackrel{\text { a.s. }}{\longrightarrow} 0 .
+\frac{S_n-\mathbb{E}\left(S_n\right)}{n} \stackrel{\text { a.s. }}{\longrightarrow} 0 .
 $$
 \end{theorem}
 
@@ -82,9 +82,9 @@ $$
 {
     \small
     先证明一个引理: 
-         $X_1, \cdots, X_n$ 相互独立 $(n \geqslant 2)$, 且 $\mathrm{E}\left(X_i\right)=0, \mathrm{E}\left(X_i^4\right) \leq$ $M(i=1, \cdots, n)$, 则
+         $X_1, \cdots, X_n$ 相互独立 $(n \geqslant 2)$, 且 $\mathbb{E}\left(X_i\right)=0, \mathbb{E}\left(X_i^4\right) \leq$ $M(i=1, \cdots, n)$, 则
 $$
-\mathrm{E}\left(\sum_{i=1}^n X_i\right)^4 \leq 3 n^2 M
+\mathbb{E}\left(\sum_{i=1}^n X_i\right)^4 \leq 3 n^2 M
 $$
 \begin{proof}
      用数学归纳法. 显然 上述 式对 $n=1$ 成立. 设 $n=k$ 时 (2.5)式成立, 则
@@ -99,15 +99,15 @@ $$
 于是
 $$
 \begin{aligned}
-& \mathrm{E}\left(\sum_{i=1}^{k+1} X_i\right)^4=\mathrm{E}\left(\sum_{i=1}^k X_i\right)^4+4 \mathrm{E}\left(\sum_{i=1}^k X_i\right)^3 \cdot \mathrm{E}\left(X_{k+1}\right) \\
-& \quad+6 \mathrm{E}\left(\sum_{i=1}^k X_i\right)^2 \cdot \mathrm{E}\left(X_{k+1}^2\right)+4 \mathrm{E}\left(\sum_{i=1}^k X_i\right) \cdot \mathrm{E}\left(X_{k+1}^3\right)+\mathrm{E}\left(X_{k+1}^4\right) . \\
-& \text { 由于 } \mathrm{E}\left(X_i^2\right) \leq\left(\mathrm{E}\left(X_i^4\right)\right)^{\frac{1}{2}}, \mathrm{E}\left(X_i\right)=0 \text { 且 } \mathrm{E}\left(\sum_{i=1}^k X_i\right)^2=\mathrm{E}\left(X_1^2\right)+\cdots+
+& \mathbb{E}\left(\sum_{i=1}^{k+1} X_i\right)^4=\mathbb{E}\left(\sum_{i=1}^k X_i\right)^4+4 \mathbb{E}\left(\sum_{i=1}^k X_i\right)^3 \cdot \mathbb{E}\left(X_{k+1}\right) \\
+& \quad+6 \mathbb{E}\left(\sum_{i=1}^k X_i\right)^2 \cdot \mathbb{E}\left(X_{k+1}^2\right)+4 \mathbb{E}\left(\sum_{i=1}^k X_i\right) \cdot \mathbb{E}\left(X_{k+1}^3\right)+\mathbb{E}\left(X_{k+1}^4\right) . \\
+& \text { 由于 } \mathbb{E}\left(X_i^2\right) \leq\left(\mathbb{E}\left(X_i^4\right)\right)^{\frac{1}{2}}, \mathbb{E}\left(X_i\right)=0 \text { 且 } \mathbb{E}\left(\sum_{i=1}^k X_i\right)^2=\mathbb{E}\left(X_1^2\right)+\cdots+
 \end{aligned}
 $$
-$\mathrm{E}\left(X_k^2\right) \leq k \sqrt{M}$, 故
+$\mathbb{E}\left(X_k^2\right) \leq k \sqrt{M}$, 故
 $$
 \begin{aligned}
-\mathrm{E}\left(\sum_{i=1}^{k+1} X_i\right)^4 & \leq 3 k^2 M+0+6 k M+0+M \\
+\mathbb{E}\left(\sum_{i=1}^{k+1} X_i\right)^4 & \leq 3 k^2 M+0+6 k M+0+M \\
 & \leq 3(k+1)^2 M
 \end{aligned}
 $$
@@ -119,14 +119,14 @@ $$
 $$
 \begin{aligned}
 & S_n(\omega)=\sum_{i=1}^n X_i(\omega) \text {. 令 } \\
-& \qquad D=\left\{\omega_{:} \sum_{n=1}^{\infty}\left(\frac{S_n(\omega)-\mathrm{E}\left(S_n\right)}{n}\right)^4 \text { 发散 }\right\} .
+& \qquad D=\left\{\omega_{:} \sum_{n=1}^{\infty}\left(\frac{S_n(\omega)-\mathbb{E}\left(S_n\right)}{n}\right)^4 \text { 发散 }\right\} .
 \end{aligned}
 $$
 
 我们来证明 $P(D)=0$.
 任给定 $A>0$, 令
 $$
-D_N=\left\{\omega: \sum_{n=1}^N\left(\frac{S_n(\omega)-\mathrm{E}\left(S_n\right)}{n}\right)^4>A\right\} \quad(N \geqslant 1),
+D_N=\left\{\omega: \sum_{n=1}^N\left(\frac{S_n(\omega)-\mathbb{E}\left(S_n\right)}{n}\right)^4>A\right\} \quad(N \geqslant 1),
 $$
 
 则 $D \subset \bigcup_{N=1}^{\infty} D_N$, 由此有
@@ -136,27 +136,27 @@ $$
 
 另一方面, 
 $$
-A I_{D_N}(\omega) \leq \sum_{n=1}^N\left(\frac{S_n(\omega)-\mathrm{E}\left(S_n\right)}{n}\right)^4
+A I_{D_N}(\omega) \leq \sum_{n=1}^N\left(\frac{S_n(\omega)-\mathbb{E}\left(S_n\right)}{n}\right)^4
 $$
 
 于是
 $$
 \begin{aligned}
-\mathrm{E}\left(A I_{D_N}(\omega)\right) & \leq \mathrm{E}\left(\sum_{n=1}^N\left(\frac{S_n(\omega)-\mathrm{E}\left(S_n\right)}{n}\right)^4\right) \\
-& =\sum_{n=1}^N \mathrm{E}\left(\frac{S_n(\omega)-\mathrm{E}\left(S_n\right)}{n}\right)^4 \\
+\mathbb{E}\left(A I_{D_N}(\omega)\right) & \leq \mathbb{E}\left(\sum_{n=1}^N\left(\frac{S_n(\omega)-\mathbb{E}\left(S_n\right)}{n}\right)^4\right) \\
+& =\sum_{n=1}^N \mathbb{E}\left(\frac{S_n(\omega)-\mathbb{E}\left(S_n\right)}{n}\right)^4 \\
 & \leq \sum_{n=1}^N \frac{1}{n^4} 3 n^2 M \quad\text { (上述引理) } \\
 & \leq 3 M \sum_{n=1}^{\infty} \frac{1}{n^2} .
 \end{aligned}
 $$
-由于 $\mathrm{E}\left(A I_{D_N}(\omega)\right)=A \mathrm{E}\left(I_{D_N}(\omega)\right)=A P\left(D_N\right)$, 因此
+由于 $\mathbb{E}\left(A I_{D_N}(\omega)\right)=A \mathbb{E}\left(I_{D_N}(\omega)\right)=A P\left(D_N\right)$, 因此
 $$
 P\left(D_N\right) \leq \frac{3 M}{A} \sum_{n=1}^{\infty} \frac{1}{n^2} .
 $$
 
 令 $N \rightarrow \infty$, 从 (2.6)式得 $P(D) \leq \frac{3 M}{A} \sum_{n=1}^{\infty} \frac{1}{n^2}$. 令 $A \rightarrow \infty$, 知 $P(D)=0$, 故
-$P\left(D^c\right)=1$. 当 $\omega \in D^c$ 时级数 $\sum_{n=1}^{\infty}\left(\frac{S_n(\omega)-\mathrm{E}\left(S_n\right)}{n}\right)^4$ 收敛, 从而
+$P\left(D^c\right)=1$. 当 $\omega \in D^c$ 时级数 $\sum_{n=1}^{\infty}\left(\frac{S_n(\omega)-\mathbb{E}\left(S_n\right)}{n}\right)^4$ 收敛, 从而
 $$
-\lim _{n \rightarrow \infty} \frac{S_n(\omega)-\mathrm{E}\left(S_n\right)}{n}=0 .
+\lim _{n \rightarrow \infty} \frac{S_n(\omega)-\mathbb{E}\left(S_n\right)}{n}=0 .
 $$
 
 这表明定理式成立.
@@ -165,7 +165,7 @@ $$
 
 这就给了我们一个很直接的推论: 
 \begin{corollary}
-    设 $X_1, X_2, \cdots$ 是相互独立同分布的随机变量序列, $\mu=\mathrm{E}\left(X_1\right)$ 和 $\mathrm{E}\left(X_1^4\right)$ 存在, $S_n=\sum_{i=1}^n X_i(n \geqslant 1)$, 则当 $n \rightarrow \infty$ 时,
+    设 $X_1, X_2, \cdots$ 是相互独立同分布的随机变量序列, $\mu=\mathbb{E}\left(X_1\right)$ 和 $\mathbb{E}\left(X_1^4\right)$ 存在, $S_n=\sum_{i=1}^n X_i(n \geqslant 1)$, 则当 $n \rightarrow \infty$ 时,
 $$
 \frac{S_n}{n} \stackrel{\text { a.s. }}{\longrightarrow} \mu .
 $$
@@ -175,17 +175,17 @@ $$
 
 \paragraph{大数定律的应用}
 
-大数定律是很多统计方法的理论依据. 例如, 为了估计随机变量 $X$ 的期望,若 $X_1, X_2, \cdots, X_n$ 是 $X$ 的 $n$ 次观测值, 人们常用平均值 $\bar{X}=\frac{1}{n} \sum_{i=1}^n X_i$ 作为 $\mathrm{E}(X)$ 的估计量 (近似值).由于强大数律: 当 $n \rightarrow \infty$ 时, $\frac{1}{n} \sum_{i=1}^n X_i \stackrel{\text { a.s. }}{\longrightarrow} \mathrm{E}(X)$, 故 $n$ 较大时用 $X$ 估计 $\mathrm{E}(X)$ 是合理的. 对于 $X$ 的方差, 人们常用 $\frac{1}{n} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2$ 作为 $\operatorname{var}(X)$的估计量. 利用强大数律知
+大数定律是很多统计方法的理论依据. 例如, 为了估计随机变量 $X$ 的期望,若 $X_1, X_2, \cdots, X_n$ 是 $X$ 的 $n$ 次观测值, 人们常用平均值 $\bar{X}=\frac{1}{n} \sum_{i=1}^n X_i$ 作为 $\mathbb{E}(X)$ 的估计量 (近似值).由于强大数律: 当 $n \rightarrow \infty$ 时, $\frac{1}{n} \sum_{i=1}^n X_i \stackrel{\text { a.s. }}{\longrightarrow} \mathbb{E}(X)$, 故 $n$ 较大时用 $X$ 估计 $\mathbb{E}(X)$ 是合理的. 对于 $X$ 的方差, 人们常用 $\frac{1}{n} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2$ 作为 $\operatorname{var}(X)$的估计量. 利用强大数律知
 $$
 \begin{gathered}
 \lim _{n \rightarrow \infty} \frac{1}{n} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2=\lim _{n \rightarrow \infty}\left\{\frac{1}{n} \sum_{i=1}^n X_i^2-\left(\frac{\sum_{i=1}^n X_i}{n}\right)^2\right\} \\
-\left.=\mathrm{E}\left(X_1^2\right)-\left(\mathrm{E}\left(X_1\right)\right)^2=\operatorname{var}(X) \quad \text { (a.s. }\right) .
+\left.=\mathbb{E}\left(X_1^2\right)-\left(\mathbb{E}\left(X_1\right)\right)^2=\operatorname{var}(X) \quad \text { (a.s. }\right) .
 \end{gathered}
 $$
 
 这表明, 当 $n$ 较大时用 $\frac{1}{n} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2$ 估计 $X$ 的方差是合理的.
 
-除此之外, 大数定律同样告诉了我们使用计算机模拟的可行性. 为了计算随机变量 $X$ 的期望 $\mathrm{E}(X)$, 若能够产生与 $X$ 有相同概率分布的相互独立的随机变量序列 $X_1, X_2, \cdots$, 则据强大数律, $X=\frac{1}{n} \sum_{i=1}^n X_i$就是 $\mathrm{E}(X)$ 的近似值 (当 $n$ 很大时).
+除此之外, 大数定律同样告诉了我们使用计算机模拟的可行性. 为了计算随机变量 $X$ 的期望 $\mathbb{E}(X)$, 若能够产生与 $X$ 有相同概率分布的相互独立的随机变量序列 $X_1, X_2, \cdots$, 则据强大数律, $X=\frac{1}{n} \sum_{i=1}^n X_i$就是 $\mathbb{E}(X)$ 的近似值 (当 $n$ 很大时).
 
 怎样得到与 $X$ 有相同分布的相互独立的随机变量序列 $X_1, X_2, \cdots$呢? 设 $X$ 的分布函数是 $F(x), U_1, U_2, \cdots$ 是服从 $(0,1)$ 上均匀分布的相互独立的随机变量序列. 令 $X_i=F^{-1}\left(U_i\right)(i \geqslant 1)$, 这里
 $$
@@ -202,10 +202,10 @@ $$
     
     故只需考虑非负函数的积分. 设 $u_1, u_2, \cdots$ 是服从 $(0,1)$ 上均匀分布的相互独立的随机变量序列, 令 $\xi_i=a+(b-a) u_i$, 则 $\xi_i$ 服从 $(a, b)$ 上的均匀分布. 依强大数律, 当 $n \rightarrow \infty$ 时,
     $$
-    \frac{1}{n} \sum_{i=1}^n f\left(\xi_i\right) \stackrel{\text { a.s. }}{\longrightarrow} \mathrm{E} f\left(\xi_1\right) .
+    \frac{1}{n} \sum_{i=1}^n f\left(\xi_i\right) \stackrel{\text { a.s. }}{\longrightarrow} \mathbb{E} f\left(\xi_1\right) .
     $$
     
-    由于 $\mathrm{E} f\left(\xi_1\right)=\int_a^b f(x) \frac{1}{b-a} \mathrm{~d} x$, 故 $n$ 很大时,
+    由于 $\mathbb{E} f\left(\xi_1\right)=\int_a^b f(x) \frac{1}{b-a} \mathrm{~d} x$, 故 $n$ 很大时,
     $$
     \int_a^b f(x) \mathrm{d} x \approx(b-a) \frac{1}{n} \sum_{i=1}^n f\left(\xi_i\right) .
     $$

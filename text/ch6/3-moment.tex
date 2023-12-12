@@ -1,11 +1,11 @@
 \section{矩估计}
 
 设 $X_1, \cdots, X_n$ 为来自总体 $X \sim F_\theta(\theta \in \theta)$ 的一个样本. 根据大数定律有
-$$\bar{X}=\frac{1}{n} \sum_{i=1}^n X_i \stackrel{P}{\longrightarrow} \mathrm{E}(X) := \mathrm{E}_\theta(X)$$
+$$\bar{X}=\frac{1}{n} \sum_{i=1}^n X_i \stackrel{P}{\longrightarrow} \mathbb{E}(X) := \mathbb{E}_\theta(X)$$
 
-由于上式中 $X$ 的分布与参数 $\theta$ 有关, 常把 $X$ 的期望 $\mathrm{E}(X)$ 记为$\mathrm{E}_\theta(X)$. 
+由于上式中 $X$ 的分布与参数 $\theta$ 有关, 常把 $X$ 的期望 $\mathbb{E}(X)$ 记为$\mathbb{E}_\theta(X)$. 
 
-由于当 $n$ 充分大时 $\bar{X}$ 与 $\mathrm{E}_\theta(X)$ 非常靠近, 我们干脆就利用$a_1 \triangleq \bar{X}$ 作为 $\alpha_1 \triangleq \mathrm{E}_\theta(X)$ 的估计, 这个估计称为 $\mathrm{E}_g(X)$ 的矩估计.通裳 $\alpha_t$ $\triangleq \mathrm{E}_\theta\left(X^l\right)$ 称为 $l$ 阶总体矩, 而 $a_l \triangleq \frac{1}{n} \sum_{i=1}^n X_i^l$ 称为 $l$ 阶样本矩. 由大数定律知, 可用各阶样本矩去估计相应的总体矩. 由此而得矩估计这个名称. 依这个思想, 可利用
+由于当 $n$ 充分大时 $\bar{X}$ 与 $\mathbb{E}_\theta(X)$ 非常靠近, 我们干脆就利用$a_1 \triangleq \bar{X}$ 作为 $\alpha_1 \triangleq \mathbb{E}_\theta(X)$ 的估计, 这个估计称为 $\mathbb{E}_g(X)$ 的矩估计.通裳 $\alpha_t$ $\triangleq \mathbb{E}_\theta\left(X^l\right)$ 称为 $l$ 阶总体矩, 而 $a_l \triangleq \frac{1}{n} \sum_{i=1}^n X_i^l$ 称为 $l$ 阶样本矩. 由大数定律知, 可用各阶样本矩去估计相应的总体矩. 由此而得矩估计这个名称. 依这个思想, 可利用
 $$
 a_2=\frac{1}{n} \sum_{i=1}^n X_i^2
 $$
@@ -15,7 +15,7 @@ $$
 \begin{definition}
     设 $X_1, \cdots, X_n$ 为来自总体 $X \sim F_\theta(\theta \in \Theta)$ 的一个样本. 若所涉及的矩存在, 则
 
-(1) $l$ 阶样本矩 $a_l=\frac{1}{n} \sum_{i=1}^n X_i^l$ 为相应的总体矩 $\alpha_l=\mathrm{E}_\theta\left(X^l\right)$ 的矩估计, $l=1,2, \cdots$;
+(1) $l$ 阶样本矩 $a_l=\frac{1}{n} \sum_{i=1}^n X_i^l$ 为相应的总体矩 $\alpha_l=\mathbb{E}_\theta\left(X^l\right)$ 的矩估计, $l=1,2, \cdots$;
 
 
 (2) 若存在连续函数 $\phi$ 使 $g(\theta)=\phi\left(\alpha_1, \cdots, \alpha_k\right)$ 成立, 则 $g(\theta)$ 的矩估计定义为
@@ -108,7 +108,7 @@ $$
 
 此外, 矩估计不是唯一的. 如果这个例子中我们使用二阶矩估计的话, 就有
 $$
-\alpha_2=\mathrm{E}_\theta\left(X^2\right)=\frac{1}{\theta} \int_0^\theta x^2 \mathrm{~d} x=\left.\frac{1}{\theta} \frac{x^3}{3}\right|_0 ^\theta=\frac{\theta^2}{3},
+\alpha_2=\mathbb{E}_\theta\left(X^2\right)=\frac{1}{\theta} \int_0^\theta x^2 \mathrm{~d} x=\left.\frac{1}{\theta} \frac{x^3}{3}\right|_0 ^\theta=\frac{\theta^2}{3},
 $$
 
 故 $a_2=\frac{1}{n} \sum_{i=1}^n X_i^2$ 是 $\frac{\theta^2}{3}$ 的矩估计. 由 $\alpha_2=\frac{\theta^2}{3}$ 解出 $\theta=\sqrt{3 \alpha_2}$, 也就是$\theta$ 的矩估计为 $\sqrt{3 a_2}=\sqrt{\frac{3}{n} \sum_{i=1}^n X_i^2}$.

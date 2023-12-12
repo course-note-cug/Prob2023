@@ -15,9 +15,9 @@
 \end{theorem}
 
 \begin{proof}
-    第一个性质可以使用期望的线性性说明. $\mathbf{E}\left[(X-c)^2\right]=\mathbf{E}\left[X^2\right]-2 c \mathbf{E}[X]+c^2$. 对于$c$求导数, 即可得到我们要的性质. 
+    第一个性质可以使用期望的线性性说明. $\mathbb{E}\left[(X-c)^2\right]=\mathbb{E}\left[X^2\right]-2 c \mathbb{E}[X]+c^2$. 对于$c$求导数, 即可得到我们要的性质. 
 
-    第二个性质我们可以考虑: 对于任何一个不是中位数的值$c$和任何中位数$m$, 有$\mathbf{E}[|X-c|]>\mathbf{E}[|X-m|]$. 等价地, 也就是说$\mathbf{E}[|X-c|-|X-m|]>0$. 
+    第二个性质我们可以考虑: 对于任何一个不是中位数的值$c$和任何中位数$m$, 有$\mathbb{E}[|X-c|]>\mathbb{E}[|X-m|]$. 等价地, 也就是说$\mathbb{E}[|X-c|-|X-m|]>0$. 
 
     不是一般性, 假设我们能够让上述式子最小的$c$的值大于中位数$m$的值, 也就是$c>m$.(我们会看到如果$c<m$也可以有类似的方法证明得到) 由于$c$不是中位数, $P(X>c)<1/2$. 我们接下来考虑等式里面的任何一个量$x$和$c$的关系. 对于$x,c$的关系, 有
     \begin{itemize}
@@ -27,23 +27,23 @@
     \end{itemize}
 
     综上考虑, 我们有
-    $$\begin{aligned} & \mathbf{E}[|X-c|-|X-m|] \\ & \quad=\operatorname{P}(X \geq c)(m-c)+\sum_{x: m<x<c} \operatorname{P}(X=x)(c+m-2 x)+\operatorname{P}(X \leq m)(c-m) .\end{aligned}$$
+    $$\begin{aligned} & \mathbb{E}[|X-c|-|X-m|] \\ & \quad=P(X \geq c)(m-c)+\sum_{x: m<x<c} P(X=x)(c+m-2 x)+P(X \leq m)(c-m) .\end{aligned}$$
 
     我们发现关键就是探讨中间的那一项求和会造成什么影响. 这时候, 我们需要考虑两种情况:
     \begin{itemize}
-        \item [$1^\circ$] 如果$\operatorname{P}(m<X<c)=0$, 那么$$
+        \item [$1^\circ$] 如果$P(m<X<c)=0$, 那么$$
         \begin{aligned}
-        \mathbf{E}[|X-c|-|X-m|] & =\operatorname{P}(X \geq c)(m-c)+\operatorname{P}(X \leq m)(c-m) \\
-        & >\frac{1}{2}(m-c)+\frac{1}{2}(c-m) &(\text{因为}\operatorname{P}(X \geq c)<1 / 2 \text { 且 } m<c)\\
+        \mathbb{E}[|X-c|-|X-m|] & =P(X \geq c)(m-c)+P(X \leq m)(c-m) \\
+        & >\frac{1}{2}(m-c)+\frac{1}{2}(c-m) &(\text{因为}P(X \geq c)<1 / 2 \text { 且 } m<c)\\
         & =0,
         \end{aligned}
         $$
-        \item [$2^\circ$] 如果$\operatorname{P}(m<X<c)\neq 0$, 那么
+        \item [$2^\circ$] 如果$P(m<X<c)\neq 0$, 那么
         $$\begin{aligned}
-            \mathbf{E} & {[|X-c|-|X-m|] } \\
-            & =\operatorname{Pr}(X \geq c)(m-c)+\sum_{x: m<x<c} \operatorname{Pr}(X=x)(c+m-2 x)\\
-            &~~~~+\operatorname{Pr}(X \leq m)(c-m) \\
-            & >\operatorname{Pr}(X>m)(m-c)+\operatorname{Pr}(X \leq m)(c-m) &(\text{因为 }\forall x. c+m-2 x>m-c)\\
+            \mathbb{E} & {[|X-c|-|X-m|] } \\
+            & =P(X \geq c)(m-c)+\sum_{x: m<x<c} P(X=x)(c+m-2 x)\\
+            &~~~~+P(X \leq m)(c-m) \\
+            & >P(X>m)(m-c)+P(X \leq m)(c-m) &(\text{因为 }\forall x. c+m-2 x>m-c)\\
             & >\frac{1}{2}(m-c)+\frac{1}{2}(c-m) \\
             & =0,
             \end{aligned}$$
@@ -66,11 +66,11 @@
 \begin{proof}
     $$
     \begin{aligned}
-        |\mu-m| & =|\mathbf{E}[X]-m| \\
-        & =|\mathbf{E}[X-m]|  \\
-        & \leq \mathbf{E}[|X-m|] & (\text{Jensen不等式}) \\
-        & \leq \mathbf{E}[|X-\mu|] & (\text{中位数会最小化}\Ep{|X-c|}) \\
-        & \leq \sqrt{\mathbf{E}\left[(X-\mu)^2\right]} & (\text{Jensen不等式}) \\
+        |\mu-m| & =|\mathbb{E}[X]-m| \\
+        & =|\mathbb{E}[X-m]|  \\
+        & \leq \mathbb{E}[|X-m|] & (\text{Jensen不等式}) \\
+        & \leq \mathbb{E}[|X-\mu|] & (\text{中位数会最小化}\Ep{|X-c|}) \\
+        & \leq \sqrt{\mathbb{E}\left[(X-\mu)^2\right]} & (\text{Jensen不等式}) \\
         & =\sigma .
         \end{aligned}
     $$

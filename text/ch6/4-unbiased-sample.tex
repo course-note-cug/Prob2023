@@ -6,7 +6,7 @@
 \begin{definition}
     设 $X_1, \cdots, X_n \sim \operatorname{iid} F(x, \theta), \theta \in \Theta$ 为一个统计模型, $g(\theta)$为待估量. 统计量 $T\left(X_1, \cdots, X_n\right)$ 称为 $g(\theta)$ 的无偏估计, 如果 $T$ 满足
 $$
-\mathrm{E}_\theta\left(T\left(X_1, \cdots, X_n\right)\right)=g(\theta), \quad \forall \theta \in \Theta .
+\mathbb{E}_\theta\left(T\left(X_1, \cdots, X_n\right)\right)=g(\theta), \quad \forall \theta \in \Theta .
 $$
 \end{definition}
 
@@ -23,7 +23,7 @@ $$
 
     对于 $\hat{\mu}=\bar{X}$, 利用期望的性质和正态分布的定义可得
 $$
-\mathrm{E}(\hat{\mu})=\frac{1}{n} \sum_{i=1}^n \mathrm{E}\left(X_i\right)=\mathrm{E}\left(X_1\right)=\mu,
+\mathbb{E}(\hat{\mu})=\frac{1}{n} \sum_{i=1}^n \mathbb{E}\left(X_i\right)=\mathbb{E}\left(X_1\right)=\mu,
 $$
 
 即 $\hat{\mu}$ 是 $\mu$ 的无偏估计.
@@ -31,18 +31,18 @@ $$
 现在来看$\hat\sigma^2$的无偏性. 对其做变形: 
 $$\begin{aligned} \hat{\sigma}^2 & =\frac{1}{n} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2=\frac{1}{n} \sum_{i=1}^n\left[X_i-\mu-(\bar{X}-\mu)\right]^2 \\ & =\frac{1}{n} \sum_{i=1}^n\left(X_i-\mu\right)^2+(\bar{X}-\mu)^2-\frac{2}{n}(\bar{X}-\mu) \sum_{i=1}^n\left(X_i-\mu\right) \\ & =\frac{1}{n} \sum_{i=1}^n\left(X_i-\mu\right)^2-(\bar{X}-\mu)^2 .\end{aligned}$$
 因此
-$$\mathrm{E}\left(\hat{\sigma}^2\right)=\frac{1}{n} \sum_{i=1}^n \mathrm{E}\left[\left(X_i-\mu\right)^2\right]-\mathrm{E}\left[(\bar{X}-\mu)^2\right]\qquad(*)$$
+$$\mathbb{E}\left(\hat{\sigma}^2\right)=\frac{1}{n} \sum_{i=1}^n \mathbb{E}\left[\left(X_i-\mu\right)^2\right]-\mathbb{E}\left[(\bar{X}-\mu)^2\right]\qquad(*)$$
 
 由于 $X_1, \cdots, X_n \sim \operatorname{iid} N\left(\mu, \sigma^2\right)$, 其中 $\sigma^2$ 就是总体 $X \sim N\left(\mu, \sigma^2\right)$ 的方差,故
 $$
-\frac{1}{n} \sum_{i=1}^n \mathrm{E}\left[\left(X_i-\mu\right)^2\right]=\frac{1}{n} \sum_{i=1}^n \sigma^2=\sigma^2 \text {. }
+\frac{1}{n} \sum_{i=1}^n \mathbb{E}\left[\left(X_i-\mu\right)^2\right]=\frac{1}{n} \sum_{i=1}^n \sigma^2=\sigma^2 \text {. }
 $$
 对于 $(*)$ 式右边第二项,利用独立随机变量和的方差等于各随机变量方差的和的性质, 可知
 $$
-\mathrm{E}\left[(\bar{X}-\mu)^2\right]=\operatorname{var}(\bar{X})=\frac{1}{n} \operatorname{var}\left(X_1\right)=\frac{1}{n} \sigma^2
+\mathbb{E}\left[(\bar{X}-\mu)^2\right]=\operatorname{var}(\bar{X})=\frac{1}{n} \operatorname{var}\left(X_1\right)=\frac{1}{n} \sigma^2
 $$
 因此带入$(*)$得到
-$$\mathrm{E}\left(\hat{\sigma}^2\right)=\sigma^2-\frac{1}{n} \sigma^2=\frac{n-1}{n} \sigma^2$$
+$$\mathbb{E}\left(\hat{\sigma}^2\right)=\sigma^2-\frac{1}{n} \sigma^2=\frac{n-1}{n} \sigma^2$$
 
 因此, 上述的估计不是$\sigma^2$的无偏估计. 不过, 我们可以对于其稍作修改, 估计$\sigma^2$为$$S_n^2=\frac{1}{n-1} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2.$$
 \end{example}
@@ -68,10 +68,10 @@ $$
 \end{aligned}
 $$
 
-其中 $\mu=\mathrm{E}(X)$. 然后对两边求期望, 得
+其中 $\mu=\mathbb{E}(X)$. 然后对两边求期望, 得
 $$
 \begin{aligned}
-\mathrm{E}\left[\sum_{i=1}^n\left(X_i-\bar{X}\right)^2\right]&=\mathrm{E}\left[\sum_{i=1}^n\left(X_i-\mu\right)^2\right]-n \mathrm{E}\left[(\bar{X}-\mu)^2\right] \\
+\mathbb{E}\left[\sum_{i=1}^n\left(X_i-\bar{X}\right)^2\right]&=\mathbb{E}\left[\sum_{i=1}^n\left(X_i-\mu\right)^2\right]-n \mathbb{E}\left[(\bar{X}-\mu)^2\right] \\
 &=n \operatorname{var}\left(X_1\right)-n \operatorname{var}(\bar{X})&\\
 &=n \operatorname{var}\left(X_1\right)-\operatorname{var}\left(X_1\right) \\
 &=(n-1) \operatorname{var}(X)
