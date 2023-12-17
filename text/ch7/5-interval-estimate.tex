@@ -1,0 +1,208 @@
+\section{统计量与抽样分布}
+
+很多统计推断都是基于正态分布的总体假定的. 我们看几个重要的统计量. 
+
+\paragraph{1. $U$统计量及分布} 
+
+$U$统计量是标准化的正态分布. 
+
+\begin{theorem}
+    若总体$X\sim N(\mu, \sigma^2)$, $X_1, X_2, \cdots, X_n$是它的一个样本. 那么统计量
+    $$
+    U=\frac{\bar X-\mu}{\sigma/\sqrt n} \sim N(0, 1).
+    $$
+\end{theorem}
+
+\begin{proof}
+    因为$\Ep{\bar X}=\mu, D(\bar X)=\sigma^2 /n$. 由于相互独立且服从正态分布的随机变量的线性组合依然服从正态分布. 所以$\bar X\sim N(\mu, \sigma^2 / n)$. 因此$\frac{\bar X -\mu}{\sigma / \sqrt n}\sim N(0, 1)$.
+\end{proof}
+
+由于它的分布就是标准正态函数. 因此省略. 
+
+\paragraph{2. $\chi^2$统计量及分布}
+
+对于$n$正态总体抽取的样本, 有时候需要两个随机变量之间的``距离'', 因此需要考虑平方操作. 他们的平方相加服从什么分布呢? 推导显示, 他们服从$\chi^2$分布. 也就是
+
+\begin{definition}
+    设总体$X\sim N(0, 1)$, $X_1, X_2, \cdots, X_n$是它的一个样本. 那么
+    $$
+    \sum_{i=1}^n X_i ^2 \sim \chi^2_n
+    $$
+    其中
+    $$
+    \chi^2_n(x)=\begin{cases}
+        \frac{1}{2^{n/2}\Gamma\left(\frac n2\right)} & x>0\\
+        0 & x\leq 0
+    \end{cases}
+    $$
+    这里面$n$是一个参数, 表示这个分布的自由度. 
+\end{definition}
+
+对于自由度为$n$的$\chi^2$分布, 我们不加证明地给出如下的常用的性质:
+\begin{theorem}
+    \begin{itemize}
+        \item 期望和方差:$\mathbb E (\chi^2_n)=n, \mathbb D(\chi^2_n)=2n$.
+        \item 当$n$充分大的时候, $\chi^2_n$分布近似服从正态分布$N(n, 2n)$.
+        \item 可加性: 设$\xi_1, \xi_2$是相互独立的随机变量, 且$\xi_1 \sim \chi^2_{n_1}, \xi_2 \sim \chi^2_{n_2}$, 那么$$\xi_1+\xi_2=\chi_{n_1+n_2}^2.$$
+    \end{itemize}
+\end{theorem}
+
+并且将我们的样本方差经过类似标准化的操作就能推出这样的结果: 
+
+\begin{theorem}
+    设总体$X\sim N(0, 1)$, $X_1, X_2, \cdots, X_n$是它的一个样本. 则统计量
+    $$
+    \chi^2 = \frac{(n-1)S^2}{\sigma^2}\sim \chi^2_{(n-1)}.
+    $$ 
+    我们称$\chi^2=\frac{(n-1)S^2}{\sigma^2}$为$\chi^2$统计量. 
+\end{theorem}
+
+\begin{example}
+    设$X\sim N(0, 1)$, $X_1, X_2, \cdots, X_5$是来自正态总体$N(0, 9)$的样本. 已知统计量
+    $$
+    Y=a(X_1+X_2)^2 +b(X_3+X_4+X_5)^2
+    $$
+    服从$\chi^2$分布, 求出待定的系数$a,b$, 以及统计量的自由度$\lambda$. 
+\end{example}
+
+\begin{solution}
+    由条件, $X_1+X_2\sim N(0, 18), X_3+X_4+X_5\sim N(0, 27)$. 于是$(X_1+X_2)/\sqrt{18}$与$(X_1+X_2+X_3)/\sqrt{27}$互相独立且服从正态分布$N(0,1 )$. 由于可加性: 
+    $$
+    \left(
+        \frac{X_1+X_2}{\sqrt{18}}
+    \right)^2 + 
+    \left(
+        \frac{X_3+X_4+X_5}{\sqrt{27}}
+    \right)^2 = 
+    \frac{1}{18}(X_1+X_2)^2+\frac 1{27}(X_3+X_4+X_5)^2\sim \chi^2_2.
+    $$
+\end{solution}
+
+\paragraph{3. $T$统计量及分布}
+
+很多时候, 我们并不知道方差. 把(1.)中的真实方差$\sigma$替换为样本方差, 就得到了这样的分布: 
+
+\begin{definition}
+    设总体$X\sim N(\mu, \sigma^2)$, $X_1, X_2, \cdots, X_n$是它的一个样本. 那么统计量
+    $$
+    T = \frac{\bar X-\mu }{S/\sqrt n} \sim t_{(n-1)}.
+    $$
+    其中, 
+    $$
+    t_{n-1}(x)=
+    \frac{
+        \Gamma \left(
+            \frac{n+1}{2}
+        \right)
+    }{
+        \sqrt{n\pi} \Gamma \left(\frac n2\right)
+    }\left(
+        1+\frac{x^2}{n}
+    \right)^{-\left(
+        n+1\over 2
+    \right)}
+    $$是一个自由度为$n$的$t$分布. 
+\end{definition}
+
+除了这个定义中所述的方法. 实际上还有另一个方法得到这样的分布. 我们这里同样省略它的证明. 
+
+\begin{theorem}
+    设$X\sim N(0, 1), Y\sim \chi^2_n$, 并且$X, Y$相互独立. 则
+    $$
+    t=\frac{X}{\sqrt{Y/n}} \sim t(n).
+    $$
+\end{theorem}
+
+\section{区间估计}
+
+设 $X_1, \cdots, X_n \sim \mathrm{iid} F_\theta(\theta \in \Theta)$ 为某统计模型, 其中 $\theta$ 可为向量参数.现设我们的目的是估计 $g(\theta)$. 本节以前所讨论的估计是用一个``点'' $T\left(X_1, \cdots, X_n\right)$ 去估计 $g(\theta)$ 的值, 称为点估计. 但实际工作者对点估计并不满意, 其主要原因是我们不好把握点估计 $T\left(X_1, \cdots, X_n\right)$ 与 $g(\theta)$ 之间的差距. 为解决这个问题, 统计学家提出用置信区间来估计 $g(\theta)$. 
+
+\begin{example}
+    在测量问题中,设 $X_1, \cdots, X_n \sim \operatorname{iid} N\left(a, \sigma^2\right)$, 其中参数 $a \in(-\infty,+\infty), \sigma^2>0$. 我们的目的是要知道被测对象 $a$ 的真值. 由于误差的存在, 由统计学的知识知, 要精确地知道 $a$ 的值是不可能的, 因此只能得到 $a$ 的近似值. 若用点估计 $T\left(X_1, \cdots, X_n\right)$ 去估计 $a$ 的值, 我们不知道 $T$ 是比 $a$ 大还是比 $a$ 小, 也不知道 $T$ 离 $a$ 有多远. 虽然我们能知道误差的大致分布, 但实际工作者对点估计还是不放心. 不过如果给出两个统计量 $\underline T$ 和 $\bar{T}$, 满足 $\underline T \leq a \leq$ $\bar{T}$,这样实际工作者就放心了. 但是 $\underline{T}$ 和 $\bar{T}$ 都是随机变量,我们不能保证 $P(\underline{T} \leq a \leq \bar{T})=1$. 从而, 对给定很小的正数 $\alpha$, 若能保证 $P(\underline{T} \leq a \leq \bar T)\geq 1-\alpha $, 我们就满意了. 现在, 我们称$[\underline T, \bar{T}]$ 为置信度是 $1-\alpha$ 的置信区间.
+\end{example}
+
+\begin{definition}
+    设 $X_1, \cdots, X_n \sim \operatorname{iid} F_\theta(\theta \in \Theta)$ 为某统计模型, 其中 $\theta$ 可为向量参数. 又设 $g(\theta)$ 为 $\theta$ 的实值函数 (在统计中 $g(\theta)$ 也称为参数或一维参数).
+
+    \begin{itemize}
+        \item [(1)] 设 $\underline{T}$ 和 $\bar{T}$ 为满足条件 $\underline{T}<\bar{T}$ 的两个统计量, $\alpha \in(0,1)$ 为某常数. 若对任意 $\theta \in \Theta$, 有
+        $$
+        P_\theta(\underline{T} \leq g(\theta) \leq \bar{T}) \geqslant 1-\alpha,
+        $$
+        则称 $[\underline T, \bar{T}]$ 为 $g(\theta)$ 的置信度是 $1-\alpha$ 的置信区间.
+        \item [(2)] 设 $\underline T$ 为某统计量, $\alpha \in(0,1)$ 为某常数. 若对任意 $\theta \in \Theta$, 有
+        $$
+        P_\theta(g(\theta) \geqslant \underline{T}) \geqslant 1-\alpha,
+        $$
+        
+        则称 $\underline T$ 为 $g(\theta)$ 的置信度是 $1-\alpha$ 的置信下限.
+        \item [(3)] 设 $\bar{T}$ 为某统计量, $\alpha \in(0,1)$ 为某常数. 若对任意 $\theta \in \theta$, 有
+        $$
+        P_\theta(g(\theta) \leq \bar{T}) \geqslant 1-\alpha,
+        $$
+        
+        则称 $\bar{T}$ 为 $g(\theta)$ 的置信度是 $1-\alpha$ 的置信上限.
+    \end{itemize}
+\end{definition}
+由于置信下限和置信上限只是置信区间的一种特殊情况, 因此在以后的讨论中会讨论得少一些. 
+
+我们下面只看一种特殊的构造置信区间的方法. 也就是估计单个正态分布总体的置信区间.
+
+\begin{example}
+    设$(X_1, X_2, \cdots, X_n)$是取自正态总体$X\sim N(\mu, \sigma_0^2)$的样本. $\sigma_0^2$已知. 求参数$\mu$的置信度为$1-\alpha$的置信区间.
+\end{example}
+
+\begin{solution}
+    首先寻找未知参数的一个良好的估计. $\mu$的最大似然估计是样本均值$\bar X$. 现在要求一个常数$\delta$使得
+$$
+P(|X-\mu|<\delta)=1-\alpha.
+$$
+
+我们发现$\bar X \sim \left(\mu, \frac{\sigma_0^2}{n}\right).$将其标准化为$Z$, 就有
+$$
+\blue{Z:=\frac{
+    \bar X-\mu
+}{\sigma_0 / \sqrt n} \sim N(0, 1)}
+$$
+
+于是上式变为
+$$
+P\left(
+    \left|
+       \frac{ \bar X - \mu }
+            {\sigma_0 / \sqrt n}
+    \right|
+    < 
+    \frac{
+        \delta
+    }{\sigma_0 / \sqrt n}
+\right)=P\left(
+    |Z|
+    < 
+    \frac{
+        \delta
+    }{\sigma_0 / \sqrt n}=1-\alpha.
+\right)
+$$
+
+由于标准正态分布上面的分位数, 知道$\frac{\delta}{\sigma_0/\sqrt n}=z_{\alpha/2}$. 所以当$\sigma_0$已知的时候, 参数$\mu$的置信度为$1-\alpha$的置信区间为
+$$
+\left(
+    \bar X - \frac{\sigma_0}{\sqrt n} z_{\alpha/2}, 
+    \bar X + \frac{\sigma_0}{\sqrt n} z_{\alpha/2}
+\right)
+$$
+\end{solution}
+
+接下来我们考察四个情况, 分别对应方差已知/未知, 均值已知/未知的情形. 其大致的求解步骤正如上例子. 只不过把标蓝的分布更改一下就行了. 
+
+我们总结如下表. 
+
+\begin{tabular}{|c|c|c|c|}
+    \hline 待估参数 & 其它参数 & 统计量 & 置信区间 \\
+     \hline $\mu$ & $\sigma^2$ 已知 & $u=\frac{\bar{X}-\mu}{\frac{\sigma}{\sqrt{n}}} \sim N(0,1)$ & $\left(\bar{X} \pm \frac{\sigma}{\sqrt{n}} u_{\alpha/2}\right)$ \\
+    \hline  $\mu$ & $\sigma^{2}$ 末知 & $t=\frac{X-\mu}{\frac{S}{\sqrt{n}}} \sim t(n-1)$ & $\left(\bar{X} \pm \frac{S}{\sqrt{n}}t_{\alpha/2}(n-1)\right)$ \\
+     \hline $\sigma^{2}$ & $\mu$ 末知 & $\chi^2=\frac{(n-1) S^2}{\sigma^2} \sim \chi^2(n-1)$ & $\left(\frac{(n-1) S^2}{\chi_{\alpha/2}^2(n-1)} \cdot \frac{(n-1) S^2}{\chi_{1-\alpha/2}^2(n-1)}\right)$ \\
+     \hline $\sigma^{2}$ & $\mu$ 已知 & $\chi^2=\frac{(n) S^2}{\sigma^2} \sim \chi^2(n)$ & $\left(\frac{(n) S^2}{\chi_{\alpha/2}^2(n)} \cdot \frac{(n) S^2}{\chi_{1-\alpha/2}^2(n)}\right)$ \\
+    \hline
+    \end{tabular}

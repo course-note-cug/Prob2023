@@ -53,210 +53,67 @@
 \input{text/ch5/2-lln.tex}
 \input{text/ch5/3-clt.tex}
 
-\part{数理统计简介}
+\part{随机过程}
+
 \input{text/ch6/1-intro.tex}
-\input{text/ch6/2-mle.tex}
-\input{text/ch6/3-moment.tex}
-\input{text/ch6/4-unbiased-sample.tex}
+\section{Markov链}
 
-\section{统计量与抽样分布}
-
-很多统计推断都是基于正态分布的总体假定的. 我们看几个重要的统计量. 
-
-\paragraph{1. $U$统计量及分布} 
-
-$U$统计量是标准化的正态分布. 
-
-\begin{theorem}
-    若总体$X\sim N(\mu, \sigma^2)$, $X_1, X_2, \cdots, X_n$是它的一个样本. 那么统计量
-    $$
-    U=\frac{\bar X-\mu}{\sigma/\sqrt n} \sim N(0, 1).
-    $$
-\end{theorem}
-
-\begin{proof}
-    因为$\Ep{\bar X}=\mu, D(\bar X)=\sigma^2 /n$. 由于相互独立且服从正态分布的随机变量的线性组合依然服从正态分布. 所以$\bar X\sim N(\mu, \sigma^2 / n)$. 因此$\frac{\bar X -\mu}{\sigma / \sqrt n}\sim N(0, 1)$.
-\end{proof}
-
-由于它的分布就是标准正态函数. 因此省略. 
-
-\paragraph{2. $\chi^2$统计量及分布}
-
-对于$n$正态总体抽取的样本, 有时候需要两个随机变量之间的``距离'', 因此需要考虑平方操作. 他们的平方相加服从什么分布呢? 推导显示, 他们服从$\chi^2$分布. 也就是
+我们现在看一个重要的问题, 即Markov链. 如果我们把现实生活看做状态随时间的依次推演, 那么我们自然希望通过当前的状态推知未来的状态. 这里, 我们做简化: 也就是让下一个时刻处于什么状态仅仅由当前在什么状态决定. 
 
 \begin{definition}
-    设总体$X\sim N(0, 1)$, $X_1, X_2, \cdots, X_n$是它的一个样本. 那么
+    如果$E$是一个有限集或可数的无限集, 一个取值为$E$的随机变量序列$\{X_n,n\geq 0\}$是Markov链, 如果对于任何非负整数列$t_1< t_2< \cdots< t_{n}<t_{n+1}$, 以及$E$中的元素$i_1, i_2, \cdots , t_{n+1}$均成立如下的等式: 
     $$
-    \sum_{i=1}^n X_i ^2 \sim \chi^2_n
+    P(X_{t_{n+1}}=i_{n+1} | X_{t_1}=i_1, \cdots, X{_{t_n}}=i_n)=P(X_{t_{n+1}}=i_{n+1}|X_{t_n}=i_n).
     $$
-    其中
-    $$
-    \chi^2_n(x)=\begin{cases}
-        \frac{1}{2^{n/2}\Gamma\left(\frac n2\right)} & x>0\\
-        0 & x\leq 0
-    \end{cases}
-    $$
-    这里面$n$是一个参数, 表示这个分布的自由度. 
+    当$P(X_{t_1}=i_1, \cdots, X_{t_n}=i_n)\geq 0$. 
 \end{definition}
 
-对于自由度为$n$的$\chi^2$分布, 我们不加证明地给出如下的常用的性质:
-\begin{theorem}
-    \begin{itemize}
-        \item 期望和方差:$\mathbb E (\chi^2_n)=n, \mathbb D(\chi^2_n)=2n$.
-        \item 当$n$充分大的时候, $\chi^2_n$分布近似服从正态分布$N(n, 2n)$.
-        \item 可加性: 设$\xi_1, \xi_2$是相互独立的随机变量, 且$\xi_1 \sim \chi^2_{n_1}, \xi_2 \sim \chi^2_{n_2}$, 那么$$\xi_1+\xi_2=\chi_{n_1+n_2}^2.$$
-    \end{itemize}
-\end{theorem}
+这样的一个定义就表明, 状态$X_t$仅仅由$X_{t-1}$决定, 并且并不由$X_{t-2}$等等的历史因素决定. 这个性质叫做Markov性质或者无记忆性. 换句话说, $X_{t-1}$已经足够告诉我们$X_t$有多少概率会走向哪里了. 
 
-并且将我们的样本方差经过类似标准化的操作就能推出这样的结果: 
-
-\begin{theorem}
-    设总体$X\sim N(0, 1)$, $X_1, X_2, \cdots, X_n$是它的一个样本. 则统计量
-    $$
-    \chi^2 = \frac{(n-1)S^2}{\sigma^2}\sim \chi^2_{(n-1)}.
-    $$ 
-    我们称$\chi^2=\frac{(n-1)S^2}{\sigma^2}$为$\chi^2$统计量. 
-\end{theorem}
-
-\begin{example}
-    设$X\sim N(0, 1)$, $X_1, X_2, \cdots, X_5$是来自正态总体$N(0, 9)$的样本. 已知统计量
-    $$
-    Y=a(X_1+X_2)^2 +b(X_3+X_4+X_5)^2
-    $$
-    服从$\chi^2$分布, 求出待定的系数$a,b$, 以及统计量的自由度$\lambda$. 
-\end{example}
-
-\begin{solution}
-    由条件, $X_1+X_2\sim N(0, 18), X_3+X_4+X_5\sim N(0, 27)$. 于是$(X_1+X_2)/\sqrt{18}$与$(X_1+X_2+X_3)/\sqrt{27}$互相独立且服从正态分布$N(0,1 )$. 由于可加性: 
-    $$
-    \left(
-        \frac{X_1+X_2}{\sqrt{18}}
-    \right)^2 + 
-    \left(
-        \frac{X_3+X_4+X_5}{\sqrt{27}}
-    \right)^2 = 
-    \frac{1}{18}(X_1+X_2)^2+\frac 1{27}(X_3+X_4+X_5)^2\sim \chi^2_2.
-    $$
-\end{solution}
-
-\paragraph{3. $T$统计量及分布}
-
-很多时候, 我们并不知道方差. 把(1.)中的真实方差$\sigma$替换为样本方差, 就得到了这样的分布: 
-
-\begin{definition}
-    设总体$X\sim N(\mu, \sigma^2)$, $X_1, X_2, \cdots, X_n$是它的一个样本. 那么统计量
-    $$
-    T = \frac{\bar X-\mu }{S/\sqrt n} \sim t_{(n-1)}.
-    $$
-    其中, 
-    $$
-    t_{n-1}(x)=
-    \frac{
-        \Gamma \left(
-            \frac{n+1}{2}
-        \right)
-    }{
-        \sqrt{n\pi} \Gamma \left(\frac n2\right)
-    }\left(
-        1+\frac{x^2}{n}
-    \right)^{-\left(
-        n+1\over 2
-    \right)}
-    $$是一个自由度为$n$的$t$分布. 
-\end{definition}
-
-除了这个定义中所述的方法. 实际上还有另一个方法得到这样的分布. 我们这里同样省略它的证明. 
-
-\begin{theorem}
-    设$X\sim N(0, 1), Y\sim \chi^2_n$, 并且$X, Y$相互独立. 则
-    $$
-    t=\frac{X}{\sqrt{Y/n}} \sim t(n).
-    $$
-\end{theorem}
-
-\section{区间估计}
-
-设 $X_1, \cdots, X_n \sim \mathrm{iid} F_\theta(\theta \in \Theta)$ 为某统计模型, 其中 $\theta$ 可为向量参数.现设我们的目的是估计 $g(\theta)$. 本节以前所讨论的估计是用一个``点'' $T\left(X_1, \cdots, X_n\right)$ 去估计 $g(\theta)$ 的值, 称为点估计. 但实际工作者对点估计并不满意, 其主要原因是我们不好把握点估计 $T\left(X_1, \cdots, X_n\right)$ 与 $g(\theta)$ 之间的差距. 为解决这个问题, 统计学家提出用置信区间来估计 $g(\theta)$. 
-
-\begin{example}
-    在测量问题中,设 $X_1, \cdots, X_n \sim \operatorname{iid} N\left(a, \sigma^2\right)$, 其中参数 $a \in(-\infty,+\infty), \sigma^2>0$. 我们的目的是要知道被测对象 $a$ 的真值. 由于误差的存在, 由统计学的知识知, 要精确地知道 $a$ 的值是不可能的, 因此只能得到 $a$ 的近似值. 若用点估计 $T\left(X_1, \cdots, X_n\right)$ 去估计 $a$ 的值, 我们不知道 $T$ 是比 $a$ 大还是比 $a$ 小, 也不知道 $T$ 离 $a$ 有多远. 虽然我们能知道误差的大致分布, 但实际工作者对点估计还是不放心. 不过如果给出两个统计量 $\underline T$ 和 $\bar{T}$, 满足 $\underline T \leq a \leq$ $\bar{T}$,这样实际工作者就放心了. 但是 $\underline{T}$ 和 $\bar{T}$ 都是随机变量,我们不能保证 $P(\underline{T} \leq a \leq \bar{T})=1$. 从而, 对给定很小的正数 $\alpha$, 若能保证 $P(\underline{T} \leq a \leq \bar T)\geq 1-\alpha $, 我们就满意了. 现在, 我们称$[\underline T, \bar{T}]$ 为置信度是 $1-\alpha$ 的置信区间.
-\end{example}
-
-\begin{definition}
-    设 $X_1, \cdots, X_n \sim \operatorname{iid} F_\theta(\theta \in \Theta)$ 为某统计模型, 其中 $\theta$ 可为向量参数. 又设 $g(\theta)$ 为 $\theta$ 的实值函数 (在统计中 $g(\theta)$ 也称为参数或一维参数).
-
-    \begin{itemize}
-        \item [(1)] 设 $\underline{T}$ 和 $\bar{T}$ 为满足条件 $\underline{T}<\bar{T}$ 的两个统计量, $\alpha \in(0,1)$ 为某常数. 若对任意 $\theta \in \Theta$, 有
-        $$
-        P_\theta(\underline{T} \leq g(\theta) \leq \bar{T}) \geqslant 1-\alpha,
-        $$
-        则称 $[\underline T, \bar{T}]$ 为 $g(\theta)$ 的置信度是 $1-\alpha$ 的置信区间.
-        \item [(2)] 设 $\underline T$ 为某统计量, $\alpha \in(0,1)$ 为某常数. 若对任意 $\theta \in \Theta$, 有
-        $$
-        P_\theta(g(\theta) \geqslant \underline{T}) \geqslant 1-\alpha,
-        $$
-        
-        则称 $\underline T$ 为 $g(\theta)$ 的置信度是 $1-\alpha$ 的置信下限.
-        \item [(3)] 设 $\bar{T}$ 为某统计量, $\alpha \in(0,1)$ 为某常数. 若对任意 $\theta \in \theta$, 有
-        $$
-        P_\theta(g(\theta) \leq \bar{T}) \geqslant 1-\alpha,
-        $$
-        
-        则称 $\bar{T}$ 为 $g(\theta)$ 的置信度是 $1-\alpha$ 的置信上限.
-    \end{itemize}
-\end{definition}
-由于置信下限和置信上限只是置信区间的一种特殊情况, 因此在以后的讨论中会讨论得少一些. 
-
-我们下面只看一种特殊的构造置信区间的方法. 也就是估计单个正态分布总体的置信区间.
-
-\begin{example}
-    设$(X_1, X_2, \cdots, X_n)$是取自正态总体$X\sim N(\mu, \sigma_0^2)$的样本. $\sigma_0^2$已知. 求参数$\mu$的置信度为$1-\alpha$的置信区间.
-\end{example}
-
-\begin{solution}
-    首先寻找未知参数的一个良好的估计. $\mu$的最大似然估计是样本均值$\bar X$. 现在要求一个常数$\delta$使得
+不失一般性, 我们可以令集合$E$为$\{0,1,2,\cdots, n\}$. 下面, 我们自然希望得到从一个状态转移到另一个状态的概率是多少. 比如我现在在$i$状态, 下一个时刻可能在$j$的概率
 $$
-P(|X-\mu|<\delta)=1-\alpha.
+P_{i,j}:=P(X_t=j|X_{t-1}=i).
 $$
 
-我们发现$\bar X \sim \left(\mu, \frac{\sigma_0^2}{n}\right).$将其标准化为$Z$, 就有
+如果我们把所有的可能的转移都画出来, 也就是$P_{0,0}, P_{0,1}, \cdots, P_{n,n}$, 就构成了一个矩阵. 我们把它叫做转移矩阵. 用$\bf P$表示.
 $$
-\blue{Z:=\frac{
-    \bar X-\mu
-}{\sigma_0 / \sqrt n} \sim N(0, 1)}
+\mathbf{P}=\left(\begin{array}{ccccc}P_{0,0} & P_{0,1} & \cdots & P_{0, j} & \cdots \\ P_{1,0} & P_{1,1} & \cdots & P_{1, j} & \cdots \\ \vdots & \vdots & \ddots & \vdots & \ddots \\ P_{i, 0} & P_{i, 1} & \cdots & P_{i, j} & \cdots \\ \vdots & \vdots & \ddots & \vdots & \ddots\end{array}\right)
 $$
 
-于是上式变为
+根据上面的描述, 我们会发现这个矩阵满足对于任意的$i$, 有$\sum_{j\geq 0}P_{i,j}=1$. 我们把这个写作矩阵形式, 最方便的一点就是: 在我们经过了很多次迭代之后, 问一问到达每一个状态的概率会稳定吗? 如果稳定, 那么大概是多少? 如果可以稳定的话, 它就称作稳定状态. 下面我们来看一看如何得到稳定状态. 
+
+令$p_i(t)$表示在时刻$t$在状态$i$的概率. 把时刻$t$的每一个状态收集到一个向量里面, 就有$\vec{p}(t):=\left(p_0(t), p_1(t), p_2(t), \ldots\right)$. 那么, 要从$t-1$时刻的分布向量$\vec{p}(t-1)$得到$t$时刻的分布向量, 根据这次只与上次相关的性质, 就有对于每一个可能转移过来的状态, 乘上从上个时刻转移到这个时刻的概率, 也就是$$p_i(t)=\sum_{j \geq 0} p_j(t-1) P_{j, i},$$ 为了方便起见, 使用矩阵的形式写出来: $$\vec{p}(t)=\vec{p}(t-1) \mathbf{P}.$$
+
+所以我们现在知道了从上一时刻到这一时刻的时候概率的变化. 下面, 我们来定义从$i$到$j$, 经历了$m$步, 停在某一个状态的概率: 
 $$
-P\left(
-    \left|
-       \frac{ \bar X - \mu }
-            {\sigma_0 / \sqrt n}
-    \right|
-    < 
-    \frac{
-        \delta
-    }{\sigma_0 / \sqrt n}
-\right)=P\left(
-    |Z|
-    < 
-    \frac{
-        \delta
-    }{\sigma_0 / \sqrt n}=1-\alpha.
-\right)
+P_{i, j}^m:={P}\left(X_{t+m}=j \mid X_t=i\right)
+$$
+把上面的行向量拼起来, 对于每一行施以同样的操作, 我们就有$$P_{i, j}^m=\sum_{k \geq 0} P_{i, k} P_{k, j}^{m-1}. $$ 这时候, 我们就需要依赖经历了$m-1$步的基础上面再走一步. 
+
+如果我们使用矩阵的记号进行表述的话, 就会有更神奇的. 令$\mathbf{P}^{({m})}$表示经过$m$步转移之后的概率. 这个矩阵中的每一项就表示
+$P_{i, j}^{\bf{m}}$, 这时候把上面的求和号的式子改写为矩阵的形式, 就有: 
+$$
+\mathbf{P}^{(\bf {m})}=\mathbf{P} \cdot \mathbf{P}^{(\bf {m}-1)} ;
+$$
+如果我们对它施以归纳法, 就得到了$$
+\mathbf{P}^{(\mathbf{m})}=\mathbf{P}^{{m}}.
+$$
+这就表明对于任意的$t\geq 0, m\geq 1$, 有
+$$
+\vec{p}(t+m)=\vec{p}(t) \mathbf{P}^{{m}}
 $$
 
-由于标准正态分布上面的分位数, 知道$\frac{\delta}{\sigma_0/\sqrt n}=z_{\alpha/2}$. 所以当$\sigma_0$已知的时候, 参数$\mu$的置信度为$1-\alpha$的置信区间为
-$$
-\left(
-    \bar X - \frac{\sigma_0}{\sqrt n} z_{\alpha/2}, 
-    \bar X + \frac{\sigma_0}{\sqrt n} z_{\alpha/2}
-\right)
-$$
-\end{solution}
+我们可以使用有向图来表示Markov链的转移过程. 
 
-接下来我们考察四个情况, 分别对应方差已知/未知, 均值已知/未知的情形. 其大致的求解步骤正如上例子. 
+
+\part{数理统计简介}
+\input{text/ch7/1-intro.tex}
+\input{text/ch7/2-mle.tex}
+\input{text/ch7/3-moment.tex}
+\input{text/ch7/4-unbiased-sample.tex}
+\input{text/ch7/5-interval-estimate.tex}
+
+
 
 \end{document}
-
 
