@@ -153,9 +153,9 @@ $$
 
 把$x_1, \cdots, x_n$按照大小从小到大重排为$x_{(1)}, \cdots, x_{(n)}$.由于 $a \leq x_1, x_2, \cdots, x_n \leq b$, 等价于 $a \leq x_{(1)},\cdots, x_{(n)} \leq b$. 似然函数可写成
     $$
-    L(a, b)= \begin{cases}\frac{1}{(b-a)^n}, a \leq x_{(1)}, & b \geqslant x_{(n)}, \\ 0, & \text { 其他. }\end{cases}
+    L(a, b)= \begin{cases}\frac{1}{(b-a)^n}, a \leq x_{(1)}, & b \geq x_{(n)}, \\ 0, & \text { 其他. }\end{cases}
     $$
-    于是对于满足条件 $a \leq x_{(1)}, b \geqslant x_{(n)}$ 的任意 $a, b$ 有
+    于是对于满足条件 $a \leq x_{(1)}, b \geq x_{(n)}$ 的任意 $a, b$ 有
     $$
     L(a, b)=\frac{1}{(b-a)^n} \leq \frac{1}{\left(x_{(n)}-x_{(1)}\right)^n} .
     $$

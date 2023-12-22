@@ -49,8 +49,8 @@
       \begin{itemize}
         \item \emph{单调.}$F(x, y)$ 是变量 $x$ 和 $y$ 的不减函数
               \begin{itemize}
-                  \item 对于任意固定的 $y$, 当 $x_2>x_1$ 时 $F\left(x_2, y\right) \geqslant F\left(x_1, y\right)$;
-                  \item 对于任意固定的 $x$, 当 $y_2>y_1$ 时 $F\left(x, y_2\right) \geqslant F\left(x, y_1\right)$.
+                  \item 对于任意固定的 $y$, 当 $x_2>x_1$ 时 $F\left(x_2, y\right) \geq F\left(x_1, y\right)$;
+                  \item 对于任意固定的 $x$, 当 $y_2>y_1$ 时 $F\left(x, y_2\right) \geq F\left(x, y_1\right)$.
               \end{itemize}
         \item $0 \leq F(x, y) \leq 1 $
               \begin{itemize}
@@ -59,7 +59,7 @@
                   \item $F(-\infty,-\infty)=0, F(\infty, \infty)=1$.
               \end{itemize}
         \item \emph{右连续.}$F(x+0, y)=F(x, y), F(x, y+0)=F(x, y)$, 即 $F(x, y)$ 关于 $x$ 右连续,关于 $y$ 也右连续.
-        \item \emph{非负.}对于任意 $\left(x_1, y_1\right),\left(x_2, y_2\right), x_1<x_2, y_1<y_2$,$F\left(x_2, y_2\right)-F\left(x_2, y_1\right)+F\left(x_1, y_1\right)-F\left(x_1, y_2\right) \geqslant 0$.
+        \item \emph{非负.}对于任意 $\left(x_1, y_1\right),\left(x_2, y_2\right), x_1<x_2, y_1<y_2$,$F\left(x_2, y_2\right)-F\left(x_2, y_1\right)+F\left(x_1, y_1\right)-F\left(x_1, y_2\right) \geq 0$.
     \end{itemize}
     \end{proposition}
 
@@ -87,7 +87,7 @@
     \begin{definition}
       设二维离散型随机变量 $(X, Y)$ 所有可能取的值为 $\left(x_i, y_j\right), i, j=1,2, \cdots$, 记 $P\left\{X=x_i, Y=y_j\right\}=p_{i j}, i, j=1,2, \cdots$, 由概率的定义有
     $$
-        p_{i j} \geqslant 0, \quad \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} p_{i j}=1 .
+        p_{i j} \geq 0, \quad \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} p_{i j}=1 .
     $$
 
     称 $P\left\{X=x_i, Y=y_j\right\}=p_{i j}, i, j=1,2, \cdots$ 为二维离散型随机变量 $(X, Y)$的\emph{分布律},或随机变量 $X$ 和 $Y$ 的\emph{联合分布律}.
@@ -140,7 +140,7 @@
 
   和离散的情形一样, 联合分布函数也满足一些基本性质 -- 和\cref{prop:distfunc}所指示的基本类似. 
     \begin{itemize}
-      \item \emph{非负.}  $f(x, y) \geqslant 0$.
+      \item \emph{非负.}  $f(x, y) \geq 0$.
       \item $\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(u, v) \mathrm{d} u \mathrm{~d} v=F(\infty, \infty)=1$.
       \item 设 $G$ 是 $x O y$ 平面上的区域, 点 $(X, Y)$ 落在 $G$ 内的概率为
       $$

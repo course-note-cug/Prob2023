@@ -34,12 +34,12 @@
 
     \begin{theorem}
         \label{thm:clt-gen}
-        设 $X_1, X_2, \cdots$ 是相互独立的随机变量序列, $\mu_i=\mathbb{E}\left(X_i\right), \sigma_i^2=\operatorname{var}\left(X_i\right)(i \geqslant 1)$ 都存在,且存在 $r>2$ 使得下式成立:
+        设 $X_1, X_2, \cdots$ 是相互独立的随机变量序列, $\mu_i=\mathbb{E}\left(X_i\right), \sigma_i^2=\operatorname{var}\left(X_i\right)(i \geq 1)$ 都存在,且存在 $r>2$ 使得下式成立:
 $$
 \lim _{n \rightarrow \infty} \frac{1}{B_n^r} \sum_{i=1}^n \mathbb{E}\left|X_i-\mu_i\right|^r=0
 $$
 
-这里 $B_n=\sqrt{\sigma_1^2+\cdots+\sigma_n^2}(n \geqslant 1)$. 设 $S_n=\sum_{i=1}^n X_i(n \geqslant 1)$, 则对一切 $x$ 成立:
+这里 $B_n=\sqrt{\sigma_1^2+\cdots+\sigma_n^2}(n \geq 1)$. 设 $S_n=\sum_{i=1}^n X_i(n \geq 1)$, 则对一切 $x$ 成立:
 $$
 P\left(\frac{S_n-\mathbb{E}\left(S_n\right)}{\sqrt{\operatorname{var}\left(S_n\right)}} \leq x\right)=\int_{-\infty}^x \frac{1}{\sqrt{2 \pi}} \mathrm{e}^{-\frac{u^2}{2}} \mathrm{~d} u
 $$
@@ -80,7 +80,7 @@ X_i= \begin{cases}1, & \text { 若该学生答对第 } i \text { 题, } \\ 0, & 
 $$
 
 则 $P\left(X_i=1\right)=p_i=1-i / 100, P\left(X_i=0\right)=1-p_i$.
-显然, 该学生通过考试的可能性由概率 $P\left(\sum_{i=1}^{99} X_i \geqslant 60\right)$ 来刻画. 为了计算这个概率, 我们可以设想还有 $X_{100}, X_{101}, \cdots$ 使得 $\left\{X_n, n \geqslant 1\right\}$ 是相互独立的随机变量序列且 $X_{99+i}$ 与 $X_{99}$ 有相同的分布 (一切 $\left.i \geqslant 1\right)$. 易知
+显然, 该学生通过考试的可能性由概率 $P\left(\sum_{i=1}^{99} X_i \geq 60\right)$ 来刻画. 为了计算这个概率, 我们可以设想还有 $X_{100}, X_{101}, \cdots$ 使得 $\left\{X_n, n \geq 1\right\}$ 是相互独立的随机变量序列且 $X_{99+i}$ 与 $X_{99}$ 有相同的分布 (一切 $\left.i \geq 1\right)$. 易知
 $$
 \begin{gathered}
 \mathbb{E}\left(X_i\right)= \begin{cases}p_i, & 1 \leq i \leq 99, \\
@@ -89,7 +89,7 @@ p_{99}, & i>99\end{cases} \\
 p_{99}\left(1-p_{99}\right), & i>99 .\end{cases}
 \end{gathered}
 $$
-于是当 $n \geqslant 99$ 时,
+于是当 $n \geq 99$ 时,
 $$
 B_n^2 \triangleq \sum_{i=1}^n \operatorname{var}\left(X_i\right)=\sum_{i=1}^{99} p_i\left(1-p_i\right)+(n-99) p_{99}\left(1-p_{99}\right) .
 $$
@@ -114,8 +114,8 @@ $$
 利用\cref{thm:clt-gen}知
 $$
 \begin{aligned}
-P\left(\sum_{i=1}^{99} X_i \geqslant 60\right)&=P\left(\frac{\sum_{i=1}^{99} X_i-49.5}{\sqrt{16.665}} \geqslant \frac{60-49.5}{\sqrt{16.665}}\right)  \\
-& =P\left(\frac{\sum_{i=1}^{99} X_i-49.5}{\sqrt{16.665}} \geqslant 2.5735\right) \approx 1-\Phi(2.5735) \\
+P\left(\sum_{i=1}^{99} X_i \geq 60\right)&=P\left(\frac{\sum_{i=1}^{99} X_i-49.5}{\sqrt{16.665}} \geq \frac{60-49.5}{\sqrt{16.665}}\right)  \\
+& =P\left(\frac{\sum_{i=1}^{99} X_i-49.5}{\sqrt{16.665}} \geq 2.5735\right) \approx 1-\Phi(2.5735) \\
 & =0.005 .
 \end{aligned}
 $$
