@@ -1,3 +1,75 @@
+\subsection*{练习题: 概率空间简介. 事件的概率. 条件概率. 独立性}
+
 \begin{exercise}
-   证明: 
+   现在准备向你发送一个要么是0, 要么是1的信号. 但是, 当信号发出后, 要经过$n$个中转站才能被你收到. 每一个中转站以概率为$p$翻转信号. 
+   \begin{itemize}
+      \item [1.] 证明: 你收到正确的信号的概率为\[\sum_{k=0}^{\lfloor n/2\rfloor} \binom{n}{2k}p^{2k}(1-p)^{n-2k}.\]
+      \item [2.] 考虑用这种方法计算概率. 如果中转站以概率$(1-q)/2$翻转信号, 我们称这个中转站有偏差$q$. 所以$q$是$(-1, 1)$的一个实数. 证明: 信号经过两个偏差为$q_1, q_2$的中转站等价于通过一个偏差为$q_1q_2$的中转站. 并运用这个方法计算得到收到正确信号的概率为\[\frac{1+(1-2p)^n}2.\]
+   \end{itemize}
 \end{exercise}
+
+\begin{solution*}
+   传输错误的情况中, 必须只有其中之一翻转, 而另一个不翻转. 因此经过两个之后信号发生翻转的概率为
+   $$\begin{aligned} & \frac{\left(1-q_1\right)}{2}\left(1-\frac{1-q_2}{2}\right)+\frac{\left(1-q_2\right)}{2}\left(1-\frac{1-q_1}{2}\right) \\ = & \frac{\left(1-q_1\right)}{2}-\frac{\left(1-q_1\right)\left(1-q_2\right)}{4}+\frac{\left(1-q_2\right)}{2}-\frac{\left(1-q_1\right)\left(1-q_2\right)}{4} \\ = & \frac{\left(1-q_1\right)}{2}+\frac{\left(1-q_2\right)}{2}-\frac{\left(1-q_1\right)\left(1-q_2\right)}{2}=\frac{1-q_1 q_2}{2}\end{aligned}$$
+   于是剩下的就好办了.
+\end{solution*}
+
+\begin{exercise}
+   投10粒均匀分布的六面体骰子, 并且每次之间互相独立. 他们的点数之和能被6整除的概率是多少? (使用递推的方法)
+\end{exercise}
+
+\begin{solution*}
+   令$P(n,k)$表示投掷了$n$次, 余数模6为$k$(在0到5之间). 那么显然$P(k,1)=1/6$. 对于$n>1$, $P(k, n)=\sum_{k=0}^5 P(k, n-1)\times\text{投出}6-k\text{的概率}=\sum_{k=0}^5 P(k, n-1) \cdot \frac{1}{6}=\frac{1}{6} \sum_{k=0}^5 P(k, n-1)=\frac{1}{6} \cdot 1=\frac{1}{6}$
+\end{solution*}
+
+\begin{exercise}
+    把A, B, C三个字母之一输入信道. 输出为原字母的概率为$\alpha$, 而输出为其他字母的概率为$(1-\alpha)/2$. 现在将字母AAAA, BBBB, CCCC之一输入信道, 并且输入他们的概率分别是$p_1, p_2, p_3.(p_1+p_2+p_3=1)$已知输出是ABCA, 并且信道传输每个字母的工作是相互独立的. 求输入是AAAA的概率是多少. 
+\end{exercise}
+
+\begin{solution*}
+列式子计算: 
+    $$
+    \begin{aligned} & P(\text { 输入AAAA}  \mid \text{得到ABCA}) \\ & =\frac{P(\text { 输入 AAAA, 得到ABCA })}{P(\text { 得到 ABCA} )}  \\ & =\frac{P(\text { 输入 AAAA , 得到ABCA) }}{
+        P(\text { 输入AAAA ,得到ABCA})+P(\text { 输入BBBB ,得到ABCA})+P(\text { 输入CCCC ,得到ABCA})  } \\ & =\frac{\alpha^2 \cdot\left(\frac{1-\alpha}{2}\right)^2}{p_1 \cdot \alpha^2\left(\frac{1-\alpha}{2}\right)^2+p_2 \cdot \alpha\left(\frac{1-\alpha}{2}\right)^3+p_3 \cdot \alpha\left(\frac{1-\alpha}{2}\right)^3} . \\ & \end{aligned}$$
+
+    再用$p_1+p_2+p_3=1$的条件即可. 
+\end{solution*}
+
+\begin{exercise}
+   运行在外太空的飞船上的程序中, 有一个函数$F:\{0,1,\cdots, n-1\}\to \{0,1,2,\cdots, m-1\}$. 并且对于$0\leq x,y\leq n-1$, 有$F((x+y)\bmod n)=(F(x)+F(y))\bmod m$. 计算$F$的值的唯一办法是查找存储$F$的表. 可是由于缺乏防护, 宇宙射线篡改了表中的1/5的数据. 
+
+   设计一种简单的随机化算法: 给定一个输入$z$, 输出$F(z)$的值, 它正确的概率至少是$1/2$. 无论宇宙射线篡改了什么样的数值, 算法都会对每个$z$值进行运算. 要求算法尽可能用少的表并且使用尽可能少的计算. 
+\end{exercise}
+
+\begin{solution*}
+   最简单的想法: 可以使用上模的性质一个一个进行检验: 如$1, z-1; 2,z-2,\cdots$, 取答案的众数. 因为不出错的概率是$16/25$. 我们这就保证了不出错. 接下来由于限制, 我们可以第一问: 随机取两个数, 做一次检验就行了. 第二问类似. 
+\end{solution*}
+
+\begin{exercise}
+   如果$E_1, E_2, \cdots, E_n$相互独立, 证明$\overline{E_1}, \overline{E_2}, \cdots, \overline{E_n}$也互相独立. 
+\end{exercise}
+
+\begin{solution*}
+   按照定义展开即可. 
+\end{solution*}
+
+\begin{exercise}
+   编写程序, 估计下列概率问题的答案: 一个均匀的骰子有六个面, 投出的点数产生了一个数字序列. 当序列中首次出现 3、1、6 点数时, 停止投掷. 比如, 骰子点数序列为1、3、6、5、2、3、1、6时, 出现3、1、6后停止投掷. 投掷次数为8. 现在请投掷100000次, 看一看这100000次之后, 每次停止的时候投掷的次数的平均值是多少. 如果投掷的次数很大, 那么答案在216左右浮动. 你的答案和这个答案接近吗? 后面学习了Markov链之后我们会对这类问题一个系统的讲解. 
+\end{exercise}
+
+\begin{solution*}
+   大致的Python代码如下:
+   \begin{verbatim}
+      import random
+      count = 0
+      for i in range(1, 100001):
+         a,b,c=0,0,0
+         while not (a == 3 and b == 1 and c == 6):
+            a=b
+            b=c 
+            c = random.randint(1, 6)
+            count += 1
+      print(count/100000)
+   \end{verbatim}
+   在我的一次运行中, 答案是215.7215, 和正确答案很接近! 
+\end{solution*}

@@ -119,10 +119,10 @@ $$
     训练阶段
     \begin{itemize}
         \item [1] 对于每一类$c\in C$, 特征$k=1,2,\cdots, m$, 以及特征值$x_k\in F_k$, 计算$$
-        \hat{P}\left(x_k^*=x_k \mid c\left(D^*\right)=c\right)=\frac{\left|\left\{i: x_k^i=x_k, c\left(D_i\right)=c\right\}\right|}{\left\{i \mid c\left(D_i\right)=c\right\} \mid} .
+        \hat{P}\left(x_k^*=x_k \mid c\left(D^*\right)=c\right)=\frac{\left|\left\{i: x_k^i=x_k, c\left(D_i\right)=c\right\}\right|}{\left\{i : c\left(D_i\right)=c\right\} \mid} .
         $$
         \item [2] 对于每一类$c\in C$, 计算$$
-        \hat{P}\left(c\left(D^*\right)=c\right)=\frac{\left|\left\{i \mid c\left(D_i\right)=c\right\}\right|}{|D|} .
+        \hat{P}\left(c\left(D^*\right)=c\right)=\frac{\left|\left\{i : c\left(D_i\right)=c\right\}\right|}{|D|} .
         $$
     \end{itemize}
 

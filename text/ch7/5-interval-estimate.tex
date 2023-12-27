@@ -38,7 +38,7 @@ $U$统计量是标准化的正态分布.
     这里面$n$是一个参数, 表示这个分布的自由度. 
 \end{definition}
 
-对于自由度为$n$的$\chi^2$分布, 我们不加证明地给出如下的常用的性质:
+请再次注意这里的$n$是一个常数. 有时候也方便起见写作$\chi^2(n)$.对于自由度为$n$的$\chi^2$分布, 我们不加证明地给出如下的常用的性质:
 \begin{theorem}
     \begin{itemize}
         \item 期望和方差:$\mathbb E (\chi^2_n)=n, \mathbb D(\chi^2_n)=2n$.
@@ -109,12 +109,77 @@ $U$统计量是标准化的正态分布.
 \begin{theorem}
     设$X\sim N(0, 1), Y\sim \chi^2_n$, 并且$X, Y$相互独立. 则
     $$
-    t=\frac{X}{\sqrt{Y/n}} \sim t(n).
+    t=\frac{X}{\sqrt{Y/n}} \sim t_{(n)}.
     $$
 \end{theorem}
 
-\section{区间估计}
+\paragraph{4. $F$统计量及其分布} 如果我们有两个相互独立的$\chi^2$分布, 自由度分别为$n_1, n_2$. 那么, 我们定义随机变量$F=\frac{U/n_1}{V/n_2}$为服从自由度为$(n_1, n_2)$的$F$分布, 记作$F\sim F(n_1, n_2)$. 经过数学推导表明, 这样的随机变量的分布函数如下面的定义表示. 
 
+\begin{definition}
+    设 $U \sim \chi^2_{\left(n_1\right)}, V \sim \chi^2_{\left(n_2\right)}$, 且$U,V$相互独立, 则称随机变量 $F=\frac{U / n_1}{V / n_2}$ 服从自由度为 $\left(n_1, n_2\right)$ 的 ${F}$ 分布, 其概率密度函数为:
+$$
+f(z)=\frac{\Gamma\left(\frac{n_1+n_2}{2}\right)\left(\frac{n_1}{n_2}\right)^{\frac{n_1}{2}} z^{\frac{n_1}{2}-1}}{\Gamma\left(\frac{n_1}{2}\right) \Gamma\left(\frac{n_2}{2}\right)\left[1+\frac{n_1 \approx}{n_2}\right]^{\frac{n_1+n_2}{2}}} \quad ,z>0
+$$
+\end{definition}
+
+那么, 对于抽样带来的结果得到的两个的比, 能不能用$F$分布来刻画呢? 答案是可以的. 就像上面的一样, 少掉一个自由度而已. 
+
+\begin{corollary}
+    设样本$X_1, X_2,\cdots, X_n$和$Y_1, Y_2, \cdots, Y_n$来自相互独立的正态总体, $X\sim N(\mu_1, \sigma_1), Y\sim N(\mu_2, \sigma_2)$. 那么统计量
+    \[
+        F=\frac{S_X^2/\sigma_1^2}{S_Y^2/\sigma_2^2} \sim F(n_1-1, n_2-1).
+    \]
+    其中$S_X^2, S_Y^2$分别是两个样本的样本方差. 统计量$F=\frac{S_X^2/\sigma_1^2}{S_Y^2/\sigma_2^2}$称为$F$统计量. 
+\end{corollary}
+
+\begin{proof}
+    我们已经知道了$\frac{n_1-1}{\sigma_1^2}S_X^2\sim \chi^2_{(n_1-1)}$, $\frac{n_2-1}{\sigma_2^2}S_Y^2\sim \chi^2_{(n_2-1)}$. 由于相互独立, 我们就知道
+    \[
+        \frac{
+            \frac{
+                n_1-1
+            }{\sigma_1^2}
+            \frac{S_X^2}{(n_1-1)}
+        }{
+            \frac{
+                n_2-1
+            }{\sigma_2^2}
+            \frac{
+                S_Y^2
+            }{(n_2-1)}
+        }\sim F(n_1-1, n_2-1),  
+    \]
+    因此$ F=\frac{S_X^2/\sigma_1^2}{S_Y^2/\sigma_2^2} \sim F(n_1-1, n_2-1).$
+\end{proof}
+
+% TODO: place it into a better place.
+
+\begin{definition}[分位数]
+    一个随机变量$X$, 对于给定的正数$\alpha(0< \alpha<1 )$, 我们称满足$P(X>\lambda)=\alpha$的$\lambda$称为随机变量$X$的分布的上侧$\alpha$分位数(上侧临界值). 称满足$P(|X|>\lambda)=\alpha$的$\lambda$称为随机变量$X$的分布的双侧$\alpha$分位数(双侧临界值). 一般记$\lambda:=F_{\alpha}$. 
+\end{definition}
+
+\begin{corollary}
+    对于任意给定的$\alpha$, 
+    \[
+        F_{1-\alpha}(n_2, n_1)=\frac{1}{F_\alpha(n_1, n_2)}.     
+    \]
+\end{corollary}
+
+\begin{proof}
+    根据定义可得, 当$F\sim F(n_1, n_2)$的时候, $1/F\sim F(n_2, n_1)$. 而
+    \[
+        \begin{aligned}
+            P(F>F_\alpha(n_1, n_2))=\alpha &\iff P(\frac1F<\frac1{F_\alpha(n_1, n_2)})=\alpha \\
+            &\iff P(\frac1F>\frac1{F_\alpha(n_1, n_2)})=1-\alpha .
+        \end{aligned}
+    \]
+\end{proof}
+
+\section{区间估计. 假设检验}
+
+\subsection{区间估计}
+
+\paragraph{1. 单个正态总体参数的置信区间}
 设 $X_1, \cdots, X_n \sim \mathrm{iid} F_\theta(\theta \in \Theta)$ 为某统计模型, 其中 $\theta$ 可为向量参数.现设我们的目的是估计 $g(\theta)$. 本节以前所讨论的估计是用一个``点'' $T\left(X_1, \cdots, X_n\right)$ 去估计 $g(\theta)$ 的值, 称为点估计. 但实际工作者对点估计并不满意, 其主要原因是我们不好把握点估计 $T\left(X_1, \cdots, X_n\right)$ 与 $g(\theta)$ 之间的差距. 为解决这个问题, 统计学家提出用置信区间来估计 $g(\theta)$. 
 
 \begin{example}
@@ -206,3 +271,34 @@ $$
      \hline $\sigma^{2}$ & $\mu$ 已知 & $\chi^2=\frac{(n) S^2}{\sigma^2} \sim \chi^2(n)$ & $\left(\frac{(n) S^2}{\chi_{\alpha/2}^2(n)} \cdot \frac{(n) S^2}{\chi_{1-\alpha/2}^2(n)}\right)$ \\
     \hline
     \end{tabular}
+
+\paragraph{2. 两个正态总体参数的置信区间}然后我们看两个样本总体方差之比的参数估计. 比如, 测量两种方法生产实际产品的稳定性等. 由于
+\[
+    \frac{n_1-1}{\sigma_1^2}S_1\sim \chi^2_{(n_1-1)}, \frac{n_2-1}{\sigma_2^2}S_2\sim \chi^2_{(n_2-1)}
+\]
+并且$S_1$和$S_2$相互独立. 因此可以构造随机变量
+\[
+    F=\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}\sim F(n_1-1, n_2-1). 
+\]
+对于给定的置信水平$1-\alpha$, 根据
+\[
+    P(F_{1-\alpha/2}(n_1-1, n_2-1)<F<F_{\alpha/2}(n_1-1, n_2-1))=1-\alpha.
+\]
+经过变形可以得到$\sigma_1^2/\sigma_2^2$的$1-\alpha$置信区间, 就是
+\[
+    \left(
+        \frac{S_1^2}{S_2^2}\frac{1}{F_{\alpha/2}(n_1-1, n_2-1)}, 
+        \frac{S_1^2}{S_2^2}\frac{1}{F_{1-\alpha/2}(n_1-1, n_2-1)} 
+    \right)
+\]
+
+\paragraph{3. 单侧置信区间} 很多时候我们并不关心置信区间的一侧. 比如, 电子元件如果寿命过长倒不是什么难事, 但是过短就不行了. 于是我们引入单侧置信区间的概念. 
+
+\begin{definition}
+    设$\theta$是一个待估参数, 给定$\alpha>0$, 若由样本$X_1, X_2, \cdots, X_n$确定的统计量$\hat\theta_1=\hat\theta_1(X_1, X_2, \cdots, X_n)$, 满足$P(\theta>\hat\theta_1)=1-\alpha.$ 则称区间$(\hat\theta_1,+\infty)$为置信水平为$1-\alpha$的单侧置信区间. $\hat\theta_1$称为单侧置信下限. 
+\end{definition}
+
+实际上, 求解单侧和双侧区间的方法是很相似的. 我们看下面的例子. 
+
+\subsection{假设检验} 
+

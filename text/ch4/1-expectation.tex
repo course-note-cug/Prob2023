@@ -87,7 +87,7 @@ $$
     期望的话, 就是$\sum_{i=0}^{\infty} \frac{i e^{-\lambda} \lambda^i}{i !}$. 我们可以使用《高等数学II》中的公式计算它: 
     $$
 \begin{aligned}
-{E}(X) & =\lambda e^{-\lambda} \sum_{k \geq 1} \frac{1}{(k-1) !} \lambda^{k-1} & & \text { 去掉 } k=0 \text { 的那一项 } \\
+{\E}(X) & =\lambda e^{-\lambda} \sum_{k \geq 1} \frac{1}{(k-1) !} \lambda^{k-1} & & \text { 去掉 } k=0 \text { 的那一项 } \\
 & =\lambda e^{-\lambda} \sum_{j \geq 0} \frac{\lambda^j}{j !} & & \text { 变量代换 } j:=k-1 \\
 & =\lambda e^{-\lambda} e^\lambda & & \text {指数函数的 Taylor 级数展开 } \\
 & =\lambda & &
@@ -203,20 +203,20 @@ $$发散. 因此Cauchy分布没有数学期望.
 
     \paragraph{3. (两个随机变量之和)}设$X,Y$是两个随机变量, 则有
     \[
-        E\left(X+Y\right) = E\left(X\right) + E\left(Y\right).
+        \E\left(X+Y\right) = \E\left(X\right) + \E\left(Y\right).
     \]
 
     事实上, 这是因为分配率得到的结果. 设二维随机变量$\left(X,Y\right)$的概率密度为$f_{X,Y}\left(x,y\right)$,其边缘概率密度为$f_X(x),f_Y(y)$
     \begin{align}
-        E\left(X+Y\right) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\left(x+y\right)f_{X,Y}\left(x,y\right){d}x{d}y \notag\\
+        \E\left(X+Y\right) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\left(x+y\right)f_{X,Y}\left(x,y\right){d}x{d}y \notag\\
         & =  \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}xf_{X,Y}(x,y){d}x{d}y + \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}yf_{X,Y}(x,y){d}x{d}y \notag\\
-        & = E\left(X\right) + E\left(Y\right)\notag.
+        & = \E\left(X\right) + \E\left(Y\right)\notag.
     \end{align}
 
     上面的$2^\circ$和$3^\circ$合在一起被称作期望的线性性质. 这和我们在线性代数中的线性空间的理论中的一部分很相似. 
 
     \paragraph{4. (两个\red{独立}的随机变量之积)} 设$X,Y$是相互独立的随机变量, 则有\[
-        E\left(XY\right) = E\left(X\right)E\left(Y\right).
+        \E\left(XY\right) = \E\left(X\right)\E\left(Y\right).
     \]
 
 
@@ -226,8 +226,8 @@ $$发散. 因此Cauchy分布没有数学期望.
     若$X$和$Y$相互独立, 
         
         \begin{align}
-            E\left(XY\right) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}xyf_{X,Y}\left(x,y\right){d}x{d}y = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}xyf_X\left(x\right)f_Y\left(y\right){d}x{d}y\notag\\
-            & = \left[\int_{-\infty}^{\infty}xf_X\left(x\right){d}x\right]\left[\int_{-\infty}^{\infty}yf_Y\left(y\right){d}y\right] = E\left(X\right)E\left(Y\right).\notag
+            \E\left(XY\right) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}xyf_{X,Y}\left(x,y\right){d}x{d}y = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}xyf_X\left(x\right)f_Y\left(y\right){d}x{d}y\notag\\
+            & = \left[\int_{-\infty}^{\infty}xf_X\left(x\right){d}x\right]\left[\int_{-\infty}^{\infty}yf_Y\left(y\right){d}y\right] = \E\left(X\right)\E\left(Y\right).\notag
         \end{align}
 
     对于上面的二项分布, 我们可以注意到每一次实验, 我们都可以看做一个随机变量. 每一次的期望都是$p$, 自然, 所有的实验, 期望就是$np$. 
@@ -249,14 +249,14 @@ $$发散. 因此Cauchy分布没有数学期望.
     \begin{itemize}
         \item 如果$X$是离散型随机变量, 且分布律为 $P\left(X=x_k\right)=p_k(k=1,2, \cdots)$, 若 $\sum_k g\left(x_k\right) p_k$ 绝对收敛, 则
         $$
-        E[g(X)]=\sum_k g\left(x_k\right) p_k .
+        \E[g(X)]=\sum_k g\left(x_k\right) p_k .
         $$
         \item 如果$X$是连续型随机变量,且概率密度函数为$f(x)$, 若$\int_{-\infty}^{+\infty} g(x)f(x)\dd x$ 绝对收敛, 则
         $$\int_{-\infty}^{+\infty} g(x)f(x)\dd x.$$
     \end{itemize}
     
     也就是只要把``系数''变为了对应的函数值. 事实上, 在对应的离散的状态下, 我们有如下的说明: 
-    \begin{align*} & p_Y(y)=\sum_{\{x \mid f(x)=y\}} p_X(x) \\ & E[f(X)]=E[Y] \\ & =\sum_y y p_Y(y) \\ & =\sum_y y \sum_{\{x \mid f(x)=y\}} p_X(x) \\ & =\sum_y \sum_{\{x \mid f(x)=y\}} y p_X(x) \\ & =\sum_y \sum_{\{x \mid f(x)=y\}} f(x) p_X(x) \\ & =\sum_x f(x) p_X(x)\end{align*}
+    \begin{align*} & p_Y(y)=\sum_{\{x \mid f(x)=y\}} p_X(x) \\ & \E[f(X)]=E[Y] \\ & =\sum_y y p_Y(y) \\ & =\sum_y y \sum_{\{x \mid f(x)=y\}} p_X(x) \\ & =\sum_y \sum_{\{x \mid f(x)=y\}} y p_X(x) \\ & =\sum_y \sum_{\{x \mid f(x)=y\}} f(x) p_X(x) \\ & =\sum_x f(x) p_X(x)\end{align*}
 
     \paragraph{2. 用$(X,Y)$得到$\Ep{g(X,Y)}$}设$g(x,y)$为连续函数, 
 
