@@ -1,0 +1,168 @@
+\section{Markov链的平衡分布}
+
+我们在前两节中已经知道了它的$k$步转移之后形成的矩阵. 我们希望知道, 到最后有没有可能到达一个经过一次状态转移之后这个矩阵不会变化的情形. 也就是: 
+
+\begin{definition}
+    Markov 链的平衡分别$\overline \pi$是满足
+    $$
+    \bar{\pi}=\bar{\pi} \mathbf{P} .
+    $$
+    的分布. 
+\end{definition}
+
+如果得到了这样的一个平衡分布, 那么它在所有未来的时间都会保持一样的分布. 这会让我们很开心. 我们首先看离散有限的情形, 然后把结论推广到离散无限的情形. 
+
+我们首先把目光聚集在离散, 有限, 不可约且遍历的Markov链中. 
+
+\begin{theorem}
+    \label{thm:stab-dist-prop}
+    任何有限, 不可约, 遍历的Markov链具有如下的性质: 
+    \begin{itemize}
+        \item 链有唯一的平衡分布$\bar{\pi}=\left(\pi_0, \pi_1, \ldots, \pi_n\right)$.
+        \item 对于所有的$j$和$i$, 极限$\lim _{t \rightarrow \infty} P_{j, i}^t$存在且无关与$j$. 
+        \item $\pi_i=\lim _{t \rightarrow \infty} P_{j, i}^t=1 / h_{i, i}$.
+    \end{itemize}
+\end{theorem}
+
+这个定理实际上给了我们对于Markov链的平衡过程的两种解释. 第一是: $\pi_i$是Markov链在无穷远的未来将处于状态$i$的概率, 且与初始的时候在哪个状态无关. 第二, 从状态$i$出发回到状态$i$的概率是状态$i$的期望步数的倒数. 这是因为如下的引理成立--先考察从$i$到$i$情形: 
+
+\begin{lemma}
+    对于一个任意的不可约, 遍历的Markov链以及任意状态$i$, 极限$\lim _{t \rightarrow \infty} P_{i, i}^t$存在, 并且
+    $$\lim _{t \rightarrow \infty} P_{i, i}^t=\frac{1}{h_{i, i}}.$$
+\end{lemma}
+
+我们来不正式地说明一下这个引理是对的. 完整的证明是更新理论的一个基本结果的推论. 如果从状态$i$返回状态$i$的平均时间为$h_{i,i}$, 那么平均下来, 我们期望处于状态$i$的时间为$1/h_{i,i}$. 重复很多次, 我们自然有$\pi_i = 1/h_{i,i}$. 
+
+\begin{proof}
+    $(3) \implies (1)$存在性: 利用上述引理这个式子是成立的, 我们现在证明对于任意的$j, i$, 有
+    $$\lim _{t \rightarrow \infty} P_{j, i}^t=\lim _{t \rightarrow \infty} P_{i, i}^t=\frac{1}{h_{i, i}}.$$
+    
+    我们知道$r_{j, i}^t$是从$j$出发, 链在$t$时刻首次到达$i$的概率. 由于链是不可约的, 必有$\sum_{t=1}^{\infty} r_{j, i}^t=1$, 意味着对于任意的一个$\varepsilon>0$, 存在一个有限的$t_1=t_1(\varepsilon)$使得$\sum_{t=1}^{t_1} r_{j, i}^t \geq 1-\varepsilon$. 
+    
+    对于$j\neq i$的情形, 我们有
+    $$P_{j, i}^t=\sum_{k=1}^t r_{j, i}^k P_{i, i}^{t-k}.$$ 
+    对于$t\geq t_1$, $$\sum_{k=1}^{t_1} r_{j, i}^k P_{i, i}^{t-k} \leq \sum_{k=1}^t r_{j, i}^k P_{i, i}^{t-k}=P_{j, i}^t.$$
+    
+    利用$\lim _{t \rightarrow \infty} P_{i, i}^t$存在, $t_1$有限的条件, 我们有
+    $$
+    \begin{aligned}
+    \lim _{t \rightarrow \infty} P_{j, i}^t & \geq \lim _{t \rightarrow \infty} \sum_{k=1}^{t_1} r_{j, i}^k P_{i, i}^{t-k} \\
+    & =\sum_{k=1}^{t_1} r_{j, i}^k \lim _{t \rightarrow \infty} P_{i, i}^t \\
+    & =\lim _{t \rightarrow \infty} P_{i, i}^t \sum_{k=1}^{t_1} r_{j, i}^k \\
+    & \geq(1-\varepsilon) \lim _{t \rightarrow \infty} P_{i, i}^t .
+    \end{aligned}
+    $$
+    类似地, 
+    $$
+    \begin{aligned}
+    P_{j, i}^t & =\sum_{k=1}^t r_{j, i}^k P_{i, i}^{t-k} \\
+    & \leq \sum_{k=1}^{t_1} r_{j, i}^k P_{i, i}^{t-k}+\varepsilon
+    \end{aligned}
+    $$
+    令$\epsilon \to 0$, 我们就证明了对任何的$i, j$有
+    $$
+    \lim _{t \rightarrow \infty} P_{j, i}^t=\lim _{t \rightarrow \infty} P_{i, i}^t=\frac{1}{h_{i, i}}
+    $$
+    现在令
+    $$
+    \pi_i=\lim _{t \rightarrow \infty} P_{j, i}^t=\frac{1}{h_{i, i}}
+    $$
+    我们就说明了$\bar{\pi}=\left(\pi_0, \pi_1, \ldots\right)$形成了一个稳定分布. 
+
+    $(2)\implies(1)$存在性: 对于每一个$t\geq 0$, 有$P_{i,i}^t\geq 0$, 因此$\pi_i\geq 0$. 对于任意$t \geq 0, \sum_{i=0}^n P_{j, i}^t=1$. 所以$$\lim _{t \rightarrow \infty} \sum_{i=0}^n P_{j, i}^t=\sum_{i=0}^n \lim _{t \rightarrow \infty} P_{j, i}^t=\sum_{i=0}^n \pi_i=1,$$因此$\bar \pi$ 是一个分布. 现在, $$P_{j, i}^{t+1}=\sum_{k=0}^n P_{j, k}^t P_{k, i},$$令$t\to \infty, $有$\pi_i=\sum_{k=0}^n \pi_k P_{k, i}$, 于是证得$\bar \pi$是稳定分布. 
+
+    唯一性: 假设这还有另一个不同的稳定分布$\bar{\phi}$. 根据类似的论证, 我们有$\phi_i=\sum_{k=0}^n \phi_k P_{k, i}^t$. 令$t \rightarrow \infty$得到$$\phi_i=\sum_{k=0}^n \phi_k \pi_i=\pi_i \sum_{k=0}^n \phi_k.$$ 由于$\sum_{k=0}^n \phi_k=1$,对于所有$i$, 有$\phi_i=\pi_i$, 换句话说就是$\bar{\phi}=\bar{\pi}$.
+\end{proof}
+
+\begin{remark}
+    平衡分布的存在, 并不需要Markov链是非周期的. 如果Markov链是周期的, 平衡分布$\pi_i$并不是处于$i$的极限的频率, 而是访问状态$i$的长期频率. 并且前面我们也提到过, 有限的Markov链一定有一个常返分支. 只要链到达常返分支, 那它就无法离开那个分支. 所以相应于哪一个分支的子链是不可约并且常返的. 并且极限定理适用于任一非周期常返分支. 
+\end{remark}
+
+要计算Markov链的平衡分布是解线性方程组, 即$\bar{\pi} \mathbf{P}=\bar{\pi}$. 如果我们已经知道了一个特定的链, 我们就可以直接求解了. 比如我们现在知道了转移矩阵: 
+$$
+\mathbf{P}=\left[\begin{array}{cccc}
+0 & 1 / 4 & 0 & 3 / 4 \\
+1 / 2 & 0 & 1 / 3 & 1 / 6 \\
+1 / 4 & 1 / 4 & 1 / 2 & 0 \\
+0 & 1 / 2 & 1 / 4 & 1 / 4
+\end{array}\right]
+$$
+那么我们就有4个未知量$\pi_0, \pi_1, \pi_2, \pi_3$以及约束条件$\bar{\pi} \mathbf{P}=\bar{\pi}$, $\sum_{i=0}^3 \pi_i=1$. 这些方程应该告诉我们唯一解. 
+
+除了这种方法以外, 我们还可以研究Markov链中, 所有由当前状态转移到下个状态的所有边的概率, 以及有哪些节点可以到当前的这个状态之间的概率二者的关系.  对于一个稳定分布的Markov链而言, 有$$\sum_{j=0}^n \pi_j P_{j, i}=\pi_i=\pi_i \sum_{j=0}^n P_{i, j}$$成立. 或者写得更漂亮些, 就是$$\sum_{j \neq i} \pi_j P_{j, i}=\sum_{j \neq i} \pi_i P_{i, j}.$$
+
+这就表明, 在最后形成的稳定分布中, 对于某个特定状态而言, 离开这个状态去往其他状态的概率恰好等于从其他状态转移到这个状态的概率. 这样的一个观察我们可以用如下的定理表示: 
+\begin{theorem}
+    \label{thm:in-equal-out}
+    设$S$是一个有限, 不可约并且非周期Markov链的状态集合. 在平衡分布中, 链离开集合$S$的概率等于进入$S$的概率. 
+\end{theorem}
+
+\begin{proof}
+    见定理上面的叙述. 
+\end{proof}
+
+\begin{example}
+    我们现在来看下面的一个Markov链. 它只有两个状态: $0, 1$. 从状态$0$到状态$1$的概率是$p$; 从状态$1$到状态$0$的状态是$q$. 停留在状态$0$的概率为$1-p$, 停留在状态$1$的概率为$1-q$. 这样的Markov链常常用于突发的行为. 例如, 当信号传输的时候由于某种干扰恰好有一位漏掉了, 那么很可能导致接下来传输的信号全都出错了. 在这种背景下, 我们就说经过$t$步处于状态$0$表示第$t$位的信号成功发送, 处于状态$1$表示这一位信号发送错误. 由于传输错误的情况非常罕见, 所以我们的$p$和$q$都是非常小的值.
+
+    转移矩阵是
+    $$\mathbf{P}=\left[\begin{array}{cc}1-p & p \\ q & 1-q\end{array}\right].$$
+    使用$\bar{\pi} \mathbf{P}=\bar{\pi}$解线性方程组
+    $$\begin{aligned} \pi_0(1-p)+\pi_1 q & =\pi_0 \\ \pi_0 p+\pi_1(1-q) & =\pi_1 \\ \pi_0+\pi_1 & =1 .\end{aligned},$$
+    就有$\pi_0=q /(p+q)$, $\pi_1=p/(p+q)$. (实际上, 第二个方程是多余的)
+
+    使用刚刚的第二种方法, 我们知道，在平衡分布中，离开状态 $0$ 的概率必须等于进入状态 $0$ 的概率. 于是$\pi_0 p=\pi_1 q$. 由于$\pi_0+\pi_1=1$, 我们可以得到同样的结果:$\pi_0=q /(p+q)$, $\pi_1=p/(p+q)$. 
+
+    如果我们把实际生活中的概率带入, 比如$p = 0.005$ 和 $q = 0.1$ 的情况下，在平衡分布中，超过 95\% 的数据会被完好无损地接收!
+
+\end{example}
+
+把上面例子中用到的第二种方法推广一下, 就得到了下面的定理. 
+
+\begin{theorem}
+    如果一个有限, 不可约并且遍历的Markov链, 转移矩阵为$\bf P$, 如果存在非负实数使得$\sum_{i=0}^n \pi_i=1$, 并且满足对于任的状态$i,j$, 都有$$\pi_i P_{i, j}=\pi_j P_{j, i},$$
+    那么$\bar\pi$是对应于$\bf P$的平衡分布. 
+\end{theorem}
+
+\begin{proof}
+    考虑$\bar{\pi} \bf{P}$的第$j$个元素. 使用定理中的等式, 我们发现它实际等于$$\sum_{i=0}^n \pi_i P_{i, j}=\sum_{i=0}^n \pi_j P_{j, i}=\pi_j.$$ 因此$\bar \pi$满足$\bar{\pi}=\bar{\pi} \mathbf{P}$. 又因为$\sum_{i=0}^n \pi_i=1$, 根据\cref{thm:stab-dist-prop}, $\bar\pi$一定有唯一的平衡分布. 
+\end{proof}
+
+实际上, 满足$\pi_i P_{i, j}=\pi_j P_{j, i}$的Markov链, 我们称为时间可逆的Markov链. 这是因为倒着走一遍就可以得到和原来类似的结果. 更多关于此见练习题. 
+
+下面, 我们来看具有可数多个无限状态的马尔可夫链的收敛性. 就像证明\cref{thm:stab-dist-prop}一样, 我们可以证明下面的定理: 
+
+\begin{theorem}
+    任何不可约非周期马尔可夫链都属于以下两类之一: 
+    \begin{itemize}
+        \item 链是遍历的: 对任意一对状态$i,j$, 极限$\lim _{t \rightarrow \infty} P_{j, i}^t$存在且与$j$独立. 并且链有一个独立的平衡分布. $\pi_i = \lim _{t \rightarrow \infty} P_{j, i}^t>0$. 或者
+        \item 没有状态是正常返的: 对于任意的$i,j$, $\lim _{t \rightarrow \infty} P_{j, i}^t=0$, 链没有平衡分布. 
+    \end{itemize}
+\end{theorem}
+
+在这样的设定中, 列方程组求解听起来就有些可怕了(但是有时候真的能解). 幸运的是, 刚刚介绍的第二种方法可以承担起计算平衡分布的重任. 我们来看一个例子. 
+
+\begin{example}
+    在购买东西的时候, 我们通常要排队. 考虑一个队列模型. 其中时间被分为等长的小间隔. 在每一个间隔中, 恰好有下列的一个事情发生: 
+    \begin{itemize}
+        \item 如果队列中有少于$n$为顾客, 我们有概率$\lambda$往队列里面加入一名顾客. 
+        \item 如果队列非空, 有概率$\mu$从队首移除一名顾客. 
+        \item 其余的概率, 队列不变. 
+    \end{itemize}
+
+    形式化地说, 假设$X_t$是$t$时刻队列的顾客数, 这就会形成一个有限状态的Markov链. 它的转移矩阵有如下的非零元素: 
+    $$\begin{aligned} P_{i, i+1} & =\lambda \quad \text { 若 } i<n ; \\ P_{i, i-1} & =\mu \quad \text { 若 } i>0 ; \\ P_{i, i} & = \begin{cases}1-\lambda & \text { 若 } i=0, \\ 1-\lambda-\mu & \text { 若 } 1 \leq i \leq n-1, \\ 1-\mu & \text { 若 } i=n .\end{cases} \end{aligned}.$$
+
+    可以验证Markov链是不可约, 有限, 非周期的. 因此它有唯一的平衡分布$\bar\pi$. 利用$\bar{\pi}=\bar{\pi} \mathbf{P}$就可以写出如下的等式: 
+    $$\begin{aligned} \pi_0 & =(1-\lambda) \pi_0+\mu \pi_1 \\ \pi_i & =\lambda \pi_{i-1}+(1-\lambda-\mu) \pi_i+\mu \pi_{i+1}, \quad 1 \leq i \leq n-1, \\ \pi_n & =\lambda \pi_{n-1}+(1-\mu) \pi_n .\end{aligned}$$
+    经过一层一层的变量代换和归纳法, 我们知道$$\pi_i=\pi_0\left(\frac{\lambda}{\mu}\right)^i,$$ 由于它们加起来必须等于1, 我们有$$\sum_{i=0}^n \pi_i=\sum_{i=0}^n \pi_0\left(\frac{\lambda}{\mu}\right)^i=1,$$这就意味着$\pi_0=\frac{1}{\sum_{i=0}^n(\lambda / \mu)^i}$. 并且对于每一个状态, 也可以求出$\pi_i=\frac{(\lambda / \mu)^i}{\sum_{i=0}^n(\lambda / \mu)^i}$. 
+
+    刚刚演示了第一种方法. 下面让我们看看第二种方法. 对于任何一个状态$i$, 只可以从$i$离开走到$i+1$; 也只可以从$i+1$回到$i$. 因此, 从$i\to i+1$的概率一定和$i+1\to i$的概率相等. 这就表明$\lambda \pi_i=\mu \pi_{i+1}$. 根据归纳法, 我们同样可以得到$\pi_i=\pi_0\left(\frac{\lambda}{\mu}\right)^i$.
+
+    刚刚还是一个有界的队列. 如果这个队列是无界的, 那么我们就有可数无穷多个元素了. 根据上述的定理, 只有当下列的方程组存在一组正数解的时候, 我们的Markov链有稳定分布. 
+    $$\begin{aligned} \pi_0 & =(1-\lambda) \pi_0+\mu \pi_1 \\ \pi_i & =\lambda \pi_{i-1}+(1-\lambda-\mu) \pi_i+\mu \pi_{i+1}, \quad i \geq 1\end{aligned}$$
+
+    我们可以验证: $$\pi_i=\frac{(\lambda / \mu)^i}{\sum_{i=0}^{\infty}(\lambda / \mu)^i}=\left(\frac{\lambda}{\mu}\right)^i\left(1-\frac{\lambda}{\mu}\right)$$.
+
+    我们发现, 当且仅当$\lambda < \mu$的时候才存在稳定分布. 这表示顾客离开队列的速度要快于到达的速度. 如果$\lambda > \mu$, 这时候自然不存在平衡分布. 微妙的情况是$\lambda = \mu$. 我们仍然不存在平衡分布, 但是队列可以是任意长, 但是状态是零常返. 
+
+\end{example}

@@ -1,0 +1,58 @@
+\section{假设检验}
+
+\paragraph{1. 引例}假设检验 (hypothesis testing) 是用来判断样本与样本、样本与总体的差异是由抽样误差引起还是由本质差别造成的统计推断方法. 其基本原理是先对总体的特征作出某种假设, 然后通过抽样研究的统计推理, 对此假设应该被拒绝还是接受作出推断. 具体做法是: 根据问题的需要对所研究的总体作某种假设, 记作 $H_0$; 选取合适的统计量, 这个统计量的选取要使在假设 $H_0$ 成立时, 其分布为已知; 由实测的样本, 计算出统计量的值, 并根据预先给定的显著性水平进行检验, 作出拒绝或接受假设 $H_0$ 的判断. 我们接下来介绍 $u$ 检验法、 $t$ 检验法、 $\chi^2$ 检验法.
+
+先举一例说明其基本思想. 
+
+\begin{example}
+    某工厂生产的某种螺栓, 在正常生产的情况下其长度(单位:mm)服从正态分布 $N(54,0.45)$, 为了知道经检修后机器生产是否正常, 抽取 5 只螺栓, 测得其长度如下:
+$$\begin{array}{llllll}53.2 & 54.1 & 52.6 & 54.2 & 52.1\end{array}$$
+假设已知总体分布的方差没有改变, 依据上述数据, 判断生产是否正常?
+\end{example}
+
+如果机器经检修后, 生产正常, 则生产的螺栓的平均长度应为54. 设检修后机器生产的螺栓的长度为随机变量$\xi$. 根据所设的, $\xi\sim N(54, 0.45)$, 提出假设$H_0:\mu = \mu_0 = 54$. 这时候, $H_0$称为原假设或零假设. 由于样本均值$\bar\xi$是总体均值$\mu$的一个较好的近似, 因此当$H_0$成立的时候, $\bar\xi$的观察值$\bar x$应该在$\mu_0=54$附近. 否则, $\bar\xi$应该会有偏离$\mu_0$的趋势. 所以, 当观察值$\bar x$距离$\mu_0$较近的时候, 接受$H_0$. 否则, 便应该拒绝$H_0$, 也就是认为$\mu\neq \mu_0$. 也就是机器经检修后工作不正常. 为了定量地讨论问题, 我们指定一个小概率, 称为显著性水平$\alpha(0<\alpha<1)$. 对于概率$\alpha$, 确定一个常数$k$, 使得$P\left(\left|\bar{\xi}-\mu_0\right| \geq k\right)=\alpha$. (很多时候, 我们取$\alpha$为0.05)
+
+由于$\alpha$的值很小, 描述的是一个小概率事件. 在一次实验中, 小概率事件很不可能发生. 将$\bar \xi$的观察值$\bar x$带入上面的式子. 如果有$|\bar x-\mu_0|\geq k$, 就意味着这样的小概率事件在实际中发生了. 与我们的假设相矛盾, 于是我们拒绝假设$H_0$; 如果$|\bar x - \mu_0|<k$, 我们便没有充分的理由怀疑$H_0$的正确性, 应该接受$H_0$的判断. 
+
+为了确定常数$k$, 我们发现$H_0$成立的时候, 统计量$U=\frac{\bar{\xi}-\mu_0}{\sigma / \sqrt{n}} \sim N(0,1)$,因此对于$\alpha>0$, 有$$P\left(|U| \geqslant u_{\frac{\alpha}{2}}\right)=P\left(\left|\frac{\bar{\xi}-\mu_0}{\sigma / \sqrt{n}}\right| \geqslant u_{\frac{\alpha}{2}}\right)=\alpha.$$于是$k=\frac{\sigma}{\sqrt{n}} u_{\frac{\alpha}{2}}$.
+
+因此,设统计量 $U=\frac{\bar{\xi}-\mu_0}{\sigma / \sqrt{n}}$ 的观察值为 $u=\frac{\bar{x}-\mu_0}{\sigma / \sqrt{n}}$, 则当$$u \in\left(-\infty,-u_{\frac{\alpha}{2}}\right] \cup\left[u_{\frac{\alpha}{2}},+\infty\right)$$的时候, 拒绝假设$H_0$. 称上述区域为假设$H_0$的拒绝域. 称区域$\left(-u_{ \frac{a}{2}}, u_a\right)$ 为 $H_0$ 的接受域. 因为在这个区域内我们要接受假设$H_0$. $-u_{\frac{\alpha}{2}}$ 和 $u_{\frac{\alpha}{2}}$ 分别称为临界下限和临界上限.
+
+\paragraph{2. 第一类错误和第二类错误}一个小概率事件虽然很不可能发生, 但它仍然有概率发生. 反映到结果上来, 就是当我们的原假设$H_0$为真的时候, 我们仍有可能以概率$\alpha$拒绝他. 这中错误是``把正确的当成错误的'', 在这里我们叫做第一类错误. 
+
+反之, 当$H_0$不真时, 由于抽样的随机性, 我们也有可能接受它. 这是把``错误的当成正确的''. 我们称为第二类错误. $\alpha$越小, 拒绝域越大, 拒绝$H_0$的可能性变小, 犯第二类错误的概率越大. 
+
+根据理论推导, 在实际应用中, 当样本容量$n$确定之后, 犯两类错误的概率不可能同时减小. 减少其中一个的代价就是另一个增大. 
+
+\paragraph{3. 三种检验方法}
+
+\subparagraph{(a) 假设检验$H:\mu=\mu_0$} 
+
+像往常一样, 分两种情况. 
+\begin{itemize}
+    \item $\sigma$已知, 是正态分布. 也就是使用$u$统计量
+    \begin{itemize}
+        \item 作统计量 \red{$U=\frac{\bar{X}-\mu_0}{\sigma / \sqrt{n}}$}, 当 $H_0$ 为真时, \red{$U \sim N(0,1)$}.
+        \item 对于给定的显著性水平 $\alpha$, 查标准正态分布表得 $u_{\alpha / 2}$, 使$$P\left(\red{|U|>u_{\alpha / 2}}\right)=\alpha .$$
+        \item 利用样本观测值求出$u$的值, 当$|u|\geq u_{\alpha/2}$的时候, 拒绝假设, 反之接受. 
+    \end{itemize}
+    \item $\sigma$未知, 是$t$分布. 使用$t$检验法
+    \begin{itemize}
+        \item 作统计量 \red{$T=\frac{\bar{X}-\mu_0}{S / \sqrt{n}}$}, 当 $H_0$ 成立时, \red{$T \sim t(n-1)$}.
+        \item 对于给定的显著性水平 $\alpha$, 查标$t$分布表得 $t_{\alpha / 2}$, 使$$P\left(\red{|T|>t_{\alpha / 2}}\right)=\alpha .$$ 
+        \item 利用样本观测值求出$t$的值, 当$|t|\geq t_{\alpha/2}$的时候, 拒绝假设, 反之接受. 
+    \end{itemize}
+\end{itemize}
+
+值得注意的是, 上面除了标红色的地方, 其实一模一样. 这就是我们为什么一开始要研究若干统计量. 
+
+\subparagraph{(b) 假设检验$H:\mu<\mu_0$} 这是单边检验. 上述的情形中, 我们在比假设偏大或偏小的时候均不接受. 这个问题中, 我们只会考虑$\mu$与$\mu_0$比较有没有显著偏大. 
+
+假设我们的方差未知, 做统计量$$T=\frac{\bar{X}-\mu_0}{S / \sqrt{n}}.$$当$T$的值过大的时候, 应该拒绝$H_0$. 但是当$H_0$成立的时候, $T$的分布不易于求出. 故对给定的显著水平$\alpha$, 临界值也不容易求得. 但是我们注意到在$H_0$成立的时候, 有$$\frac{\bar{X}-\mu_0}{S / \sqrt{n}}<\frac{\bar{X}-\mu}{S / \sqrt{n}},$$意味着$$P\left(\frac{\bar{X}-\mu_0}{S / \sqrt{n}}>\lambda\right) \leqslant P\left(\frac{\bar{X}-\mu}{S / \sqrt{n}}>\lambda\right).$$ 由于$\frac{\bar{X}-\mu}{S / \sqrt{n}} \sim t(n-1)$, 查$t$分布表, 知道$$P\left(\left|\frac{\bar{X}-\mu_0}{S / \sqrt{n}}\right|>t_a\right)=2 \alpha,$$从而$$P\left(\frac{\bar{X}-\mu_0}{S / \sqrt{n}}>t_\alpha\right)=\alpha, \quad P\left(T>t_\alpha\right) \leqslant \alpha.$$因此, 可以把 $T>t_\alpha$ 作为在对给定显著性水平 $\alpha$ 前提下, 拒绝 $H_0$ 的区域.
+
+\subparagraph{(c)假设检验$H_0:\sigma^2=\sigma^2_0$($\sigma_0^2$已知)} 
+\begin{itemize}
+    \item 当$H_0$成立时, 做统计量$$\chi^2=\frac{(n-1)S^2}{\sigma_0^2}, $$这时候$\chi^2\sim \chi^2(n-1)$
+    \item 对于给定的显著性水平$\alpha$, 求出$\chi^2_{1-\alpha/2}(n-1), \chi^2_{  \alpha/2}(n-1)$, 使得$$P(\chi^2_{1-\alpha/2}(n-1)<\chi^2<\chi^2_{  \alpha/2}(n-1))=1-\alpha$$
+    \item 根据样本的观测值可以求出统计量$\chi^2$的观测值, $H_0$的拒绝域为$$(0, \chi^2_{1-\alpha/2}(n-1))\cup (\chi^2_{  \alpha/2}(n-1),+\infty).$$
+\end{itemize}

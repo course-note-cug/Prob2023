@@ -5,6 +5,7 @@
 \usepackage{cleveref}
 \usepackage{pstricks}
 \usepackage{pgfplots}
+\usepackage{twemojis}
 % \usepackage[utf8]{inputenc}
 \input{crefchn}
 \begin{document}
@@ -57,102 +58,11 @@
 \input{text/ch5/3-clt.tex}
 
 \part{随机过程}
-
 \input{text/ch6/1-intro.tex}
 \input{text/ch6/2-markov-prob.tex}
 \input{text/ch6/3-markov-states.tex}
-
-
-
-\section{Markov链的平稳分布}
-
-我们在前两节中已经知道了它的$k$步转移之后形成的矩阵. 我们希望知道, 到最后有没有可能到达一个经过一次状态转移之后这个矩阵不会变化的情形. 也就是: 
-
-\begin{definition}
-    Markov 链的平稳分别$\overline \pi$是满足
-    $$
-    \bar{\pi}=\bar{\pi} \mathbf{P} .
-    $$
-    的分布. 
-\end{definition}
-
-如果得到了这样的一个平稳分布, 那么它在所有未来的时间都会保持一样的分布. 这会让我们很开心. 我们首先看离散有限的情形, 然后把结论推广到离散无限的情形. 
-
-我们首先把目光聚集在离散, 有限, 不可约且遍历的Markov链中. 
-
-\begin{theorem}
-    任何有限, 不可约, 遍历的Markov链具有如下的性质: 
-    \begin{itemize}
-        \item 链有唯一的平稳分布$\bar{\pi}=\left(\pi_0, \pi_1, \ldots, \pi_n\right)$.
-        \item 对于所有的$j$和$i$, 极限$\lim _{t \rightarrow \infty} P_{j, i}^t$存在且无关与$j$. 
-        \item $\pi_i=\lim _{t \rightarrow \infty} P_{j, i}^t=1 / h_{i, i}$.
-    \end{itemize}
-\end{theorem}
-
-这个定理实际上给了我们对于Markov链的平稳过程的两种解释. 第一是: $\pi_i$是Markov链在无穷远的未来将处于状态$i$的概率, 且与初始的时候在哪个状态无关. 第二, 从状态$i$出发回到状态$i$的概率是状态$i$的期望步数的倒数. 这是因为如下的引理成立--先考察从$i$到$i$情形: 
-
-\begin{lemma}
-    对于一个任意的不可约, 遍历的Markov链以及任意状态$i$, 极限$\lim _{t \rightarrow \infty} P_{i, i}^t$存在, 并且
-    $$\lim _{t \rightarrow \infty} P_{i, i}^t=\frac{1}{h_{i, i}}.$$
-\end{lemma}
-
-我们来不正式地说明一下这个引理是对的. 完整的证明是更新理论的一个基本结果的推论. 如果从状态$i$返回状态$i$的平均时间为$h_{i,i}$, 那么平均下来, 我们期望处于状态$i$的时间为$1/h_{i,i}$. 重复很多次, 我们自然有$\pi_i = 1/h_{i,i}$. 
-
-\begin{proof}
-    $(3) \implies (1)$存在性: 利用上述引理这个式子是成立的, 我们现在证明对于任意的$j, i$, 有
-    $$\lim _{t \rightarrow \infty} P_{j, i}^t=\lim _{t \rightarrow \infty} P_{i, i}^t=\frac{1}{h_{i, i}}.$$
-    
-    我们知道$r_{j, i}^t$是从$j$出发, 链在$t$时刻首次到达$i$的概率. 由于链是不可约的, 必有$\sum_{t=1}^{\infty} r_{j, i}^t=1$, 意味着对于任意的一个$\varepsilon>0$, 存在一个有限的$t_1=t_1(\varepsilon)$使得$\sum_{t=1}^{t_1} r_{j, i}^t \geq 1-\varepsilon$. 
-    
-    对于$j\neq i$的情形, 我们有
-    $$P_{j, i}^t=\sum_{k=1}^t r_{j, i}^k P_{i, i}^{t-k}.$$ 
-    对于$t\geq t_1$, $$\sum_{k=1}^{t_1} r_{j, i}^k P_{i, i}^{t-k} \leq \sum_{k=1}^t r_{j, i}^k P_{i, i}^{t-k}=P_{j, i}^t.$$
-    
-    利用$\lim _{t \rightarrow \infty} P_{i, i}^t$存在, $t_1$有限的条件, 我们有
-    $$
-    \begin{aligned}
-    \lim _{t \rightarrow \infty} P_{j, i}^t & \geq \lim _{t \rightarrow \infty} \sum_{k=1}^{t_1} r_{j, i}^k P_{i, i}^{t-k} \\
-    & =\sum_{k=1}^{t_1} r_{j, i}^k \lim _{t \rightarrow \infty} P_{i, i}^t \\
-    & =\lim _{t \rightarrow \infty} P_{i, i}^t \sum_{k=1}^{t_1} r_{j, i}^k \\
-    & \geq(1-\varepsilon) \lim _{t \rightarrow \infty} P_{i, i}^t .
-    \end{aligned}
-    $$
-    类似地, 
-    $$
-    \begin{aligned}
-    P_{j, i}^t & =\sum_{k=1}^t r_{j, i}^k P_{i, i}^{t-k} \\
-    & \leq \sum_{k=1}^{t_1} r_{j, i}^k P_{i, i}^{t-k}+\varepsilon
-    \end{aligned}
-    $$
-    令$\epsilon \to 0$, 我们就证明了对任何的$i, j$有
-    $$
-    \lim _{t \rightarrow \infty} P_{j, i}^t=\lim _{t \rightarrow \infty} P_{i, i}^t=\frac{1}{h_{i, i}}
-    $$
-    现在令
-    $$
-    \pi_i=\lim _{t \rightarrow \infty} P_{j, i}^t=\frac{1}{h_{i, i}}
-    $$
-    我们就说明了$\bar{\pi}=\left(\pi_0, \pi_1, \ldots\right)$形成了一个稳定分布. 
-
-    $(2)\implies(1)$存在性: 对于每一个$t\geq 0$, 有$P_{i,i}^t\geq 0$, 因此$\pi_i\geq 0$. 对于任意$t \geq 0, \sum_{i=0}^n P_{j, i}^t=1$. 所以$$\lim _{t \rightarrow \infty} \sum_{i=0}^n P_{j, i}^t=\sum_{i=0}^n \lim _{t \rightarrow \infty} P_{j, i}^t=\sum_{i=0}^n \pi_i=1,$$因此$\bar \pi$ 是一个分布. 现在, $$P_{j, i}^{t+1}=\sum_{k=0}^n P_{j, k}^t P_{k, i},$$令$t\to \infty, $有$\pi_i=\sum_{k=0}^n \pi_k P_{k, i}$, 于是证得$\bar \pi$是稳定分布. 
-
-    唯一性: 假设这还有另一个不同的稳定分布$\bar{\phi}$. 根据类似的论证, 我们有$\phi_i=\sum_{k=0}^n \phi_k P_{k, i}^t$. 令$t \rightarrow \infty$得到$$\phi_i=\sum_{k=0}^n \phi_k \pi_i=\pi_i \sum_{k=0}^n \phi_k.$$ 由于$\sum_{k=0}^n \phi_k=1$,对于所有$i$, 有$\phi_i=\pi_i$, 换句话说就是$\bar{\phi}=\bar{\pi}$.
-\end{proof}
-
-\begin{remark}
-    平稳分布的存在, 并不需要Markov链是非周期的. 如果Markov链是周期的, 平稳分布$\pi_i$并不是处于$i$的极限的频率, 而是访问状态$i$的长期频率. 并且前面我们也提到过, 有限的Markov链一定有一个常返分支. 只要链到达常返分支, 那它就无法离开那个分支. 所以相应于哪一个分支的子链是不可约并且常返的. 并且极限定理适用于任一非周期常返分支. 
-\end{remark}
-
-要计算Markov链的平稳分布是解线性方程组, 即$\bar{\pi} \mathbf{P}=\bar{\pi}$. 如果我们已经知道了一个特定的链, 我们就可以直接求解了. 比如我们现在知道了转移矩阵: 
-$$
-\mathbf{P}=\left[\begin{array}{cccc}
-0 & 1 / 4 & 0 & 3 / 4 \\
-1 / 2 & 0 & 1 / 3 & 1 / 6 \\
-1 / 4 & 1 / 4 & 1 / 2 & 0 \\
-0 & 1 / 2 & 1 / 4 & 1 / 4
-\end{array}\right]
-$$
-那么我们就有4个未知量$\pi_0, \pi_1, \pi_2, \pi_3$以及约束条件$\bar{\pi} \mathbf{P}=\bar{\pi}$, $\sum_{i=0}^3 \pi_i=1$. 这些方程应该告诉我们唯一解. 
+\input{text/ch6/4-markov-stationary.tex}
+\input{text/ch6/5-graph-walk.tex}
 
 
 
@@ -162,6 +72,12 @@ $$
 \input{text/ch7/3-moment.tex}
 \input{text/ch7/4-unbiased-sample.tex}
 \input{text/ch7/5-interval-estimate.tex}
+\input{text/ch7/6-hypo-test.tex}
+
+
+
+
+
 
 
 
