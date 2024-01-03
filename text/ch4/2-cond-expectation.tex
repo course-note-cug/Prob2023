@@ -68,7 +68,7 @@ $$
     \end{itemize}
 
     实际上, 这个公式有一个更简洁的表示. 我们按照定义展开: 
-    $$\begin{aligned} \text{左手边} & =\int_{-\infty}^{+\infty}\left(\int_{-\infty}^{+\infty} \frac{f_{x, Y}(x, y)}{f_Y(y)} d x\right) f_Y(y) d y \\ & =\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} x f_{X, Y}(x, y) d x d y . \\ & =\int_{-\infty}^{+\infty} x f_x(x) d x=\mathbb{E}[x]=\text{右手边}\end{aligned}$$
+    $$\begin{aligned} \text{左手边} & =\int_{-\infty}^{+\infty}\left(\int_{-\infty}^{+\infty} \frac{f_{X, Y}(x, y)}{f_Y(y)} d x\right) f_Y(y) d y \\ & =\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} x f_{X, Y}(x, y) d x d y . \\ & =\int_{-\infty}^{+\infty} x f_x(x) d x=\mathbb{E}[x]=\text{右手边}\end{aligned}$$
 
     这个公式有一个名字, 叫做``迭代期望定律(Law of iterated expectations)''. 
 

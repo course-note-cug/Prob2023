@@ -7,6 +7,7 @@
 \usepackage{float}
 \usepackage{amsthm}
 \usepackage{hyperref}
+% \usepackage{mathabx}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{framed}
@@ -60,6 +61,7 @@
 \newtheorem{example}{例子}[section]
 
 \usepackage{xsim}
+\loadxsimstyle{layouts} 
 \DeclareExerciseEnvironmentTemplate{custom}{%
   \begin{tcolorbox}[boxrule = 0pt]
   \tcbox[on line,colback=teal,colframe=teal,coltext=white,size=small]{%
@@ -71,7 +73,7 @@
 
 \xsimsetup{
   exercise/within = part,
-  exercise/template = custom ,
+  exercise/template = margin,
   exercise/name = 练习
 }
 
@@ -95,7 +97,7 @@
 \newenvironment{solution*}{%
   \par\medskip
   \noindent 
-  \small\textbf{提示或解答:}
+  \color{gray}\small\textbf{提示或解答:}
 }{%
   \par\medskip
 }
@@ -203,3 +205,5 @@
 \newcommand{\purple}[1]{{{\color{purple}#1}}}
 \DeclareMathOperator{\var}{Var}
 \newcommand{\E}{\mathbb E}
+\newcommand{\like}{$\blacktriangleright$}
+\newcommand{\exrate}[1]{{[#1]~}}

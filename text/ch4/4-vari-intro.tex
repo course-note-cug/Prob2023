@@ -69,7 +69,10 @@ $$
 
    \paragraph{3. 两个随机变量和的方差} 设 $X, Y$ 是两个随机变量, 则有\mn{可不要忘记了这个2. !}
    $$
-   \var(X+Y)=\var(X)+\var(Y)+2 \mathbb E\{(X-\mathbb E(X))(Y-\mathbb E(Y))\} .
+   \begin{aligned}
+    \var(X+Y)&=\var(X)+\var(Y)+2 \mathbb E\{(X-\mathbb E(X))(Y-\mathbb E(Y))\} \\
+    &=\var(X)+\var(Y)+2(\E(XY) -\E(X)\E(Y)) .
+   \end{aligned}
    $$
    
    特别, 若 $X, Y$ 相互独立, 则有
@@ -86,7 +89,7 @@ $$
 = & \mathbb E\left\{[(X-\mathbb E(X))+(Y-\mathbb E(Y))]^2\right\} \\
 = & \mathbb E\left\{(X-\mathbb E(X))^2\right\}+\mathbb E\left\{(Y-\mathbb E(Y))^2\right\} \\
 & +2 \mathbb E\{[(X-\mathbb E(X)][Y-\mathbb E(Y)]\} \\
-= & \var(X)+\var(Y)+2 \mathbb E\{[X-\mathbb E(X)][Y-\mathbb E(Y)]\} .
+= & \var(X)+\var(Y)+2 \mathbb E\{[X-\mathbb E(X)][Y-\mathbb E(Y)]\} .\\
 \end{aligned}
 $$
 
@@ -115,7 +118,7 @@ $$
     \paragraph{2. Poisson 分布} 我们回忆参数为$\lambda$的Poisson分布的概率分布是$f(k )=\frac{e^{-\lambda} \lambda^k}{k !}$. 同样的, 
     $$
     \begin{aligned}
-    E\left(X^2\right) & =\sum_{k=0}^{\infty} k^2 \frac{\lambda^k e^{-\lambda}}{k !}=\sum_{k=1}^{\infty} k e^{-\lambda} \lambda \frac{\lambda^{k-1}}{(k-1) !} \\
+    \E\left(X^2\right) & =\sum_{k=0}^{\infty} k^2 \frac{\lambda^k e^{-\lambda}}{k !}=\sum_{k=1}^{\infty} k e^{-\lambda} \lambda \frac{\lambda^{k-1}}{(k-1) !} \\
     & =\sum_{k=1}^{\infty}(k-1+1) \lambda e^{-\lambda} \frac{\lambda^{k-1}}{(k-1) !} \\
     & =\sum_{k=1}^{\infty}(k-1) \lambda e^{-\lambda} \frac{\lambda^{k-1}}{(k-1) !}+\lambda e^{-\lambda} \sum_{k=1}^{\infty} \frac{\lambda^{k-1}}{(k-1) !} \\
     & =\lambda^2 e^{-\lambda} \sum_{k=2}^{\infty} \frac{\lambda^{k-2}}{(k-2) !}+\lambda \\
@@ -170,7 +173,7 @@ $$\begin{aligned} \var(X) & =\E\left(X^2\right)-(\E(X))^2 \\ & =\sum_{k=1}^{\inf
 \paragraph{6. 二项分布} 
 我们在上一节里面用非常痛苦的方法求解了它的期望. 这里, 我们还是先不用任何的性质, 再来痛苦地求解一下它的方差. 
 
-$$\begin{aligned} \E\left(k^2\right) & =\sum_{k=0}^n k^2 p(k) \\ & =\sum_{k=1}^n k^2\left(\begin{array}{l}n \\ k\end{array}\right) p^k q^{n-k} \\ & =\sum_{k=1}^n[{k}({k}-1)+{k}]\left(\begin{array}{l}n \\ k\end{array}\right) p^k q^{n-k} \\ & =\sum_{k=1}^n k(k-1)\left(\begin{array}{l}n \\ k\end{array}\right) p^k q^{n-k}+\sum_{k=1}^n k\left(\begin{array}{l}n \\ k\end{array}\right) p^k q^{n-k} \\ & =\sum_{k=1}^n k(k-1) \frac{n !}{k !(n-k) !} p^k q^{n-k}+n p \\ & =n(n-1) p^2 \sum_{k=1}^n \frac{(n-2) !}{(k-2) !(n-k) !} p^{k-2} q^{(n-2)-(k-2)}+n p \\ & =n(n-1) p^2+n p\end{aligned}$$
+$$\begin{aligned} \E\left(k^2\right) & =\sum_{k=0}^n k^2 p(k) \\ & =\sum_{k=1}^n k^2\binom n k p^k q^{n-k} \\ & =\sum_{k=1}^n[{k}({k}-1)+{k}]\binom n k p^k q^{n-k} \\ & =\sum_{k=1}^n k(k-1)\binom n k p^k q^{n-k}+\sum_{k=1}^n k\binom n k p^k q^{n-k} \\ & =\sum_{k=1}^n k(k-1) \frac{n !}{k !(n-k) !} p^k q^{n-k}+n p \\ & =n(n-1) p^2 \sum_{k=1}^n \frac{(n-2) !}{(k-2) !(n-k) !} p^{k-2} q^{(n-2)-(k-2)}+n p \\ & =n(n-1) p^2+n p\end{aligned}$$
 
 因此$\var (X)=\Ep {X^2}-(\Ep X)^2=n(n-1) p^2+n p-(n p)^2=n p(1-p)$. 
 

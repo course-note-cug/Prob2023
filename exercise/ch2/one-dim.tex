@@ -1,0 +1,46 @@
+\section*{练习题: 一维随机变量}
+
+\begin{exercise}
+    设随机变量 $X$ 服从 $(-2,2)$ 上的均匀分布, 则随机变量 $Y=X^2$ 的概率密度函数是什么? 
+  \end{exercise}
+  
+  \begin{solution*}
+    由题意，因为随机变至 $X$ 服从 $(-2,2)$ 上的均匀分布，所以随机变黑 $X$ 的密度函数为
+    $
+    f(x)= \begin{cases}\frac{1}{4}, & -2<x<2 \\ 0, & \text { else }\end{cases}
+    $
+    
+    设 $Y=X^2$ 的分布函数为 $F_Y(y)$ ，则
+    $
+    F_Y(y)=P\{Y \leq y\}=P\left\{X^2 \leq y\right\}
+    $
+    
+    显然，当 $y \leq 0$ 时， $F_Y(y)=0$;当 $y>0$ 时,
+    $
+    F_Y(y)=P\{-\sqrt{y} \leq X \leq \sqrt{y}\}
+    =\int_{-\sqrt{y}}^{\sqrt{y}} f(x) d x \text {. }
+    $
+    
+    当 $0<y \leq 4$ 时，
+    $
+    F_Y(y)=\int_{-\sqrt{y}}^{\sqrt{y}} f(x) d x=\int_{-\sqrt{y}}^{\sqrt{y}} \frac{1}{4} d x
+    =\left.\frac{x}{4}\right|_{-\sqrt{y}} ^{\sqrt{y}}=\frac{2 \sqrt{y}}{4}=\frac{\sqrt{y}}{2} ;
+    $
+    
+    当 $y>4$ 时，
+    $
+    \begin{aligned}
+    & F_Y(y)=\int_{-\sqrt{y}}^{\sqrt{y}} f(x) d x=\int_{-2}^2 \frac{1}{4} d x \\
+    & =\left.\frac{x}{4}\right|_{-2} ^2=\frac{4}{4}=1 .
+    \end{aligned}
+    $
+    所以随机变量 $Y$ 的概率密度函数为
+    $
+    f_Y(y)=F_Y^{\prime}(y)= \begin{cases}\frac{1}{4 \sqrt{y}}, & 0<y \leq 4 \\ 0, & \text { else }\end{cases}
+    $
+    
+    综上，故随机变量 $Y=X^2$ 的概蜜密度函数为
+    $
+    f_Y(y)= \begin{cases}\frac{1}{4 \sqrt{y}}, & 0<y \leq 4 \\ 0, & \text { else }\end{cases}
+    $ 
+  \end{solution*}
