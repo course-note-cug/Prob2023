@@ -161,7 +161,7 @@ $$
     刚刚还是一个有界的队列. 如果这个队列是无界的, 那么我们就有可数无穷多个元素了. 根据上述的定理, 只有当下列的方程组存在一组正数解的时候, 我们的Markov链有稳定分布. 
     $$\begin{aligned} \pi_0 & =(1-\lambda) \pi_0+\mu \pi_1 \\ \pi_i & =\lambda \pi_{i-1}+(1-\lambda-\mu) \pi_i+\mu \pi_{i+1}, \quad i \geq 1\end{aligned}$$
 
-    我们可以验证: $$\pi_i=\frac{(\lambda / \mu)^i}{\sum_{i=0}^{\infty}(\lambda / \mu)^i}=\left(\frac{\lambda}{\mu}\right)^i\left(1-\frac{\lambda}{\mu}\right)$$.
+    我们可以验证: $$\pi_i=\frac{(\lambda / \mu)^i}{\sum_{i=0}^{\infty}(\lambda / \mu)^i}=\left(\frac{\lambda}{\mu}\right)^i\left(1-\frac{\lambda}{\mu}\right).$$
 
     我们发现, 当且仅当$\lambda < \mu$的时候才存在稳定分布. 这表示顾客离开队列的速度要快于到达的速度. 如果$\lambda > \mu$, 这时候自然不存在平衡分布. 微妙的情况是$\lambda = \mu$. 我们仍然不存在平衡分布, 但是队列可以是任意长, 但是状态是零常返. 
 
