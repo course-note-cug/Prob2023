@@ -1,7 +1,7 @@
 % !TEX root = main.tex
 \section{事件的概率}
 
-事件的\textbf{概率}：刻画试验中随机事件发生的\textbf{可能性大小}.
+事件的\textbf{概率}用于刻画试验中随机事件发生的\textbf{可能性大小}.
 
 \subsection{概率的统计定义}
 \label{sec:prob-stat-defn}
@@ -10,13 +10,13 @@
     \begin{align*}
         f_n(A):=\frac{m}{n}
     \end{align*}
-    为事件$A$发生的\textbf{频率}(frequency).
+    为事件$A$发生的\newword{频率}{frequency}.
 \end{definition*}
 
 \begin{definition*}%[概率的统计定义]
     在相同条件下重复进行的试验中, 若随着试验次数$n$的增加, 
     事件$A$发生的频率稳定在某一常数$p$附近, 
-    则称$p$为事件$A$的\textbf{概率}, 记作$P(A)=p$.
+    则称$p$为事件$A$的\newword{概率}{probability}, 记作$P(A)=p$.
 \end{definition*}
 也就是概率是频率的稳定值. 实际应用中常将大量重复试验中事件的频率作为概率的近似估计.
 
@@ -41,18 +41,18 @@
         \item 可加性：若事件序列$\{A_n\}_{n\ge 1}$两两互斥, 则
               $$P \left( \bigcup_{n=1}^{\infty} A_n \right)=\sum_{n=1}^{\infty} P(A_n)$$
     \end{itemize}
-    则称$P(A)$为事件$A$的\textbf{概率}(probability).
+    则称$P(A)$为事件$A$的\newword{概率}{probability}.
 \end{definition}
 
 
 \mn{事件可以先简单认为就是$\Omega$一堆子集构成的集合, 当然有一些条件需要满足. 对于初学者而言, 下面的就先不用看了. 这些内容只是为了那些学习过离散数学并且知道这种情形的作用的同学准备的. }
-这里的事件用集合的语言描述, 考虑集合 $A \subseteq \Omega$ 的某个集系 $\mathscr{A}_0$, 则利用集合运算 $\cup, \cap$ 与 $\backslash$ 可以由 $\mathscr{A}_0$ 构造新集系, 其中元素也是事件. 给这些事件补充上必然事件 $\Omega$ 和不可能事件 $\varnothing$, 得集系 $\mathscr{A}$, 则 $\mathcal{A}$ 是代数. 所谓 ``代数'' 即 $\Omega$ 的这样的集系, 满足
+这里的事件用集合的语言描述, 考虑元素为集合 $A \subseteq \Omega$ 的某个集系(集合的集合) $\mathscr{A}_0$, 则利用集合运算 $\cup, \cap$ 与 $\backslash$ 可以由 $\mathscr{A}_0$ 构造新集系. 这个集系的元素就是事件. 给这些事件补充上必然事件 $\Omega$ 和不可能事件后 $\varnothing$, 得集系 $\mathscr{A}$, 则 $\mathcal{A}$ 是代数. 所谓 ``代数'' 即 说明$\Omega$ 满足如下的条件: 
 \begin{itemize}
     \item [1)] $\Omega \in \mathcal{F}$,
     \item    [2)] 若 $A \in \mathcal{F}, B \in \mathcal{F}$, 则集合 $A \cup B, A \cap B, A \backslash B$ 也都属于 $\mathcal{F}$.
 \end{itemize}
 
-例如这些内容
+我们来举一些例子: 
 \begin{example}
     a) $\mathscr{A}=\{\Omega, \varnothing\}$集系由 $\Omega$ 和空集 $\varnothing$ 构成, 称做平凡代数;
 

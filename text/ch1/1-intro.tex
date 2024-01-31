@@ -1,12 +1,12 @@
 \section{实验. 事件. 概率空间简介}
 \subsection{随机实验}
 
-考虑某项试验, 其结果在某一组条件下会有若干种不同的结局 (现象) $\omega_1, \cdots, \omega_N.$ 关于这些结局具体是什么并不重要, 我们其实要把他们抽象为一组点. 我们把这些结局 $\omega_1, \cdots, \omega_N$ 称做基本事件, 而把一切结局的全体
+考虑某一个试验, 其结果在某一组条件下会有若干种不同的结局 (现象), 把他们记作 $\omega_1, \cdots, \omega_N.$ 关于这些结局具体是什么并不重要, 我们其实要把他们抽象为一组点. 我们把这些结局 $\omega_1, \cdots, \omega_N$ 称做基本事件, 而把一切结局的全体
 $$
 \Omega=\left\{\omega_1, \cdots, \omega_N\right\}
 $$
 
-称做基本的事件空间, 或样本空间.
+称做基本的事件空间, 或\newword{样本空间}{sample space}.
 
 \begin{example}
     对于 ``掷一枚硬币'', 基本事件空间由两个点组成:
@@ -14,7 +14,7 @@ $$
 \Omega=\{\mathrm{Z}, \mathrm{F}\},
 $$
 
-其中 Z 表示出现 ``正面'', 而 $\mathrm{F}$ 表示出现 ``反面''. (这时假设, 诸如 ``硬币在棱上立着'', ``硬币丢失''.$\cdots \cdots$ 的情况不会出现.) 也就是假设不出现 ``正面'' 就出现 ``反面''.
+其中 Z 表示出现 ``正面'', 而 $\mathrm{F}$ 表示出现 ``反面''. (假设诸如 ``硬币在棱上立着'', ``硬币丢失''.$\cdots \cdots$ 的情况不会出现.) 也就是假设不出现 ``正面'' 就出现 ``反面''.
 
     将一枚硬币重复掷 $n$ 次, 基本事件空间为
 $$
@@ -24,7 +24,7 @@ $$
 且基本事件的总数 $N(\Omega)=2^n$.
 \end{example}
 
-除基本事件空间的概念外, 现在引进重要概念:事件. 事件的概念, 是建立所考察试验的各种概率模型 (``理论'') 的基础. 在试验的结果中, 试验者一般并不关心究竟出现了哪种具体的结局, 而关心出现的结局属于一切结局集合的哪个子集. 满足试验条件的一切子集 $A \subseteq \Omega$, 分为两种类型: ``结局 $\omega \in A$'' 或 ``结局 $\omega \notin A$ ''. 我们称这样的子集 $A$ 为事件.
+现在引进重要概念:事件. 事件的概念, 是建立所考察试验的各种概率模型 (``理论'') 的基础. 在试验的结果中, 试验者一般并不关心究竟出现了哪种具体的结局, 而关心出现的结局属于一切结局集合的哪个子集. 满足试验条件的一切子集 $A \subseteq \Omega$, 分为两种类型: ``结局 $\omega \in A$'' 或 ``结局 $\omega \notin A$ ''. 我们称这样的子集 $A$ 为\newword{事件}{event}.
 
 \begin{example}
     将一枚硬币重复掷三次, 一切可能结局的空间 $\Omega$, 由 8 个点构成:
@@ -45,7 +45,7 @@ $$
 \subsection{事件的关系与运算}
 
 \begin{definition}[事件的关系]
-    若事件$A$发生时, 事件$B$一定发生. 则称事件$A$包含于事件$B$（或事件$B$ \textbf{包含} $A$）, 记作
+    若事件$A$发生时, 事件$B$一定发生. 则称事件$A$包含于事件$B$(或事件$B$ \textbf{包含} $A$), 记作
     $$A\subset B \ (\text{或}B\supset A)$$
 
     对任意事件$A$, 有$\emptyset \subset A\subset \Omega$.
@@ -59,7 +59,7 @@ $$
 \begin{definition}[事件的并]
 
     ``事件$A$、$B$至少有一个发生''
-    称为事件$A$与$B$的\textbf{和}或\textbf{并}(union), 记作
+    称为事件$A$与$B$的\textbf{和}或\newword{并}{union}, 记作
     $$A\cup B \ (\text{或}A+B)$$
     也就是
     $$A\cup B=\{\omega : \omega\in A \ \text{or}\ \omega\in B\}$$
@@ -74,7 +74,7 @@ $$
 
 \begin{definition}
     ``事件$A$、$B$同时发生''
-    称为事件$A$与$B$的\textbf{积}或\textbf{交}(intersection), 记作
+    称为事件$A$与$B$的\textbf{积}或\newword{交}{intersection}, 记作
     $$AB \ (\text{或}A\cap B)$$
     也就是$$A\cap B=\{\omega : \omega\in A \ \text{and}\ \omega\in B\}$$
 \end{definition}
@@ -88,7 +88,7 @@ $$
 
 \begin{definition}
     ``事件$A$发生, 但$B$不发生''
-    称为事件$A$与$B$的\textbf{差}, 记作
+    称为事件$A$与$B$的\newword{差}{difference}, 记作
     $$A-B$$
     也就是
     $$A- B:=\{\omega : \omega\in A \ \text{and}\ \omega\notin B\}$$
@@ -97,7 +97,7 @@ $$
 像集合那样, 我们同样可以引入事件的关系:
 
 \begin{definition}
-    若$AB=\emptyset$, 则称$A$与$B$ \textbf{互斥}（或称$A$与$B$ \textbf{不相容}）, %(mutually exclusive)
+    若$AB=\emptyset$, 则称$A$与$B$ \textbf{互斥}（或称$A$与$B$ \newword{不相容}{mutually exclusive})
     即$A$与$B$不可能同时发生.
 \end{definition}
 
@@ -167,8 +167,3 @@ $$
     \end{itemize}
 \end{example}
 
-\begin{takeaway}
-{
-    可以使用集合描述事件, 离散数学中学过的集合的运算(或者直观)将允许我们对于事件进行化简和操作.
-}
-\end{takeaway}
