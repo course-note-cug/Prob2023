@@ -46,11 +46,13 @@
 
 
 \mn{事件可以先简单认为就是$\Omega$一堆子集构成的集合, 当然有一些条件需要满足. 对于初学者而言, 下面的就先不用看了. 这些内容只是为了那些学习过离散数学并且知道这种情形的作用的同学准备的. }
-这里的事件用集合的语言描述, 考虑元素为集合 $A \subseteq \Omega$ 的某个集系(集合的集合) $\mathscr{A}_0$, 则利用集合运算 $\cup, \cap$ 与 $\backslash$ 可以由 $\mathscr{A}_0$ 构造新集系. 这个集系的元素就是事件. 给这些事件补充上必然事件 $\Omega$ 和不可能事件后 $\varnothing$, 得集系 $\mathscr{A}$, 则 $\mathcal{A}$ 是代数. 所谓 ``代数'' 即 说明$\Omega$ 满足如下的条件: 
+这里的事件用集合的语言描述, 考虑元素为集合 $A \subseteq \Omega$ 的某个集系(集合的集合) $\mathscr{A}_0$, 则利用集合运算 $\cup, \cap$ 与 $\backslash$ 可以由 $\mathscr{A}_0$ 构造新集系. 这个集系的元素就是事件. 给这些事件补充上必然事件 $\Omega$ 和不可能事件后 $\varnothing$, 得集系 $\mathscr{A}$. 这个集系的好处是意味着这个集系所有的事件无论是交、并、对称差, 最后还是会在事件里面. 也就是: 
 \begin{itemize}
     \item [1)] $\Omega \in \mathcal{F}$,
     \item    [2)] 若 $A \in \mathcal{F}, B \in \mathcal{F}$, 则集合 $A \cup B, A \cap B, A \backslash B$ 也都属于 $\mathcal{F}$.
 \end{itemize}
+
+我们称$\mathscr A$ 为代数. 
 
 我们来举一些例子: 
 \begin{example}

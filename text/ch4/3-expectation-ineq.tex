@@ -16,7 +16,7 @@ $$
 \end{proof}
 
 \mn{-- 高数老师告诉过我, 高等数学里面和数学分析里面函数的凹凸性定义是相反的. 求偏导的时候求的顺序也是相反的. 那我应该相信谁?  \\ -- 相信定义. }
-实际上, 这只是Jensen不等式的一个例子. Jensen不等式会告诉我们, 对于任意的一个凸函数$f$, 都会有$\Ep{f(X)}\geq f(\Ep{X})$. 
+实际上, 这只是Jensen不等式的一个例子. \newenword{Jensen不等式}会告诉我们, 对于任意的一个凸函数$f$, 都会有$\Ep{f(X)}\geq f(\Ep{X})$. 
 
 \begin{asidebox}
 回顾凸函数: 一个函数$f:\mathbb R \to \mathbb R$是凸函数, 当且仅当$\forall x_1, x_2, 0\leq \lambda \leq 1$, 有$$
@@ -48,7 +48,7 @@ $$
 $$
 \end{proof}
 
-\paragraph{2. Cauchy-Schwarz不等式}
+\paragraph{2. \newenword{Cauchy-Schwarz不等式}}
 这个不等式说的是下面的一个事情: 
 
 
@@ -76,7 +76,7 @@ $$
         向量的范数一般定义为$\sqrt{\langle v, v\rangle}$. 
     \end{asidebox}
 
-\paragraph{3. Markov不等式} 概率和期望之间有什么联系? 在\cref{eg:expectation-calc}中, 我们了解到了期望计算和概率相联系的一种形式: $\Ep{X}=\int_0^\infty P(X>t) dt$. 自然的, $P(X>\epsilon)$和$\Ep{X}$有联系. 
+\paragraph{3. \newenword{Markov不等式}} 概率和期望之间有什么联系? 在\cref{eg:expectation-calc}中, 我们了解到了期望计算和概率相联系的一种形式: $\Ep{X}=\int_0^\infty P(X>t) dt$. 自然的, $P(X>\epsilon)$和$\Ep{X}$有联系. 
 
 \begin{theorem}
     Markov不等式: 

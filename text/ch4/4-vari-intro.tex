@@ -2,13 +2,13 @@
 随机变量 $X$ 的方差, 表征 $X$ 取值的散布程度. 最简单的想法是: 可以使用$\Ep{|X-\Ep{X}|}$来表征. 但是, 由于带着绝对值在求导的时候会带来不少麻烦, 我们考虑使用平方来操作, 也就是$\Ep{(X-\Ep{X})^2}$. 
 
 \begin{definition}
-    定义 设 $X$ 是一个随机变量, 若 $\E\left\{[X-\mathbb E(X)]^2\right\}$ 存在, 则称 $\Ep{(X-\Ep{x})^2}$ 为 $X$ 的方差, 记为 $\var(X)$ 或 $\operatorname{Var}(X)$, 即
+    定义 设 $X$ 是一个随机变量, 若 $\E\left\{[X-\mathbb E(X)]^2\right\}$ 存在, 则称 $\Ep{(X-\Ep{x})^2}$ 为 $X$ 的\newword{方差}{variance}, 记为 $\var(X)$ 或 $\operatorname{Var}(X)$, 即
 $$
 \var(X)=\operatorname{Var}(X):=\Ep{(X-\Ep{X})^2}.
 $$
 \end{definition}
 
-在应用上还引入量 $\sqrt{\var(X)}$, 记为 $\sigma(X)$, 称为标准差或均方差.
+在应用上还引入量 $\sqrt{\var(X)}$, 记为 $\sigma(X)$, 称为\newword{标准差}{standard derivation}或均方差.
 
 其实际意义是明显的: 我们查看方差的大小
 \begin{itemize}
@@ -202,7 +202,7 @@ $$\begin{aligned} \E\left(k^2\right) & =\sum_{k=0}^n k^2 p(k) \\ & =\sum_{k=1}^n
 
 \subsection{Chebyshev不等式}
 
-利用随机变量的期望和方差, 我们可以推出Chebushev不等式, 来得到更好的界限. 
+利用随机变量的期望和方差, 我们可以推出\newenword{Chebushev不等式}, 来得到更好的界限. 
 
 \begin{theorem}
     对于任意的$a>0$, 有

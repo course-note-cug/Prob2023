@@ -11,7 +11,7 @@
 我们主要考察它在0附近的存在性和性质. 这样的一个函数$M_X(t)$实际上捕捉了$X$的所有矩. 我们马上会看到这一点.
 
 \begin{theorem}
-    假设随机变量 $X$ 的矩生成函数为 $M_X(t)$. 
+    假设随机变量 $X$ 的矩\newword{生成函数}{generating function}为 $M_X(t)$. 
 在可以交换期望值和微分操作的前提下, 对于所有 $n > 1$, 我们可以得到
 $$E[X^n] = M_X^{(n)}(0),$$这里的 $M_X^{(n)}(0)$ 表示 $M_X(t)$ 在 $t = 0$ 处的第 $n$ 阶导数的值. 
 
@@ -53,7 +53,7 @@ $M_X(t) = M_Y(t)$, 那么 $X$ 和 $Y$ 将拥有相同的分布.
 
 \subsection{推导得到Chernoff界}
 
-对于一个随机变量, 我们要想得到Chernoff界, 我们需要对于矩的生成函数$e^{tx}$选择一个比较好的$t$, 然后使用Markov不等式. 也就是, 对于任意的$t>0$, 有$$P(X \geq a)=P\left(\mathrm{e}^{t X} \geq \mathrm{e}^{t a}\right) \leq \frac{\mathbb{E}\left[\mathrm{e}^{t X}\right]}{\mathrm{e}^{t a}}$$我们取出所有$t>0$中使它最小的一个, 有$$
+对于一个随机变量, 我们要想得到\newenword{Chernoff界(bound)}, 我们需要对于矩的生成函数$e^{tx}$选择一个比较好的$t$, 然后使用Markov不等式. 也就是, 对于任意的$t>0$, 有$$P(X \geq a)=P\left(\mathrm{e}^{t X} \geq \mathrm{e}^{t a}\right) \leq \frac{\mathbb{E}\left[\mathrm{e}^{t X}\right]}{\mathrm{e}^{t a}}$$我们取出所有$t>0$中使它最小的一个, 有$$
 P(X \geq a) \leq \min _{t>0} \frac{\mathbb{E}\left[\mathrm{e}^{t X}\right]}{\mathrm{e}^{t a}}.$$
 
 同样的, 对于$t<0$, 有
@@ -192,7 +192,7 @@ $$
 
 \subsection{Hoeffding界}
 
-如果我们的随机变量是有界的, 那么可以使用Hoeffding界来获得更加紧的界. 我们先来陈述这一事实. 
+如果我们的随机变量是有界的, 那么可以使用\newenword{Hoeffding界}来获得更加紧的界. 我们先来陈述这一事实. 
 
 \begin{theorem}[Hoeffding界]
     令$X_1, X_2, \cdots, X_n$是互相独立的随机变量, 并且对于任意的$1\leq i\leq n, \Ep{X_i}=\mu, P(a\leq X_i \leq b)=1$, 那么

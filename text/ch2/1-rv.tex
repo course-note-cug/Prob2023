@@ -13,7 +13,7 @@
         \hline
         \end{tabular}
 
-        b) 随机变量 $X$ 的另一简单的例子是某集合 $A \in \mathscr{A}$ 的示性函数 (亦称特征函数):
+        b) 随机变量 $X$ 的另一简单的例子是某集合 $A \in \mathscr{A}$ 的\newword{示性函数}{indicator function} (亦称特征函数):
         $$
         X=I_A(\omega)
         $$其中, $$
@@ -36,9 +36,9 @@ $$
 $$
 P_{X}\left(x_i\right)=P\left\{\omega: X(\omega)=x_i\right\}, \quad x_i \in X
 $$
-其中组数 $\left\{P_{X}\left(x_1\right), \cdots, P_{X}\left(x_m\right)\right\}$ 称做随机变量 $X$ 的概率分布.
+其中组数 $\left\{P_{X}\left(x_1\right), \cdots, P_{X}\left(x_m\right)\right\}$ 称做随机变量 $X$ 的\newword{概率分布}{probability distribution}.
 
-随机变量 $X$ 的构造完全由概率分布 $\left\{P_{X}\left(x_i\right), 1,2, \cdots, m\right\}$ 描述. 下面引进的分布函数的概念, 提供随机变量构造的等价描述.
+随机变量 $X$ 的构造完全由概率分布 $\left\{P_{X}\left(x_i\right), 1,2, \cdots, m\right\}$ 描述. 下面引进的\newword{分布函数}{probability}的概念, 提供随机变量构造的等价描述.
 
 \begin{definition*}
     设 $x \in \mathbb{R}^1$. 函数
@@ -59,12 +59,12 @@ $$
 
 因为他们会为每一个样本点对应一个值, 在我们进行随机试验的时候, 这个值就好像是随机的一样.
 
-\begin{definition}[随机变量]
+\begin{definition}[\newword{随机变量}{random variable, r.v.}]
     设$\Omega$是某随机试验的样本空间. 如果对于每个$\omega\in\Omega$, 都有一个实数$X(\omega)$与其对应, 这样就得到一个定义在$\Omega$上的函数
     \begin{align*}
         X=X(\omega),
     \end{align*}
-    称该函数为随机变量(random variable).
+    称该函数为\textbf{随机变量}.
 \end{definition}
 
 随机变量一般用大写英文字母$X$、$Y$、$Z$或小写希腊字母$\xi$、$\eta$、$\gamma$来表示. 
@@ -84,10 +84,3 @@ $$
 P\left\{X_1=x_1, \cdots, X_r=x_r\right\}=P\left\{X_1=x_1\right\} \cdots P\left\{X_r=x_r\right\}
 $$
 \end{definition}
-
-\begin{shaded}
-    记 $\mathscr{X}$ 是 $X$ 中所有子集的代数, 上述的内容可以等价的写成: 对于任意 $B_1, \cdots, B_r \in \mathscr{X}$,
-    $$
-    P\left\{X_1 \in B_1, \cdots, X_r \in B_r\right\}=P\left\{X_1 \in B_1\right\} \cdots P\left\{X_r \in B_r\right\}
-    $$
-\end{shaded}

@@ -42,7 +42,7 @@ $$
 
 由于条件概率, 我们有概率的乘法公式:
 
-\begin{theorem}[乘法公式]
+\begin{theorem}[\newword{乘法公式}{formula of multiplication}]
     由条件概率的定义, 得到
     \begin{itemize}
         \item 如果$P(A)>0$, 则有$P(AB)=P(A)P(B|A)$. 
@@ -70,14 +70,14 @@ $$
         \item $A_1, A_2, \cdots, A_n$两两互斥, 
         \item $A_1 \cup A_2 \cup \cdots \cup A_n=\Omega$, 
     \end{itemize}
-    则称$A_1, A_2, \cdots , A_n$为样本空间$\Omega$的一个\textbf{划分}. 
+    则称$A_1, A_2, \cdots , A_n$为样本空间$\Omega$的一个\newword{划分}{partition}. 
     %或称$A_1, A_2, \cdots, A_n$为一个完备事件组. 
 \end{definition}
 
 
 有了这样的分类之后, 我们就可以给出全概率了.
 
-\begin{theorem}[全概率公式]
+\begin{theorem}[\newword{全概率公式}{Formula for total probability}]
     如果$A_1, A_2, \cdots, A_n$ 是样本空间的划分, 且都有正概率, 则对任意事件$B$有
     \begin{align*}
         P(B)=\sum_{i=1}^n P(A_i) P(B|A_i).
@@ -130,7 +130,7 @@ $$P(A B)=P(A \mid B) P(B).$$
 
 和刚刚得到的$P(A B)=P(B \mid A) P(A)$对比, 得到了$$P(A \mid B)=\frac{P(A) P(B \mid A)}{P(B)}.$$
 
-\begin{theorem}[Bayes定理]
+\begin{theorem}[\newenword{Bayes定理}]
     设$0<P(A)<1$, $P(B)>0$, 则有
     $$P(A|B)=\frac{ P(AB)}{ P(B)}
         =\frac{P(A) P(B|A)}{P(A) P(B|A)+P(\overline{A})P(B|\overline{A})}$$
@@ -148,7 +148,7 @@ $$P(A B)=P(A \mid B) P(B).$$
     \]
 \end{corollary}
 
-    实际上, 在统计应用中, 事件 $A_1, \cdots, A_n$ 组成事件组 $\left(A_1+\cdots+A_n=\Omega\right)$, 常称做 ``假设'' 或 ``假说'', 而 $P\left(A_i\right)$ 称做假设 $A_i$ 的\emph{先验}概率 $\left.\right)$. 条件概率 $P\left(A_i \mid B\right)$ 称做假设 $A_i$ 在事件 $B$ 出现后的\emph{后验}概率. 
+    实际上, 在统计应用中, 事件 $A_1, \cdots, A_n$ 组成事件组 $\left(A_1+\cdots+A_n=\Omega\right)$, 常称做 ``假设'' 或 ``假说'', 而 $P\left(A_i\right)$ 称做假设 $A_i$ 的\newword{先验}{prior}概率 $\left.\right)$. 条件概率 $P\left(A_i \mid B\right)$ 称做假设 $A_i$ 在事件 $B$ 出现后的\newword{后验}{posterior}概率. 
 
 
 \begin{exercise}
@@ -171,7 +171,7 @@ $$
 P\left(A_1 \mathrm{Z}\right)=\frac{1}{4}, P\left(A_1 \mathrm{~F}\right)=\frac{1}{4}, P\left(A_2 \mathrm{Z}\right)=\frac{1}{6}, P\left(A_2 \mathrm{~F}\right)=\frac{1}{3}
 $$
 
-那么, 根据贝叶斯公式, 所求的概率为
+那么, 根据Bayes公式, 所求的概率为
 $$
 P\left(A_1 \mid \mathrm{Z}\right)=\frac{P\left(A_1\right) P\left(\mathrm{Z} \mid A_1\right)}{P\left(A_1\right) P\left(\mathrm{Z} \mid A_1\right)+P\left(A_2\right) P\left(\mathrm{Z} \mid A_2\right)}=\frac{3}{5}
 $$

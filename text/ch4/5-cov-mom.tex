@@ -3,7 +3,7 @@
 \paragraph{1. 随机变量的协方差}在上一节中, 在看两个随机变量的和的方差的时候, 我们注意到$\operatorname{Var}[X+Y]=\operatorname{Var}[X]+\operatorname{Var}[Y]+\mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])]$. 为了方便起见, 我们使用记号$\operatorname{Cov}(X, Y)$来代表$\mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])]$. 我们很快会看到这样做的好处. 
 
 \begin{definition}
-    两个随机变量 $X$ 和 $Y$ 的\emph{协方差}定义做
+    两个随机变量 $X$ 和 $Y$ 的\newword{协方差}{covariance}定义做
 $$
 \operatorname{Cov}(X, Y):=\mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])]
 $$
@@ -53,7 +53,7 @@ $$
     $$
     \rho_{X Y}=\frac{\operatorname{Cov}(X, Y)}{\sqrt{\var(X)} \sqrt{\var(Y)}}
     $$
-    为随机变量 $X$ 与 $Y$ 的相关系数.
+    为随机变量 $X$ 与 $Y$ 的\newword{相关系数}{relative coefficient}.
 \end{definition}
 
 根据上述的推演, 我们猜测: 相关系数总是小于1的. 以及如果相关系数等于1的话, 那么一定会有相关系数的绝对值等于1. 下面我们描述这两个性质并给出证明: 
@@ -143,7 +143,7 @@ $$
     (1)设 $X$ 和 $Y$ 是随机变量, 若
     $
     \E\left(X^k\right), \quad k=1,2, \cdots
-    $存在, 称它为 $X$ 的 $k$ 阶原点矩, 简称 $k$ 阶矩.
+    $存在, 称它为 $X$ 的 $k$ 阶原点矩, 简称 $k$ 阶\newword{矩}{momentum}.
 
     (2)若 $\quad \E\left(X^k Y^l\right), \quad k, l=1,2, \cdots$存在,称它为 $X$ 和 $Y$ 的 $k+l$ 阶混合矩.
 

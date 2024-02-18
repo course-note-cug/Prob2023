@@ -11,7 +11,7 @@
     $$
         P(X\leq x)=\int_{-\infty}^{x}f(t)dt,
     $$
-    则称$X$为连续型随机变量, 称$f(x)$为$X$的概率密度函数(pdf, probability density function).
+    则称$X$为连续型随机变量, 称$f(x)$为$X$的\newword{概率密度函数}{pdf, probability density function}.
 \end{definition}
 
 和概率分布函数一样, 具有如下的性质:
@@ -26,7 +26,7 @@ $$
 \begin{definition}
     对任意随机变量$X$（离散或连续）, 称函数
     $$F_X(x):=P(X\le x),\quad x\in \mathbb{R}$$
-    为$X$的分布函数. 
+    为$X$的\newword{分布函数}{cumulative distribution function}. 
 \end{definition}
 这是一个对于概率密度函数(或者概率分布)的累计, 自然, 它应该满足如下的性质:
 
@@ -46,7 +46,7 @@ $$
 \end{takeaway}
 \subsection{常见的连续性随机变量}
 
-\paragraph{(一) 均匀分布}
+\paragraph{(一) \newword{均匀分布}{uniform distribution}}
 
 这可能是最基本的一个分布, 这个分布在一个区间内每个点的取值相同:
 
@@ -89,7 +89,7 @@ $$
                         0                      &  & \mbox{otherwise}
                     \end{array}\right. ,
     \end{align*}
-    其中$\lambda>0$, 则称$X$服从参数为$\lambda$的指数分布, 记为
+    其中$\lambda>0$, 则称$X$服从参数为$\lambda$的\newword{指数分布}{exponential distribution}, 记为
     \[X\sim \text{Exp}(\lambda). \]
     其分布函数为
     \begin{align*}
@@ -102,7 +102,7 @@ $$
 
 指数分布经常作为时间间隔或等待时间的分布. 其有一个非常重要的特性: 无记忆性.
 
-\begin{proposition}[指数分布的无记忆性]
+\begin{proposition}[指数分布的\newword{无记忆性}{memoryless property}]
     随机变量$X$服从参数为$\lambda$的指数分布. 设$s,t>0$, 即有
     \[ P(X>s+t|X>s\}=P\{X>t).\]
 \end{proposition}
@@ -127,11 +127,11 @@ $$
     \begin{align*}
         f(x)=\frac1{\sqrt{2\pi}\cdot\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},
     \end{align*}
-    其中$\mu,\sigma$为常数且$\sigma>0$, 则称$X$服从正态分布, 简记为%(normal distribution)
+    其中$\mu,\sigma$为常数且$\sigma>0$, 则称$X$服从\newword{正态分布}{normal distribution}, 简记为%(normal distribution)
     \begin{align*}
         X \sim N(\mu,\sigma^2).
     \end{align*}
-    称$N(0,1)$为标准正态分布.
+    称$N(0,1)$为\newword{标准正态分布}{standard normal distribution}.
 \end{definition}
 
 带入数据, 我们发现标准正态分布的概率密度函数(PDF)为

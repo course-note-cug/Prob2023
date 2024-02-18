@@ -5,7 +5,7 @@
 又如观察炮弹着陆点, 是由横坐标$x$, 纵坐标$y$确定的. 那么, 对于二维的随机变量, 我们应该如何分析? 
 
 \begin{definition}[二维随机变量]
-  一般地, 设 $E$ 是一个随机试验, 它的样本空间是 $S=\{e\}$, 设 $X=X(e)$ 和 $Y=Y(e)$ 是定义在 $S$上的随机变量, 由它们构成的一个向量 $(X, Y)$,叫做\emph{二维随机向量}或\emph{二维随机变量}. 第二章讨论的随机变量也叫一维随机变量.
+  一般地, 设 $E$ 是一个随机试验, 它的样本空间是 $S=\{e\}$, 设 $X=X(e)$ 和 $Y=Y(e)$ 是定义在 $S$上的随机变量, 由它们构成的一个向量 $(X, Y)$,叫做\newword{二维随机向量}{bivariate random variable}或\emph{二维随机变量}. 第二章讨论的随机变量也叫一维随机变量.
 \end{definition}
 
 最终的二维随机变量$(X,Y)$:
@@ -28,7 +28,7 @@
     $$
         F(x, y)=P((X \leq x) \cap(Y \leq y)\} := P\{X \leq x, Y \leq y)
     $$
-    称为二维随机变量 $(X, Y)$ 的分布函数, 或称为随机变量 $X$ 和 $Y$ 的\emph{联合分布函数}.
+    称为二维随机变量 $(X, Y)$ 的分布函数, 或称为随机变量 $X$ 和 $Y$ 的\newword{联合分布函数}{joint distribution function}.
 \end{definition}
 
 二维的情形下, 如何求出落入小区间的概率? 即: 随机点 $(X, Y)$ 落在矩形域 $\{(x, y)\mid \left.x_1<x \leq x_2, y_1<y \leq y_2\right\}$ 的概率是什么?
@@ -66,8 +66,8 @@
     \subsection{离散型随机变量}
     我们先从离散的情形看到一些概念:
 
-    \begin{definition}[离散型随机变量]
-        如果二维随机变量 $(X, Y)$ 全部可能取到的值是有限对或可列无限多对, 则称 $(X, Y)$ 是\emph{离散型的随机变量}.
+    \begin{definition}[二维离散型随机变量]
+        如果二维随机变量 $(X, Y)$ 全部可能取到的值是有限对或可列无限多对, 则称 $(X, Y)$ 是\newword{二维离散型的随机变量}{bivariate discrete random variable}.
     \end{definition}
 
     $$
@@ -90,7 +90,7 @@
         p_{i j} \geq 0, \quad \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} p_{i j}=1 .
     $$
 
-    称 $P\left\{X=x_i, Y=y_j\right\}=p_{i j}, i, j=1,2, \cdots$ 为二维离散型随机变量 $(X, Y)$的\emph{分布律},或随机变量 $X$ 和 $Y$ 的\emph{联合分布律}.
+    称 $P\left\{X=x_i, Y=y_j\right\}=p_{i j}, i, j=1,2, \cdots$ 为二维离散型随机变量 $(X, Y)$的\emph{分布律},或随机变量 $X$ 和 $Y$ 的\newword{联合分布律}{joint distribution law}.
     \end{definition}
 
     实际上, 这种问题我们可以在未来处理连续性问题的时候带来一个平滑的转化. 
@@ -128,11 +128,11 @@
 
     \subsection{二维连续型随机变量}
     \begin{definition}
-      对于二维随机变量 $(X, Y)$ 的分布函数 $F(x, y)$, 如果存在非负的函数 $f(x, y)$ 使对于任意 $x, y$ 有
+      对于二维随机变量 $(X, Y)$ 的分布函数 $F(x, y)$, 如果存在非负的函数 $f(x, y)$ 对于任意 $x, y$ 有
       $$
           F(x, y)=\int_{-\infty}^y \int_{-\infty}^x f(u, v) \mathrm{d} u \mathrm{~d} v,
       $$
-      则称 $(X, Y)$ 是连续型的二维随机变量, 函数 $f(x, y)$ 称为二维随机变量 $(X, Y)$ 的\emph{概率密度},或称为随机变量 $X$ 和 $Y$ 的\emph{联合概率密度}. $F$称为随机变量$X, Y$的联合分布函数. 
+      则称 $(X, Y)$ 是\newword{连续型的二维随机变量}{bivariate continuous random variable}, 函数 $f(x, y)$ 称为二维随机变量 $(X, Y)$ 的\newword{概率密度}{probability density},或称为随机变量 $X$ 和 $Y$ 的\newword{联合概率密度}{joint probability density}. $F$称为随机变量$X, Y$的\newword{联合分布函数}{joint probability density function}. 
   \end{definition}
   观察到, 只是上述的$\sum$换成了$\int$. 而且它同样遵循一些换元规则. 我们可以使用矩阵的记号描述之. 
 

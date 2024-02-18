@@ -7,7 +7,7 @@
         $$
         p_{i|j}=P(X=x_i | Y=y_j),
         $$
-        若级数$\sum_i x_i p_{i|j}$绝对收敛, 那么称此级数$Y=Y_i$条件下$X$的条件数学期望, 记为$\Ep{X|Y=y_i}$.
+        若级数$\sum_i x_i p_{i|j}$绝对收敛, 那么称此级数$Y=Y_i$条件下$X$的\newword{条件数学期望}{conditional mathematical expectation}, 记为$\Ep{X|Y=y_i}$.
     \end{definition}
 
     正如条件概率也是概率, 条件数学期望也是数学期望. 自然, 它就满足数学期望对应的性质. 
@@ -70,7 +70,7 @@ $$
     实际上, 这个公式有一个更简洁的表示. 我们按照定义展开: 
     $$\begin{aligned} \text{左手边} & =\int_{-\infty}^{+\infty}\left(\int_{-\infty}^{+\infty} \frac{f_{X, Y}(x, y)}{f_Y(y)} d x\right) f_Y(y) d y \\ & =\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} x f_{X, Y}(x, y) d x d y . \\ & =\int_{-\infty}^{+\infty} x f_x(x) d x=\mathbb{E}[x]=\text{右手边}\end{aligned}$$
 
-    这个公式有一个名字, 叫做``迭代期望定律(Law of iterated expectations)''. 
+    这个公式有一个名字, 叫做``\newword{迭代期望定律}{Law of iterated expectations}''. 
 
     \begin{theorem}
         迭代的期望公式:$$
