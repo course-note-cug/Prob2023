@@ -3,7 +3,7 @@
 
 我们先来看构建概率极限定理的一些工具.
 
-\begin{theorem}[Chebyshev大数律] 
+\begin{theorem}[Chebyshev\newword{大数律}{law of big numbers}] 
     设 $X_1, X_2, \cdots$ 是相互独立的随机变量序列, $\mathbb{E}\left(X_i\right)=\mu_i, \operatorname{var}\left(X_i\right)=\sigma_i^2(i \geq 1)$ 且 $\left\{\sigma_i^2, i \geq 1\right\}$ 有界, 设 $S_n=\sum_{i=1}^n X_i$ $(n \geq 1)$, 则
 $$
 \frac{S_n-\mathbb{E}\left(S_n\right)}{n} \stackrel{P}{\longrightarrow} 0 \quad(n \rightarrow \infty) .
@@ -30,7 +30,7 @@ $$
 我们就立刻可以得到这样的一个有用的推论: 
 
 \begin{corollary}
-    设 $X_1, X_2, \cdots$ 是相互独立同分布的随机变量序列, $\mu=\mathbb{E}\left(X_1\right)$ 和 $\sigma^2=\operatorname{var}\left(X_1\right)$ 都存在, $S_n=\sum_{i=1}^n X_i(n \geq 1)$, 则
+    设 $X_1, X_2, \cdots$ 是相互\newword{独立同分布}{independent identical distribution, i.i.d.}的随机变量序列, $\mu=\mathbb{E}\left(X_1\right)$ 和 $\sigma^2=\operatorname{var}\left(X_1\right)$ 都存在, $S_n=\sum_{i=1}^n X_i(n \geq 1)$, 则
     $$
     \frac{S_n}{n} \stackrel{P}{\longrightarrow} \mu \quad(n \rightarrow \infty) .
     $$
@@ -55,7 +55,7 @@ $(i=1,2, \cdots)$, 则 $\frac{\nu_n}{n}=\frac{1}{n} \sum_{i=1}^n X_i$. 由于 $X
 上面的两个推论, 尤其是第一个推论是我们最常用到的大数律, 其中方差存在的条件可以去掉, 而且可以证明更强的结论, 但证明较复杂, 我们在这里就不证明了. 那么如果对于数学期望不存在的时候, 是否存在常数$a$使得$\sum_{i=1}^n X_i \stackrel{P}{\longrightarrow} a \quad(n \rightarrow \infty)$? 我们看一个例子: 
 
 \begin{example}
-    设 $X_1, X_2, \cdots$ 是相互独立同分布的随机变量序列, 共同分布是柯西分布, 即密度函数是
+    设 $X_1, X_2, \cdots$ 是相互独立同分布的随机变量序列, 共同分布是Cauchy分布, 即密度函数是
 $$
 p(x)=\frac{1}{\pi\left(1+x^2\right)} .
 $$

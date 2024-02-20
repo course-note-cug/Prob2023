@@ -42,11 +42,14 @@
   \item 二维随机向量, 38
   \item 二项分布, 29
   \item 交, 5
+  \item 依分布收敛, 85
+  \item 依概率收敛, 85
 
   \indexspace
 
   \item 先验, 19
   \item 全概率公式, 17
+  \item 几乎必然收敛, 85
   \item 几何分布, 28
   \item 分布函数, 26, 31
   \item 划分, 17
@@ -54,8 +57,10 @@
   \item 卷积, 49
   \item 后验, 19
   \item 均匀分布, 31
+  \item 大数律, 89
   \item 差, 6
   \item 并, 5
+  \item 弱收敛, 85
 
   \indexspace
 
@@ -78,6 +83,7 @@
   \indexspace
 
   \item 独立, 20
+  \item 独立同分布, 89
   \item 生成函数, 77
   \item 相关系数, 72
   \item 矩, 74
