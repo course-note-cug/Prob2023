@@ -50,12 +50,12 @@ $$\mathbb{E}\left(\hat{\sigma}^2\right)=\sigma^2-\frac{1}{n} \sigma^2=\frac{n-1}
 上例中, 我们将 $\sigma^2$ 的 ML 估计 $\hat{\sigma}^2$ 作适当的修正, 得到 $\sigma^2$ 的无偏估计 $S_n^2=\frac{1}{n-1} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2$. 其实, 总体方差 $\sigma^2$ 的无偏估计 $S_n^2$ 具有普遍适用性, 即使我们所研究的总体不是正态总体, $S_n^2$ 仍然是 $\operatorname{var}(X)$ 的无偏估计. 这是我们对于样本方差的定义. 
 
 \begin{theorem}
-    设总体 $X$ 的方差 $\operatorname{var}(X)$ 存在且为有限, $X_1, \cdots, X_n$ 为 $X$ 的一个样本, 则
+    设总体 $X$ 的方差 $\var(X)$ 存在且为有限, $X_1, \cdots, X_n$ 为 $X$ 的一个样本, 则
 $$
 S_n^2=\frac{1}{n-1} \sum_{i=1}^n\left(X_i-\bar{X}\right)^2
 $$
 
-为 $\operatorname{var}(X)$ 的无偏估计.
+为 $\var(X)$ 的无偏估计.
 \end{theorem}
 
 \begin{proof}
@@ -71,7 +71,7 @@ $$
 其中 $\mu=\mathbb{E}(X)$. 然后对两边求期望, 得
 $$
 \begin{aligned}
-\mathbb{E}\left[\sum_{i=1}^n\left(X_i-\bar{X}\right)^2\right]&=\mathbb{E}\left[\sum_{i=1}^n\left(X_i-\mu\right)^2\right]-n \mathbb{E}\left[(\bar{X}-\mu)^2\right] \\
+\mathbb{E}\left(\sum_{i=1}^n\left(X_i-\bar{X}\right)^2\right)&=\mathbb{E}\left(\sum_{i=1}^n\left(X_i-\mu\right)^2\right)-n \mathbb{E}\left((\bar{X}-\mu)^2\right) \\
 &=n \operatorname{var}\left(X_1\right)-n \operatorname{var}(\bar{X})&\\
 &=n \operatorname{var}\left(X_1\right)-\operatorname{var}\left(X_1\right) \\
 &=(n-1) \operatorname{var}(X)

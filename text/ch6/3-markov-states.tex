@@ -13,9 +13,9 @@
     \item [3.] 传递性: 如果$i\leftrightarrow j, j\leftrightarrow k$, 那么$i\leftrightarrow k$. 
 \end{itemize}
 
-有了这三条性质, 我们就可以进行分类了. 即: 可以把它们分为不相交的等价类, 使得每个等价类里面的状态是互相可达的, 但不同类别之间的状态是不可达的. 这些不相交的部分我们叫做``互达组''. 
+有了这三条性质, 我们就可以进行分类了. 即: 可以把它们分为不相交的等价类, 使得每个等价类里面的状态是互相可达的, 但不同类别之间的状态是不可达的. 这些不相交的部分我们叫做``\newword{互达组}{commuting group}''. 
 
-特别的, 如果所有的节点属于同一个可达组的话, 我们就说这个Markov链是不可约的. 
+特别的, 如果所有的节点属于同一个可达组的话, 我们就说这个Markov链是\newword{不可约}{irreducable}的. 
 
 \begin{definition}
     一个Markov链是不可约的, 如果所有的状态都属于同一个可达组. 
@@ -37,12 +37,12 @@
 \end{definition}
 
 \begin{definition}
-    如果$\sum_{t \geq 1} r_{i, i}^t=1$, 那么这个状态是常返的; 如果$\sum_{t \geq 1} r_{i, i}^t<1$, 我们就说这个状态是瞬时的(也称为非常返的). 
+    如果$\sum_{t \geq 1} r_{i, i}^t=1$, 那么这个状态是\newword{常返的}{recurrent}; 如果$\sum_{t \geq 1} r_{i, i}^t<1$, 我们就说这个状态是\newword{瞬时的}{non-recurrent}(也称为非常返的). 
 \end{definition}
 
 直观上面来看, 如果一个状态是常返的, 那就意味着到最后这个链会反复地, 无限地访问这个状态. 反之, 如果这个是瞬时的, 意味着从这个状态$i$出发, 有一个固定的概率$p=\sum_{t \geq 1} r_{i, i}^t$返回这个状态$i$. 而且有一定的概率永远不会返回这个节点. 
 
-我们把从$i$开始, 第一次回到$i$的时间叫做``从$i$到$i$的击中时间'', 那么这个随机变量我们就用``期望击中时间'', 用$h_{i,i}$表示, 就是$h_{i, i}:=\sum_{t \geq 1} t \cdot r_{i, i}^t$.  类似的, 我们给出如下的定义: 
+我们把从$i$开始, 第一次回到$i$的时间叫做``从$i$到$i$的\newword{击中时间}{hitting time}'', 那么这个随机变量我们就用``\newword{期望击中时间}{expected hitting time}'', 用$h_{i,i}$表示, 就是$h_{i, i}:=\sum_{t \geq 1} t \cdot r_{i, i}^t$.  类似的, 我们给出如下的定义: 
 \begin{definition}
     从$i$到$j$的``期望击中时间''指的是从$i$开始, 第一次回到$j$的时间这个随机变量的期望. 也就是
     $$
@@ -73,7 +73,7 @@
 像这样, 我们把根据期望击中时间的存在性, 把状态这样分类. 
 
 \begin{definition}
-    一个常返状态$i$称为正(positive)常返, 当$h_{i, i}<\infty$. 否则, 称为零(null)常返. 
+    一个常返状态$i$称为\newword{正~常返}{positive recurrent}, 当$h_{i, i}<\infty$. 否则, 称为\newword{零~常返}{null recurrent}. 
 \end{definition}
 
 实际上, 对于任何一个有限的的Markov链, 我们都会发现这样的一个性质: 
@@ -98,14 +98,14 @@
 \end{example}
 
 \begin{definition}
-    在Markov链中, 一个状态$j$是周期的, 如果存在一个整数周期$\Delta>1$. 对于任意的$s$, 在$s$不整除$\Delta$的时候, $P\left(X_{t+s}=j \mid X_t=j\right)=0$. 
+    在Markov链中, 一个状态$j$是\newword{周期的}{periodic}, 如果存在一个整数周期$\Delta>1$. 对于任意的$s$, 在$s$不整除$\Delta$的时候, $P\left(X_{t+s}=j \mid X_t=j\right)=0$. 
 
-    在一个Markov链中, 如果每一个状态都是具有周期性的, 那么这个链就是具有周期性的. 否则, 称为没有周期性的. 
+    在一个Markov链中, 如果每一个状态都是具有周期性的, 那么这个链就是具有周期性的. 否则, 称为\newword{没有周期性}{aperiodic}的. 
 \end{definition}
 
 所以, 上面的例子是一个周期为2的Markov链. 
 
-最后我们来讨论在有限的Markov链的一个重要的属性. 如果给定了足够的时间，它们会访问所有的状态, 那这个状态该多好啊! 我们把这样的状态叫做``经历各种状态的(ergodic)'', 或者更简单地说: ``遍历的''. 我们可以用以前说过的定义缝合一个这样的定义: 
+最后我们来讨论在有限的Markov链的一个重要的属性. 如果给定了足够的时间，它们会访问所有的状态, 那这个状态该多好啊! 我们把这样的状态叫做``经历各种状态的(ergodic)'', 或者更简单地说: ``\newword{遍历的}{ergodic}''. 我们可以用以前说过的定义缝合一个这样的定义: 
 
 \begin{definition}
     Markov链中, 非周期性的正常返状态是遍历的状态. 如果所有的状态都是遍历的, 那么这个链是遍历的. 

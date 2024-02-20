@@ -32,7 +32,7 @@ $$
 
 为了方便起见, 我们把上述的两个式子中表示的称作\emph{似然函数}$L(\theta)$: 即离散情况下$L(\theta):=P_\theta\left(\left(X_1, \cdots, X_n\right)=\left(x_1, \cdots, x_n\right)\right)=\prod_{i=1}^n P_\theta\left(X_i=x_i\right), \quad \theta \in \Theta;$连续情况下$L(\theta):=\prod_{i=1}^n p\left(x_i, \theta\right), \quad \theta \in \Theta$.
 
-这就引出我们的第一种估计参数的方法: 极大似然估计法(Maximal Likelihood Estimation). 为了简单起见, 我们称他为ML估计. 
+这就引出我们的第一种估计参数的方法: \newword{极大似然估计法}{Maximal Likelihood Estimation}. 为了简单起见, 我们称它为ML估计. 
 
 \begin{definition}
     设 $\theta \in \Theta$ 为统计模型 $\left(X_1, \cdots, X_n\right) \sim P_\theta$ 的参数. 统计模型可为连续型, 也可为离散型. 设 $x_1, \cdots, x_n$ 为总体的样本值. 若存在 $\hat{\theta}\left(x_1, \cdots, x_n\right)$ 使得

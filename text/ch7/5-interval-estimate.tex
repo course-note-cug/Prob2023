@@ -169,14 +169,15 @@ $$
     根据定义可得, 当$F\sim F(n_1, n_2)$的时候, $1/F\sim F(n_2, n_1)$. 而
     \[
         \begin{aligned}
-            P(F>F_\alpha(n_1, n_2))=\alpha &\iff P(\frac1F<\frac1{F_\alpha(n_1, n_2)})=\alpha \\
-            &\iff P(\frac1F>\frac1{F_\alpha(n_1, n_2)})=1-\alpha .
+            P\left(F>F_\alpha(n_1, n_2)\right)=\alpha &\iff P(\frac1F<\frac1{F_\alpha(n_1, n_2)})=\alpha \\
+            &\iff P\left(\frac1F>\frac1{F_\alpha(n_1, n_2)}\right)=1-\alpha .
         \end{aligned}
     \]
 \end{proof}
 
 \section{区间估计}
 
+我们今天来看\newword{区间估计}{interval estimation}. 
 
 \paragraph{1. 单个正态总体参数的置信区间}
 设 $X_1, \cdots, X_n \sim \mathrm{iid} F_\theta(\theta \in \Theta)$ 为某统计模型, 其中 $\theta$ 可为向量参数.现设我们的目的是估计 $g(\theta)$. 本节以前所讨论的估计是用一个``点'' $T\left(X_1, \cdots, X_n\right)$ 去估计 $g(\theta)$ 的值, 称为点估计. 但实际工作者对点估计并不满意, 其主要原因是我们不好把握点估计 $T\left(X_1, \cdots, X_n\right)$ 与 $g(\theta)$ 之间的差距. 为解决这个问题, 统计学家提出用置信区间来估计 $g(\theta)$. 

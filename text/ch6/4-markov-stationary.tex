@@ -3,7 +3,7 @@
 我们在前两节中已经知道了它的$k$步转移之后形成的矩阵. 我们希望知道, 到最后有没有可能到达一个经过一次状态转移之后这个矩阵不会变化的情形. 也就是: 
 
 \begin{definition}
-    Markov 链的平衡分别$\overline \pi$是满足
+    Markov 链的\newword{平衡分布}{stationary distribution}$\overline \pi$是满足
     $$
     \bar{\pi}=\bar{\pi} \mathbf{P} .
     $$
@@ -132,7 +132,7 @@ $$
 下面, 我们来看具有可数多个无限状态的马尔可夫链的收敛性. 就像证明\cref{thm:stab-dist-prop}一样, 我们可以证明下面的定理: 
 
 \begin{theorem}
-    任何不可约非周期马尔可夫链都属于以下两类之一: 
+    任何不可约非周期Markov链都属于以下两类之一: 
     \begin{itemize}
         \item 链是遍历的: 对任意一对状态$i,j$, 极限$\lim _{t \rightarrow \infty} P_{j, i}^t$存在且与$j$独立. 并且链有一个独立的平衡分布. $\pi_i = \lim _{t \rightarrow \infty} P_{j, i}^t>0$. 或者
         \item 没有状态是正常返的: 对于任意的$i,j$, $\lim _{t \rightarrow \infty} P_{j, i}^t=0$, 链没有平衡分布. 
